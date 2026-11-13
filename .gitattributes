@@ -1,0 +1,6 @@
+# Keep LF in the repo and on checkout (mvnw must stay LF to run on Linux/CI); Windows scripts stay CRLF.
+* text=auto eol=lf
+*.cmd text eol=crlf
+*.bat text eol=crlf
+*.png binary
+*.ico binary

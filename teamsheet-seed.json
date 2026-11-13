@@ -1,0 +1,1118 @@
+{
+  "_meta": {
+    "version": "spike-2",
+    "built": "2026-11-11",
+    "role_values": [
+      "starter",
+      "sub_used"
+    ],
+    "verification_values": {
+      "verified": "2+ independent sources agree",
+      "single_source": "one source only",
+      "unverified": "no source found; curated from general knowledge, needs checking"
+    },
+    "notes": "Positions and formations are curated by hand (sources rarely give per-player positions). Shirt numbers intentionally kept for internal use only; never shown in-game. Scope: starting XI + substitutes who came on. Unused subs are excluded."
+  },
+  "matches": [
+    {
+      "id": "2005-ucl-final-liverpool",
+      "date": "2005-05-25",
+      "competition": "UEFA Champions League Final",
+      "team": "Liverpool",
+      "opponent": "AC Milan",
+      "result": "3-3 aet, won 3-2 on penalties",
+      "formation": "4-4-1-1",
+      "verification": {
+        "xi": "verified",
+        "subs_used": "verified"
+      },
+      "sources": [
+        "lfchistory.net Game/4928",
+        "Wikipedia match narrative"
+      ],
+      "squad": [
+        {
+          "name": "Jerzy Dudek",
+          "num": 1,
+          "pos": "GK",
+          "role": "starter"
+        },
+        {
+          "name": "Steve Finnan",
+          "num": 3,
+          "pos": "RB",
+          "role": "starter",
+          "off": 46
+        },
+        {
+          "name": "Jamie Carragher",
+          "num": 23,
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Sami Hyypiä",
+          "num": 4,
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Djimi Traoré",
+          "num": 21,
+          "pos": "LB",
+          "role": "starter"
+        },
+        {
+          "name": "Luis García",
+          "num": 10,
+          "pos": "RM",
+          "role": "starter"
+        },
+        {
+          "name": "Steven Gerrard",
+          "num": 8,
+          "pos": "CM",
+          "role": "starter"
+        },
+        {
+          "name": "Xabi Alonso",
+          "num": 14,
+          "pos": "CM",
+          "role": "starter"
+        },
+        {
+          "name": "John Arne Riise",
+          "num": 6,
+          "pos": "LM",
+          "role": "starter"
+        },
+        {
+          "name": "Harry Kewell",
+          "num": 7,
+          "pos": "CAM",
+          "role": "starter",
+          "off": 23
+        },
+        {
+          "name": "Milan Baroš",
+          "num": 5,
+          "pos": "ST",
+          "role": "starter",
+          "off": 85
+        },
+        {
+          "name": "Dietmar Hamann",
+          "num": 16,
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 46,
+          "for": "Steve Finnan"
+        },
+        {
+          "name": "Vladimír Šmicer",
+          "num": 11,
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 23,
+          "for": "Harry Kewell"
+        },
+        {
+          "name": "Djibril Cissé",
+          "num": 9,
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 85,
+          "for": "Milan Baroš"
+        }
+      ]
+    },
+    {
+      "id": "2012-ucl-final-chelsea",
+      "date": "2012-05-19",
+      "competition": "UEFA Champions League Final",
+      "team": "Chelsea",
+      "opponent": "Bayern Munich",
+      "result": "1-1 aet, won 4-3 on penalties",
+      "formation": "4-2-3-1",
+      "verification": {
+        "xi": "verified",
+        "subs_used": "verified"
+      },
+      "sources": [
+        "UEFA official squad sheet (PDF)",
+        "fcbayern.com lineup",
+        "ESPN gameId 341104"
+      ],
+      "squad": [
+        {
+          "name": "Petr Čech",
+          "num": 1,
+          "pos": "GK",
+          "role": "starter"
+        },
+        {
+          "name": "José Bosingwa",
+          "num": 17,
+          "pos": "RB",
+          "role": "starter"
+        },
+        {
+          "name": "David Luiz",
+          "num": 4,
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Gary Cahill",
+          "num": 24,
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Ashley Cole",
+          "num": 3,
+          "pos": "LB",
+          "role": "starter"
+        },
+        {
+          "name": "John Obi Mikel",
+          "num": 12,
+          "pos": "DM",
+          "role": "starter"
+        },
+        {
+          "name": "Frank Lampard",
+          "num": 8,
+          "pos": "DM",
+          "role": "starter"
+        },
+        {
+          "name": "Salomon Kalou",
+          "num": 21,
+          "pos": "RW",
+          "role": "starter",
+          "off": 84
+        },
+        {
+          "name": "Juan Mata",
+          "num": 10,
+          "pos": "CAM",
+          "role": "starter"
+        },
+        {
+          "name": "Ryan Bertrand",
+          "num": 34,
+          "pos": "LW",
+          "role": "starter",
+          "off": 73
+        },
+        {
+          "name": "Didier Drogba",
+          "num": 11,
+          "pos": "ST",
+          "role": "starter"
+        },
+        {
+          "name": "Florent Malouda",
+          "num": 15,
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 73,
+          "for": "Ryan Bertrand"
+        },
+        {
+          "name": "Fernando Torres",
+          "num": 9,
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 84,
+          "for": "Salomon Kalou"
+        }
+      ]
+    },
+    {
+      "id": "2004-euro-final-greece",
+      "date": "2004-07-04",
+      "competition": "UEFA Euro 2004 Final",
+      "team": "Greece",
+      "opponent": "Portugal",
+      "result": "1-0",
+      "formation": "4-3-1-2",
+      "verification": {
+        "xi": "verified",
+        "subs_used": "verified"
+      },
+      "sources": [
+        "ESPN gameId 151740",
+        "FBref match report (minutes played)"
+      ],
+      "squad": [
+        {
+          "name": "Antonios Nikopolidis",
+          "num": 1,
+          "pos": "GK",
+          "role": "starter"
+        },
+        {
+          "name": "Giourkas Seitaridis",
+          "num": 2,
+          "pos": "RB",
+          "role": "starter"
+        },
+        {
+          "name": "Michalis Kapsis",
+          "num": 19,
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Traianos Dellas",
+          "num": 5,
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Takis Fyssas",
+          "num": 14,
+          "pos": "LB",
+          "role": "starter"
+        },
+        {
+          "name": "Kostas Katsouranis",
+          "num": 21,
+          "pos": "DM",
+          "role": "starter"
+        },
+        {
+          "name": "Theodoros Zagorakis",
+          "num": 7,
+          "pos": "CM",
+          "role": "starter"
+        },
+        {
+          "name": "Angelos Basinas",
+          "num": 6,
+          "pos": "CM",
+          "role": "starter"
+        },
+        {
+          "name": "Stelios Giannakopoulos",
+          "num": 8,
+          "pos": "CAM",
+          "role": "starter",
+          "off": 76
+        },
+        {
+          "name": "Zisis Vryzas",
+          "num": 15,
+          "pos": "ST",
+          "role": "starter",
+          "off": 81
+        },
+        {
+          "name": "Angelos Charisteas",
+          "num": 9,
+          "pos": "ST",
+          "role": "starter"
+        },
+        {
+          "name": "Stylianos Venetidis",
+          "num": 3,
+          "pos": "DF",
+          "role": "sub_used",
+          "on": 76,
+          "for": "Stelios Giannakopoulos"
+        },
+        {
+          "name": "Dimitris Papadopoulos",
+          "num": 22,
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 81,
+          "for": "Zisis Vryzas"
+        }
+      ]
+    },
+    {
+      "id": "2010-wc-final-spain",
+      "date": "2010-07-11",
+      "competition": "FIFA World Cup Final",
+      "team": "Spain",
+      "opponent": "Netherlands",
+      "result": "1-0 aet",
+      "formation": "4-2-3-1",
+      "verification": {
+        "xi": "verified",
+        "subs_used": "verified"
+      },
+      "sources": [
+        "DFB data center",
+        "Wikipedia match narrative"
+      ],
+      "flags": [
+        "FBref minutes-based inference wrongly lists Jesús Navas as a starter (Pedro started)"
+      ],
+      "squad": [
+        {
+          "name": "Iker Casillas",
+          "num": 1,
+          "pos": "GK",
+          "role": "starter"
+        },
+        {
+          "name": "Sergio Ramos",
+          "num": 15,
+          "pos": "RB",
+          "role": "starter"
+        },
+        {
+          "name": "Gerard Piqué",
+          "num": 3,
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Carles Puyol",
+          "num": 5,
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Joan Capdevila",
+          "num": 11,
+          "pos": "LB",
+          "role": "starter"
+        },
+        {
+          "name": "Sergio Busquets",
+          "num": 16,
+          "pos": "DM",
+          "role": "starter"
+        },
+        {
+          "name": "Xabi Alonso",
+          "num": 14,
+          "pos": "DM",
+          "role": "starter",
+          "off": 87
+        },
+        {
+          "name": "Pedro",
+          "num": 18,
+          "pos": "RW",
+          "role": "starter",
+          "off": 60
+        },
+        {
+          "name": "Xavi",
+          "num": 8,
+          "pos": "CAM",
+          "role": "starter"
+        },
+        {
+          "name": "Andrés Iniesta",
+          "num": 6,
+          "pos": "LW",
+          "role": "starter"
+        },
+        {
+          "name": "David Villa",
+          "num": 7,
+          "pos": "ST",
+          "role": "starter",
+          "off": 106
+        },
+        {
+          "name": "Jesús Navas",
+          "num": 22,
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 60,
+          "for": "Pedro"
+        },
+        {
+          "name": "Cesc Fàbregas",
+          "num": 10,
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 87,
+          "for": "Xabi Alonso"
+        },
+        {
+          "name": "Fernando Torres",
+          "num": 9,
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 106,
+          "for": "David Villa"
+        }
+      ]
+    },
+    {
+      "id": "2014-wc-semi-germany",
+      "date": "2014-07-08",
+      "competition": "FIFA World Cup Semi-final",
+      "team": "Germany",
+      "opponent": "Brazil",
+      "result": "7-1",
+      "formation": "4-2-3-1",
+      "verification": {
+        "xi": "verified",
+        "subs_used": "verified"
+      },
+      "sources": [
+        "DFB data center",
+        "ESPN gameId 383242"
+      ],
+      "squad": [
+        {
+          "name": "Manuel Neuer",
+          "num": 1,
+          "pos": "GK",
+          "role": "starter"
+        },
+        {
+          "name": "Philipp Lahm",
+          "num": 16,
+          "pos": "RB",
+          "role": "starter"
+        },
+        {
+          "name": "Jérôme Boateng",
+          "num": 20,
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Mats Hummels",
+          "num": 5,
+          "pos": "CB",
+          "role": "starter",
+          "off": 46
+        },
+        {
+          "name": "Benedikt Höwedes",
+          "num": 4,
+          "pos": "LB",
+          "role": "starter"
+        },
+        {
+          "name": "Bastian Schweinsteiger",
+          "num": 7,
+          "pos": "DM",
+          "role": "starter"
+        },
+        {
+          "name": "Sami Khedira",
+          "num": 6,
+          "pos": "DM",
+          "role": "starter",
+          "off": 76
+        },
+        {
+          "name": "Thomas Müller",
+          "num": 13,
+          "pos": "RW",
+          "role": "starter"
+        },
+        {
+          "name": "Toni Kroos",
+          "num": 18,
+          "pos": "CAM",
+          "role": "starter"
+        },
+        {
+          "name": "Mesut Özil",
+          "num": 8,
+          "pos": "LW",
+          "role": "starter"
+        },
+        {
+          "name": "Miroslav Klose",
+          "num": 11,
+          "pos": "ST",
+          "role": "starter",
+          "off": 58
+        },
+        {
+          "name": "Per Mertesacker",
+          "num": 17,
+          "pos": "DF",
+          "role": "sub_used",
+          "on": 46,
+          "for": "Mats Hummels"
+        },
+        {
+          "name": "André Schürrle",
+          "num": 9,
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 58,
+          "for": "Miroslav Klose"
+        },
+        {
+          "name": "Julian Draxler",
+          "num": 14,
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 76,
+          "for": "Sami Khedira"
+        }
+      ]
+    },
+    {
+      "id": "2008-ucl-final-man-utd",
+      "date": "2008-05-21",
+      "competition": "UEFA Champions League Final",
+      "team": "Manchester United",
+      "opponent": "Chelsea",
+      "result": "1-1 aet, won 6-5 on penalties",
+      "formation": "4-4-2",
+      "verification": {
+        "xi": "single_source",
+        "subs_used": "single_source"
+      },
+      "sources": [
+        "ESPN gameId 240721"
+      ],
+      "squad": [
+        {
+          "name": "Edwin van der Sar",
+          "num": 1,
+          "pos": "GK",
+          "role": "starter"
+        },
+        {
+          "name": "Wes Brown",
+          "num": 6,
+          "pos": "RB",
+          "role": "starter",
+          "off": 125
+        },
+        {
+          "name": "Rio Ferdinand",
+          "num": 5,
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Nemanja Vidić",
+          "num": 15,
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Patrice Evra",
+          "num": 3,
+          "pos": "LB",
+          "role": "starter"
+        },
+        {
+          "name": "Owen Hargreaves",
+          "num": 4,
+          "pos": "RM",
+          "role": "starter"
+        },
+        {
+          "name": "Michael Carrick",
+          "num": 16,
+          "pos": "CM",
+          "role": "starter"
+        },
+        {
+          "name": "Paul Scholes",
+          "num": 18,
+          "pos": "CM",
+          "role": "starter",
+          "off": 87
+        },
+        {
+          "name": "Cristiano Ronaldo",
+          "num": 7,
+          "pos": "LM",
+          "role": "starter"
+        },
+        {
+          "name": "Wayne Rooney",
+          "num": 10,
+          "pos": "ST",
+          "role": "starter",
+          "off": 102
+        },
+        {
+          "name": "Carlos Tevez",
+          "num": 32,
+          "pos": "ST",
+          "role": "starter"
+        },
+        {
+          "name": "Ryan Giggs",
+          "num": 11,
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 87,
+          "for": "Paul Scholes"
+        },
+        {
+          "name": "Nani",
+          "num": 17,
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 102,
+          "for": "Wayne Rooney"
+        },
+        {
+          "name": "Anderson",
+          "num": 8,
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 125,
+          "for": "Wes Brown"
+        }
+      ]
+    },
+    {
+      "id": "2010-ucl-final-inter",
+      "date": "2010-05-22",
+      "competition": "UEFA Champions League Final",
+      "team": "Inter",
+      "opponent": "Bayern Munich",
+      "result": "2-0",
+      "formation": "4-2-3-1",
+      "verification": {
+        "xi": "single_source",
+        "subs_used": "single_source"
+      },
+      "sources": [
+        "ESPN gameId 292088"
+      ],
+      "flags": [
+        "ESPN lists the #12 goalkeeper as 'J. De León'; Inter's #12 was Júlio César. Corrected by hand: source data error"
+      ],
+      "squad": [
+        {
+          "name": "Júlio César",
+          "num": 12,
+          "pos": "GK",
+          "role": "starter"
+        },
+        {
+          "name": "Maicon",
+          "num": 13,
+          "pos": "RB",
+          "role": "starter"
+        },
+        {
+          "name": "Lúcio",
+          "num": 6,
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Walter Samuel",
+          "num": 25,
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Cristian Chivu",
+          "num": 26,
+          "pos": "LB",
+          "role": "starter",
+          "off": 68
+        },
+        {
+          "name": "Javier Zanetti",
+          "num": 4,
+          "pos": "DM",
+          "role": "starter"
+        },
+        {
+          "name": "Esteban Cambiasso",
+          "num": 19,
+          "pos": "DM",
+          "role": "starter"
+        },
+        {
+          "name": "Samuel Eto'o",
+          "num": 9,
+          "pos": "RW",
+          "role": "starter"
+        },
+        {
+          "name": "Wesley Sneijder",
+          "num": 10,
+          "pos": "CAM",
+          "role": "starter"
+        },
+        {
+          "name": "Goran Pandev",
+          "num": 27,
+          "pos": "LW",
+          "role": "starter",
+          "off": 79
+        },
+        {
+          "name": "Diego Milito",
+          "num": 22,
+          "pos": "ST",
+          "role": "starter",
+          "off": 92
+        },
+        {
+          "name": "Dejan Stanković",
+          "num": 5,
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 68,
+          "for": "Cristian Chivu"
+        },
+        {
+          "name": "Sulley Muntari",
+          "num": 11,
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 79,
+          "for": "Goran Pandev"
+        },
+        {
+          "name": "Marco Materazzi",
+          "num": 23,
+          "pos": "DF",
+          "role": "sub_used",
+          "on": 92,
+          "for": "Diego Milito"
+        }
+      ]
+    },
+    {
+      "id": "2016-euro-final-portugal",
+      "date": "2016-07-10",
+      "competition": "UEFA Euro 2016 Final",
+      "team": "Portugal",
+      "opponent": "France",
+      "result": "1-0 aet",
+      "formation": "4-4-2 (diamond)",
+      "verification": {
+        "xi": "verified",
+        "subs_used": "single_source"
+      },
+      "sources": [
+        "UEFA official squad sheet (PDF)",
+        "worldfootball.net"
+      ],
+      "squad": [
+        {
+          "name": "Rui Patrício",
+          "num": 1,
+          "pos": "GK",
+          "role": "starter"
+        },
+        {
+          "name": "Cédric",
+          "num": 21,
+          "pos": "RB",
+          "role": "starter"
+        },
+        {
+          "name": "Pepe",
+          "num": 3,
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "José Fonte",
+          "num": 4,
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Raphaël Guerreiro",
+          "num": 5,
+          "pos": "LB",
+          "role": "starter"
+        },
+        {
+          "name": "William Carvalho",
+          "num": 14,
+          "pos": "DM",
+          "role": "starter"
+        },
+        {
+          "name": "Renato Sanches",
+          "num": 16,
+          "pos": "RM",
+          "role": "starter",
+          "off": 79
+        },
+        {
+          "name": "João Mário",
+          "num": 10,
+          "pos": "LM",
+          "role": "starter"
+        },
+        {
+          "name": "Adrien Silva",
+          "num": 23,
+          "pos": "CAM",
+          "role": "starter",
+          "off": 66
+        },
+        {
+          "name": "Cristiano Ronaldo",
+          "num": 7,
+          "pos": "ST",
+          "role": "starter",
+          "off": 25
+        },
+        {
+          "name": "Nani",
+          "num": 17,
+          "pos": "ST",
+          "role": "starter"
+        },
+        {
+          "name": "Ricardo Quaresma",
+          "num": 20,
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 25,
+          "for": "Cristiano Ronaldo"
+        },
+        {
+          "name": "João Moutinho",
+          "num": 8,
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 66,
+          "for": "Adrien Silva"
+        },
+        {
+          "name": "Éder",
+          "num": 9,
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 79,
+          "for": "Renato Sanches"
+        }
+      ]
+    },
+    {
+      "id": "2006-wc-final-italy",
+      "date": "2006-07-09",
+      "competition": "FIFA World Cup Final",
+      "team": "Italy",
+      "opponent": "France",
+      "result": "1-1 aet, won 5-3 on penalties",
+      "formation": "4-4-1-1",
+      "verification": {
+        "xi": "verified",
+        "subs_used": "verified"
+      },
+      "sources": [
+        "thesoccerworldcups.com",
+        "FBref match report (minutes played)"
+      ],
+      "squad": [
+        {
+          "name": "Gianluigi Buffon",
+          "num": 1,
+          "pos": "GK",
+          "role": "starter"
+        },
+        {
+          "name": "Gianluca Zambrotta",
+          "num": 19,
+          "pos": "RB",
+          "role": "starter"
+        },
+        {
+          "name": "Fabio Cannavaro",
+          "num": 5,
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Marco Materazzi",
+          "num": 23,
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Fabio Grosso",
+          "num": 3,
+          "pos": "LB",
+          "role": "starter"
+        },
+        {
+          "name": "Mauro Camoranesi",
+          "num": 16,
+          "pos": "RM",
+          "role": "starter",
+          "off": 86
+        },
+        {
+          "name": "Gennaro Gattuso",
+          "num": 8,
+          "pos": "CM",
+          "role": "starter"
+        },
+        {
+          "name": "Andrea Pirlo",
+          "num": 21,
+          "pos": "CM",
+          "role": "starter"
+        },
+        {
+          "name": "Simone Perrotta",
+          "num": 20,
+          "pos": "LM",
+          "role": "starter",
+          "off": 61
+        },
+        {
+          "name": "Francesco Totti",
+          "num": 10,
+          "pos": "CAM",
+          "role": "starter",
+          "off": 61
+        },
+        {
+          "name": "Luca Toni",
+          "num": 9,
+          "pos": "ST",
+          "role": "starter"
+        },
+        {
+          "name": "Daniele De Rossi",
+          "num": 4,
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 61,
+          "for": "Francesco Totti"
+        },
+        {
+          "name": "Vincenzo Iaquinta",
+          "num": 15,
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 61,
+          "for": "Simone Perrotta"
+        },
+        {
+          "name": "Alessandro Del Piero",
+          "num": 7,
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 86,
+          "for": "Mauro Camoranesi"
+        }
+      ]
+    },
+    {
+      "id": "2002-wc-final-brazil",
+      "date": "2002-06-30",
+      "competition": "FIFA World Cup Final",
+      "team": "Brazil",
+      "opponent": "Germany",
+      "result": "2-0",
+      "formation": "3-4-2-1",
+      "verification": {
+        "xi": "single_source",
+        "subs_used": "single_source"
+      },
+      "sources": [
+        "FBref match report"
+      ],
+      "flags": [
+        "Sub minutes inferred from minutes played, not stated by source"
+      ],
+      "squad": [
+        {
+          "name": "Marcos",
+          "num": 1,
+          "pos": "GK",
+          "role": "starter"
+        },
+        {
+          "name": "Lúcio",
+          "num": 3,
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Edmílson",
+          "num": 5,
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Roque Júnior",
+          "num": 4,
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Cafu",
+          "num": 2,
+          "pos": "RWB",
+          "role": "starter"
+        },
+        {
+          "name": "Gilberto Silva",
+          "num": 8,
+          "pos": "CM",
+          "role": "starter"
+        },
+        {
+          "name": "Kléberson",
+          "num": 15,
+          "pos": "CM",
+          "role": "starter"
+        },
+        {
+          "name": "Roberto Carlos",
+          "num": 6,
+          "pos": "LWB",
+          "role": "starter"
+        },
+        {
+          "name": "Ronaldinho",
+          "num": 11,
+          "pos": "AM",
+          "role": "starter",
+          "off": 85
+        },
+        {
+          "name": "Rivaldo",
+          "num": 10,
+          "pos": "AM",
+          "role": "starter"
+        },
+        {
+          "name": "Ronaldo",
+          "num": 9,
+          "pos": "ST",
+          "role": "starter",
+          "off": 90
+        },
+        {
+          "name": "Juninho Paulista",
+          "num": 19,
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 85,
+          "for": "Ronaldinho"
+        },
+        {
+          "name": "Denílson",
+          "num": 17,
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 90,
+          "for": "Ronaldo"
+        }
+      ]
+    }
+  ]
+}

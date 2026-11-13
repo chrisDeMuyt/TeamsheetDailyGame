@@ -1,0 +1,67 @@
+<main class="app">
+  <header class="top">
+    <div class="title">
+      <h1>TEAMSHEET @if (number()) {<span class="num">#{{ number() }}</span>}</h1>
+      @if (store.phase() === 'revealed') {
+        <p class="subtitle">{{ revealLine() }}</p>
+      }
+    </div>
+    @if (store.phase() === 'playing' || store.phase() === 'revealed') {
+      <div class="score">
+        <span class="score-label">{{ store.phase() === 'revealed' ? 'Final' : 'Score' }}</span>
+        <strong class="score-value">{{ store.score() }}</strong>
+      </div>
+    }
+  </header>
+
+  @switch (store.phase()) {
+    @case ('loading') {
+      <p class="state" role="status">Loading today's lineup…</p>
+    }
+
+    @case ('error') {
+      <div class="state" role="alert">
+        <p>{{ store.error() }}</p>
+        <button type="button" class="btn-primary" (click)="retry()">Try again</button>
+      </div>
+    }
+
+    @case ('playing') {
+      @if (store.puzzle(); as p) {
+        <section class="match" aria-label="Today's match">
+          <h2 class="team">{{ p.team }}</h2>
+          <p class="line">{{ competition() }} · <span class="nowrap">{{ matchDate() }}</span></p>
+          <p class="hint">Name a starter or a sub who came on</p>
+        </section>
+      }
+
+      <div class="board">
+        <app-pitch [spots]="store.starters()" [poppedSlot]="store.poppedSlot()" />
+        <app-subs-strip [spots]="store.subs()" [poppedSlot]="store.poppedSlot()" />
+      </div>
+
+      <app-guess-history [picks]="store.picks()" />
+
+      <app-guess-input class="input"
+        [guessNumber]="store.guessNumber()"
+        [total]="GUESSES"
+        [remainingMs]="store.remainingMs()"
+        [totalMs]="GUESS_MS"
+        [busy]="store.submitting() || store.picks().length >= GUESSES"
+        [feedback]="store.feedback()"
+        [(text)]="draft"
+        (submitted)="guess($event)" />
+    }
+
+    @case ('revealed') {
+      @if (store.reveal(); as r) {
+        <app-reveal-screen
+          [reveal]="r"
+          [starters]="store.starters()"
+          [subs]="store.subs()"
+          [streak]="store.streak()"
+          [lastPlayed]="store.lastPlayed()" />
+      }
+    }
+  }
+</main>

@@ -1,0 +1,19 @@
+services:
+  db:
+    image: postgres:16          # pg_trgm + unaccent ship as contrib; V1__init.sql creates both extensions
+    container_name: teamsheet-db
+    environment:
+      POSTGRES_DB: teamsheet
+      POSTGRES_USER: teamsheet
+      POSTGRES_PASSWORD: dev
+    ports:
+      - "5433:5432"             # 5433 on the host: a native PostgreSQL 18 service already owns 5432
+    volumes:
+      - teamsheet-pg:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U teamsheet -d teamsheet"]
+      interval: 5s
+      retries: 10
+
+volumes:
+  teamsheet-pg:

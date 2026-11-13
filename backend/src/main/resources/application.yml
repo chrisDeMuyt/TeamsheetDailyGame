@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: teamsheet
+  datasource:
+    url: jdbc:postgresql://localhost:5433/teamsheet   # docker-compose maps 5433 -> 5432
+    username: teamsheet
+    password: dev
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: none      # Flyway owns the schema
+  flyway:
+    enabled: true
+
+teamsheet:
+  game:
+    puzzle-zone: America/Chicago   # new puzzle at midnight US Central (CST/CDT handled automatically)
+    guess-seconds: 30
+    grace-seconds: 2          # network slack on top of the 30s
+    fuzzy-threshold: 0.45     # min trigram score to count as a match
+    ambiguity-margin: 0.10    # candidates within this of the top score = ambiguous
+    min-fuzzy-length: 3
+    live-rarity-min-plays: 200
+    sub-bonus: 15

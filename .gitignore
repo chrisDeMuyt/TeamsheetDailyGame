@@ -1,0 +1,15 @@
+# Backend build output
+backend/target/
+
+# IDE / OS
+.idea/
+*.iml
+.vscode/*
+!frontend/.vscode/
+.DS_Store
+Thumbs.db
+
+# Logs / local env
+*.log
+.env
+.env.*
