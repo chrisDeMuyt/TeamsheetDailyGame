@@ -16,7 +16,7 @@ import java.util.Map;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
- * Applies a generated promotion migration to real Postgres (V1-V3 already applied by Flyway) inside a transaction
+ * Applies a generated promotion migration to real Postgres (committed migrations already applied by Flyway) inside a transaction
  * that is always rolled back, so the shared test DB is left untouched.
  */
 @SpringBootTest
@@ -27,17 +27,20 @@ class PromotionIntegrationTest {
     @Autowired PlatformTransactionManager txm;
 
     @Test
-    void allFiftyDraftsApplyCleanlyAsOneMigration() throws Exception {
-        JsonNode seed = SeedSqlGeneratorTest.seedWithDrafts();   // all 50 drafts
+    void remainingDraftsApplyCleanlyAsOneMigration() throws Exception {
+        JsonNode seed = SeedSqlGeneratorTest.seedWithDrafts();   // every remaining draft
+        int live = jdbc.queryForObject("SELECT count(*) FROM puzzle", Integer.class);
+        int drafts = SeedSqlGeneratorTest.read(SeedSqlGeneratorTest.DRAFTS).get("matches").size();
         var migration = SeedSqlGenerator.plan(seed, SeedSqlGenerator.scan(SeedSqlGenerator.MIGRATIONS), false).orElseThrow();
-        assertThat(migration.matchIds()).hasSize(50);
+        assertThat(migration.matchIds()).hasSize(drafts);
 
         new TransactionTemplate(txm).executeWithoutResult(status -> {
             status.setRollbackOnly();
             jdbc.execute(migration.sql());
 
-            assertThat(jdbc.queryForObject("SELECT count(*) FROM puzzle", Integer.class)).isEqualTo(60);
-            assertThat(jdbc.queryForObject("SELECT max(puzzle_date)::text FROM puzzle", String.class)).isEqualTo("2027-01-09");
+            assertThat(jdbc.queryForObject("SELECT count(*) FROM puzzle", Integer.class)).isEqualTo(live + drafts);
+            assertThat(jdbc.queryForObject("SELECT max(puzzle_date)::text FROM puzzle", String.class))
+                    .isEqualTo(SeedSqlGenerator.FIRST_PUZZLE_DATE.plusDays(live + drafts - 1).toString());
 
             // every match has exactly 11 starters with pitch coords, and every sub replaces someone in the same match
             List<Map<String, Object>> bad = jdbc.queryForList("""
@@ -70,6 +73,6 @@ class PromotionIntegrationTest {
                     WHERE mp.match_id = '2002-wc-r16-south-korea' AND pa.alias_norm = 'park'""", Long.class)).hasSize(1);
         });
 
-        assertThat(jdbc.queryForObject("SELECT count(*) FROM puzzle", Integer.class)).as("rolled back").isEqualTo(10);
+        assertThat(jdbc.queryForObject("SELECT count(*) FROM puzzle", Integer.class)).as("rolled back").isEqualTo(live);
     }
 }

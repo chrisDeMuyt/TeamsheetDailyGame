@@ -268,6 +268,25 @@ class GameApiIntegrationTest {
     }
 
     @Test
+    void promotedPuzzlePlaysWithNewAliases() throws Exception {
+        clock.set(Instant.parse("2026-11-21T12:00:00Z"));            // puzzle #11, Argentina 2022 (V4)
+        JsonNode today = body(mvc.perform(get("/api/puzzle/today")), status().isOk());
+        assertThat(today.get("number").asInt()).isEqualTo(11);
+        assertThat(today.get("team").asText()).isEqualTo("Argentina");
+
+        String play = newPlay();
+        JsonNode amb = guess(play, "Martinez");                         // Emiliano or Lautaro
+        assertThat(amb.get("result").asText()).isEqualTo("ambiguous");
+        JsonNode dibu = guess(play, "Dibu");
+        assertThat(dibu.get("result").asText()).isEqualTo("hit");
+        assertThat(dibu.get("name").asText()).isEqualTo("Emiliano Martínez");
+        JsonNode lautaro = guess(play, "Lautaro");
+        assertThat(lautaro.get("name").asText()).isEqualTo("Lautaro Martínez");
+        assertThat(lautaro.get("sub").asBoolean()).isTrue();
+        assertThat(guess(play, "messi").get("name").asText()).isEqualTo("Lionel Messi");
+    }
+
+    @Test
     void unknownPlayIs404() throws Exception {
         mvc.perform(post("/api/plays/{id}/guesses", UUID.randomUUID()).contentType(MediaType.APPLICATION_JSON)
                 .content("{\"text\":\"x\"}")).andExpect(status().isNotFound());

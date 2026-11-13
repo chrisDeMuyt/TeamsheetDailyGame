@@ -19,8 +19,8 @@ Daily soccer trivia game. Each day shows one historic match lineup; name 3 playe
 
 ## Files
 
-- `teamsheet-seed.json` – 10 matches (XI + used subs), positions, minutes, verification status and sources
-- `teamsheet-drafts.json` – 50 more lineups, all `unverified`, with `draft_confidence`, `flags`, `web_checked` links, and per-player `rarity`/`short`/`aliases` for new players. Never seeded directly.
+- `teamsheet-seed.json` – 54 live matches (puzzles #1–54, 2026-11-11 → 2027-01-03). #1–10 = original spike (V2); #11–54 = promoted drafts (V4), in a mixed order (difficulty/club/era spread)
+- `teamsheet-drafts.json` – 6 remaining `unverified` drafts (medium confidence; open questions in `flags`), with `web_checked` links and per-player `rarity`/`short`/`aliases`. Never seeded directly.
 
 ## Promoting a match (drafts → live)
 
@@ -40,6 +40,7 @@ Daily soccer trivia game. Each day shows one historic match lineup; name 3 playe
 - Wikipedia lineup tables don't survive automated fetches; use as a narrative cross-check
 - Known source errors: ESPN lists Inter 2010's GK as "J. De León" (was Júlio César); FBref's minutes-based lineup puts Navas in Spain's 2010 XI (Pedro started)
 - Still single-source: Man Utd 2008, Inter 2010, Brazil 2002, Portugal 2016 subs
+- Puzzles #11–54 are marked `verified` by user decision (2026-11-12) on the strength of Claude's web-search check (2+ agreeing sources cited per match, pages not read in full by a person). Each carries a flag saying so; seed rarity for their new players is a placeholder estimate
 
 ## API (v1)
 
