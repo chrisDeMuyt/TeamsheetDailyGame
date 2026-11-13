@@ -4,6 +4,8 @@ import { PoolEntry, Puzzle, Reveal } from '../api/models';
 export const PUZZLE: Puzzle = {
   number: 1,
   team: 'Liverpool',
+  opponent: 'AC Milan',
+  result: '3-3 aet, won 3-2 on penalties',
   competition: 'UEFA Champions League Final',
   date: '2005-05-25',
   formation: '4-4-1-1',

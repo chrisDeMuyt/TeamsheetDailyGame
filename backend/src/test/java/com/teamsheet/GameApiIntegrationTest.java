@@ -178,6 +178,8 @@ class GameApiIntegrationTest {
         JsonNode today = body(mvc.perform(get("/api/puzzle/today")), status().isOk());
         assertThat(today.get("number").asInt()).isEqualTo(1);
         assertThat(today.get("team").asText()).isEqualTo("Liverpool");
+        assertThat(today.get("opponent").asText()).isEqualTo("AC Milan");
+        assertThat(today.get("result").asText()).isEqualTo("3-3 aet, won 3-2 on penalties");
         assertThat(today.get("slots")).hasSize(14);
 
         String raw = today.toString().toLowerCase(Locale.ROOT);
@@ -296,7 +298,7 @@ class GameApiIntegrationTest {
     @Test
     void suggestionIsOneGlobalPlayerAndOnlyExactForFullNames() throws Exception {
         JsonNode john = suggest("John");
-        assertThat(john.get("name").asText()).as("best-known John, not today's lineup").isEqualTo("John Terry");
+        assertThat(john.get("name").asText()).as("a well-known John from anywhere").startsWith("Joh");
         assertThat(john.get("exact").asBoolean()).isFalse();
 
         JsonNode mikel = suggest("john obi mikel");
@@ -312,6 +314,36 @@ class GameApiIntegrationTest {
 
         assertThat(suggest("j")).as("too short").isNull();
         assertThat(suggest("qqqqzzzz")).as("no match").isNull();
+    }
+
+    @Test
+    void suggestionsCoverFamousPlayersOutsideThePuzzles() throws Exception {
+        assertThat(suggest("Salah").get("name").asText()).isEqualTo("Mohamed Salah");
+        assertThat(suggest("ronaldinho").get("exact").asBoolean()).isTrue();
+        assertThat(suggest("Messi").get("name").asText()).isEqualTo("Lionel Messi");
+        assertThat(suggest("Xavi Hernandez").get("name").asText()).as("merged into the puzzle's Xavi").isEqualTo("Xavi");
+        JsonNode orban = suggest("Viktor Orban");
+        assertThat(orban == null ? "" : orban.get("name").asText()).as("non-footballers filtered out")
+                .isNotEqualTo("Viktor Orbán");
+        assertThat(jdbc.queryForObject(
+                "SELECT count(*) FROM (SELECT lower(display_name) FROM player GROUP BY 1 HAVING count(*) > 1) d",
+                Integer.class)).as("no duplicate player names").isZero();
+        assertThat(jdbc.queryForObject("SELECT count(*) FROM player WHERE seed_rarity IS NULL", Integer.class))
+                .as("extra players loaded").isGreaterThan(4000);
+    }
+
+    @Test
+    void pickingADuplicateRowOfALineupPlayerStillCounts() throws Exception {
+        // A stray second row for Gerrard (named like one of his aliases) must not turn a right answer into a miss.
+        Long id = jdbc.queryForObject(
+                "INSERT INTO player (display_name, short_name) VALUES ('Stevie G', 'Stevie G') RETURNING id", Long.class);
+        try {
+            JsonNode r = guessId(newPlay(), id);
+            assertThat(r.get("result").asText()).isEqualTo("hit");
+            assertThat(r.get("name").asText()).isEqualTo("Steven Gerrard");
+        } finally {
+            jdbc.update("DELETE FROM player WHERE id = ?", id);   // the hit was recorded against Gerrard's real row
+        }
     }
 
     @Test

@@ -252,8 +252,9 @@ public final class SeedSqlGenerator {
     // ---------------------------------------------------------------- what the migrations already contain
 
     /** Parsed from the committed migrations (they're all in the format this class writes). */
-    public record Existing(Map<String, Long> playerIds, Map<Long, Set<String>> aliases, Set<String> matchIds,
-                           int maxPuzzle, LocalDate lastPuzzleDate, int maxVersion, String allSql) {
+    /** unrated = players with seed_rarity NULL (extra "Did you mean" players, never yet in a puzzle). */
+    public record Existing(Map<String, Long> playerIds, Set<String> unrated, Map<Long, Set<String>> aliases,
+                           Set<String> matchIds, int maxPuzzle, LocalDate lastPuzzleDate, int maxVersion, String allSql) {
         long maxPlayerId() {
             return playerIds.values().stream().mapToLong(Long::longValue).max().orElse(0);
         }
@@ -263,7 +264,10 @@ public final class SeedSqlGenerator {
 
     private static final Pattern VERSION = Pattern.compile("^V(\\d+)__.*\\.sql$");
     private static final Pattern PLAYER_ROW =
-            Pattern.compile("^\\s+\\((\\d+), '((?:[^']|'')*)', '(?:[^']|'')*', [\\d.]+\\)[,;]$", Pattern.MULTILINE);
+            Pattern.compile("^\\s+\\((\\d+), '((?:[^']|'')*)', '(?:[^']|'')*', (NULL|[\\d.]+)(?:, (?:NULL|\\d+))?\\)[,;]$",
+                    Pattern.MULTILINE);
+    private static final Pattern RATED =
+            Pattern.compile("^UPDATE player SET seed_rarity = [\\d.]+ WHERE id = (\\d+);$", Pattern.MULTILINE);
     private static final Pattern ALIAS_ROW =
             Pattern.compile("^\\s+\\((\\d+), '((?:[^']|'')*)'\\)[,;]?$", Pattern.MULTILINE);
     private static final Pattern MATCH_ROW =
@@ -272,11 +276,16 @@ public final class SeedSqlGenerator {
             Pattern.compile("^\\s+\\((\\d+), DATE '(\\d{4}-\\d{2}-\\d{2})', '", Pattern.MULTILINE);
 
     public static Existing scan(Path dir) throws IOException {
+        return scan(dir, Integer.MAX_VALUE);
+    }
+
+    /** Only migrations up to and including {@code upToVersion} (used to re-derive a generated migration). */
+    public static Existing scan(Path dir, int upToVersion) throws IOException {
         TreeMap<Integer, Path> files = new TreeMap<>();
         try (var list = Files.list(dir)) {
             list.forEach(p -> {
                 Matcher v = VERSION.matcher(p.getFileName().toString());
-                if (v.matches()) files.put(Integer.parseInt(v.group(1)), p);
+                if (v.matches() && Integer.parseInt(v.group(1)) <= upToVersion) files.put(Integer.parseInt(v.group(1)), p);
             });
         }
         StringBuilder all = new StringBuilder();
@@ -284,7 +293,15 @@ public final class SeedSqlGenerator {
         String sql = all.toString();
 
         Map<String, Long> ids = new LinkedHashMap<>();
-        for (Matcher m = PLAYER_ROW.matcher(sql); m.find(); ) ids.put(unq(m.group(2)), Long.parseLong(m.group(1)));
+        Set<String> unrated = new HashSet<>();
+        for (Matcher m = PLAYER_ROW.matcher(sql); m.find(); ) {
+            ids.put(unq(m.group(2)), Long.parseLong(m.group(1)));
+            if (m.group(3).equals("NULL")) unrated.add(unq(m.group(2)));
+        }
+        // A later "UPDATE player SET seed_rarity ..." (an extra promoted into a puzzle) rates him.
+        Set<Long> ratedLater = new HashSet<>();
+        for (Matcher m = RATED.matcher(sql); m.find(); ) ratedLater.add(Long.parseLong(m.group(1)));
+        unrated.removeIf(name -> ratedLater.contains(ids.get(name)));
         Map<Long, Set<String>> aliases = new HashMap<>();
         for (Matcher m = ALIAS_ROW.matcher(sql); m.find(); )
             aliases.computeIfAbsent(Long.parseLong(m.group(1)), k -> new HashSet<>()).add(unq(m.group(2)));
@@ -296,7 +313,7 @@ public final class SeedSqlGenerator {
             int n = Integer.parseInt(m.group(1));
             if (n > maxPuzzle) { maxPuzzle = n; last = LocalDate.parse(m.group(2)); }
         }
-        return new Existing(ids, aliases, matchIds, maxPuzzle, last, files.isEmpty() ? 0 : files.lastKey(), sql);
+        return new Existing(ids, unrated, aliases, matchIds, maxPuzzle, last, files.isEmpty() ? 0 : files.lastKey(), sql);
     }
 
     // ---------------------------------------------------------------- planning the next migration
@@ -336,9 +353,15 @@ public final class SeedSqlGenerator {
                 entry.putIfAbsent(name, p);
                 if (!ids.containsKey(name)) { ids.put(name, ++next); newPlayers.add(name); }
             }
+        // Extra (unrated) players appearing in a puzzle for the first time need a rarity too; their row is reused.
+        List<String> toRate = entry.keySet().stream().filter(ex.unrated()::contains).toList();
         for (String name : newPlayers) {
             if (rarityOf(name, entry.get(name)) == null)
                 problems.add("No rarity for new player " + name + " (add \"rarity\": <0-100 expected pick %>)");
+        }
+        for (String name : toRate) {
+            if (rarityOf(name, entry.get(name)) == null)
+                problems.add("No rarity for player " + name + " (already in the DB as an extra; add \"rarity\")");
         }
         if (!problems.isEmpty()) throw new IllegalStateException("Can't plan migration:\n  " + String.join("\n  ", problems));
 
@@ -361,6 +384,14 @@ public final class SeedSqlGenerator {
                         q(shortName(name, entry.get(name))), rarityOf(name, entry.get(name))));
             sql.append(String.join(",\n", rows)).append(";\n");
             sql.append("SELECT setval('player_id_seq', ").append(next).append(");\n\n");
+        }
+
+        if (!toRate.isEmpty()) {
+            sql.append("-- ---------- extra players now in a puzzle: give them a seed rarity ----------\n");
+            for (String name : toRate)
+                sql.append(String.format(Locale.ROOT, "UPDATE player SET seed_rarity = %.2f WHERE id = %d;\n",
+                        rarityOf(name, entry.get(name)), ids.get(name)));
+            sql.append('\n');
         }
 
         // Aliases for everyone in this batch that the DB doesn't have yet (new players, plus new nicknames for old ones).

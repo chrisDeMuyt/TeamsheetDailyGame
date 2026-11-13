@@ -1,5 +1,6 @@
 import { PUZZLE, reveal } from '../testing/fixtures';
-import { TIER_EMOJI, buildShareText, columnFor, competitionShort, formatClock, formatMatchDate, formatPct, playSpots } from './view';
+import { Pick } from '../api/models';
+import { TIER_EMOJI, buildShareText, columnFor, competitionShort, pickLabel, scoreline, formatClock, formatMatchDate, formatPct, playSpots } from './view';
 
 describe('view helpers', () => {
   it('formats pick %, clock and dates like the mockup', () => {
@@ -11,6 +12,22 @@ describe('view helpers', () => {
     expect(formatClock(-5)).toBe('0:00');
     expect(formatMatchDate('2005-05-25')).toBe('25 May 2005');
     expect(competitionShort('UEFA Champions League Final')).toBe('CL Final');
+  });
+
+  it('formats the scoreline from the team side', () => {
+    expect(scoreline('Chelsea', 'Bayern Munich', '1-1 aet, won 4-3 on penalties')).toBe('Chelsea 1–1 Bayern Munich (aet, 4–3 pens)');
+    expect(scoreline('Germany', 'Brazil', 'lost 0-2')).toBe('Germany 0–2 Brazil');
+    expect(scoreline('Spain', 'Germany', '1-0')).toBe('Spain 1–0 Germany');
+    expect(scoreline('South Korea', 'Italy', '2-1 aet (golden goal)')).toBe('South Korea 2–1 Italy (aet, golden goal)');
+    expect(scoreline('Deportivo', 'AC Milan', '4-0 (lost first leg 1-4)')).toBe('Deportivo 4–0 AC Milan (lost first leg 1–4)');
+    expect(scoreline('Netherlands', 'Spain', 'lost 0-1 aet')).toBe('Netherlands 0–1 Spain (aet)');
+    expect(scoreline('Milan', 'Liverpool', '3-3 aet, lost 2-3 on penalties')).toBe('Milan 3–3 Liverpool (aet, 2–3 pens)');
+  });
+
+  it('pitch shows short names; the guess list below shows full names', () => {
+    const hit: Pick = { guessIndex: 1, text: 'John Terry', result: 'hit', slot: 4, name: 'John Terry', shortName: 'Terry', tier: 'Solid Shout', points: 30 };
+    expect(playSpots(PUZZLE.slots, [hit]).find((s) => s.slot === 4)?.label).toBe('Terry');
+    expect(pickLabel(hit)).toBe('John Terry');
   });
 
   it('shows positions only until a slot is hit', () => {

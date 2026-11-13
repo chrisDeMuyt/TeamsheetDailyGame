@@ -6,7 +6,7 @@ import { PitchComponent } from './components/pitch.component';
 import { RevealScreenComponent } from './components/reveal-screen.component';
 import { SubsStripComponent } from './components/subs-strip.component';
 import { GUESSES, GUESS_MS, GameStore } from './state/game-store';
-import { competitionLong, competitionShort, formatMatchDate } from './state/view';
+import { competitionShort, formatMatchDate, scoreline } from './state/view';
 
 @Component({
   selector: 'app-root',
@@ -25,7 +25,19 @@ export class App {
   private readonly guessInput = viewChild(GuessInputComponent);
 
   protected readonly number = computed(() => this.store.reveal()?.puzzleNumber ?? this.store.puzzle()?.number);
-  protected readonly competition = computed(() => competitionLong(this.store.puzzle()?.competition ?? ''));
+  protected readonly competitionShort = computed(() => competitionShort(this.store.puzzle()?.competition ?? ''));
+  protected readonly revealScore = computed(() => {
+    const r = this.store.reveal();
+    return r ? scoreline(r.team, r.opponent, r.result) : '';
+  });
+
+  /** "Chelsea 1–1 Bayern Munich" + note "aet, 4–3 pens" (shown smaller). */
+  protected readonly score = computed(() => {
+    const p = this.store.puzzle();
+    const s = p ? scoreline(p.team, p.opponent, p.result) : '';
+    const i = s.indexOf(' (');
+    return i < 0 ? { main: s, note: '' } : { main: s.slice(0, i), note: s.slice(i + 2, -1) };
+  });
   protected readonly matchDate = computed(() => {
     const p = this.store.puzzle();
     return p ? formatMatchDate(p.date) : '';

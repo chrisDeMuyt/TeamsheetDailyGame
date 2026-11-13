@@ -80,7 +80,12 @@ public class PlayService {
                 .orElseThrow(() -> new NotFoundException("Unknown player " + playerId));
         return resolve(playId, chosen.getDisplayName(), puzzle -> {
             boolean inPool = puzzles.orderedPool(puzzle).stream().anyMatch(mp -> mp.getPlayerId() == playerId);
-            return inPool ? new MatchOutcome.Hit(playerId) : new MatchOutcome.Miss();
+            if (inPool) return new MatchOutcome.Hit(playerId);
+            // Backstop for a duplicate row of the same person (e.g. an extra "Xavi Hernández" vs puzzle "Xavi"):
+            // if the picked name is exactly an alias of ONE player in today's pool, it's that player.
+            return matcher.exactPoolPlayer(puzzle.getMatchId(), chosen.getDisplayName())
+                    .<MatchOutcome>map(MatchOutcome.Hit::new)
+                    .orElseGet(MatchOutcome.Miss::new);
         });
     }
 

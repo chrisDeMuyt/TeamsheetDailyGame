@@ -5,6 +5,7 @@
       <h1>TEAMSHEET @if (number()) {<span class="num">#{{ number() }}</span>}</h1>
       @if (store.phase() === 'revealed') {
         <p class="subtitle">{{ revealLine() }}</p>
+        <p class="subtitle reveal-score">{{ revealScore() }}</p>
       }
     </div>
     @if (store.phase() === 'playing' || store.phase() === 'revealed') {
@@ -36,9 +37,9 @@
     @case ('playing') {
       @if (store.puzzle(); as p) {
         <section class="match" aria-label="Today's match">
-          <h2 class="team">{{ p.team }}</h2>
-          <p class="line">{{ competition() }} · <span class="nowrap">{{ matchDate() }}</span></p>
-          <p class="hint">Name a starter or a sub who came on</p>
+          <p class="line">{{ p.team }} · {{ competitionShort() }} · <span class="nowrap">{{ matchDate() }}</span></p>
+          <h2 class="team">{{ score().main }}@if (score().note) {<span class="score-note"> ({{ score().note }})</span>}</h2>
+          <p class="hint">Name a starter or a sub who came on for {{ p.team }}</p>
         </section>
       }
 

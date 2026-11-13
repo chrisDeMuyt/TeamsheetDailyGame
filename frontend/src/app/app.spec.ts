@@ -54,7 +54,9 @@ describe('App', () => {
 
     expect(el.querySelectorAll('app-pitch app-spot')).toHaveLength(11);
     expect(el.querySelectorAll('app-subs-strip app-spot')).toHaveLength(3);
-    expect(el.textContent).toContain('Champions League Final · 25 May 2005');
+    expect(el.textContent).toContain('Liverpool · CL Final · 25 May 2005');
+    expect(el.querySelector('.team')?.textContent?.replace(/\s+/g, ' ').trim()).toBe('Liverpool 3–3 AC Milan (aet, 3–2 pens)');
+    expect(el.querySelector('.score-note')?.textContent?.trim()).toBe('(aet, 3–2 pens)');
     expect(el.textContent).toContain('Guess 1 of 3');
     const input = el.querySelector<HTMLInputElement>('#guess-text')!;
     expect(el.querySelector(`label[for="${input.id}"]`)).toBeTruthy();

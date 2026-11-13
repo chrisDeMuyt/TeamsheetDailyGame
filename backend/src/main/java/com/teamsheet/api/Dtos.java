@@ -16,8 +16,9 @@ public final class Dtos {
 
     public record SlotView(int slot, String pos, String role, Integer x, Integer y) {}
 
-    public record PuzzleView(int number, String team, String competition, LocalDate date,
-                             String formation, List<SlotView> slots) {}
+    /** opponent + result (from team's side, e.g. "1-1 aet, won 4-3 on penalties") never name a player. */
+    public record PuzzleView(int number, String team, String opponent, String result, String competition,
+                             LocalDate date, String formation, List<SlotView> slots) {}
 
     public record CreatePlayRequest(@NotNull UUID anonId) {}
 

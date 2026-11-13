@@ -65,7 +65,7 @@ public class PuzzleService {
                     return new SlotView(i + 1, mp.getSlotPos(), mp.getRole().name(), mp.getSlotX(), mp.getSlotY());
                 })
                 .toList();
-        return new PuzzleView(puzzle.getNumber(), match.getTeam(), match.getCompetition(),
-                match.getMatchDate(), match.getFormation(), slots);
+        return new PuzzleView(puzzle.getNumber(), match.getTeam(), match.getOpponent(), match.getResult(),
+                match.getCompetition(), match.getMatchDate(), match.getFormation(), slots);
     }
 }

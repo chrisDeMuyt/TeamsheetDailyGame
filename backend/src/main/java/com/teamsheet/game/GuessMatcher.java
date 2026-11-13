@@ -21,6 +21,12 @@ public class GuessMatcher {
         this.props = props;
     }
 
+    /** The single pool player whose alias is exactly this name, if exactly one. */
+    public java.util.Optional<Long> exactPoolPlayer(String matchId, String name) {
+        List<Long> exact = aliases.exactMatches(matchId, NameNormalizer.normalize(name));
+        return exact.size() == 1 ? java.util.Optional.of(exact.get(0)) : java.util.Optional.empty();
+    }
+
     public MatchOutcome match(String matchId, String rawText) {
         String q = NameNormalizer.normalize(rawText);
         if (q.isEmpty()) return new MatchOutcome.Miss();

@@ -42,7 +42,8 @@ class SeedSqlGeneratorTest {
         seed.get("matches").forEach(m -> m.get("squad").forEach(p -> players.add(p.get("name").asText())));
 
         assertThat(ex.matchIds()).hasSize(matches);
-        assertThat(ex.playerIds()).hasSize(players.size());
+        assertThat(ex.playerIds().keySet()).containsAll(players);
+        assertThat(ex.unrated()).as("every puzzle player has a seed rarity").doesNotContainAnyElementsOf(players);
         assertThat(ex.maxPuzzle()).isEqualTo(matches);
         assertThat(ex.lastPuzzleDate()).isEqualTo(SeedSqlGenerator.FIRST_PUZZLE_DATE.plusDays(matches - 1));
         assertThat(SeedSqlGenerator.drift(seed, ex)).as("seed edited after migrating").isEmpty();
@@ -70,11 +71,14 @@ class SeedSqlGeneratorTest {
         assertThat(m.matchIds()).containsExactly("2002-wc-r16-south-korea", "2021-euro-final-italy");
         String sql = m.sql();
 
-        assertThat(playerRows(sql)).as("reused players are not re-inserted")
-                .doesNotContain("Park Ji-sung", "Jorginho", "Gianluigi Donnarumma")
-                .contains("Lee Woon-jae", "Leonardo Bonucci");
+        assertThat(playerRows(sql)).as("puzzle players and extras are never re-inserted")
+                .doesNotContain("Park Ji-sung", "Jorginho", "Gianluigi Donnarumma", "Leonardo Bonucci");
         assertThat(sql).contains("('2021-euro-final-italy', " + ex.playerIds().get("Jorginho") + ", 'starter'");
-        assertThat(sql).contains("(" + (ex.maxPlayerId() + 1) + ", 'Lee Woon-jae'");   // ids continue
+        // Bonucci already exists as an unrated "Did you mean" extra: same row, now given a seed rarity.
+        assertThat(ex.unrated()).contains("Leonardo Bonucci");
+        assertThat(sql).containsPattern("UPDATE player SET seed_rarity = [\\d.]+ WHERE id = " + ex.playerIds().get("Leonardo Bonucci") + ";");
+        if (!playerRows(sql).isEmpty())
+            assertThat(sql).contains("(" + (ex.maxPlayerId() + 1) + ", '");                 // new ids continue
         assertThat(sql).contains(
                 "(" + p1 + ", DATE '" + ex.lastPuzzleDate().plusDays(1) + "', '2002-wc-r16-south-korea')",
                 "(" + p2 + ", DATE '" + ex.lastPuzzleDate().plusDays(2) + "', '2021-euro-final-italy')");
@@ -87,7 +91,8 @@ class SeedSqlGeneratorTest {
         JsonNode added = seed.get("matches").get(seed.get("matches").size() - 1);
         for (JsonNode p : added.get("squad")) ((ObjectNode) p).remove("rarity");
         assertThatThrownBy(() -> SeedSqlGenerator.plan(seed, SeedSqlGenerator.scan(SeedSqlGenerator.MIGRATIONS), false))
-                .hasMessageContaining("No rarity for new player Lee Woon-jae");
+                .hasMessageContaining("No rarity for")
+                .hasMessageContaining("Lee Woon-jae");
     }
 
     @Test

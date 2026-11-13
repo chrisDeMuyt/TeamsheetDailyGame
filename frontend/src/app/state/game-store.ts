@@ -236,7 +236,7 @@ export class GameStore {
         this.poppedSlot.set(r.slot ?? null);
         this.feedback.set({
           kind: 'hit',
-          text: `${r.shortName ?? r.name}! ${r.tier} +${r.points}${r.sub ? ' (sub bonus included)' : ''}`,
+          text: `${r.name ?? r.shortName}! ${r.tier} +${r.points}${r.sub ? ' (sub bonus included)' : ''}`,
         });
         break;
       case 'miss':
@@ -246,7 +246,7 @@ export class GameStore {
         this.feedback.set({ kind: 'timeout', text: "Time's up. That guess is gone." });
         break;
       case 'duplicate':
-        this.feedback.set({ kind: 'duplicate', text: `You already picked ${r.shortName ?? r.name}. Guess not used.` });
+        this.feedback.set({ kind: 'duplicate', text: `You already picked ${r.name ?? r.shortName}. Guess not used.` });
         break;
       case 'ambiguous':
         this.feedback.set({ kind: 'ambiguous', text: 'More than one player matches. Be more specific.' });

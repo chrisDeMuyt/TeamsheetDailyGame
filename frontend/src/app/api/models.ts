@@ -13,6 +13,9 @@ export interface Slot {
 export interface Puzzle {
   number: number;
   team: string;
+  opponent: string;
+  /** From the team's side, e.g. "1-1 aet, won 4-3 on penalties", "lost 0-2". */
+  result: string;
   competition: string;
   date: string; // ISO date
   formation: string;

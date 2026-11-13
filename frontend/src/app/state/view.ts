@@ -25,7 +25,7 @@ export function playSpots(slots: Slot[], picks: Pick[]): Spot[] {
       x: s.x,
       y: s.y,
       state: hit ? 'hit' : 'empty',
-      label: hit ? (hit.shortName ?? hit.name ?? '') : s.pos,
+      label: hit ? (hit.shortName ?? hit.name ?? '') : s.pos,   // pitch keeps the short name
       points: hit?.points,
     };
   });
@@ -66,6 +66,23 @@ export function formatMatchDate(iso: string): string {
   return `${d} ${months[m - 1]} ${y}`;
 }
 
+/**
+ * "Chelsea 1–1 Bayern Munich (aet, 4–3 pens)" from the stored result, which is always from the team's side:
+ * "1-1 aet, won 4-3 on penalties", "lost 0-2", "2-1 aet (golden goal)", "4-0 (lost first leg 1-4)".
+ */
+export function scoreline(team: string, opponent: string, result: string): string {
+  const m = /^(?:lost |won )?(\d+)-(\d+)\s*(.*)$/.exec(result.trim());
+  if (!m) return `${team} v ${opponent}`;
+  const [, a, b, rest] = m;
+  const note = rest
+    .replace(/\s*\(([^)]*)\)/g, ', $1')                                 // "aet (golden goal)" -> "aet, golden goal"
+    .replace(/^,\s*/, '')
+    .replace(/(?:won|lost) (\d+)-(\d+) on penalties/, '$1-$2 pens')
+    .replace(/(\d+)-(\d+)/g, '$1–$2')
+    .trim();
+  return `${team} ${a}–${b} ${opponent}${note ? ` (${note})` : ''}`;
+}
+
 /** "0:18" */
 export function formatClock(ms: number): string {
   const s = Math.max(0, Math.ceil(ms / 1000));
@@ -75,8 +92,9 @@ export function formatClock(ms: number): string {
 /** Points split for display: a sub's +15 bonus shown separately ("Proper Fan 60 + 15"). */
 export const SUB_BONUS = 15;
 
+/** Guess list below the pitch: the full name of a correct guess ("John Terry"), or what was typed. */
 export function pickLabel(p: Pick): string {
-  if (p.result === 'hit') return p.shortName ?? p.name ?? p.text;
+  if (p.result === 'hit') return p.name ?? p.shortName ?? p.text;
   return p.text.trim() || '—';
 }
 

@@ -60,6 +60,14 @@ class PromotionIntegrationTest {
                     SELECT count(*) FROM match_player mp JOIN player p ON p.id = mp.player_id
                     WHERE p.display_name = 'Oliver Kahn'""", Integer.class)).isEqualTo(2);
 
+            // every player in a lineup has a seed rarity (extras reused by a draft got one via UPDATE)
+            assertThat(jdbc.queryForObject("""
+                    SELECT count(*) FROM match_player mp JOIN player p ON p.id = mp.player_id WHERE p.seed_rarity IS NULL""",
+                    Integer.class)).isZero();
+            assertThat(jdbc.queryForObject(
+                    "SELECT count(*) FROM (SELECT lower(display_name) FROM player GROUP BY 1 HAVING count(*) > 1) d",
+                    Integer.class)).as("no duplicate player names").isZero();
+
             // the player id sequence was advanced, so the app can still insert players later
             Long maxId = jdbc.queryForObject("SELECT max(id) FROM player", Long.class);
             assertThat(jdbc.queryForObject("SELECT last_value FROM player_id_seq", Long.class)).isEqualTo(maxId);

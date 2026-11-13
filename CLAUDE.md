@@ -23,6 +23,12 @@ Daily soccer trivia game. Each day shows one historic match lineup; name 3 playe
 - `teamsheet-seed.json` – 54 live matches (puzzles #1–54, 2026-11-11 → 2027-01-03). #1–10 = original spike (V2); #11–54 = promoted drafts (V4), in a mixed order (difficulty/club/era spread)
 - `teamsheet-drafts.json` – 6 remaining `unverified` drafts (medium confidence; open questions in `flags`), with `web_checked` links and per-player `rarity`/`short`/`aliases`. Never seeded directly.
 
+- `data/wikidata-footballers.json` – ~5,000 well-known footballers from Wikidata (CC0) for "Did you mean" (rebuild: `python -I -X utf8 data/fetch_wikidata_players.py`). Loaded once by `ExtraPlayersGenerator` as `V5__extra_players.sql`: extras have `seed_rarity` NULL and `fame` (Wikipedia sitelinks); puzzle players are merged, never duplicated
+
+## Beta stats
+
+`bash deploy/beta-stats.sh` (flyctl logged in) – read-only report from the live DB: devices, finish rate, scores, hit/miss/timeout, most-picked players, most common wrong guesses (good for spotting missing aliases).
+
 ## Promoting a match (drafts → live)
 
 1. Verify XI + subs against 2 independent sources; put them in `sources`; set `verification` (`verified` / `single_source`).
