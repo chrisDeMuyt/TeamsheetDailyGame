@@ -1,0 +1,30 @@
+# Fly.io config for Teamsheet (one app: Spring Boot serving the Angular build).
+app = "teamsheet-daily"
+primary_region = "ord"            # Chicago, close to US Central players
+
+[build]
+  dockerfile = "Dockerfile"
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = "stop"     # stop when idle (cheap for the beta; first visit after idle waits ~10s)
+  auto_start_machines = true
+  min_machines_running = 0
+
+  [http_service.concurrency]
+    type = "requests"
+    soft_limit = 200
+    hard_limit = 250
+
+  [[http_service.checks]]
+    grace_period = "30s"          # Spring Boot + Flyway startup
+    interval = "30s"
+    method = "GET"
+    path = "/"
+    timeout = "5s"
+
+[[vm]]
+  memory = "512mb"                # ~200 MB used in testing
+  cpu_kind = "shared"
+  cpus = 1

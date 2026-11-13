@@ -1,0 +1,9 @@
+.git
+**/node_modules
+frontend/dist
+frontend/.angular
+backend/target
+**/*.log
+.idea
+.vscode
+Mockup.png

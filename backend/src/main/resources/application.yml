@@ -2,9 +2,11 @@ spring:
   application:
     name: teamsheet
   datasource:
-    url: jdbc:postgresql://localhost:5433/teamsheet   # docker-compose maps 5433 -> 5432
-    username: teamsheet
-    password: dev
+    # Local default = docker-compose (host port 5433). In production the container entrypoint sets JDBC_DATABASE_*
+    # from Fly's DATABASE_URL.
+    url: ${JDBC_DATABASE_URL:jdbc:postgresql://localhost:5433/teamsheet}
+    username: ${JDBC_DATABASE_USERNAME:teamsheet}
+    password: ${JDBC_DATABASE_PASSWORD:dev}
   jpa:
     open-in-view: false
     hibernate:
