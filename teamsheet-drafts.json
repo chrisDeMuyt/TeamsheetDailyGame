@@ -267,8 +267,13 @@
       },
       "draft_confidence": "high",
       "sources": [],
-      "web_checked": [],
-      "flags": [],
+      "web_checked": [
+        "https://datencenter.dfb.de/en/data-center/champions-league/2001-2002/0/bayer-04-leverkusen-real-madrid-647074",
+        "https://www.uefa.com/uefachampionsleague/match/69489--leverkusen-vs-real-madrid/lineups/"
+      ],
+      "flags": [
+        "CORRECTED: Flávio Conceição replaced Makélélé, not Morientes"
+      ],
       "squad": [
         {
           "name": "César Sánchez",
@@ -313,6 +318,7 @@
           "name": "Claude Makélélé",
           "pos": "CM",
           "role": "starter",
+          "off": 73,
           "rarity": 35.0
         },
         {
@@ -337,7 +343,6 @@
           "name": "Fernando Morientes",
           "pos": "ST",
           "role": "starter",
-          "off": 73,
           "rarity": 35.0
         },
         {
@@ -360,7 +365,7 @@
           "pos": "MF",
           "role": "sub_used",
           "on": 73,
-          "for": "Fernando Morientes",
+          "for": "Claude Makélélé",
           "rarity": 8.0,
           "short": "Conceição"
         }
@@ -704,8 +709,13 @@
       },
       "draft_confidence": "high",
       "sources": [],
-      "web_checked": [],
-      "flags": [],
+      "web_checked": [
+        "https://www.thesoccerworldcups.com/games/2002_germany_brazil.php",
+        "https://www.national-football-teams.com/matches/report/12581/Germany_Brazil.html"
+      ],
+      "flags": [
+        "XI and subs confirmed as drafted"
+      ],
       "squad": [
         {
           "name": "Oliver Kahn",
@@ -1284,9 +1294,12 @@
       },
       "draft_confidence": "high",
       "sources": [],
-      "web_checked": [],
+      "web_checked": [
+        "https://www.footballdatabase.eu/en/match/overview/1023357-portugal-grece",
+        "https://www.national-football-teams.com/matches/report/940/Portugal_Greece.html"
+      ],
       "flags": [
-        "Figo/Ronaldo wing sides unchecked"
+        "XI and subs confirmed as drafted; Figo/Ronaldo wing sides unchecked"
       ],
       "squad": [
         {
@@ -1398,9 +1411,12 @@
       },
       "draft_confidence": "high",
       "sources": [],
-      "web_checked": [],
+      "web_checked": [
+        "https://www.lfchistory.net/games/4928",
+        "https://en.wikinews.org/wiki/Liverpool_beats_Milan_on_penalties_in_Champions_League_final"
+      ],
       "flags": [
-        "Same match as 2005-ucl-final-liverpool (already 2-sourced): reuse lfchistory + match report"
+        "Subs confirmed; Tomasson/Serginho at 84-86' depending on source"
       ],
       "squad": [
         {
@@ -1627,8 +1643,13 @@
       },
       "draft_confidence": "high",
       "sources": [],
-      "web_checked": [],
-      "flags": [],
+      "web_checked": [
+        "https://www.footballdatabase.eu/en/match/overview/1032764-fc_barcelone-arsenal",
+        "https://en.wikipedia.org/wiki/2006_UEFA_Champions_League_final"
+      ],
+      "flags": [
+        "XI and subs confirmed as drafted"
+      ],
       "squad": [
         {
           "name": "Víctor Valdés",
@@ -1734,9 +1755,12 @@
       },
       "draft_confidence": "high",
       "sources": [],
-      "web_checked": [],
+      "web_checked": [
+        "https://www.thesoccerworldcups.com/games/2006_italy_france.php",
+        "https://www.national-football-teams.com/matches/report/64/Italy_France.html"
+      ],
       "flags": [
-        "Same match as 2006-wc-final-italy (already 2-sourced)"
+        "Subs confirmed; Diarra 56' (FBref 61'), Wiltord 107' (FBref 110')"
       ],
       "squad": [
         {
@@ -1847,9 +1871,12 @@
       },
       "draft_confidence": "high",
       "sources": [],
-      "web_checked": [],
+      "web_checked": [
+        "https://thechels.info/wiki/Manchester_United_1-1*_Chelsea_(2007-08_UEFA_Champions_League_Final)",
+        "https://www.cnn.com/2008/SPORT/football/05/21/championsleague.final/index.html"
+      ],
       "flags": [
-        "Same match as 2008-ucl-final-man-utd (that one is still single-source)"
+        "XI and subs confirmed as drafted (Belletti 120+4')"
       ],
       "squad": [
         {
@@ -1955,8 +1982,13 @@
       },
       "draft_confidence": "high",
       "sources": [],
-      "web_checked": [],
-      "flags": [],
+      "web_checked": [
+        "https://www.uefa.com/uefaeuro/match/301696--germany-vs-spain/postmatch/report/",
+        "https://www.besoccer.com/match/seleccion-alemania/seleccion-espanola/200854831/lineups"
+      ],
+      "flags": [
+        "XI and subs confirmed as drafted"
+      ],
       "squad": [
         {
           "name": "Iker Casillas",
@@ -2058,9 +2090,12 @@
       },
       "draft_confidence": "high",
       "sources": [],
-      "web_checked": [],
+      "web_checked": [
+        "https://fcbayern.com/en/matches/profis/champions-league/2009-2010/fc-bayern-muenchen-inter-mailand-22-05-2010/lineup",
+        "https://www.uefa.com/uefachampionsleague/match/2000488--bayern-vs-internazionale/"
+      ],
       "flags": [
-        "Same match as 2010-ucl-final-inter (single-source; ESPN)"
+        "XI and subs confirmed as drafted"
       ],
       "squad": [
         {
@@ -2159,9 +2194,12 @@
       },
       "draft_confidence": "high",
       "sources": [],
-      "web_checked": [],
+      "web_checked": [
+        "https://www.national-football-teams.com/matches/report/7862/Netherlands_Spain.html",
+        "https://www.planetworldcup.com/CUPS/2010/final_hol_v_spa.html"
+      ],
       "flags": [
-        "Same match as 2010-wc-final-spain (already 2-sourced)"
+        "XI and subs confirmed as drafted"
       ],
       "squad": [
         {
@@ -2383,9 +2421,12 @@
       },
       "draft_confidence": "high",
       "sources": [],
-      "web_checked": [],
+      "web_checked": [
+        "https://www.wembleystadium.com/events/10s/2011/champions-league-final",
+        "https://www.skysports.com/football/barcelona-vs-manchester-united/teams/234950"
+      ],
       "flags": [
-        "Late sub minutes (86-90) unchecked"
+        "CORRECTED: Keita replaced Villa, Afellay replaced Pedro (90+2')"
       ],
       "squad": [
         {
@@ -2398,7 +2439,7 @@
           "name": "Dani Alves",
           "pos": "RB",
           "role": "starter",
-          "off": 89,
+          "off": 88,
           "rarity": 35.0
         },
         {
@@ -2437,7 +2478,7 @@
           "name": "Pedro",
           "pos": "RW",
           "role": "starter",
-          "off": 88
+          "off": 90
         },
         {
           "name": "Lionel Messi",
@@ -2452,7 +2493,7 @@
           "off": 86
         },
         {
-          "name": "Ibrahim Afellay",
+          "name": "Seydou Keita",
           "pos": "MF",
           "role": "sub_used",
           "on": 86,
@@ -2460,19 +2501,19 @@
           "rarity": 8.0
         },
         {
-          "name": "Seydou Keita",
-          "pos": "MF",
-          "role": "sub_used",
-          "on": 88,
-          "for": "Pedro",
-          "rarity": 8.0
-        },
-        {
           "name": "Carles Puyol",
           "pos": "DF",
           "role": "sub_used",
-          "on": 89,
+          "on": 88,
           "for": "Dani Alves"
+        },
+        {
+          "name": "Ibrahim Afellay",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 90,
+          "for": "Pedro",
+          "rarity": 8.0
         }
       ]
     },
@@ -2733,8 +2774,13 @@
       },
       "draft_confidence": "high",
       "sources": [],
-      "web_checked": [],
-      "flags": [],
+      "web_checked": [
+        "https://www.skysports.com/football/man-city-vs-qpr/teams/238249",
+        "https://www.footballdatabase.eu/en/match/overview/678110-manchester_city-queens_park_rangers"
+      ],
+      "flags": [
+        "Balotelli 75' (was 76')"
+      ],
       "squad": [
         {
           "name": "Joe Hart",
@@ -2799,7 +2845,7 @@
           "name": "Carlos Tevez",
           "pos": "ST",
           "role": "starter",
-          "off": 76
+          "off": 75
         },
         {
           "name": "Sergio Agüero",
@@ -2827,7 +2873,7 @@
           "name": "Mario Balotelli",
           "pos": "FW",
           "role": "sub_used",
-          "on": 76,
+          "on": 75,
           "for": "Carlos Tevez",
           "rarity": 25.0
         }
@@ -3163,8 +3209,13 @@
       },
       "draft_confidence": "high",
       "sources": [],
-      "web_checked": [],
-      "flags": [],
+      "web_checked": [
+        "https://www.espn.com/soccer/match/_/gameId/392450/atletico-madrid-real-madrid",
+        "https://en.wikipedia.org/wiki/2014_UEFA_Champions_League_final"
+      ],
+      "flags": [
+        "XI and subs confirmed as drafted"
+      ],
       "squad": [
         {
           "name": "Iker Casillas",
@@ -3271,9 +3322,12 @@
       },
       "draft_confidence": "high",
       "sources": [],
-      "web_checked": [],
+      "web_checked": [
+        "https://www.fifa.com/en/tournaments/mens/worldcup/articles/brazil-germany-2014",
+        "https://www.thesoccerworldcups.com/games/2014_brazil_germany.php"
+      ],
       "flags": [
-        "Same match as 2014-wc-semi-germany (already 2-sourced)"
+        "XI and subs confirmed; Willian 69-70'"
       ],
       "squad": [
         {
@@ -3383,8 +3437,13 @@
       },
       "draft_confidence": "high",
       "sources": [],
-      "web_checked": [],
-      "flags": [],
+      "web_checked": [
+        "https://www.thesoccerworldcups.com/games/2014_germany_argentina.php",
+        "https://www.planetworldcup.com/CUPS/2014/final_ger_v_arg.html"
+      ],
+      "flags": [
+        "XI and subs confirmed; Schürrle 31-32'"
+      ],
       "squad": [
         {
           "name": "Manuel Neuer",
@@ -3949,9 +4008,12 @@
       },
       "draft_confidence": "high",
       "sources": [],
-      "web_checked": [],
+      "web_checked": [
+        "https://www.uefa.com/uefaeuro/match/2017907--portugal-vs-france/lineups/",
+        "https://en.wikipedia.org/wiki/UEFA_Euro_2016_final"
+      ],
       "flags": [
-        "Same match as 2016-euro-final-portugal (XI 2-sourced, subs single-source)"
+        "XI and subs confirmed as drafted (UEFA line-ups page)"
       ],
       "squad": [
         {
@@ -4302,8 +4364,13 @@
       },
       "draft_confidence": "high",
       "sources": [],
-      "web_checked": [],
-      "flags": [],
+      "web_checked": [
+        "https://www.national-football-teams.com/matches/report/20431/France_Croatia.html",
+        "https://terrikon.com/en/football/matches/44221"
+      ],
+      "flags": [
+        "XI and subs confirmed; N'Zonzi 54-55'"
+      ],
       "squad": [
         {
           "name": "Hugo Lloris",
@@ -4531,9 +4598,13 @@
       },
       "draft_confidence": "high",
       "sources": [],
-      "web_checked": [],
+      "web_checked": [
+        "https://www.footballcritic.com/uefa-champions-league-liverpool-fc-fc-barcelona/match-report/1627145",
+        "https://www.foxsports.com/soccer/boxscore?id=54307"
+      ],
       "flags": [
-        "Late sub minutes unchecked"
+        "CORRECTED: Gomez replaced Origi, Sturridge replaced Shaqiri",
+        "Most sources: Wijnaldum on for the injured Robertson at half-time (one report frames it differently)"
       ],
       "squad": [
         {
@@ -4618,16 +4689,16 @@
           "rarity": 25.0
         },
         {
-          "name": "Daniel Sturridge",
-          "pos": "FW",
+          "name": "Joe Gomez",
+          "pos": "DF",
           "role": "sub_used",
           "on": 85,
           "for": "Divock Origi",
           "rarity": 8.0
         },
         {
-          "name": "Joe Gomez",
-          "pos": "DF",
+          "name": "Daniel Sturridge",
+          "pos": "FW",
           "role": "sub_used",
           "on": 90,
           "for": "Xherdan Shaqiri",
@@ -4910,8 +4981,13 @@
       },
       "draft_confidence": "high",
       "sources": [],
-      "web_checked": [],
-      "flags": [],
+      "web_checked": [
+        "https://www.uefa.com/uefachampionsleague/match/2029498--man-city-vs-chelsea/",
+        "https://en.wikipedia.org/wiki/2021_UEFA_Champions_League_final"
+      ],
+      "flags": [
+        "XI and subs confirmed as drafted"
+      ],
       "squad": [
         {
           "name": "Édouard Mendy",
@@ -5449,8 +5525,13 @@
       },
       "draft_confidence": "high",
       "sources": [],
-      "web_checked": [],
-      "flags": [],
+      "web_checked": [
+        "https://www.fotmob.com/matches/argentina-vs-france/1hox8a",
+        "https://sports.yahoo.com/soccer/world-cup/argentina-france-11327244/"
+      ],
+      "flags": [
+        "All six subs confirmed; Lautaro 102-103', Montiel 90-91'"
+      ],
       "squad": [
         {
           "name": "Emiliano Martínez",
@@ -5594,8 +5675,13 @@
       },
       "draft_confidence": "high",
       "sources": [],
-      "web_checked": [],
-      "flags": [],
+      "web_checked": [
+        "https://www.uefa.com/uefachampionsleague/match/2037765--man-city-vs-inter/",
+        "https://www.skysports.com/football/manchester-city-vs-inter-milan/teams/481702"
+      ],
+      "flags": [
+        "CORRECTED: Walker replaced Stones, not Aké"
+      ],
       "squad": [
         {
           "name": "Ederson",
@@ -5619,13 +5705,13 @@
           "name": "Nathan Aké",
           "pos": "CB",
           "role": "starter",
-          "off": 82,
           "rarity": 18.0
         },
         {
           "name": "John Stones",
           "pos": "DM",
           "role": "starter",
+          "off": 82,
           "rarity": 35.0
         },
         {
@@ -5682,7 +5768,7 @@
           "pos": "DF",
           "role": "sub_used",
           "on": 82,
-          "for": "Nathan Aké",
+          "for": "John Stones",
           "rarity": 25.0
         }
       ]
