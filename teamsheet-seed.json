@@ -231,105 +231,151 @@
       ]
     },
     {
-      "id": "2004-euro-final-greece",
-      "date": "2004-07-04",
-      "competition": "UEFA Euro 2004 Final",
-      "team": "Greece",
-      "opponent": "Portugal",
-      "result": "1-0",
-      "formation": "4-3-1-2",
+      "id": "2022-wc-final-argentina",
+      "date": "2022-12-18",
+      "competition": "FIFA World Cup Final",
+      "team": "Argentina",
+      "opponent": "France",
+      "result": "3-3 aet, won 4-2 on penalties",
+      "formation": "4-3-3",
       "verification": {
         "xi": "verified",
         "subs_used": "verified"
       },
       "sources": [
-        "ESPN gameId 151740",
-        "FBref match report (minutes played)"
+        "https://www.fotmob.com/matches/argentina-vs-france/1hox8a",
+        "https://sports.yahoo.com/soccer/world-cup/argentina-france-11327244/"
+      ],
+      "flags": [
+        "Verified 2026-11-12 (user decision): web-search results citing the listed sources agreed; pages were not read in full by a person",
+        "All six subs confirmed; Lautaro 102-103', Montiel 90-91'"
       ],
       "squad": [
         {
-          "name": "Antonios Nikopolidis",
-          "num": 1,
+          "name": "Emiliano Martínez",
           "pos": "GK",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0,
+          "aliases": [
+            "dibu"
+          ]
         },
         {
-          "name": "Giourkas Seitaridis",
-          "num": 2,
+          "name": "Nahuel Molina",
           "pos": "RB",
-          "role": "starter"
+          "role": "starter",
+          "off": 91,
+          "rarity": 18.0
         },
         {
-          "name": "Michalis Kapsis",
-          "num": 19,
+          "name": "Cristian Romero",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 18.0
         },
         {
-          "name": "Traianos Dellas",
-          "num": 5,
+          "name": "Nicolás Otamendi",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 18.0
         },
         {
-          "name": "Takis Fyssas",
-          "num": 14,
+          "name": "Nicolás Tagliafico",
           "pos": "LB",
-          "role": "starter"
+          "role": "starter",
+          "off": 120,
+          "rarity": 18.0
         },
         {
-          "name": "Kostas Katsouranis",
-          "num": 21,
+          "name": "Enzo Fernández",
           "pos": "DM",
-          "role": "starter"
-        },
-        {
-          "name": "Theodoros Zagorakis",
-          "num": 7,
-          "pos": "CM",
-          "role": "starter"
-        },
-        {
-          "name": "Angelos Basinas",
-          "num": 6,
-          "pos": "CM",
-          "role": "starter"
-        },
-        {
-          "name": "Stelios Giannakopoulos",
-          "num": 8,
-          "pos": "CAM",
           "role": "starter",
-          "off": 76
+          "rarity": 35.0,
+          "short": "Enzo"
         },
         {
-          "name": "Zisis Vryzas",
-          "num": 15,
+          "name": "Rodrigo De Paul",
+          "pos": "CM",
+          "role": "starter",
+          "off": 102,
+          "rarity": 35.0
+        },
+        {
+          "name": "Alexis Mac Allister",
+          "pos": "CM",
+          "role": "starter",
+          "off": 116,
+          "rarity": 35.0,
+          "short": "Mac Allister"
+        },
+        {
+          "name": "Lionel Messi",
+          "pos": "RW",
+          "role": "starter",
+          "rarity": 60.0
+        },
+        {
+          "name": "Julián Álvarez",
           "pos": "ST",
           "role": "starter",
-          "off": 81
+          "off": 103,
+          "rarity": 35.0
         },
         {
-          "name": "Angelos Charisteas",
-          "num": 9,
-          "pos": "ST",
-          "role": "starter"
+          "name": "Ángel Di María",
+          "pos": "LW",
+          "role": "starter",
+          "off": 64,
+          "rarity": 60.0
         },
         {
-          "name": "Stylianos Venetidis",
-          "num": 3,
+          "name": "Marcos Acuña",
           "pos": "DF",
           "role": "sub_used",
-          "on": 76,
-          "for": "Stelios Giannakopoulos"
+          "on": 64,
+          "for": "Ángel Di María",
+          "rarity": 8.0
         },
         {
-          "name": "Dimitris Papadopoulos",
-          "num": 22,
+          "name": "Gonzalo Montiel",
+          "pos": "DF",
+          "role": "sub_used",
+          "on": 91,
+          "for": "Nahuel Molina",
+          "rarity": 8.0
+        },
+        {
+          "name": "Leandro Paredes",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 102,
+          "for": "Rodrigo De Paul",
+          "rarity": 8.0
+        },
+        {
+          "name": "Lautaro Martínez",
           "pos": "FW",
           "role": "sub_used",
-          "on": 81,
-          "for": "Zisis Vryzas"
+          "on": 103,
+          "for": "Julián Álvarez",
+          "rarity": 25.0,
+          "short": "Lautaro"
+        },
+        {
+          "name": "Germán Pezzella",
+          "pos": "DF",
+          "role": "sub_used",
+          "on": 116,
+          "for": "Alexis Mac Allister",
+          "rarity": 8.0
+        },
+        {
+          "name": "Paulo Dybala",
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 120,
+          "for": "Nicolás Tagliafico",
+          "rarity": 25.0
         }
       ]
     },
@@ -1111,372 +1157,6 @@
           "role": "sub_used",
           "on": 90,
           "for": "Ronaldo"
-        }
-      ]
-    },
-    {
-      "id": "2022-wc-final-argentina",
-      "date": "2022-12-18",
-      "competition": "FIFA World Cup Final",
-      "team": "Argentina",
-      "opponent": "France",
-      "result": "3-3 aet, won 4-2 on penalties",
-      "formation": "4-3-3",
-      "verification": {
-        "xi": "verified",
-        "subs_used": "verified"
-      },
-      "sources": [
-        "https://www.fotmob.com/matches/argentina-vs-france/1hox8a",
-        "https://sports.yahoo.com/soccer/world-cup/argentina-france-11327244/"
-      ],
-      "flags": [
-        "Verified 2026-11-12 (user decision): web-search results citing the listed sources agreed; pages were not read in full by a person",
-        "All six subs confirmed; Lautaro 102-103', Montiel 90-91'"
-      ],
-      "squad": [
-        {
-          "name": "Emiliano Martínez",
-          "pos": "GK",
-          "role": "starter",
-          "rarity": 35.0,
-          "aliases": [
-            "dibu"
-          ]
-        },
-        {
-          "name": "Nahuel Molina",
-          "pos": "RB",
-          "role": "starter",
-          "off": 91,
-          "rarity": 18.0
-        },
-        {
-          "name": "Cristian Romero",
-          "pos": "CB",
-          "role": "starter",
-          "rarity": 18.0
-        },
-        {
-          "name": "Nicolás Otamendi",
-          "pos": "CB",
-          "role": "starter",
-          "rarity": 18.0
-        },
-        {
-          "name": "Nicolás Tagliafico",
-          "pos": "LB",
-          "role": "starter",
-          "off": 120,
-          "rarity": 18.0
-        },
-        {
-          "name": "Enzo Fernández",
-          "pos": "DM",
-          "role": "starter",
-          "rarity": 35.0,
-          "short": "Enzo"
-        },
-        {
-          "name": "Rodrigo De Paul",
-          "pos": "CM",
-          "role": "starter",
-          "off": 102,
-          "rarity": 35.0
-        },
-        {
-          "name": "Alexis Mac Allister",
-          "pos": "CM",
-          "role": "starter",
-          "off": 116,
-          "rarity": 35.0,
-          "short": "Mac Allister"
-        },
-        {
-          "name": "Lionel Messi",
-          "pos": "RW",
-          "role": "starter",
-          "rarity": 60.0
-        },
-        {
-          "name": "Julián Álvarez",
-          "pos": "ST",
-          "role": "starter",
-          "off": 103,
-          "rarity": 35.0
-        },
-        {
-          "name": "Ángel Di María",
-          "pos": "LW",
-          "role": "starter",
-          "off": 64,
-          "rarity": 60.0
-        },
-        {
-          "name": "Marcos Acuña",
-          "pos": "DF",
-          "role": "sub_used",
-          "on": 64,
-          "for": "Ángel Di María",
-          "rarity": 8.0
-        },
-        {
-          "name": "Gonzalo Montiel",
-          "pos": "DF",
-          "role": "sub_used",
-          "on": 91,
-          "for": "Nahuel Molina",
-          "rarity": 8.0
-        },
-        {
-          "name": "Leandro Paredes",
-          "pos": "MF",
-          "role": "sub_used",
-          "on": 102,
-          "for": "Rodrigo De Paul",
-          "rarity": 8.0
-        },
-        {
-          "name": "Lautaro Martínez",
-          "pos": "FW",
-          "role": "sub_used",
-          "on": 103,
-          "for": "Julián Álvarez",
-          "rarity": 25.0,
-          "short": "Lautaro"
-        },
-        {
-          "name": "Germán Pezzella",
-          "pos": "DF",
-          "role": "sub_used",
-          "on": 116,
-          "for": "Alexis Mac Allister",
-          "rarity": 8.0
-        },
-        {
-          "name": "Paulo Dybala",
-          "pos": "FW",
-          "role": "sub_used",
-          "on": 120,
-          "for": "Nicolás Tagliafico",
-          "rarity": 25.0
-        }
-      ]
-    },
-    {
-      "id": "2010-ucl-final-bayern",
-      "date": "2010-05-22",
-      "competition": "UEFA Champions League Final",
-      "team": "Bayern Munich",
-      "opponent": "Inter",
-      "result": "lost 0-2",
-      "formation": "4-2-3-1",
-      "verification": {
-        "xi": "verified",
-        "subs_used": "verified"
-      },
-      "sources": [
-        "https://fcbayern.com/en/matches/profis/champions-league/2009-2010/fc-bayern-muenchen-inter-mailand-22-05-2010/lineup",
-        "https://www.uefa.com/uefachampionsleague/match/2000488--bayern-vs-internazionale/"
-      ],
-      "flags": [
-        "Verified 2026-11-12 (user decision): web-search results citing the listed sources agreed; pages were not read in full by a person",
-        "XI and subs confirmed as drafted"
-      ],
-      "squad": [
-        {
-          "name": "Hans-Jörg Butt",
-          "pos": "GK",
-          "role": "starter",
-          "rarity": 10.0
-        },
-        {
-          "name": "Philipp Lahm",
-          "pos": "RB",
-          "role": "starter"
-        },
-        {
-          "name": "Daniel Van Buyten",
-          "pos": "CB",
-          "role": "starter",
-          "rarity": 10.0
-        },
-        {
-          "name": "Martín Demichelis",
-          "pos": "CB",
-          "role": "starter",
-          "rarity": 35.0
-        },
-        {
-          "name": "Holger Badstuber",
-          "pos": "LB",
-          "role": "starter",
-          "rarity": 10.0
-        },
-        {
-          "name": "Mark van Bommel",
-          "pos": "DM",
-          "role": "starter",
-          "rarity": 35.0
-        },
-        {
-          "name": "Bastian Schweinsteiger",
-          "pos": "DM",
-          "role": "starter"
-        },
-        {
-          "name": "Arjen Robben",
-          "pos": "RW",
-          "role": "starter",
-          "rarity": 60.0
-        },
-        {
-          "name": "Thomas Müller",
-          "pos": "CAM",
-          "role": "starter"
-        },
-        {
-          "name": "Hamit Altıntop",
-          "pos": "LW",
-          "role": "starter",
-          "off": 63,
-          "rarity": 10.0
-        },
-        {
-          "name": "Ivica Olić",
-          "pos": "ST",
-          "role": "starter",
-          "off": 74,
-          "rarity": 35.0
-        },
-        {
-          "name": "Miroslav Klose",
-          "pos": "FW",
-          "role": "sub_used",
-          "on": 63,
-          "for": "Hamit Altıntop"
-        },
-        {
-          "name": "Mario Gómez",
-          "pos": "FW",
-          "role": "sub_used",
-          "on": 74,
-          "for": "Ivica Olić",
-          "rarity": 25.0
-        }
-      ]
-    },
-    {
-      "id": "2016-euro-r16-iceland",
-      "date": "2016-06-27",
-      "competition": "UEFA Euro 2016 Round of 16",
-      "team": "Iceland",
-      "opponent": "England",
-      "result": "2-1",
-      "formation": "4-4-2",
-      "verification": {
-        "xi": "verified",
-        "subs_used": "verified"
-      },
-      "sources": [
-        "https://www.thefa.com/news/2016/jun/27/england-iceland-report-270616",
-        "https://www.uefa.com/uefaeuro/history/news/0253-0d8193ba70fb-40c2e7602d67-1000--iceland-into-euro-2016-quarter-finals-after-stunning-england/"
-      ],
-      "flags": [
-        "Verified 2026-11-12 (user decision): web-search results citing the listed sources agreed; pages were not read in full by a person",
-        "Subs confirmed by the FA and UEFA reports",
-        "CB left/right order unchecked"
-      ],
-      "squad": [
-        {
-          "name": "Hannes Halldórsson",
-          "pos": "GK",
-          "role": "starter",
-          "rarity": 4.0
-        },
-        {
-          "name": "Birkir Már Sævarsson",
-          "pos": "RB",
-          "role": "starter",
-          "rarity": 4.0
-        },
-        {
-          "name": "Kári Árnason",
-          "pos": "CB",
-          "role": "starter",
-          "rarity": 4.0
-        },
-        {
-          "name": "Ragnar Sigurðsson",
-          "pos": "CB",
-          "role": "starter",
-          "rarity": 4.0,
-          "short": "Ragnar"
-        },
-        {
-          "name": "Ari Freyr Skúlason",
-          "pos": "LB",
-          "role": "starter",
-          "rarity": 4.0
-        },
-        {
-          "name": "Jóhann Berg Guðmundsson",
-          "pos": "RM",
-          "role": "starter",
-          "rarity": 4.0
-        },
-        {
-          "name": "Aron Gunnarsson",
-          "pos": "CM",
-          "role": "starter",
-          "rarity": 4.0
-        },
-        {
-          "name": "Gylfi Sigurðsson",
-          "pos": "CM",
-          "role": "starter",
-          "rarity": 35.0,
-          "short": "Gylfi",
-          "aliases": [
-            "gylfi sigurdsson"
-          ]
-        },
-        {
-          "name": "Birkir Bjarnason",
-          "pos": "LM",
-          "role": "starter",
-          "rarity": 4.0
-        },
-        {
-          "name": "Kolbeinn Sigþórsson",
-          "pos": "ST",
-          "role": "starter",
-          "off": 77,
-          "rarity": 4.0
-        },
-        {
-          "name": "Jón Daði Böðvarsson",
-          "pos": "ST",
-          "role": "starter",
-          "off": 89,
-          "rarity": 4.0
-        },
-        {
-          "name": "Theódór Elmar Bjarnason",
-          "pos": "MF",
-          "role": "sub_used",
-          "on": 77,
-          "for": "Kolbeinn Sigþórsson",
-          "rarity": 2.0,
-          "short": "Elmar"
-        },
-        {
-          "name": "Arnór Ingvi Traustason",
-          "pos": "MF",
-          "role": "sub_used",
-          "on": 89,
-          "for": "Jón Daði Böðvarsson",
-          "rarity": 2.0
         }
       ]
     },
@@ -2313,6 +1993,109 @@
       ]
     },
     {
+      "id": "2010-ucl-final-bayern",
+      "date": "2010-05-22",
+      "competition": "UEFA Champions League Final",
+      "team": "Bayern Munich",
+      "opponent": "Inter",
+      "result": "lost 0-2",
+      "formation": "4-2-3-1",
+      "verification": {
+        "xi": "verified",
+        "subs_used": "verified"
+      },
+      "sources": [
+        "https://fcbayern.com/en/matches/profis/champions-league/2009-2010/fc-bayern-muenchen-inter-mailand-22-05-2010/lineup",
+        "https://www.uefa.com/uefachampionsleague/match/2000488--bayern-vs-internazionale/"
+      ],
+      "flags": [
+        "Verified 2026-11-12 (user decision): web-search results citing the listed sources agreed; pages were not read in full by a person",
+        "XI and subs confirmed as drafted"
+      ],
+      "squad": [
+        {
+          "name": "Hans-Jörg Butt",
+          "pos": "GK",
+          "role": "starter",
+          "rarity": 10.0
+        },
+        {
+          "name": "Philipp Lahm",
+          "pos": "RB",
+          "role": "starter"
+        },
+        {
+          "name": "Daniel Van Buyten",
+          "pos": "CB",
+          "role": "starter",
+          "rarity": 10.0
+        },
+        {
+          "name": "Martín Demichelis",
+          "pos": "CB",
+          "role": "starter",
+          "rarity": 35.0
+        },
+        {
+          "name": "Holger Badstuber",
+          "pos": "LB",
+          "role": "starter",
+          "rarity": 10.0
+        },
+        {
+          "name": "Mark van Bommel",
+          "pos": "DM",
+          "role": "starter",
+          "rarity": 35.0
+        },
+        {
+          "name": "Bastian Schweinsteiger",
+          "pos": "DM",
+          "role": "starter"
+        },
+        {
+          "name": "Arjen Robben",
+          "pos": "RW",
+          "role": "starter",
+          "rarity": 60.0
+        },
+        {
+          "name": "Thomas Müller",
+          "pos": "CAM",
+          "role": "starter"
+        },
+        {
+          "name": "Hamit Altıntop",
+          "pos": "LW",
+          "role": "starter",
+          "off": 63,
+          "rarity": 10.0
+        },
+        {
+          "name": "Ivica Olić",
+          "pos": "ST",
+          "role": "starter",
+          "off": 74,
+          "rarity": 35.0
+        },
+        {
+          "name": "Miroslav Klose",
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 63,
+          "for": "Hamit Altıntop"
+        },
+        {
+          "name": "Mario Gómez",
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 74,
+          "for": "Ivica Olić",
+          "rarity": 25.0
+        }
+      ]
+    },
+    {
       "id": "2004-pl-arsenal",
       "date": "2004-04-09",
       "competition": "Premier League",
@@ -2413,243 +2196,6 @@
           "role": "sub_used",
           "on": 90,
           "for": "Freddie Ljungberg",
-          "rarity": 8.0
-        }
-      ]
-    },
-    {
-      "id": "2011-uel-final-porto",
-      "date": "2011-05-18",
-      "competition": "UEFA Europa League Final",
-      "team": "Porto",
-      "opponent": "Braga",
-      "result": "1-0",
-      "formation": "4-3-3",
-      "verification": {
-        "xi": "verified",
-        "subs_used": "verified"
-      },
-      "sources": [
-        "https://www.rte.ie/sport/soccer/2011/0518/280087-europaleague_porto_braga/",
-        "https://www.espn.com/soccer/lineups/_/gameId/316536"
-      ],
-      "flags": [
-        "Verified 2026-11-12 (user decision): web-search results citing the listed sources agreed; pages were not read in full by a person",
-        "XI confirmed; Rúben Micael was an unused sub"
-      ],
-      "squad": [
-        {
-          "name": "Helton",
-          "pos": "GK",
-          "role": "starter",
-          "rarity": 4.0
-        },
-        {
-          "name": "Cristian Săpunaru",
-          "pos": "RB",
-          "role": "starter",
-          "rarity": 4.0
-        },
-        {
-          "name": "Rolando",
-          "pos": "CB",
-          "role": "starter",
-          "rarity": 4.0
-        },
-        {
-          "name": "Nicolás Otamendi",
-          "pos": "CB",
-          "role": "starter",
-          "rarity": 4.0
-        },
-        {
-          "name": "Álvaro Pereira",
-          "pos": "LB",
-          "role": "starter",
-          "rarity": 4.0
-        },
-        {
-          "name": "Fernando",
-          "pos": "DM",
-          "role": "starter",
-          "rarity": 4.0
-        },
-        {
-          "name": "João Moutinho",
-          "pos": "CM",
-          "role": "starter"
-        },
-        {
-          "name": "Fredy Guarín",
-          "pos": "CM",
-          "role": "starter",
-          "off": 73,
-          "rarity": 4.0
-        },
-        {
-          "name": "Hulk",
-          "pos": "RW",
-          "role": "starter",
-          "rarity": 35.0
-        },
-        {
-          "name": "Radamel Falcao",
-          "pos": "ST",
-          "role": "starter",
-          "rarity": 35.0,
-          "aliases": [
-            "falcao garcia"
-          ]
-        },
-        {
-          "name": "Silvestre Varela",
-          "pos": "LW",
-          "role": "starter",
-          "off": 79,
-          "rarity": 4.0
-        },
-        {
-          "name": "Fernando Belluschi",
-          "pos": "MF",
-          "role": "sub_used",
-          "on": 73,
-          "for": "Fredy Guarín",
-          "rarity": 2.0
-        },
-        {
-          "name": "James Rodríguez",
-          "pos": "MF",
-          "role": "sub_used",
-          "on": 79,
-          "for": "Silvestre Varela",
-          "rarity": 25.0,
-          "short": "James"
-        }
-      ]
-    },
-    {
-      "id": "2020-ucl-final-bayern",
-      "date": "2020-08-23",
-      "competition": "UEFA Champions League Final",
-      "team": "Bayern Munich",
-      "opponent": "Paris Saint-Germain",
-      "result": "1-0",
-      "formation": "4-2-3-1",
-      "verification": {
-        "xi": "verified",
-        "subs_used": "verified"
-      },
-      "sources": [
-        "https://fcbayern.com/en/matches/profis/champions-league/2019-2020/champions-league-finale-paris-saint-germain-fc-bayern-23.08.2020/lineup",
-        "https://www.espn.com/soccer/match/_/gameId/573698/bayern-munich-paris-saint-germain"
-      ],
-      "flags": [
-        "Verified 2026-11-12 (user decision): web-search results citing the listed sources agreed; pages were not read in full by a person",
-        "CORRECTED: removed Choupo-Moting (he played for PSG)",
-        "Sources differ by a minute (68/69, 86/87)"
-      ],
-      "squad": [
-        {
-          "name": "Manuel Neuer",
-          "pos": "GK",
-          "role": "starter"
-        },
-        {
-          "name": "Joshua Kimmich",
-          "pos": "RB",
-          "role": "starter",
-          "rarity": 35.0
-        },
-        {
-          "name": "Jérôme Boateng",
-          "pos": "CB",
-          "role": "starter",
-          "off": 25
-        },
-        {
-          "name": "David Alaba",
-          "pos": "CB",
-          "role": "starter",
-          "rarity": 35.0
-        },
-        {
-          "name": "Alphonso Davies",
-          "pos": "LB",
-          "role": "starter",
-          "rarity": 35.0
-        },
-        {
-          "name": "Leon Goretzka",
-          "pos": "DM",
-          "role": "starter",
-          "rarity": 35.0
-        },
-        {
-          "name": "Thiago Alcântara",
-          "pos": "DM",
-          "role": "starter",
-          "off": 86,
-          "rarity": 35.0,
-          "short": "Thiago",
-          "aliases": [
-            "thiago alcantara"
-          ]
-        },
-        {
-          "name": "Serge Gnabry",
-          "pos": "RW",
-          "role": "starter",
-          "off": 68,
-          "rarity": 35.0
-        },
-        {
-          "name": "Thomas Müller",
-          "pos": "CAM",
-          "role": "starter"
-        },
-        {
-          "name": "Kingsley Coman",
-          "pos": "LW",
-          "role": "starter",
-          "off": 68,
-          "rarity": 35.0
-        },
-        {
-          "name": "Robert Lewandowski",
-          "pos": "ST",
-          "role": "starter",
-          "rarity": 60.0
-        },
-        {
-          "name": "Niklas Süle",
-          "pos": "DF",
-          "role": "sub_used",
-          "on": 25,
-          "for": "Jérôme Boateng",
-          "rarity": 8.0
-        },
-        {
-          "name": "Philippe Coutinho",
-          "pos": "MF",
-          "role": "sub_used",
-          "on": 68,
-          "for": "Serge Gnabry",
-          "rarity": 25.0
-        },
-        {
-          "name": "Ivan Perišić",
-          "pos": "MF",
-          "role": "sub_used",
-          "on": 68,
-          "for": "Kingsley Coman",
-          "rarity": 25.0
-        },
-        {
-          "name": "Corentin Tolisso",
-          "pos": "MF",
-          "role": "sub_used",
-          "on": 86,
-          "for": "Thiago Alcântara",
           "rarity": 8.0
         }
       ]
@@ -2897,6 +2443,133 @@
           "role": "sub_used",
           "on": 89,
           "for": "Lamine Yamal",
+          "rarity": 8.0
+        }
+      ]
+    },
+    {
+      "id": "2020-ucl-final-bayern",
+      "date": "2020-08-23",
+      "competition": "UEFA Champions League Final",
+      "team": "Bayern Munich",
+      "opponent": "Paris Saint-Germain",
+      "result": "1-0",
+      "formation": "4-2-3-1",
+      "verification": {
+        "xi": "verified",
+        "subs_used": "verified"
+      },
+      "sources": [
+        "https://fcbayern.com/en/matches/profis/champions-league/2019-2020/champions-league-finale-paris-saint-germain-fc-bayern-23.08.2020/lineup",
+        "https://www.espn.com/soccer/match/_/gameId/573698/bayern-munich-paris-saint-germain"
+      ],
+      "flags": [
+        "Verified 2026-11-12 (user decision): web-search results citing the listed sources agreed; pages were not read in full by a person",
+        "CORRECTED: removed Choupo-Moting (he played for PSG)",
+        "Sources differ by a minute (68/69, 86/87)"
+      ],
+      "squad": [
+        {
+          "name": "Manuel Neuer",
+          "pos": "GK",
+          "role": "starter"
+        },
+        {
+          "name": "Joshua Kimmich",
+          "pos": "RB",
+          "role": "starter",
+          "rarity": 35.0
+        },
+        {
+          "name": "Jérôme Boateng",
+          "pos": "CB",
+          "role": "starter",
+          "off": 25
+        },
+        {
+          "name": "David Alaba",
+          "pos": "CB",
+          "role": "starter",
+          "rarity": 35.0
+        },
+        {
+          "name": "Alphonso Davies",
+          "pos": "LB",
+          "role": "starter",
+          "rarity": 35.0
+        },
+        {
+          "name": "Leon Goretzka",
+          "pos": "DM",
+          "role": "starter",
+          "rarity": 35.0
+        },
+        {
+          "name": "Thiago Alcântara",
+          "pos": "DM",
+          "role": "starter",
+          "off": 86,
+          "rarity": 35.0,
+          "short": "Thiago",
+          "aliases": [
+            "thiago alcantara"
+          ]
+        },
+        {
+          "name": "Serge Gnabry",
+          "pos": "RW",
+          "role": "starter",
+          "off": 68,
+          "rarity": 35.0
+        },
+        {
+          "name": "Thomas Müller",
+          "pos": "CAM",
+          "role": "starter"
+        },
+        {
+          "name": "Kingsley Coman",
+          "pos": "LW",
+          "role": "starter",
+          "off": 68,
+          "rarity": 35.0
+        },
+        {
+          "name": "Robert Lewandowski",
+          "pos": "ST",
+          "role": "starter",
+          "rarity": 60.0
+        },
+        {
+          "name": "Niklas Süle",
+          "pos": "DF",
+          "role": "sub_used",
+          "on": 25,
+          "for": "Jérôme Boateng",
+          "rarity": 8.0
+        },
+        {
+          "name": "Philippe Coutinho",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 68,
+          "for": "Serge Gnabry",
+          "rarity": 25.0
+        },
+        {
+          "name": "Ivan Perišić",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 68,
+          "for": "Kingsley Coman",
+          "rarity": 25.0
+        },
+        {
+          "name": "Corentin Tolisso",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 86,
+          "for": "Thiago Alcântara",
           "rarity": 8.0
         }
       ]
@@ -3248,99 +2921,6 @@
           "on": 84,
           "for": "Jakub Błaszczykowski",
           "rarity": 25.0
-        }
-      ]
-    },
-    {
-      "id": "2002-wc-group-senegal",
-      "date": "2002-05-31",
-      "competition": "FIFA World Cup group stage",
-      "team": "Senegal",
-      "opponent": "France",
-      "result": "1-0",
-      "formation": "4-1-4-1",
-      "verification": {
-        "xi": "verified",
-        "subs_used": "verified"
-      },
-      "sources": [
-        "https://www.espn.com/soccer/lineups/_/gameId/46457",
-        "https://www.thesoccerworldcups.com/games/2002_france_senegal.php",
-        "https://www.planetworldcup.com/CUPS/2002/groupa_fra_v_sen.html"
-      ],
-      "flags": [
-        "Verified 2026-11-12 (user decision): web-search results citing the listed sources agreed; pages were not read in full by a person",
-        "XI confirmed (ESPN, Planet World Cup, thesoccerworldcups)",
-        "Senegal made NO substitutions per two match accounts: confirm on the FIFA match report"
-      ],
-      "squad": [
-        {
-          "name": "Tony Sylva",
-          "pos": "GK",
-          "role": "starter",
-          "rarity": 4.0
-        },
-        {
-          "name": "Ferdinand Coly",
-          "pos": "RB",
-          "role": "starter",
-          "rarity": 4.0
-        },
-        {
-          "name": "Pape Malick Diop",
-          "pos": "CB",
-          "role": "starter",
-          "rarity": 4.0,
-          "short": "Malick Diop"
-        },
-        {
-          "name": "Lamine Diatta",
-          "pos": "CB",
-          "role": "starter",
-          "rarity": 4.0
-        },
-        {
-          "name": "Omar Daf",
-          "pos": "LB",
-          "role": "starter",
-          "rarity": 4.0
-        },
-        {
-          "name": "Aliou Cissé",
-          "pos": "DM",
-          "role": "starter",
-          "rarity": 4.0
-        },
-        {
-          "name": "Moussa N'Diaye",
-          "pos": "RM",
-          "role": "starter",
-          "rarity": 4.0
-        },
-        {
-          "name": "Salif Diao",
-          "pos": "CM",
-          "role": "starter",
-          "rarity": 4.0
-        },
-        {
-          "name": "Papa Bouba Diop",
-          "pos": "CM",
-          "role": "starter",
-          "rarity": 4.0,
-          "short": "Bouba Diop"
-        },
-        {
-          "name": "Khalilou Fadiga",
-          "pos": "LM",
-          "role": "starter",
-          "rarity": 4.0
-        },
-        {
-          "name": "El Hadji Diouf",
-          "pos": "ST",
-          "role": "starter",
-          "rarity": 4.0
         }
       ]
     },
@@ -4255,104 +3835,6 @@
       ]
     },
     {
-      "id": "2013-fa-cup-final-wigan",
-      "date": "2013-05-11",
-      "competition": "FA Cup Final",
-      "team": "Wigan Athletic",
-      "opponent": "Manchester City",
-      "result": "1-0",
-      "formation": "3-4-3",
-      "verification": {
-        "xi": "verified",
-        "subs_used": "verified"
-      },
-      "sources": [
-        "https://en.wikipedia.org/wiki/2013_FA_Cup_final",
-        "https://www.fa-cupfinals.co.uk/2013.html"
-      ],
-      "flags": [
-        "Verified 2026-11-12 (user decision): web-search results citing the listed sources agreed; pages were not read in full by a person",
-        "XI and Watson 81' for Gómez confirmed; one source gives Wigan as 3-4-2-1"
-      ],
-      "squad": [
-        {
-          "name": "Joel Robles",
-          "pos": "GK",
-          "role": "starter",
-          "rarity": 4.0
-        },
-        {
-          "name": "Emmerson Boyce",
-          "pos": "CB",
-          "role": "starter",
-          "rarity": 4.0
-        },
-        {
-          "name": "Antolín Alcaraz",
-          "pos": "CB",
-          "role": "starter",
-          "rarity": 4.0
-        },
-        {
-          "name": "Paul Scharner",
-          "pos": "CB",
-          "role": "starter",
-          "rarity": 4.0
-        },
-        {
-          "name": "Callum McManaman",
-          "pos": "RWB",
-          "role": "starter",
-          "rarity": 4.0
-        },
-        {
-          "name": "James McCarthy",
-          "pos": "CM",
-          "role": "starter",
-          "rarity": 4.0
-        },
-        {
-          "name": "James McArthur",
-          "pos": "CM",
-          "role": "starter",
-          "rarity": 4.0
-        },
-        {
-          "name": "Roger Espinoza",
-          "pos": "LWB",
-          "role": "starter",
-          "rarity": 4.0
-        },
-        {
-          "name": "Jordi Gómez",
-          "pos": "RW",
-          "role": "starter",
-          "off": 81,
-          "rarity": 4.0
-        },
-        {
-          "name": "Arouna Koné",
-          "pos": "ST",
-          "role": "starter",
-          "rarity": 4.0
-        },
-        {
-          "name": "Shaun Maloney",
-          "pos": "LW",
-          "role": "starter",
-          "rarity": 4.0
-        },
-        {
-          "name": "Ben Watson",
-          "pos": "MF",
-          "role": "sub_used",
-          "on": 81,
-          "for": "Jordi Gómez",
-          "rarity": 25.0
-        }
-      ]
-    },
-    {
       "id": "2019-ucl-semi-tottenham",
       "date": "2019-05-08",
       "competition": "UEFA Champions League Semi-final",
@@ -4832,126 +4314,6 @@
           "role": "sub_used",
           "on": 90,
           "for": "Luis Suárez"
-        }
-      ]
-    },
-    {
-      "id": "2004-ucl-final-porto",
-      "date": "2004-05-26",
-      "competition": "UEFA Champions League Final",
-      "team": "Porto",
-      "opponent": "Monaco",
-      "result": "3-0",
-      "formation": "4-3-1-2",
-      "verification": {
-        "xi": "verified",
-        "subs_used": "verified"
-      },
-      "sources": [
-        "https://www.espn.co.uk/football/lineups?gameId=151504",
-        "https://www.footballdatabase.eu/en/match/overview/1023461-monaco-fc_porto"
-      ],
-      "flags": [
-        "Verified 2026-11-12 (user decision): web-search results citing the listed sources agreed; pages were not read in full by a person",
-        "CORRECTED: Pedro Emanuel replaced Deco (84'), not Jorge Costa",
-        "Alenichev 60' per footballdatabase; ESPN shows 75' (his goal minute)"
-      ],
-      "squad": [
-        {
-          "name": "Vítor Baía",
-          "pos": "GK",
-          "role": "starter",
-          "rarity": 4.0,
-          "short": "Vítor Baía"
-        },
-        {
-          "name": "Paulo Ferreira",
-          "pos": "RB",
-          "role": "starter",
-          "rarity": 4.0
-        },
-        {
-          "name": "Jorge Costa",
-          "pos": "CB",
-          "role": "starter",
-          "rarity": 4.0
-        },
-        {
-          "name": "Ricardo Carvalho",
-          "pos": "CB",
-          "role": "starter",
-          "rarity": 35.0
-        },
-        {
-          "name": "Nuno Valente",
-          "pos": "LB",
-          "role": "starter",
-          "rarity": 4.0
-        },
-        {
-          "name": "Costinha",
-          "pos": "DM",
-          "role": "starter",
-          "rarity": 4.0
-        },
-        {
-          "name": "Pedro Mendes",
-          "pos": "CM",
-          "role": "starter",
-          "rarity": 4.0
-        },
-        {
-          "name": "Maniche",
-          "pos": "CM",
-          "role": "starter",
-          "rarity": 4.0
-        },
-        {
-          "name": "Deco",
-          "pos": "CAM",
-          "role": "starter",
-          "off": 84,
-          "rarity": 60.0
-        },
-        {
-          "name": "Carlos Alberto",
-          "pos": "ST",
-          "role": "starter",
-          "off": 60,
-          "rarity": 4.0,
-          "short": "Carlos Alberto"
-        },
-        {
-          "name": "Derlei",
-          "pos": "ST",
-          "role": "starter",
-          "off": 78,
-          "rarity": 4.0
-        },
-        {
-          "name": "Dmitri Alenichev",
-          "pos": "MF",
-          "role": "sub_used",
-          "on": 60,
-          "for": "Carlos Alberto",
-          "rarity": 2.0
-        },
-        {
-          "name": "Benni McCarthy",
-          "pos": "FW",
-          "role": "sub_used",
-          "on": 78,
-          "for": "Derlei",
-          "rarity": 2.0
-        },
-        {
-          "name": "Pedro Emanuel",
-          "pos": "DF",
-          "role": "sub_used",
-          "on": 84,
-          "for": "Deco",
-          "rarity": 2.0,
-          "short": "Pedro Emanuel"
         }
       ]
     },
@@ -5979,126 +5341,6 @@
           "on": 90,
           "for": "Riyad Mahrez",
           "rarity": 4.0
-        }
-      ]
-    },
-    {
-      "id": "2004-ucl-qf-deportivo",
-      "date": "2004-04-07",
-      "competition": "UEFA Champions League Quarter-final",
-      "team": "Deportivo",
-      "opponent": "AC Milan",
-      "result": "4-0 (lost first leg 1-4)",
-      "formation": "4-2-3-1",
-      "verification": {
-        "xi": "verified",
-        "subs_used": "verified"
-      },
-      "sources": [
-        "https://www.11v11.com/matches/deportivo-la-coru%C3%B1a-v-ac-milan-07-april-2004-24556/",
-        "https://www.besoccer.com/match/deportivo/milan/200432638/lineups"
-      ],
-      "flags": [
-        "Verified 2026-11-12 (user decision): web-search results citing the listed sources agreed; pages were not read in full by a person",
-        "XI and subs agree across 11v11 + BeSoccer"
-      ],
-      "squad": [
-        {
-          "name": "José Francisco Molina",
-          "pos": "GK",
-          "role": "starter",
-          "rarity": 4.0
-        },
-        {
-          "name": "Manuel Pablo",
-          "pos": "RB",
-          "role": "starter",
-          "rarity": 4.0,
-          "short": "Manuel Pablo"
-        },
-        {
-          "name": "Jorge Andrade",
-          "pos": "CB",
-          "role": "starter",
-          "rarity": 4.0
-        },
-        {
-          "name": "Noureddine Naybet",
-          "pos": "CB",
-          "role": "starter",
-          "rarity": 4.0
-        },
-        {
-          "name": "Enrique Romero",
-          "pos": "LB",
-          "role": "starter",
-          "rarity": 4.0
-        },
-        {
-          "name": "Mauro Silva",
-          "pos": "DM",
-          "role": "starter",
-          "rarity": 4.0,
-          "short": "Mauro Silva"
-        },
-        {
-          "name": "Sergio González",
-          "pos": "DM",
-          "role": "starter",
-          "off": 87,
-          "rarity": 4.0,
-          "short": "Sergio"
-        },
-        {
-          "name": "Víctor Sánchez",
-          "pos": "RW",
-          "role": "starter",
-          "rarity": 4.0,
-          "short": "Víctor"
-        },
-        {
-          "name": "Juan Carlos Valerón",
-          "pos": "CAM",
-          "role": "starter",
-          "off": 90,
-          "rarity": 35.0
-        },
-        {
-          "name": "Albert Luque",
-          "pos": "LW",
-          "role": "starter",
-          "off": 66,
-          "rarity": 4.0
-        },
-        {
-          "name": "Walter Pandiani",
-          "pos": "ST",
-          "role": "starter",
-          "rarity": 4.0
-        },
-        {
-          "name": "Fran",
-          "pos": "FW",
-          "role": "sub_used",
-          "on": 66,
-          "for": "Albert Luque",
-          "rarity": 2.0
-        },
-        {
-          "name": "Aldo Duscher",
-          "pos": "MF",
-          "role": "sub_used",
-          "on": 87,
-          "for": "Sergio González",
-          "rarity": 2.0
-        },
-        {
-          "name": "Djalminha",
-          "pos": "MF",
-          "role": "sub_used",
-          "on": 90,
-          "for": "Juan Carlos Valerón",
-          "rarity": 2.0
         }
       ]
     },

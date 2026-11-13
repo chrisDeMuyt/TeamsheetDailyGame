@@ -5,8 +5,12 @@ Rarer picks score more. Live at **https://teamsheet-daily.fly.dev** · repo `chr
 
 ## Current state (2026-11-13)
 
-- Friends beta running (≈10 devices). Puzzles #1–54 live, one per day, **2026-11-11 → 2027-01-03** (add more before then).
-- 6 medium-confidence drafts left in `teamsheet-drafts.json` (open questions in each match's `flags`).
+- Friends beta running (≈10 devices). Puzzles #1–47 live, one per day, **2026-11-11 → 2026-12-27** (add more before then).
+- 2026-11-13 reschedule (V6): today's #3 switched from Greece 2004 to Argentina 2022; **very obscure matches
+  removed from the schedule** (user: casual fans can't name anyone) → `teamsheet-shelved.json` (7 matches, still in the DB).
+  Rule going forward: avoid ★★★ "cult" matches (minnows / obscure finals); every puzzle needs several well-known names.
+- 6 medium-confidence drafts left in `teamsheet-drafts.json` (open questions in each match's `flags`); 4 of them
+  (Alavés, South Korea, Saudi Arabia, Morocco) are the obscure kind — probably shelve rather than promote.
 - ~5,000 extra players (Wikidata) back the "Did you mean" suggestions.
 - Tests: backend 53 (JUnit + Testcontainers), frontend 31 (Vitest). Both must pass before a deploy.
 
@@ -106,13 +110,24 @@ slot_pos, pitch x/y for starters, minute_on/off, replaced_id) · `puzzle` (numbe
 2. **Verify** XI + subs against 2 independent sources (rules below); put them in `sources`; set
    `verification.xi` / `subs_used` to `verified` (or `single_source`). Remove draft-only fields you don't need.
 3. **Move** the match object into `teamsheet-seed.json`. **Position in that file = puzzle order**; new matches are
-   appended after puzzle #54 (dates continue daily). Spread difficulty/clubs/eras; never put a match near its other side.
+   appended after the last puzzle (dates continue daily). Spread difficulty/clubs/eras; never put a match within
+   10 days of its other side, or the same team within 3 days. Skip obscure matches (see Current state).
 4. **Generate** the migration:
    `cd backend && ./mvnw -q test-compile exec:java -Dexec.mainClass=com.teamsheet.tools.SeedSqlGenerator -Dexec.classpathScope=test`
    → writes `Vn__puzzles_X_to_Y.sql` with only new players, `UPDATE seed_rarity` for extras now in a puzzle, aliases,
    the match, lineup, puzzles. It refuses unsourced/`unverified` matches and new players without `rarity`.
 5. `./mvnw test`, commit, deploy. **Never edit an applied migration** (Flyway checksums); `SeedSqlGeneratorTest`
    fails if a shipped match's JSON changes — fix shipped data with a new hand-written migration.
+
+### Rescheduling / removing puzzles
+
+Applied migrations can't change, so reschedules are new migrations in the V6 pattern
+(`V6__reschedule_from_3.sql`): `DELETE FROM pick_stat/play/puzzle WHERE ... >= N;` then re-insert puzzle rows
+`(n, DATE 'yyyy-mm-dd', 'match-id')` — `SeedSqlGenerator.scan` replays these to know the current schedule. Keep
+`teamsheet-seed.json` in exactly the new puzzle order (test `liveScheduleIsExactlyTheSeedOrder`). Only delete puzzles
+from today forward; deleting today's puzzle discards today's plays (OK'd by the user for the Greece switch).
+Unscheduled matches go to `teamsheet-shelved.json`; to bring one back, move it into the seed and run the generator
+(it adds just a puzzle row for matches already in the DB).
 
 ### Match JSON
 
@@ -178,7 +193,7 @@ duplicates). To load a refreshed list, write a **new** migration (the generator 
 - Drafting from memory is unreliable: in the 50-match pass ~1 in 4 drafts had a sub error and 3 had a wrong XI.
 - Known source errors: ESPN lists Inter 2010's GK as "J. De León" (was Júlio César); FBref's minutes-based lineup puts Navas in Spain 2010's XI (Pedro started).
 - Still single-source: Man Utd 2008, Inter 2010, Brazil 2002, Portugal 2016 subs.
-- Puzzles #11–54 are `verified` by user decision (2026-11-12) on the strength of a web-search check (2+ agreeing
+- The matches promoted on 2026-11-12 (V4) are `verified` by user decision on the strength of a web-search check (2+ agreeing
   sources cited, pages not read in full by a person); each carries a flag saying so.
 
 ## API
@@ -199,7 +214,7 @@ live-rarity-min-plays 200, sub-bonus 15, puzzle-zone America/Chicago.
 
 0. ~~ICE moonlighting/IP policy~~ checked, fine
 1–4. ~~Data spike, mockup, data model, core loop~~ done
-5. ~~Load ~60 matches + aliases, seed rarity~~ 54 live + 6 drafts; seed rarity still placeholder estimates
+5. ~~Load ~60 matches + aliases, seed rarity~~ 47 scheduled + 7 shelved + 6 drafts; seed rarity still placeholder estimates
 6. Share card ~~done~~ (native sheet + link card), streaks basic (no best-streak stat yet), pick logging done
 7. **Friends beta — in progress** (started 2026-11-12). Watch `deploy/beta-stats.sh`
 8. Launch: r/soccer, club subreddits, Product Hunt
@@ -207,4 +222,4 @@ live-rarity-min-plays 200, sub-bonus 15, puzzle-zone America/Chicago.
 10. Keep going if ~500 daily users, else shelve
 
 Open ideas: weekly `pg_dump` backup script, GitHub Actions CI, best-streak/games-played stats, next batch of matches
-before 2027-01-03, Mockup on claude.ai ("Teamsheet Mockup").
+before 2026-12-27, Mockup on claude.ai ("Teamsheet Mockup").

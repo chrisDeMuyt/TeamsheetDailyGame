@@ -41,13 +41,40 @@ class SeedSqlGeneratorTest {
         java.util.Set<String> players = new java.util.HashSet<>();
         seed.get("matches").forEach(m -> m.get("squad").forEach(p -> players.add(p.get("name").asText())));
 
-        assertThat(ex.matchIds()).hasSize(matches);
+        int shelved = read(Path.of("../teamsheet-shelved.json")).get("matches").size();
+        assertThat(ex.matchIds()).as("DB matches = scheduled (seed) + shelved").hasSize(matches + shelved);
         assertThat(ex.playerIds().keySet()).containsAll(players);
         assertThat(ex.unrated()).as("every puzzle player has a seed rarity").doesNotContainAnyElementsOf(players);
         assertThat(ex.maxPuzzle()).isEqualTo(matches);
         assertThat(ex.lastPuzzleDate()).isEqualTo(SeedSqlGenerator.FIRST_PUZZLE_DATE.plusDays(matches - 1));
         assertThat(SeedSqlGenerator.drift(seed, ex)).as("seed edited after migrating").isEmpty();
         assertThat(SeedSqlGenerator.plan(seed, ex)).as("seed has unmigrated matches: run the generator").isEmpty();
+    }
+
+    @Test
+    void liveScheduleIsExactlyTheSeedOrder() throws Exception {
+        var ex = SeedSqlGenerator.scan(SeedSqlGenerator.MIGRATIONS);
+        JsonNode matches = read(SeedSqlGenerator.DEFAULT_JSON).get("matches");
+        for (int i = 0; i < matches.size(); i++)
+            assertThat(ex.puzzles().get(i + 1)).as("puzzle #" + (i + 1)).isEqualTo(matches.get(i).get("id").asText());
+        assertThat(ex.puzzles().get(3)).as("today after the 2026-11-13 reschedule").isEqualTo("2022-wc-final-argentina");
+    }
+
+    @Test
+    void shelvedMatchesAreInTheDbButNotScheduledAndComeBackWithJustAPuzzleRow() throws Exception {
+        var ex = SeedSqlGenerator.scan(SeedSqlGenerator.MIGRATIONS);
+        JsonNode shelved = read(Path.of("../teamsheet-shelved.json")).get("matches");
+        assertThat(shelved).hasSize(7);
+        for (JsonNode m : shelved) {
+            assertThat(ex.matchIds()).contains(m.get("id").asText());
+            assertThat(ex.puzzles().values()).doesNotContain(m.get("id").asText());
+        }
+        ObjectNode seed = (ObjectNode) read(SeedSqlGenerator.DEFAULT_JSON);
+        ((ArrayNode) seed.get("matches")).add(shelved.get(0).deepCopy());          // bring Greece back
+        var m = SeedSqlGenerator.plan(seed, ex).orElseThrow();
+        assertThat(m.sql()).doesNotContain("INSERT INTO match ", "INSERT INTO match_player", "INSERT INTO player (")
+                .contains("(" + (ex.maxPuzzle() + 1) + ", DATE '" + ex.lastPuzzleDate().plusDays(1) + "', '"
+                        + shelved.get(0).get("id").asText() + "')");
     }
 
     @Test

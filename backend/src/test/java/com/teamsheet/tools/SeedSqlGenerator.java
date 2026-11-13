@@ -253,10 +253,19 @@ public final class SeedSqlGenerator {
 
     /** Parsed from the committed migrations (they're all in the format this class writes). */
     /** unrated = players with seed_rarity NULL (extra "Did you mean" players, never yet in a puzzle). */
+    /**
+     * matchIds = matches with rows in the DB; puzzles = the CURRENT schedule (number -> match id), after any
+     * "DELETE FROM puzzle WHERE number >= N" reschedules. A match can be in the DB but unscheduled (shelved).
+     */
     public record Existing(Map<String, Long> playerIds, Set<String> unrated, Map<Long, Set<String>> aliases,
-                           Set<String> matchIds, int maxPuzzle, LocalDate lastPuzzleDate, int maxVersion, String allSql) {
+                           Set<String> matchIds, TreeMap<Integer, String> puzzles, int maxPuzzle, LocalDate lastPuzzleDate,
+                           int maxVersion, String allSql) {
         long maxPlayerId() {
             return playerIds.values().stream().mapToLong(Long::longValue).max().orElse(0);
+        }
+
+        Set<String> scheduled() {
+            return new HashSet<>(puzzles.values());
         }
     }
 
@@ -273,7 +282,9 @@ public final class SeedSqlGenerator {
     private static final Pattern MATCH_ROW =
             Pattern.compile("^INSERT INTO match \\(.*?\\) VALUES \\('((?:[^']|'')*)'", Pattern.MULTILINE);
     private static final Pattern PUZZLE_ROW =
-            Pattern.compile("^\\s+\\((\\d+), DATE '(\\d{4}-\\d{2}-\\d{2})', '", Pattern.MULTILINE);
+            Pattern.compile("^\\s+\\((\\d+), DATE '(\\d{4}-\\d{2}-\\d{2})', '((?:[^']|'')*)'\\)", Pattern.MULTILINE);
+    private static final Pattern PUZZLE_DELETE =
+            Pattern.compile("^DELETE FROM puzzle WHERE number >= (\\d+);$", Pattern.MULTILINE);
 
     public static Existing scan(Path dir) throws IOException {
         return scan(dir, Integer.MAX_VALUE);
@@ -307,13 +318,35 @@ public final class SeedSqlGenerator {
             aliases.computeIfAbsent(Long.parseLong(m.group(1)), k -> new HashSet<>()).add(unq(m.group(2)));
         Set<String> matchIds = new LinkedHashSet<>();
         for (Matcher m = MATCH_ROW.matcher(sql); m.find(); ) matchIds.add(unq(m.group(1)));
-        int maxPuzzle = 0;
-        LocalDate last = null;
+        // Replay the schedule in order: puzzle rows add, "DELETE FROM puzzle WHERE number >= N" drops from N on.
+        TreeMap<Integer, String> puzzles = new TreeMap<>();
+        TreeMap<Integer, LocalDate> dates = new TreeMap<>();
+        List<int[]> events = new ArrayList<>();   // {position, kind 0=row 1=delete, matcher index}
+        List<String[]> rows = new ArrayList<>();
         for (Matcher m = PUZZLE_ROW.matcher(sql); m.find(); ) {
-            int n = Integer.parseInt(m.group(1));
-            if (n > maxPuzzle) { maxPuzzle = n; last = LocalDate.parse(m.group(2)); }
+            events.add(new int[]{m.start(), 0, rows.size()});
+            rows.add(new String[]{m.group(1), m.group(2), unq(m.group(3))});
         }
-        return new Existing(ids, unrated, aliases, matchIds, maxPuzzle, last, files.isEmpty() ? 0 : files.lastKey(), sql);
+        for (Matcher m = PUZZLE_DELETE.matcher(sql); m.find(); ) {
+            events.add(new int[]{m.start(), 1, rows.size()});
+            rows.add(new String[]{m.group(1)});
+        }
+        events.sort(Comparator.comparingInt(e -> e[0]));
+        for (int[] e : events) {
+            String[] r = rows.get(e[2]);
+            if (e[1] == 1) {
+                int from = Integer.parseInt(r[0]);
+                puzzles.tailMap(from, true).clear();
+                dates.tailMap(from, true).clear();
+            } else {
+                puzzles.put(Integer.parseInt(r[0]), r[2]);
+                dates.put(Integer.parseInt(r[0]), LocalDate.parse(r[1]));
+            }
+        }
+        int maxPuzzle = puzzles.isEmpty() ? 0 : puzzles.lastKey();
+        LocalDate last = dates.isEmpty() ? null : dates.lastEntry().getValue();
+        return new Existing(ids, unrated, aliases, matchIds, puzzles, maxPuzzle, last,
+                files.isEmpty() ? 0 : files.lastKey(), sql);
     }
 
     // ---------------------------------------------------------------- planning the next migration
@@ -330,9 +363,13 @@ public final class SeedSqlGenerator {
     public static Optional<Migration> plan(JsonNode seed, Existing ex, boolean requireSourced) {
         List<String> problems = new ArrayList<>();
         for (JsonNode m : seed.get("matches")) problems.addAll(validate(m));
+        // Pending = seed matches not on the current schedule. Some may already be in the DB (shelved, then moved back
+        // into the seed): those only get a puzzle row, never a second match/lineup.
+        Set<String> scheduled = ex.scheduled();
         List<JsonNode> pending = new ArrayList<>();
-        for (JsonNode m : seed.get("matches")) if (!ex.matchIds().contains(m.get("id").asText())) pending.add(m);
+        for (JsonNode m : seed.get("matches")) if (!scheduled.contains(m.get("id").asText())) pending.add(m);
         if (pending.isEmpty()) return Optional.empty();
+        List<JsonNode> newMatches = pending.stream().filter(m -> !ex.matchIds().contains(m.get("id").asText())).toList();
         if (requireSourced)
             for (JsonNode m : pending) {
                 String id = m.get("id").asText();
@@ -408,12 +445,14 @@ public final class SeedSqlGenerator {
                     .append(String.join(",\n", aliasRows)).append("\nON CONFLICT DO NOTHING;\n\n");
         }
 
-        sql.append("-- ---------- matches ----------\n");
-        for (JsonNode m : pending) sql.append(renderMatch(m));
-        sql.append('\n');
-        sql.append("-- ---------- match_player (pitch x/y from formation templates; subs have NULL coords) ----------\n");
-        for (JsonNode m : pending) sql.append(renderMatchPlayers(m, ids));
-        sql.append('\n');
+        if (!newMatches.isEmpty()) {
+            sql.append("-- ---------- matches ----------\n");
+            for (JsonNode m : newMatches) sql.append(renderMatch(m));
+            sql.append('\n');
+            sql.append("-- ---------- match_player (pitch x/y from formation templates; subs have NULL coords) ----------\n");
+            for (JsonNode m : newMatches) sql.append(renderMatchPlayers(m, ids));
+            sql.append('\n');
+        }
 
         sql.append("-- ---------- puzzles #").append(firstPuzzle).append("-").append(lastPuzzle).append(" ----------\n");
         sql.append("INSERT INTO puzzle (number, puzzle_date, match_id) VALUES\n");

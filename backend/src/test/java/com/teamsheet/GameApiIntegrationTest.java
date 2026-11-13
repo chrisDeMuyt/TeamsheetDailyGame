@@ -271,9 +271,9 @@ class GameApiIntegrationTest {
 
     @Test
     void promotedPuzzlePlaysWithNewAliases() throws Exception {
-        clock.set(Instant.parse("2026-11-21T12:00:00Z"));            // puzzle #11, Argentina 2022 (V4)
+        clock.set(Instant.parse("2026-11-13T12:00:00Z"));            // puzzle #3, Argentina 2022 (V6 reschedule)
         JsonNode today = body(mvc.perform(get("/api/puzzle/today")), status().isOk());
-        assertThat(today.get("number").asInt()).isEqualTo(11);
+        assertThat(today.get("number").asInt()).isEqualTo(3);
         assertThat(today.get("team").asText()).isEqualTo("Argentina");
 
         String play = newPlay();
