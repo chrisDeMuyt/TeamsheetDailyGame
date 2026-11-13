@@ -88,10 +88,31 @@ export function pickOutcome(p: Pick): string {
 
 // ---------------------------------------------------------------- share text
 
+/** One emoji per tier for the share text, so it never spells out tier names. */
+export const TIER_EMOJI: Record<string, string> = {
+  'Tap-in': '🥅',
+  'Solid Shout': '📣',
+  'Proper Fan': '🪭',
+  'Hidden Gem': '💎',
+  'Cult Hero': '🐐',
+};
+const MISS = '❌';
+const TIMEOUT = '⏱️';
+
 const GRASS = '🟩';
 const PLAYER = '⚪';
 const LIT = '🟡';
 const COLS = 5;
+
+/**
+ * Pitch x (0-100) -> one of 5 columns, rounding away from the centre so pairs mirror each other:
+ * CMs at 40/60 -> columns 1 and 3 (⚪⚪🟩⚪⚪), not 2 and 3.
+ */
+export function columnFor(x: number): number {
+  const offset = (x - 50) / 20;
+  const rounded = Math.sign(offset) * Math.round(Math.abs(offset));
+  return Math.min(COLS - 1, Math.max(0, 2 + rounded));
+}
 
 /**
  * Mini pitch with your picks lit, attack at the top:
@@ -100,7 +121,7 @@ const COLS = 5;
  *   ...
  *   Subs ⚪🟡⚪
  */
-export function buildShareText(reveal: Reveal, streak: number): string {
+export function buildShareText(reveal: Reveal, streak: number, link?: string): string {
   const starters = reveal.pool.filter((p) => p.role === 'starter' && p.x != null && p.y != null);
   const subs = reveal.pool.filter((p) => p.role === 'sub_used');
 
@@ -116,9 +137,13 @@ export function buildShareText(reveal: Reveal, streak: number): string {
   const lines = rows.map((row) => {
     const cells: string[] = Array(COLS).fill(GRASS);
     for (const p of [...row].sort((a, b) => a.x! - b.x!)) {
-      let col = Math.min(COLS - 1, Math.max(0, Math.round((p.x! - 10) / 20)));
-      while (cells[col] !== GRASS && col < COLS - 1) col++;
-      while (cells[col] !== GRASS && col > 0) col--;
+      let col = columnFor(p.x!);
+      if (cells[col] !== GRASS) {
+        // Collision: move outward from the centre first, so mirrored players stay mirrored.
+        const away = p.x! >= 50 ? 1 : -1;
+        const tries = [col + away, col - away, col + 2 * away, col - 2 * away];
+        col = tries.find((c) => c >= 0 && c < COLS && cells[c] === GRASS) ?? col;
+      }
       cells[col] = p.picked ? LIT : PLAYER;
     }
     return cells.join('');
@@ -126,8 +151,8 @@ export function buildShareText(reveal: Reveal, streak: number): string {
 
   const subLine = subs.length ? `Subs ${subs.map((s) => (s.picked ? LIT : PLAYER)).join('')}` : '';
   const results = reveal.picks
-    .map((p) => (p.result === 'hit' ? `✅ ${p.tier}` : p.result === 'timeout' ? '⏱️' : '❌'))
-    .join(' · ');
+    .map((p) => (p.result === 'hit' ? (TIER_EMOJI[p.tier ?? ''] ?? '✅') : p.result === 'timeout' ? TIMEOUT : MISS))
+    .join(' ');
 
   return [
     `Teamsheet #${reveal.puzzleNumber} · ${reveal.totalScore} pts`,
@@ -135,6 +160,7 @@ export function buildShareText(reveal: Reveal, streak: number): string {
     subLine,
     results,
     streak > 1 ? `🔥 ${streak}-day streak` : '',
+    link ?? '',
   ]
     .filter(Boolean)
     .join('\n');

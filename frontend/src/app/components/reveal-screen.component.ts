@@ -73,7 +73,9 @@ export class RevealScreenComponent {
   readonly lastPlayed = input<number | null>(null);
 
   protected readonly label = pickLabel;
-  protected readonly shareText = computed(() => buildShareText(this.reveal(), this.streak()));
+  /** Link back to the game: whatever origin it's served from (https://teamsheet-daily.fly.dev in production). */
+  private readonly link = typeof location !== 'undefined' ? location.origin : undefined;
+  protected readonly shareText = computed(() => buildShareText(this.reveal(), this.streak(), this.link));
 
   /** "Cult Hero · 100", "Proper Fan 60 + 15" for subs, "Not in squad · 0". */
   protected outcomeText(p: Pick): string {
