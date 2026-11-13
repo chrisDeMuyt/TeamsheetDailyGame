@@ -89,9 +89,9 @@ class GameApiIntegrationTest {
         JsonNode r = guess(play, "SMICER");
         assertThat(r.get("result").asText()).isEqualTo("hit");
         assertThat(r.get("name").asText()).isEqualTo("Vladimír Šmicer");
-        // seed 8% -> Proper Fan 60, +15 sub bonus
-        assertThat(r.get("tier").asText()).isEqualTo("Proper Fan");
-        assertThat(r.get("points").asInt()).isEqualTo(75);
+        // 13th-best-known of 14 in Liverpool 2005 -> Hidden Gem 85, +15 sub bonus
+        assertThat(r.get("tier").asText()).isEqualTo("Hidden Gem");
+        assertThat(r.get("points").asInt()).isEqualTo(100);
 
         JsonNode r2 = guess(play, "sami hyypia");
         assertThat(r2.get("result").asText()).isEqualTo("hit");
@@ -213,7 +213,8 @@ class GameApiIntegrationTest {
                 .content("{\"text\":\"Gerrard\"}")).andExpect(status().isConflict());
 
         JsonNode reveal = body(mvc.perform(get("/api/plays/{id}/reveal", play)), status().isOk());
-        assertThat(reveal.get("totalScore").asInt()).isEqualTo(a + b).isEqualTo(10 + 60);
+        // Gerrard = Tap-in 10; Traoré = Liverpool 2005's least-known player -> Cult Hero 100
+        assertThat(reveal.get("totalScore").asInt()).isEqualTo(a + b).isEqualTo(10 + 100);
         assertThat(reveal.get("pool")).hasSize(14);
         assertThat(reveal.get("pctSource").asText()).isEqualTo("seed");
         assertThat(reveal.get("picks")).hasSize(3);
@@ -239,7 +240,7 @@ class GameApiIntegrationTest {
         assertThat(h.get(0).get("shortName").asText()).isEqualTo("Šmicer");
         assertThat(h.get(0).get("sub").asBoolean()).isTrue();
         assertThat(h.get(0).get("slot").asInt()).isPositive();
-        assertThat(h.get(0).get("points").asInt()).isEqualTo(75);
+        assertThat(h.get(0).get("points").asInt()).isEqualTo(100);   // Hidden Gem 85 + sub 15
         assertThat(h.get(1).get("result").asText()).isEqualTo("miss");
         assertThat(h.get(1).has("name")).isFalse();
         // only the player's own hit is named; nobody else from the pool leaks
@@ -379,6 +380,21 @@ class GameApiIntegrationTest {
         JsonNode after = body(mvc.perform(get("/api/plays/today").param("anonId", anon)), status().isOk());
         assertThat(after.get("play").get("playId").asText()).isEqualTo(play);
         assertThat(after.get("play").get("guessesUsed").asInt()).isEqualTo(1);
+    }
+
+    @Autowired com.teamsheet.game.ScoringService scoring;
+    @Autowired com.teamsheet.game.PuzzleService puzzleService;
+
+    @Test
+    void everyScheduledPuzzleHasAtLeastOnePlayerInEveryTier() {
+        Integer max = jdbc.queryForObject("SELECT max(number) FROM puzzle", Integer.class);
+        for (int n = 1; n <= max; n++) {
+            var rarity = scoring.rarityFor(n);
+            var pool = puzzleService.orderedPool(puzzleService.byNumber(n));
+            java.util.Map<com.teamsheet.game.Tier, Long> counts = pool.stream().collect(java.util.stream.Collectors.groupingBy(
+                    mp -> com.teamsheet.game.Tier.forPct(rarity.of(mp).pct()), java.util.stream.Collectors.counting()));
+            assertThat(counts.keySet()).as("puzzle #" + n + " " + counts).containsExactlyInAnyOrder(com.teamsheet.game.Tier.values());
+        }
     }
 
     @Test

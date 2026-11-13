@@ -12,7 +12,7 @@ Rarer picks score more. Live at **https://teamsheet-daily.fly.dev** · repo `chr
 - 6 medium-confidence drafts left in `teamsheet-drafts.json` (open questions in each match's `flags`); 4 of them
   (Alavés, South Korea, Saudi Arabia, Morocco) are the obscure kind — probably shelve rather than promote.
 - ~5,000 extra players (Wikidata) back the "Did you mean" suggestions.
-- Tests: backend 53 (JUnit + Testcontainers), frontend 31 (Vitest). Both must pass before a deploy.
+- Tests: backend 63 (JUnit + Testcontainers), frontend 31 (Vitest). Both must pass before a deploy.
 
 ## Statistics / analytics (how to check how the game is doing)
 
@@ -43,7 +43,7 @@ bash deploy/beta-stats.sh          # from the repo root; in a Claude Code chat: 
 | Daily reset | Midnight **US Central** (`teamsheet.game.puzzle-zone: America/Chicago`) |
 | Guessing | Guesses are players. Enter submits only an **exact full name**; anything else shows one **"Did you mean: X?"** (best match across ALL players, never scoped to today) and tapping it is the guess. Unknown names/suggestions don't use a guess. A picked player whose name is an alias of exactly one lineup player counts as that player (duplicate-row backstop) |
 | Scoring | Tier by pick %: 40%+ = 10 Tap-in, 15–40 = 30 Solid Shout, 5–15 = 60 Proper Fan, 1–5 = 85 Hidden Gem, <1 = 100 Cult Hero; **+15 for subs** |
-| Cold start | `seed_rarity` (placeholder expected pick %) until 200 finished plays of a puzzle, then real pick % |
+| Cold start | Until 200 finished plays of a puzzle: its lineup is ranked best-known first (`seed_rarity`, then fame, starters before subs) and split ≈20/30/25/15/10% into the 5 tiers, **at least one per tier** (`ScoringService.tierCounts`; 15 players → 3/5/4/2/1). Each player shows his tier's representative pick % (50/25/10/3/0.5). After 200: real pick % |
 | UI | Card: "Team · CL Final · date" + scoreline ("Chelsea 1–1 Bayern Munich (aet, 4–3 pens)"). Pitch slots show position, then **short name** when guessed; the guess list below shows **full names** |
 | Reveal | Full pool with pick % (short names), your picks highlighted, scoreline in header |
 | Share | Native share sheet on phones (Web Share API: iOS + Android), clipboard on desktop. Text = header, symmetric emoji mini-pitch with picks 🟡, subs row, tier emojis (🥅 📣 🪭 💎 🐐, ❌ miss, ⏱️ timeout), streak, link. Link card image `frontend/public/og-image.png` |
@@ -78,7 +78,7 @@ schema.sql             original schema (= V1)
 docker compose up -d                                   # Postgres 16 on localhost:5433
 cd backend && ./mvnw spring-boot:run                   # API on :8080, Flyway applies all migrations
 cd frontend && npm start                               # ng serve on :4200, proxies /api -> :8080
-cd backend && ./mvnw test                              # 53 tests, needs Docker
+cd backend && ./mvnw test                              # 63 tests, needs Docker
 cd frontend && npx ng test --watch=false               # 31 tests
 ```
 Production-like local check: `docker build -t teamsheet:local .` then
