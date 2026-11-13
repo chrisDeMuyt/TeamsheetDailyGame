@@ -20,6 +20,7 @@ Daily soccer trivia game. Each day shows one historic match lineup; name 3 playe
 ## Files
 
 - `teamsheet-seed.json` – 10 matches (XI + used subs), positions, minutes, verification status and sources
+- `teamsheet-drafts.json` – 50 more lineups drafted from general knowledge, all `unverified`, with `draft_confidence` + `flags`. Never seeded. To promote one: verify against 2 sources, fill `sources`/subs/`num`, set verification, move it into `teamsheet-seed.json`, regenerate (new Vn migration, never edit applied ones). `DraftsValidationTest` checks structure.
 - `schema.sql` – PostgreSQL schema; becomes Flyway migration `V1__init.sql`
 - Mockup – Design canvas on claude.ai ("Teamsheet Mockup"), in-game and reveal screens
 

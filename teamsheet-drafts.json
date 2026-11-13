@@ -1,0 +1,5124 @@
+{
+  "_meta": {
+    "purpose": "DRAFTS ONLY. 50 lineups drafted from general knowledge for the 60-match expansion. Nothing here is scheduled or seeded. Verify each against 2 independent sources (CLAUDE.md data rules), fill in sources/subs, set verification, then move the match into teamsheet-seed.json.",
+    "built": "2026-11-12",
+    "status_values": "verification is 'unverified' for every draft until checked",
+    "draft_confidence": {
+      "high": "XI and subs very likely right; still needs sources",
+      "medium": "XI likely right; some sub minutes or positions uncertain (see flags)",
+      "low": "XI and/or subs partly from memory; check everything (see flags)"
+    },
+    "web_checked": "Pages Claude consulted via web search on 2026-11-12 for the medium/low drafts (summarised results, not read in full). Good starting points for verification, but they do NOT count as the 2 required sources until a person confirms them and copies them into 'sources'.",
+    "notes": "Starters are listed right-to-left within repeated positions (e.g. right CB before left CB). Shirt numbers omitted. A sub's 'for' player has 'off' set to the sub's 'on' minute."
+  },
+  "matches": [
+    {
+      "id": "2001-uefa-cup-final-alaves",
+      "date": "2001-05-16",
+      "competition": "UEFA Cup Final",
+      "team": "Alavés",
+      "opponent": "Liverpool",
+      "result": "4-5 aet (golden goal)",
+      "formation": "3-5-2",
+      "verification": {
+        "xi": "unverified",
+        "subs_used": "unverified"
+      },
+      "draft_confidence": "medium",
+      "sources": [],
+      "web_checked": [
+        "https://www.lfchistory.net/games/2321",
+        "https://www.11v11.com/matches/liverpool-v-alav%C3%A9s-16-may-2001-7184/"
+      ],
+      "flags": [
+        "XI confirmed by 11v11; subs/minutes agree across lfchistory + 11v11",
+        "One source says Karmona (not Alonso) came on for Eggen; most say Alonso 22'",
+        "Shape described as 5-3-2 (wing-backs Contra/Geli); midfield roles approximate"
+      ],
+      "squad": [
+        {
+          "name": "Martín Herrera",
+          "pos": "GK",
+          "role": "starter"
+        },
+        {
+          "name": "Dan Eggen",
+          "pos": "CB",
+          "role": "starter",
+          "off": 22
+        },
+        {
+          "name": "Antonio Karmona",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Óscar Téllez",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Cosmin Contra",
+          "pos": "RWB",
+          "role": "starter"
+        },
+        {
+          "name": "Hermes Desio",
+          "pos": "CM",
+          "role": "starter"
+        },
+        {
+          "name": "Ivan Tomić",
+          "pos": "CM",
+          "role": "starter"
+        },
+        {
+          "name": "Martín Astudillo",
+          "pos": "CM",
+          "role": "starter",
+          "off": 46
+        },
+        {
+          "name": "Delfí Geli",
+          "pos": "LWB",
+          "role": "starter"
+        },
+        {
+          "name": "Jordi Cruyff",
+          "pos": "ST",
+          "role": "starter"
+        },
+        {
+          "name": "Javi Moreno",
+          "pos": "ST",
+          "role": "starter",
+          "off": 64
+        },
+        {
+          "name": "Iván Alonso",
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 22,
+          "for": "Dan Eggen"
+        },
+        {
+          "name": "Magno",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 46,
+          "for": "Martín Astudillo"
+        },
+        {
+          "name": "Pablo Gómez",
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 64,
+          "for": "Javi Moreno"
+        }
+      ]
+    },
+    {
+      "id": "2001-ucl-final-bayern",
+      "date": "2001-05-23",
+      "competition": "UEFA Champions League Final",
+      "team": "Bayern Munich",
+      "opponent": "Valencia",
+      "result": "1-1 aet, won 5-4 on penalties",
+      "formation": "3-4-2-1",
+      "verification": {
+        "xi": "unverified",
+        "subs_used": "unverified"
+      },
+      "draft_confidence": "high",
+      "sources": [],
+      "web_checked": [
+        "https://www.uefa.com/uefachampionsleague/news/0201-0e7efdf83a82-d65d94c87648-1000--bayern-and-valencia-stir-2001-memories/",
+        "https://datencenter.dfb.de/en/data-center/champions-league/2000-2001/final/bayern-munich-valencia-cf-647231"
+      ],
+      "flags": [
+        "CORRECTED: Salihamidžić started; Jancker came on at half-time (UEFA + DFB agree)",
+        "Exact shape approximate (back three + wing-backs)"
+      ],
+      "squad": [
+        {
+          "name": "Oliver Kahn",
+          "pos": "GK",
+          "role": "starter"
+        },
+        {
+          "name": "Samuel Kuffour",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Patrik Andersson",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Thomas Linke",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Willy Sagnol",
+          "pos": "RWB",
+          "role": "starter",
+          "off": 46
+        },
+        {
+          "name": "Owen Hargreaves",
+          "pos": "CM",
+          "role": "starter"
+        },
+        {
+          "name": "Stefan Effenberg",
+          "pos": "CM",
+          "role": "starter"
+        },
+        {
+          "name": "Bixente Lizarazu",
+          "pos": "LWB",
+          "role": "starter"
+        },
+        {
+          "name": "Mehmet Scholl",
+          "pos": "AM",
+          "role": "starter",
+          "off": 108
+        },
+        {
+          "name": "Hasan Salihamidžić",
+          "pos": "AM",
+          "role": "starter"
+        },
+        {
+          "name": "Giovane Élber",
+          "pos": "ST",
+          "role": "starter",
+          "off": 100
+        },
+        {
+          "name": "Carsten Jancker",
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 46,
+          "for": "Willy Sagnol"
+        },
+        {
+          "name": "Alexander Zickler",
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 100,
+          "for": "Giovane Élber"
+        },
+        {
+          "name": "Paulo Sérgio",
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 108,
+          "for": "Mehmet Scholl"
+        }
+      ]
+    },
+    {
+      "id": "2002-ucl-final-real-madrid",
+      "date": "2002-05-15",
+      "competition": "UEFA Champions League Final",
+      "team": "Real Madrid",
+      "opponent": "Bayer Leverkusen",
+      "result": "2-1",
+      "formation": "4-4-2",
+      "verification": {
+        "xi": "unverified",
+        "subs_used": "unverified"
+      },
+      "draft_confidence": "high",
+      "sources": [],
+      "web_checked": [],
+      "flags": [],
+      "squad": [
+        {
+          "name": "César Sánchez",
+          "pos": "GK",
+          "role": "starter",
+          "off": 68
+        },
+        {
+          "name": "Míchel Salgado",
+          "pos": "RB",
+          "role": "starter"
+        },
+        {
+          "name": "Fernando Hierro",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Iván Helguera",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Roberto Carlos",
+          "pos": "LB",
+          "role": "starter"
+        },
+        {
+          "name": "Luís Figo",
+          "pos": "RM",
+          "role": "starter",
+          "off": 61
+        },
+        {
+          "name": "Claude Makélélé",
+          "pos": "CM",
+          "role": "starter"
+        },
+        {
+          "name": "Zinedine Zidane",
+          "pos": "CM",
+          "role": "starter"
+        },
+        {
+          "name": "Santiago Solari",
+          "pos": "LM",
+          "role": "starter"
+        },
+        {
+          "name": "Raúl",
+          "pos": "ST",
+          "role": "starter"
+        },
+        {
+          "name": "Fernando Morientes",
+          "pos": "ST",
+          "role": "starter",
+          "off": 73
+        },
+        {
+          "name": "Steve McManaman",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 61,
+          "for": "Luís Figo"
+        },
+        {
+          "name": "Iker Casillas",
+          "pos": "GK",
+          "role": "sub_used",
+          "on": 68,
+          "for": "César Sánchez"
+        },
+        {
+          "name": "Flávio Conceição",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 73,
+          "for": "Fernando Morientes"
+        }
+      ]
+    },
+    {
+      "id": "2002-wc-group-senegal",
+      "date": "2002-05-31",
+      "competition": "FIFA World Cup group stage",
+      "team": "Senegal",
+      "opponent": "France",
+      "result": "1-0",
+      "formation": "4-1-4-1",
+      "verification": {
+        "xi": "unverified",
+        "subs_used": "unverified"
+      },
+      "draft_confidence": "high",
+      "sources": [],
+      "web_checked": [
+        "https://www.espn.com/soccer/lineups/_/gameId/46457",
+        "https://www.thesoccerworldcups.com/games/2002_france_senegal.php",
+        "https://www.planetworldcup.com/CUPS/2002/groupa_fra_v_sen.html"
+      ],
+      "flags": [
+        "XI confirmed (ESPN, Planet World Cup, thesoccerworldcups)",
+        "Senegal made NO substitutions per two match accounts: confirm on the FIFA match report"
+      ],
+      "squad": [
+        {
+          "name": "Tony Sylva",
+          "pos": "GK",
+          "role": "starter"
+        },
+        {
+          "name": "Ferdinand Coly",
+          "pos": "RB",
+          "role": "starter"
+        },
+        {
+          "name": "Pape Malick Diop",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Lamine Diatta",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Omar Daf",
+          "pos": "LB",
+          "role": "starter"
+        },
+        {
+          "name": "Aliou Cissé",
+          "pos": "DM",
+          "role": "starter"
+        },
+        {
+          "name": "Moussa N'Diaye",
+          "pos": "RM",
+          "role": "starter"
+        },
+        {
+          "name": "Salif Diao",
+          "pos": "CM",
+          "role": "starter"
+        },
+        {
+          "name": "Papa Bouba Diop",
+          "pos": "CM",
+          "role": "starter"
+        },
+        {
+          "name": "Khalilou Fadiga",
+          "pos": "LM",
+          "role": "starter"
+        },
+        {
+          "name": "El Hadji Diouf",
+          "pos": "ST",
+          "role": "starter"
+        }
+      ]
+    },
+    {
+      "id": "2002-wc-r16-south-korea",
+      "date": "2002-06-18",
+      "competition": "FIFA World Cup Round of 16",
+      "team": "South Korea",
+      "opponent": "Italy",
+      "result": "2-1 aet (golden goal)",
+      "formation": "3-4-3",
+      "verification": {
+        "xi": "unverified",
+        "subs_used": "unverified"
+      },
+      "draft_confidence": "medium",
+      "sources": [],
+      "web_checked": [
+        "https://datencenter.dfb.de/en/data-center/fifa-world-cup/2002-in-japan-south-korea/round-of-sixteen/south-korea-italy-137412",
+        "https://www.thesoccerworldcups.com/games/2002_south_korea_italy.php"
+      ],
+      "flags": [
+        "CORRECTED: Lee Chun-soo replaced Kim Nam-il, Cha Du-ri replaced Hong Myung-bo (DFB + thesoccerworldcups)",
+        "Front-three sides approximate"
+      ],
+      "squad": [
+        {
+          "name": "Lee Woon-jae",
+          "pos": "GK",
+          "role": "starter"
+        },
+        {
+          "name": "Choi Jin-cheul",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Hong Myung-bo",
+          "pos": "CB",
+          "role": "starter",
+          "off": 83
+        },
+        {
+          "name": "Kim Tae-young",
+          "pos": "CB",
+          "role": "starter",
+          "off": 63
+        },
+        {
+          "name": "Song Chong-gug",
+          "pos": "RWB",
+          "role": "starter"
+        },
+        {
+          "name": "Kim Nam-il",
+          "pos": "CM",
+          "role": "starter",
+          "off": 68
+        },
+        {
+          "name": "Yoo Sang-chul",
+          "pos": "CM",
+          "role": "starter"
+        },
+        {
+          "name": "Lee Young-pyo",
+          "pos": "LWB",
+          "role": "starter"
+        },
+        {
+          "name": "Park Ji-sung",
+          "pos": "RW",
+          "role": "starter"
+        },
+        {
+          "name": "Ahn Jung-hwan",
+          "pos": "ST",
+          "role": "starter"
+        },
+        {
+          "name": "Seol Ki-hyeon",
+          "pos": "LW",
+          "role": "starter"
+        },
+        {
+          "name": "Hwang Sun-hong",
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 63,
+          "for": "Kim Tae-young"
+        },
+        {
+          "name": "Lee Chun-soo",
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 68,
+          "for": "Kim Nam-il"
+        },
+        {
+          "name": "Cha Du-ri",
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 83,
+          "for": "Hong Myung-bo"
+        }
+      ]
+    },
+    {
+      "id": "2002-wc-final-germany",
+      "date": "2002-06-30",
+      "competition": "FIFA World Cup Final",
+      "team": "Germany",
+      "opponent": "Brazil",
+      "result": "lost 0-2",
+      "formation": "3-5-2",
+      "verification": {
+        "xi": "unverified",
+        "subs_used": "unverified"
+      },
+      "draft_confidence": "high",
+      "sources": [],
+      "web_checked": [],
+      "flags": [],
+      "squad": [
+        {
+          "name": "Oliver Kahn",
+          "pos": "GK",
+          "role": "starter"
+        },
+        {
+          "name": "Thomas Linke",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Carsten Ramelow",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Christoph Metzelder",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Torsten Frings",
+          "pos": "RWB",
+          "role": "starter"
+        },
+        {
+          "name": "Jens Jeremies",
+          "pos": "CM",
+          "role": "starter",
+          "off": 77
+        },
+        {
+          "name": "Dietmar Hamann",
+          "pos": "CM",
+          "role": "starter"
+        },
+        {
+          "name": "Bernd Schneider",
+          "pos": "CM",
+          "role": "starter"
+        },
+        {
+          "name": "Marco Bode",
+          "pos": "LWB",
+          "role": "starter",
+          "off": 84
+        },
+        {
+          "name": "Oliver Neuville",
+          "pos": "ST",
+          "role": "starter"
+        },
+        {
+          "name": "Miroslav Klose",
+          "pos": "ST",
+          "role": "starter",
+          "off": 74
+        },
+        {
+          "name": "Oliver Bierhoff",
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 74,
+          "for": "Miroslav Klose"
+        },
+        {
+          "name": "Gerald Asamoah",
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 77,
+          "for": "Jens Jeremies"
+        },
+        {
+          "name": "Christian Ziege",
+          "pos": "DF",
+          "role": "sub_used",
+          "on": 84,
+          "for": "Marco Bode"
+        }
+      ]
+    },
+    {
+      "id": "2003-ucl-final-milan",
+      "date": "2003-05-28",
+      "competition": "UEFA Champions League Final",
+      "team": "AC Milan",
+      "opponent": "Juventus",
+      "result": "0-0 aet, won 3-2 on penalties",
+      "formation": "4-3-1-2",
+      "verification": {
+        "xi": "unverified",
+        "subs_used": "unverified"
+      },
+      "draft_confidence": "high",
+      "sources": [],
+      "web_checked": [
+        "https://www.espn.co.uk/football/lineups/_/gameId/98095",
+        "https://www.footballdatabase.eu/en/match/overview/1022251-juventus_turin-ac_milan"
+      ],
+      "flags": [
+        "CORRECTED: Serginho replaced Pirlo; Ambrosini replaced Rui Costa",
+        "Minutes per ESPN/footballdatabase; 11v11 gives 70'/76' for the first two"
+      ],
+      "squad": [
+        {
+          "name": "Dida",
+          "pos": "GK",
+          "role": "starter"
+        },
+        {
+          "name": "Alessandro Costacurta",
+          "pos": "RB",
+          "role": "starter",
+          "off": 65
+        },
+        {
+          "name": "Alessandro Nesta",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Paolo Maldini",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Kakha Kaladze",
+          "pos": "LB",
+          "role": "starter"
+        },
+        {
+          "name": "Andrea Pirlo",
+          "pos": "DM",
+          "role": "starter",
+          "off": 71
+        },
+        {
+          "name": "Gennaro Gattuso",
+          "pos": "CM",
+          "role": "starter"
+        },
+        {
+          "name": "Clarence Seedorf",
+          "pos": "CM",
+          "role": "starter"
+        },
+        {
+          "name": "Rui Costa",
+          "pos": "CAM",
+          "role": "starter",
+          "off": 87
+        },
+        {
+          "name": "Filippo Inzaghi",
+          "pos": "ST",
+          "role": "starter"
+        },
+        {
+          "name": "Andriy Shevchenko",
+          "pos": "ST",
+          "role": "starter"
+        },
+        {
+          "name": "Roque Júnior",
+          "pos": "DF",
+          "role": "sub_used",
+          "on": 65,
+          "for": "Alessandro Costacurta"
+        },
+        {
+          "name": "Serginho",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 71,
+          "for": "Andrea Pirlo"
+        },
+        {
+          "name": "Massimo Ambrosini",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 87,
+          "for": "Rui Costa"
+        }
+      ]
+    },
+    {
+      "id": "2004-ucl-qf-deportivo",
+      "date": "2004-04-07",
+      "competition": "UEFA Champions League Quarter-final",
+      "team": "Deportivo",
+      "opponent": "AC Milan",
+      "result": "4-0 (lost first leg 1-4)",
+      "formation": "4-2-3-1",
+      "verification": {
+        "xi": "unverified",
+        "subs_used": "unverified"
+      },
+      "draft_confidence": "high",
+      "sources": [],
+      "web_checked": [
+        "https://www.11v11.com/matches/deportivo-la-coru%C3%B1a-v-ac-milan-07-april-2004-24556/",
+        "https://www.besoccer.com/match/deportivo/milan/200432638/lineups"
+      ],
+      "flags": [
+        "XI and subs agree across 11v11 + BeSoccer"
+      ],
+      "squad": [
+        {
+          "name": "José Francisco Molina",
+          "pos": "GK",
+          "role": "starter"
+        },
+        {
+          "name": "Manuel Pablo",
+          "pos": "RB",
+          "role": "starter"
+        },
+        {
+          "name": "Jorge Andrade",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Noureddine Naybet",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Enrique Romero",
+          "pos": "LB",
+          "role": "starter"
+        },
+        {
+          "name": "Mauro Silva",
+          "pos": "DM",
+          "role": "starter"
+        },
+        {
+          "name": "Sergio González",
+          "pos": "DM",
+          "role": "starter",
+          "off": 87
+        },
+        {
+          "name": "Víctor Sánchez",
+          "pos": "RW",
+          "role": "starter"
+        },
+        {
+          "name": "Juan Carlos Valerón",
+          "pos": "CAM",
+          "role": "starter",
+          "off": 90
+        },
+        {
+          "name": "Albert Luque",
+          "pos": "LW",
+          "role": "starter",
+          "off": 66
+        },
+        {
+          "name": "Walter Pandiani",
+          "pos": "ST",
+          "role": "starter"
+        },
+        {
+          "name": "Fran",
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 66,
+          "for": "Albert Luque"
+        },
+        {
+          "name": "Aldo Duscher",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 87,
+          "for": "Sergio González"
+        },
+        {
+          "name": "Djalminha",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 90,
+          "for": "Juan Carlos Valerón"
+        }
+      ]
+    },
+    {
+      "id": "2004-pl-arsenal",
+      "date": "2004-04-09",
+      "competition": "Premier League",
+      "team": "Arsenal",
+      "opponent": "Liverpool",
+      "result": "4-2",
+      "formation": "4-4-2",
+      "verification": {
+        "xi": "unverified",
+        "subs_used": "unverified"
+      },
+      "draft_confidence": "high",
+      "sources": [],
+      "web_checked": [
+        "https://www.lfchistory.net/games/2477",
+        "https://www.onlinegooner.com/articles/view/4990"
+      ],
+      "flags": [
+        "XI confirmed (Gilberto Silva started); Edu 71-72'"
+      ],
+      "squad": [
+        {
+          "name": "Jens Lehmann",
+          "pos": "GK",
+          "role": "starter"
+        },
+        {
+          "name": "Lauren",
+          "pos": "RB",
+          "role": "starter"
+        },
+        {
+          "name": "Kolo Touré",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Sol Campbell",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Ashley Cole",
+          "pos": "LB",
+          "role": "starter"
+        },
+        {
+          "name": "Freddie Ljungberg",
+          "pos": "RM",
+          "role": "starter",
+          "off": 90
+        },
+        {
+          "name": "Patrick Vieira",
+          "pos": "CM",
+          "role": "starter"
+        },
+        {
+          "name": "Gilberto Silva",
+          "pos": "CM",
+          "role": "starter"
+        },
+        {
+          "name": "Robert Pires",
+          "pos": "LM",
+          "role": "starter",
+          "off": 72
+        },
+        {
+          "name": "Thierry Henry",
+          "pos": "ST",
+          "role": "starter"
+        },
+        {
+          "name": "Dennis Bergkamp",
+          "pos": "ST",
+          "role": "starter"
+        },
+        {
+          "name": "Edu",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 72,
+          "for": "Robert Pires"
+        },
+        {
+          "name": "Martin Keown",
+          "pos": "DF",
+          "role": "sub_used",
+          "on": 90,
+          "for": "Freddie Ljungberg"
+        }
+      ]
+    },
+    {
+      "id": "2004-ucl-final-porto",
+      "date": "2004-05-26",
+      "competition": "UEFA Champions League Final",
+      "team": "Porto",
+      "opponent": "Monaco",
+      "result": "3-0",
+      "formation": "4-3-1-2",
+      "verification": {
+        "xi": "unverified",
+        "subs_used": "unverified"
+      },
+      "draft_confidence": "high",
+      "sources": [],
+      "web_checked": [
+        "https://www.espn.co.uk/football/lineups?gameId=151504",
+        "https://www.footballdatabase.eu/en/match/overview/1023461-monaco-fc_porto"
+      ],
+      "flags": [
+        "CORRECTED: Pedro Emanuel replaced Deco (84'), not Jorge Costa",
+        "Alenichev 60' per footballdatabase; ESPN shows 75' (his goal minute)"
+      ],
+      "squad": [
+        {
+          "name": "Vítor Baía",
+          "pos": "GK",
+          "role": "starter"
+        },
+        {
+          "name": "Paulo Ferreira",
+          "pos": "RB",
+          "role": "starter"
+        },
+        {
+          "name": "Jorge Costa",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Ricardo Carvalho",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Nuno Valente",
+          "pos": "LB",
+          "role": "starter"
+        },
+        {
+          "name": "Costinha",
+          "pos": "DM",
+          "role": "starter"
+        },
+        {
+          "name": "Pedro Mendes",
+          "pos": "CM",
+          "role": "starter"
+        },
+        {
+          "name": "Maniche",
+          "pos": "CM",
+          "role": "starter"
+        },
+        {
+          "name": "Deco",
+          "pos": "CAM",
+          "role": "starter",
+          "off": 84
+        },
+        {
+          "name": "Carlos Alberto",
+          "pos": "ST",
+          "role": "starter",
+          "off": 60
+        },
+        {
+          "name": "Derlei",
+          "pos": "ST",
+          "role": "starter",
+          "off": 78
+        },
+        {
+          "name": "Dmitri Alenichev",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 60,
+          "for": "Carlos Alberto"
+        },
+        {
+          "name": "Benni McCarthy",
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 78,
+          "for": "Derlei"
+        },
+        {
+          "name": "Pedro Emanuel",
+          "pos": "DF",
+          "role": "sub_used",
+          "on": 84,
+          "for": "Deco"
+        }
+      ]
+    },
+    {
+      "id": "2004-euro-final-portugal",
+      "date": "2004-07-04",
+      "competition": "UEFA Euro 2004 Final",
+      "team": "Portugal",
+      "opponent": "Greece",
+      "result": "lost 0-1",
+      "formation": "4-2-3-1",
+      "verification": {
+        "xi": "unverified",
+        "subs_used": "unverified"
+      },
+      "draft_confidence": "high",
+      "sources": [],
+      "web_checked": [],
+      "flags": [
+        "Figo/Ronaldo wing sides unchecked"
+      ],
+      "squad": [
+        {
+          "name": "Ricardo",
+          "pos": "GK",
+          "role": "starter"
+        },
+        {
+          "name": "Miguel",
+          "pos": "RB",
+          "role": "starter",
+          "off": 43
+        },
+        {
+          "name": "Ricardo Carvalho",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Jorge Andrade",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Nuno Valente",
+          "pos": "LB",
+          "role": "starter"
+        },
+        {
+          "name": "Costinha",
+          "pos": "DM",
+          "role": "starter",
+          "off": 60
+        },
+        {
+          "name": "Maniche",
+          "pos": "DM",
+          "role": "starter"
+        },
+        {
+          "name": "Luís Figo",
+          "pos": "RW",
+          "role": "starter"
+        },
+        {
+          "name": "Deco",
+          "pos": "CAM",
+          "role": "starter"
+        },
+        {
+          "name": "Cristiano Ronaldo",
+          "pos": "LW",
+          "role": "starter"
+        },
+        {
+          "name": "Pauleta",
+          "pos": "ST",
+          "role": "starter",
+          "off": 74
+        },
+        {
+          "name": "Paulo Ferreira",
+          "pos": "DF",
+          "role": "sub_used",
+          "on": 43,
+          "for": "Miguel"
+        },
+        {
+          "name": "Rui Costa",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 60,
+          "for": "Costinha"
+        },
+        {
+          "name": "Nuno Gomes",
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 74,
+          "for": "Pauleta"
+        }
+      ]
+    },
+    {
+      "id": "2005-ucl-final-milan",
+      "date": "2005-05-25",
+      "competition": "UEFA Champions League Final",
+      "team": "AC Milan",
+      "opponent": "Liverpool",
+      "result": "3-3 aet, lost 2-3 on penalties",
+      "formation": "4-3-1-2",
+      "verification": {
+        "xi": "unverified",
+        "subs_used": "unverified"
+      },
+      "draft_confidence": "high",
+      "sources": [],
+      "web_checked": [],
+      "flags": [
+        "Same match as 2005-ucl-final-liverpool (already 2-sourced): reuse lfchistory + match report"
+      ],
+      "squad": [
+        {
+          "name": "Dida",
+          "pos": "GK",
+          "role": "starter"
+        },
+        {
+          "name": "Cafu",
+          "pos": "RB",
+          "role": "starter"
+        },
+        {
+          "name": "Jaap Stam",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Alessandro Nesta",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Paolo Maldini",
+          "pos": "LB",
+          "role": "starter"
+        },
+        {
+          "name": "Andrea Pirlo",
+          "pos": "DM",
+          "role": "starter"
+        },
+        {
+          "name": "Gennaro Gattuso",
+          "pos": "CM",
+          "role": "starter",
+          "off": 112
+        },
+        {
+          "name": "Clarence Seedorf",
+          "pos": "CM",
+          "role": "starter",
+          "off": 86
+        },
+        {
+          "name": "Kaká",
+          "pos": "CAM",
+          "role": "starter"
+        },
+        {
+          "name": "Andriy Shevchenko",
+          "pos": "ST",
+          "role": "starter"
+        },
+        {
+          "name": "Hernán Crespo",
+          "pos": "ST",
+          "role": "starter",
+          "off": 85
+        },
+        {
+          "name": "Jon Dahl Tomasson",
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 85,
+          "for": "Hernán Crespo"
+        },
+        {
+          "name": "Serginho",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 86,
+          "for": "Clarence Seedorf"
+        },
+        {
+          "name": "Rui Costa",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 112,
+          "for": "Gennaro Gattuso"
+        }
+      ]
+    },
+    {
+      "id": "2006-fa-cup-final-liverpool",
+      "date": "2006-05-13",
+      "competition": "FA Cup Final",
+      "team": "Liverpool",
+      "opponent": "West Ham",
+      "result": "3-3 aet, won 3-1 on penalties",
+      "formation": "4-4-2",
+      "verification": {
+        "xi": "unverified",
+        "subs_used": "unverified"
+      },
+      "draft_confidence": "high",
+      "sources": [],
+      "web_checked": [
+        "https://www.lfchistory.net/seasonarchive/game/4990",
+        "https://en.wikipedia.org/wiki/2006_FA_Cup_final"
+      ],
+      "flags": [
+        "XI and all three subs confirmed exactly as drafted"
+      ],
+      "squad": [
+        {
+          "name": "Pepe Reina",
+          "pos": "GK",
+          "role": "starter"
+        },
+        {
+          "name": "Steve Finnan",
+          "pos": "RB",
+          "role": "starter"
+        },
+        {
+          "name": "Jamie Carragher",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Sami Hyypiä",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "John Arne Riise",
+          "pos": "LB",
+          "role": "starter"
+        },
+        {
+          "name": "Steven Gerrard",
+          "pos": "RM",
+          "role": "starter"
+        },
+        {
+          "name": "Mohamed Sissoko",
+          "pos": "CM",
+          "role": "starter"
+        },
+        {
+          "name": "Xabi Alonso",
+          "pos": "CM",
+          "role": "starter",
+          "off": 67
+        },
+        {
+          "name": "Harry Kewell",
+          "pos": "LM",
+          "role": "starter",
+          "off": 48
+        },
+        {
+          "name": "Peter Crouch",
+          "pos": "ST",
+          "role": "starter",
+          "off": 71
+        },
+        {
+          "name": "Djibril Cissé",
+          "pos": "ST",
+          "role": "starter"
+        },
+        {
+          "name": "Fernando Morientes",
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 48,
+          "for": "Harry Kewell"
+        },
+        {
+          "name": "Jan Kromkamp",
+          "pos": "DF",
+          "role": "sub_used",
+          "on": 67,
+          "for": "Xabi Alonso"
+        },
+        {
+          "name": "Dietmar Hamann",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 71,
+          "for": "Peter Crouch"
+        }
+      ]
+    },
+    {
+      "id": "2006-ucl-final-barcelona",
+      "date": "2006-05-17",
+      "competition": "UEFA Champions League Final",
+      "team": "Barcelona",
+      "opponent": "Arsenal",
+      "result": "2-1",
+      "formation": "4-3-3",
+      "verification": {
+        "xi": "unverified",
+        "subs_used": "unverified"
+      },
+      "draft_confidence": "high",
+      "sources": [],
+      "web_checked": [],
+      "flags": [],
+      "squad": [
+        {
+          "name": "Víctor Valdés",
+          "pos": "GK",
+          "role": "starter"
+        },
+        {
+          "name": "Oleguer",
+          "pos": "RB",
+          "role": "starter",
+          "off": 71
+        },
+        {
+          "name": "Carles Puyol",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Rafael Márquez",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Giovanni van Bronckhorst",
+          "pos": "LB",
+          "role": "starter"
+        },
+        {
+          "name": "Edmílson",
+          "pos": "DM",
+          "role": "starter",
+          "off": 46
+        },
+        {
+          "name": "Deco",
+          "pos": "CM",
+          "role": "starter"
+        },
+        {
+          "name": "Mark van Bommel",
+          "pos": "CM",
+          "role": "starter",
+          "off": 61
+        },
+        {
+          "name": "Ludovic Giuly",
+          "pos": "RW",
+          "role": "starter"
+        },
+        {
+          "name": "Samuel Eto'o",
+          "pos": "ST",
+          "role": "starter"
+        },
+        {
+          "name": "Ronaldinho",
+          "pos": "LW",
+          "role": "starter"
+        },
+        {
+          "name": "Andrés Iniesta",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 46,
+          "for": "Edmílson"
+        },
+        {
+          "name": "Henrik Larsson",
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 61,
+          "for": "Mark van Bommel"
+        },
+        {
+          "name": "Juliano Belletti",
+          "pos": "DF",
+          "role": "sub_used",
+          "on": 71,
+          "for": "Oleguer"
+        }
+      ]
+    },
+    {
+      "id": "2006-wc-final-france",
+      "date": "2006-07-09",
+      "competition": "FIFA World Cup Final",
+      "team": "France",
+      "opponent": "Italy",
+      "result": "1-1 aet, lost 3-5 on penalties",
+      "formation": "4-2-3-1",
+      "verification": {
+        "xi": "unverified",
+        "subs_used": "unverified"
+      },
+      "draft_confidence": "high",
+      "sources": [],
+      "web_checked": [],
+      "flags": [
+        "Same match as 2006-wc-final-italy (already 2-sourced)"
+      ],
+      "squad": [
+        {
+          "name": "Fabien Barthez",
+          "pos": "GK",
+          "role": "starter"
+        },
+        {
+          "name": "Willy Sagnol",
+          "pos": "RB",
+          "role": "starter"
+        },
+        {
+          "name": "Lilian Thuram",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "William Gallas",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Eric Abidal",
+          "pos": "LB",
+          "role": "starter"
+        },
+        {
+          "name": "Patrick Vieira",
+          "pos": "DM",
+          "role": "starter",
+          "off": 56
+        },
+        {
+          "name": "Claude Makélélé",
+          "pos": "DM",
+          "role": "starter"
+        },
+        {
+          "name": "Franck Ribéry",
+          "pos": "RW",
+          "role": "starter",
+          "off": 100
+        },
+        {
+          "name": "Zinedine Zidane",
+          "pos": "CAM",
+          "role": "starter"
+        },
+        {
+          "name": "Florent Malouda",
+          "pos": "LW",
+          "role": "starter"
+        },
+        {
+          "name": "Thierry Henry",
+          "pos": "ST",
+          "role": "starter",
+          "off": 107
+        },
+        {
+          "name": "Alou Diarra",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 56,
+          "for": "Patrick Vieira"
+        },
+        {
+          "name": "David Trezeguet",
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 100,
+          "for": "Franck Ribéry"
+        },
+        {
+          "name": "Sylvain Wiltord",
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 107,
+          "for": "Thierry Henry"
+        }
+      ]
+    },
+    {
+      "id": "2008-ucl-final-chelsea",
+      "date": "2008-05-21",
+      "competition": "UEFA Champions League Final",
+      "team": "Chelsea",
+      "opponent": "Manchester United",
+      "result": "1-1 aet, lost 5-6 on penalties",
+      "formation": "4-3-3",
+      "verification": {
+        "xi": "unverified",
+        "subs_used": "unverified"
+      },
+      "draft_confidence": "high",
+      "sources": [],
+      "web_checked": [],
+      "flags": [
+        "Same match as 2008-ucl-final-man-utd (that one is still single-source)"
+      ],
+      "squad": [
+        {
+          "name": "Petr Čech",
+          "pos": "GK",
+          "role": "starter"
+        },
+        {
+          "name": "Michael Essien",
+          "pos": "RB",
+          "role": "starter"
+        },
+        {
+          "name": "Ricardo Carvalho",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "John Terry",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Ashley Cole",
+          "pos": "LB",
+          "role": "starter"
+        },
+        {
+          "name": "Claude Makélélé",
+          "pos": "DM",
+          "role": "starter",
+          "off": 120
+        },
+        {
+          "name": "Michael Ballack",
+          "pos": "CM",
+          "role": "starter"
+        },
+        {
+          "name": "Frank Lampard",
+          "pos": "CM",
+          "role": "starter"
+        },
+        {
+          "name": "Joe Cole",
+          "pos": "RW",
+          "role": "starter",
+          "off": 99
+        },
+        {
+          "name": "Didier Drogba",
+          "pos": "ST",
+          "role": "starter"
+        },
+        {
+          "name": "Florent Malouda",
+          "pos": "LW",
+          "role": "starter",
+          "off": 92
+        },
+        {
+          "name": "Salomon Kalou",
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 92,
+          "for": "Florent Malouda"
+        },
+        {
+          "name": "Nicolas Anelka",
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 99,
+          "for": "Joe Cole"
+        },
+        {
+          "name": "Juliano Belletti",
+          "pos": "DF",
+          "role": "sub_used",
+          "on": 120,
+          "for": "Claude Makélélé"
+        }
+      ]
+    },
+    {
+      "id": "2008-euro-final-spain",
+      "date": "2008-06-29",
+      "competition": "UEFA Euro 2008 Final",
+      "team": "Spain",
+      "opponent": "Germany",
+      "result": "1-0",
+      "formation": "4-1-4-1",
+      "verification": {
+        "xi": "unverified",
+        "subs_used": "unverified"
+      },
+      "draft_confidence": "high",
+      "sources": [],
+      "web_checked": [],
+      "flags": [],
+      "squad": [
+        {
+          "name": "Iker Casillas",
+          "pos": "GK",
+          "role": "starter"
+        },
+        {
+          "name": "Sergio Ramos",
+          "pos": "RB",
+          "role": "starter"
+        },
+        {
+          "name": "Carlos Marchena",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Carles Puyol",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Joan Capdevila",
+          "pos": "LB",
+          "role": "starter"
+        },
+        {
+          "name": "Marcos Senna",
+          "pos": "DM",
+          "role": "starter"
+        },
+        {
+          "name": "Andrés Iniesta",
+          "pos": "RM",
+          "role": "starter"
+        },
+        {
+          "name": "Xavi",
+          "pos": "CM",
+          "role": "starter"
+        },
+        {
+          "name": "Cesc Fàbregas",
+          "pos": "CM",
+          "role": "starter",
+          "off": 63
+        },
+        {
+          "name": "David Silva",
+          "pos": "LM",
+          "role": "starter",
+          "off": 66
+        },
+        {
+          "name": "Fernando Torres",
+          "pos": "ST",
+          "role": "starter",
+          "off": 78
+        },
+        {
+          "name": "Xabi Alonso",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 63,
+          "for": "Cesc Fàbregas"
+        },
+        {
+          "name": "Santi Cazorla",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 66,
+          "for": "David Silva"
+        },
+        {
+          "name": "Daniel Güiza",
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 78,
+          "for": "Fernando Torres"
+        }
+      ]
+    },
+    {
+      "id": "2010-ucl-final-bayern",
+      "date": "2010-05-22",
+      "competition": "UEFA Champions League Final",
+      "team": "Bayern Munich",
+      "opponent": "Inter",
+      "result": "lost 0-2",
+      "formation": "4-2-3-1",
+      "verification": {
+        "xi": "unverified",
+        "subs_used": "unverified"
+      },
+      "draft_confidence": "high",
+      "sources": [],
+      "web_checked": [],
+      "flags": [
+        "Same match as 2010-ucl-final-inter (single-source; ESPN)"
+      ],
+      "squad": [
+        {
+          "name": "Hans-Jörg Butt",
+          "pos": "GK",
+          "role": "starter"
+        },
+        {
+          "name": "Philipp Lahm",
+          "pos": "RB",
+          "role": "starter"
+        },
+        {
+          "name": "Daniel Van Buyten",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Martín Demichelis",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Holger Badstuber",
+          "pos": "LB",
+          "role": "starter"
+        },
+        {
+          "name": "Mark van Bommel",
+          "pos": "DM",
+          "role": "starter"
+        },
+        {
+          "name": "Bastian Schweinsteiger",
+          "pos": "DM",
+          "role": "starter"
+        },
+        {
+          "name": "Arjen Robben",
+          "pos": "RW",
+          "role": "starter"
+        },
+        {
+          "name": "Thomas Müller",
+          "pos": "CAM",
+          "role": "starter"
+        },
+        {
+          "name": "Hamit Altıntop",
+          "pos": "LW",
+          "role": "starter",
+          "off": 63
+        },
+        {
+          "name": "Ivica Olić",
+          "pos": "ST",
+          "role": "starter",
+          "off": 74
+        },
+        {
+          "name": "Miroslav Klose",
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 63,
+          "for": "Hamit Altıntop"
+        },
+        {
+          "name": "Mario Gómez",
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 74,
+          "for": "Ivica Olić"
+        }
+      ]
+    },
+    {
+      "id": "2010-wc-final-netherlands",
+      "date": "2010-07-11",
+      "competition": "FIFA World Cup Final",
+      "team": "Netherlands",
+      "opponent": "Spain",
+      "result": "lost 0-1 aet",
+      "formation": "4-2-3-1",
+      "verification": {
+        "xi": "unverified",
+        "subs_used": "unverified"
+      },
+      "draft_confidence": "high",
+      "sources": [],
+      "web_checked": [],
+      "flags": [
+        "Same match as 2010-wc-final-spain (already 2-sourced)"
+      ],
+      "squad": [
+        {
+          "name": "Maarten Stekelenburg",
+          "pos": "GK",
+          "role": "starter"
+        },
+        {
+          "name": "Gregory van der Wiel",
+          "pos": "RB",
+          "role": "starter"
+        },
+        {
+          "name": "John Heitinga",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Joris Mathijsen",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Giovanni van Bronckhorst",
+          "pos": "LB",
+          "role": "starter",
+          "off": 105
+        },
+        {
+          "name": "Mark van Bommel",
+          "pos": "DM",
+          "role": "starter"
+        },
+        {
+          "name": "Nigel de Jong",
+          "pos": "DM",
+          "role": "starter",
+          "off": 99
+        },
+        {
+          "name": "Arjen Robben",
+          "pos": "RW",
+          "role": "starter"
+        },
+        {
+          "name": "Wesley Sneijder",
+          "pos": "CAM",
+          "role": "starter"
+        },
+        {
+          "name": "Dirk Kuyt",
+          "pos": "LW",
+          "role": "starter",
+          "off": 71
+        },
+        {
+          "name": "Robin van Persie",
+          "pos": "ST",
+          "role": "starter"
+        },
+        {
+          "name": "Eljero Elia",
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 71,
+          "for": "Dirk Kuyt"
+        },
+        {
+          "name": "Rafael van der Vaart",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 99,
+          "for": "Nigel de Jong"
+        },
+        {
+          "name": "Edson Braafheid",
+          "pos": "DF",
+          "role": "sub_used",
+          "on": 105,
+          "for": "Giovanni van Bronckhorst"
+        }
+      ]
+    },
+    {
+      "id": "2011-uel-final-porto",
+      "date": "2011-05-18",
+      "competition": "UEFA Europa League Final",
+      "team": "Porto",
+      "opponent": "Braga",
+      "result": "1-0",
+      "formation": "4-3-3",
+      "verification": {
+        "xi": "unverified",
+        "subs_used": "unverified"
+      },
+      "draft_confidence": "high",
+      "sources": [],
+      "web_checked": [
+        "https://www.rte.ie/sport/soccer/2011/0518/280087-europaleague_porto_braga/",
+        "https://www.espn.com/soccer/lineups/_/gameId/316536"
+      ],
+      "flags": [
+        "XI confirmed; Rúben Micael was an unused sub"
+      ],
+      "squad": [
+        {
+          "name": "Helton",
+          "pos": "GK",
+          "role": "starter"
+        },
+        {
+          "name": "Cristian Săpunaru",
+          "pos": "RB",
+          "role": "starter"
+        },
+        {
+          "name": "Rolando",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Nicolás Otamendi",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Álvaro Pereira",
+          "pos": "LB",
+          "role": "starter"
+        },
+        {
+          "name": "Fernando",
+          "pos": "DM",
+          "role": "starter"
+        },
+        {
+          "name": "João Moutinho",
+          "pos": "CM",
+          "role": "starter"
+        },
+        {
+          "name": "Fredy Guarín",
+          "pos": "CM",
+          "role": "starter",
+          "off": 73
+        },
+        {
+          "name": "Hulk",
+          "pos": "RW",
+          "role": "starter"
+        },
+        {
+          "name": "Radamel Falcao",
+          "pos": "ST",
+          "role": "starter"
+        },
+        {
+          "name": "Silvestre Varela",
+          "pos": "LW",
+          "role": "starter",
+          "off": 79
+        },
+        {
+          "name": "Fernando Belluschi",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 73,
+          "for": "Fredy Guarín"
+        },
+        {
+          "name": "James Rodríguez",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 79,
+          "for": "Silvestre Varela"
+        }
+      ]
+    },
+    {
+      "id": "2011-ucl-final-barcelona",
+      "date": "2011-05-28",
+      "competition": "UEFA Champions League Final",
+      "team": "Barcelona",
+      "opponent": "Manchester United",
+      "result": "3-1",
+      "formation": "4-3-3",
+      "verification": {
+        "xi": "unverified",
+        "subs_used": "unverified"
+      },
+      "draft_confidence": "high",
+      "sources": [],
+      "web_checked": [],
+      "flags": [
+        "Late sub minutes (86-90) unchecked"
+      ],
+      "squad": [
+        {
+          "name": "Víctor Valdés",
+          "pos": "GK",
+          "role": "starter"
+        },
+        {
+          "name": "Dani Alves",
+          "pos": "RB",
+          "role": "starter",
+          "off": 89
+        },
+        {
+          "name": "Gerard Piqué",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Javier Mascherano",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Eric Abidal",
+          "pos": "LB",
+          "role": "starter"
+        },
+        {
+          "name": "Sergio Busquets",
+          "pos": "DM",
+          "role": "starter"
+        },
+        {
+          "name": "Xavi",
+          "pos": "CM",
+          "role": "starter"
+        },
+        {
+          "name": "Andrés Iniesta",
+          "pos": "CM",
+          "role": "starter"
+        },
+        {
+          "name": "Pedro",
+          "pos": "RW",
+          "role": "starter",
+          "off": 88
+        },
+        {
+          "name": "Lionel Messi",
+          "pos": "ST",
+          "role": "starter"
+        },
+        {
+          "name": "David Villa",
+          "pos": "LW",
+          "role": "starter",
+          "off": 86
+        },
+        {
+          "name": "Ibrahim Afellay",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 86,
+          "for": "David Villa"
+        },
+        {
+          "name": "Seydou Keita",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 88,
+          "for": "Pedro"
+        },
+        {
+          "name": "Carles Puyol",
+          "pos": "DF",
+          "role": "sub_used",
+          "on": 89,
+          "for": "Dani Alves"
+        }
+      ]
+    },
+    {
+      "id": "2011-pl-man-utd",
+      "date": "2011-08-28",
+      "competition": "Premier League",
+      "team": "Manchester United",
+      "opponent": "Arsenal",
+      "result": "8-2",
+      "formation": "4-4-2",
+      "verification": {
+        "xi": "unverified",
+        "subs_used": "unverified"
+      },
+      "draft_confidence": "high",
+      "sources": [],
+      "web_checked": [
+        "https://www.footballdatabase.eu/en/match/overview/677756-manchester_united-arsenal",
+        "https://www.espn.com/soccer/match/_/gameId/318056/arsenal-manchester-united"
+      ],
+      "flags": [
+        "Hernández 35-36'; Giggs/Park double change at 68'"
+      ],
+      "squad": [
+        {
+          "name": "David de Gea",
+          "pos": "GK",
+          "role": "starter"
+        },
+        {
+          "name": "Chris Smalling",
+          "pos": "RB",
+          "role": "starter"
+        },
+        {
+          "name": "Phil Jones",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Jonny Evans",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Patrice Evra",
+          "pos": "LB",
+          "role": "starter"
+        },
+        {
+          "name": "Nani",
+          "pos": "RM",
+          "role": "starter",
+          "off": 68
+        },
+        {
+          "name": "Anderson",
+          "pos": "CM",
+          "role": "starter",
+          "off": 68
+        },
+        {
+          "name": "Tom Cleverley",
+          "pos": "CM",
+          "role": "starter"
+        },
+        {
+          "name": "Ashley Young",
+          "pos": "LM",
+          "role": "starter"
+        },
+        {
+          "name": "Danny Welbeck",
+          "pos": "ST",
+          "role": "starter",
+          "off": 35
+        },
+        {
+          "name": "Wayne Rooney",
+          "pos": "ST",
+          "role": "starter"
+        },
+        {
+          "name": "Javier Hernández",
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 35,
+          "for": "Danny Welbeck"
+        },
+        {
+          "name": "Ryan Giggs",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 68,
+          "for": "Anderson"
+        },
+        {
+          "name": "Park Ji-sung",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 68,
+          "for": "Nani"
+        }
+      ]
+    },
+    {
+      "id": "2012-dfb-pokal-final-dortmund",
+      "date": "2012-05-12",
+      "competition": "DFB-Pokal Final",
+      "team": "Borussia Dortmund",
+      "opponent": "Bayern Munich",
+      "result": "5-2",
+      "formation": "4-2-3-1",
+      "verification": {
+        "xi": "unverified",
+        "subs_used": "unverified"
+      },
+      "draft_confidence": "high",
+      "sources": [],
+      "web_checked": [
+        "https://fcbayern.com/en/matches/profis/dfb-pokal/2011-2012/borussia-dortmund-fc-bayern-muenchen-12-05-2012/statistics",
+        "https://datencenter.dfb.de/datencenter/dfb-pokal/2011-2012/finale/borussia-dortmund-bayern-muenchen-298306"
+      ],
+      "flags": [
+        "Includes a 34' goalkeeper change (Langerak for Weidenfeller)",
+        "Wing sides approximate"
+      ],
+      "squad": [
+        {
+          "name": "Roman Weidenfeller",
+          "pos": "GK",
+          "role": "starter",
+          "off": 34
+        },
+        {
+          "name": "Łukasz Piszczek",
+          "pos": "RB",
+          "role": "starter"
+        },
+        {
+          "name": "Neven Subotić",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Mats Hummels",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Marcel Schmelzer",
+          "pos": "LB",
+          "role": "starter"
+        },
+        {
+          "name": "İlkay Gündoğan",
+          "pos": "DM",
+          "role": "starter"
+        },
+        {
+          "name": "Sebastian Kehl",
+          "pos": "DM",
+          "role": "starter"
+        },
+        {
+          "name": "Jakub Błaszczykowski",
+          "pos": "RW",
+          "role": "starter",
+          "off": 84
+        },
+        {
+          "name": "Shinji Kagawa",
+          "pos": "CAM",
+          "role": "starter",
+          "off": 81
+        },
+        {
+          "name": "Kevin Großkreutz",
+          "pos": "LW",
+          "role": "starter"
+        },
+        {
+          "name": "Robert Lewandowski",
+          "pos": "ST",
+          "role": "starter"
+        },
+        {
+          "name": "Mitchell Langerak",
+          "pos": "GK",
+          "role": "sub_used",
+          "on": 34,
+          "for": "Roman Weidenfeller"
+        },
+        {
+          "name": "Sven Bender",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 81,
+          "for": "Shinji Kagawa"
+        },
+        {
+          "name": "Ivan Perišić",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 84,
+          "for": "Jakub Błaszczykowski"
+        }
+      ]
+    },
+    {
+      "id": "2012-pl-man-city",
+      "date": "2012-05-13",
+      "competition": "Premier League",
+      "team": "Manchester City",
+      "opponent": "QPR",
+      "result": "3-2",
+      "formation": "4-4-2",
+      "verification": {
+        "xi": "unverified",
+        "subs_used": "unverified"
+      },
+      "draft_confidence": "high",
+      "sources": [],
+      "web_checked": [],
+      "flags": [],
+      "squad": [
+        {
+          "name": "Joe Hart",
+          "pos": "GK",
+          "role": "starter"
+        },
+        {
+          "name": "Pablo Zabaleta",
+          "pos": "RB",
+          "role": "starter"
+        },
+        {
+          "name": "Vincent Kompany",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Joleon Lescott",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Gaël Clichy",
+          "pos": "LB",
+          "role": "starter"
+        },
+        {
+          "name": "Samir Nasri",
+          "pos": "RM",
+          "role": "starter"
+        },
+        {
+          "name": "Yaya Touré",
+          "pos": "CM",
+          "role": "starter",
+          "off": 44
+        },
+        {
+          "name": "Gareth Barry",
+          "pos": "CM",
+          "role": "starter",
+          "off": 69
+        },
+        {
+          "name": "David Silva",
+          "pos": "LM",
+          "role": "starter"
+        },
+        {
+          "name": "Carlos Tevez",
+          "pos": "ST",
+          "role": "starter",
+          "off": 76
+        },
+        {
+          "name": "Sergio Agüero",
+          "pos": "ST",
+          "role": "starter"
+        },
+        {
+          "name": "Nigel de Jong",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 44,
+          "for": "Yaya Touré"
+        },
+        {
+          "name": "Edin Džeko",
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 69,
+          "for": "Gareth Barry"
+        },
+        {
+          "name": "Mario Balotelli",
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 76,
+          "for": "Carlos Tevez"
+        }
+      ]
+    },
+    {
+      "id": "2013-fa-cup-final-wigan",
+      "date": "2013-05-11",
+      "competition": "FA Cup Final",
+      "team": "Wigan Athletic",
+      "opponent": "Manchester City",
+      "result": "1-0",
+      "formation": "3-4-3",
+      "verification": {
+        "xi": "unverified",
+        "subs_used": "unverified"
+      },
+      "draft_confidence": "high",
+      "sources": [],
+      "web_checked": [
+        "https://en.wikipedia.org/wiki/2013_FA_Cup_final",
+        "https://www.fa-cupfinals.co.uk/2013.html"
+      ],
+      "flags": [
+        "XI and Watson 81' for Gómez confirmed; one source gives Wigan as 3-4-2-1"
+      ],
+      "squad": [
+        {
+          "name": "Joel Robles",
+          "pos": "GK",
+          "role": "starter"
+        },
+        {
+          "name": "Emmerson Boyce",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Antolín Alcaraz",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Paul Scharner",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Callum McManaman",
+          "pos": "RWB",
+          "role": "starter"
+        },
+        {
+          "name": "James McCarthy",
+          "pos": "CM",
+          "role": "starter"
+        },
+        {
+          "name": "James McArthur",
+          "pos": "CM",
+          "role": "starter"
+        },
+        {
+          "name": "Roger Espinoza",
+          "pos": "LWB",
+          "role": "starter"
+        },
+        {
+          "name": "Jordi Gómez",
+          "pos": "RW",
+          "role": "starter",
+          "off": 81
+        },
+        {
+          "name": "Arouna Koné",
+          "pos": "ST",
+          "role": "starter"
+        },
+        {
+          "name": "Shaun Maloney",
+          "pos": "LW",
+          "role": "starter"
+        },
+        {
+          "name": "Ben Watson",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 81,
+          "for": "Jordi Gómez"
+        }
+      ]
+    },
+    {
+      "id": "2013-ucl-final-bayern",
+      "date": "2013-05-25",
+      "competition": "UEFA Champions League Final",
+      "team": "Bayern Munich",
+      "opponent": "Borussia Dortmund",
+      "result": "2-1",
+      "formation": "4-2-3-1",
+      "verification": {
+        "xi": "unverified",
+        "subs_used": "unverified"
+      },
+      "draft_confidence": "high",
+      "sources": [],
+      "web_checked": [
+        "https://en.wikipedia.org/wiki/2013_UEFA_Champions_League_final",
+        "https://www.skysports.com/football/borussia-dortmund-vs-bayern-munich/teams/286308"
+      ],
+      "flags": [
+        "Stoppage-time subs: Luiz Gustavo 90+1', Gómez 90+4'; Tymoshchuk did not come on"
+      ],
+      "squad": [
+        {
+          "name": "Manuel Neuer",
+          "pos": "GK",
+          "role": "starter"
+        },
+        {
+          "name": "Philipp Lahm",
+          "pos": "RB",
+          "role": "starter"
+        },
+        {
+          "name": "Jérôme Boateng",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Dante",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "David Alaba",
+          "pos": "LB",
+          "role": "starter"
+        },
+        {
+          "name": "Javi Martínez",
+          "pos": "DM",
+          "role": "starter"
+        },
+        {
+          "name": "Bastian Schweinsteiger",
+          "pos": "DM",
+          "role": "starter"
+        },
+        {
+          "name": "Arjen Robben",
+          "pos": "RW",
+          "role": "starter"
+        },
+        {
+          "name": "Thomas Müller",
+          "pos": "CAM",
+          "role": "starter"
+        },
+        {
+          "name": "Franck Ribéry",
+          "pos": "LW",
+          "role": "starter",
+          "off": 90
+        },
+        {
+          "name": "Mario Mandžukić",
+          "pos": "ST",
+          "role": "starter",
+          "off": 90
+        },
+        {
+          "name": "Luiz Gustavo",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 90,
+          "for": "Franck Ribéry"
+        },
+        {
+          "name": "Mario Gómez",
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 90,
+          "for": "Mario Mandžukić"
+        }
+      ]
+    },
+    {
+      "id": "2014-laliga-atletico",
+      "date": "2014-05-17",
+      "competition": "La Liga",
+      "team": "Atlético Madrid",
+      "opponent": "Barcelona",
+      "result": "1-1",
+      "formation": "4-4-2",
+      "verification": {
+        "xi": "unverified",
+        "subs_used": "unverified"
+      },
+      "draft_confidence": "medium",
+      "sources": [],
+      "web_checked": [
+        "https://www.skysports.com/football/barcelona-vs-atletico-madrid/teams/311654",
+        "https://www.teamtalk.com/news/memory-match-barcelona-v-atletico-madrid-may-17-2014"
+      ],
+      "flags": [
+        "CORRECTED: Tiago started; Raúl García came off the bench for the injured Arda",
+        "Costa off ~14-16', Arda ~22-23' (sources differ)",
+        "A third sub, if any, not confirmed"
+      ],
+      "squad": [
+        {
+          "name": "Thibaut Courtois",
+          "pos": "GK",
+          "role": "starter"
+        },
+        {
+          "name": "Juanfran",
+          "pos": "RB",
+          "role": "starter"
+        },
+        {
+          "name": "Miranda",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Diego Godín",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Filipe Luís",
+          "pos": "LB",
+          "role": "starter"
+        },
+        {
+          "name": "Koke",
+          "pos": "RM",
+          "role": "starter"
+        },
+        {
+          "name": "Gabi",
+          "pos": "CM",
+          "role": "starter"
+        },
+        {
+          "name": "Tiago",
+          "pos": "CM",
+          "role": "starter"
+        },
+        {
+          "name": "Arda Turan",
+          "pos": "LM",
+          "role": "starter",
+          "off": 23
+        },
+        {
+          "name": "David Villa",
+          "pos": "ST",
+          "role": "starter"
+        },
+        {
+          "name": "Diego Costa",
+          "pos": "ST",
+          "role": "starter",
+          "off": 15
+        },
+        {
+          "name": "Adrián López",
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 15,
+          "for": "Diego Costa"
+        },
+        {
+          "name": "Raúl García",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 23,
+          "for": "Arda Turan"
+        }
+      ]
+    },
+    {
+      "id": "2014-ucl-final-real-madrid",
+      "date": "2014-05-24",
+      "competition": "UEFA Champions League Final",
+      "team": "Real Madrid",
+      "opponent": "Atlético Madrid",
+      "result": "4-1 aet",
+      "formation": "4-3-3",
+      "verification": {
+        "xi": "unverified",
+        "subs_used": "unverified"
+      },
+      "draft_confidence": "high",
+      "sources": [],
+      "web_checked": [],
+      "flags": [],
+      "squad": [
+        {
+          "name": "Iker Casillas",
+          "pos": "GK",
+          "role": "starter"
+        },
+        {
+          "name": "Dani Carvajal",
+          "pos": "RB",
+          "role": "starter"
+        },
+        {
+          "name": "Raphaël Varane",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Sergio Ramos",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Fábio Coentrão",
+          "pos": "LB",
+          "role": "starter",
+          "off": 59
+        },
+        {
+          "name": "Sami Khedira",
+          "pos": "DM",
+          "role": "starter",
+          "off": 59
+        },
+        {
+          "name": "Luka Modrić",
+          "pos": "CM",
+          "role": "starter"
+        },
+        {
+          "name": "Ángel Di María",
+          "pos": "CM",
+          "role": "starter"
+        },
+        {
+          "name": "Gareth Bale",
+          "pos": "RW",
+          "role": "starter"
+        },
+        {
+          "name": "Karim Benzema",
+          "pos": "ST",
+          "role": "starter",
+          "off": 79
+        },
+        {
+          "name": "Cristiano Ronaldo",
+          "pos": "LW",
+          "role": "starter"
+        },
+        {
+          "name": "Marcelo",
+          "pos": "DF",
+          "role": "sub_used",
+          "on": 59,
+          "for": "Fábio Coentrão"
+        },
+        {
+          "name": "Isco",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 59,
+          "for": "Sami Khedira"
+        },
+        {
+          "name": "Álvaro Morata",
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 79,
+          "for": "Karim Benzema"
+        }
+      ]
+    },
+    {
+      "id": "2014-wc-semi-brazil",
+      "date": "2014-07-08",
+      "competition": "FIFA World Cup Semi-final",
+      "team": "Brazil",
+      "opponent": "Germany",
+      "result": "lost 1-7",
+      "formation": "4-2-3-1",
+      "verification": {
+        "xi": "unverified",
+        "subs_used": "unverified"
+      },
+      "draft_confidence": "high",
+      "sources": [],
+      "web_checked": [],
+      "flags": [
+        "Same match as 2014-wc-semi-germany (already 2-sourced)"
+      ],
+      "squad": [
+        {
+          "name": "Júlio César",
+          "pos": "GK",
+          "role": "starter"
+        },
+        {
+          "name": "Maicon",
+          "pos": "RB",
+          "role": "starter"
+        },
+        {
+          "name": "David Luiz",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Dante",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Marcelo",
+          "pos": "LB",
+          "role": "starter"
+        },
+        {
+          "name": "Luiz Gustavo",
+          "pos": "DM",
+          "role": "starter"
+        },
+        {
+          "name": "Fernandinho",
+          "pos": "DM",
+          "role": "starter",
+          "off": 46
+        },
+        {
+          "name": "Hulk",
+          "pos": "RW",
+          "role": "starter",
+          "off": 46
+        },
+        {
+          "name": "Oscar",
+          "pos": "CAM",
+          "role": "starter"
+        },
+        {
+          "name": "Bernard",
+          "pos": "LW",
+          "role": "starter"
+        },
+        {
+          "name": "Fred",
+          "pos": "ST",
+          "role": "starter",
+          "off": 70
+        },
+        {
+          "name": "Paulinho",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 46,
+          "for": "Fernandinho"
+        },
+        {
+          "name": "Ramires",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 46,
+          "for": "Hulk"
+        },
+        {
+          "name": "Willian",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 70,
+          "for": "Fred"
+        }
+      ]
+    },
+    {
+      "id": "2014-wc-final-germany",
+      "date": "2014-07-13",
+      "competition": "FIFA World Cup Final",
+      "team": "Germany",
+      "opponent": "Argentina",
+      "result": "1-0 aet",
+      "formation": "4-2-3-1",
+      "verification": {
+        "xi": "unverified",
+        "subs_used": "unverified"
+      },
+      "draft_confidence": "high",
+      "sources": [],
+      "web_checked": [],
+      "flags": [],
+      "squad": [
+        {
+          "name": "Manuel Neuer",
+          "pos": "GK",
+          "role": "starter"
+        },
+        {
+          "name": "Philipp Lahm",
+          "pos": "RB",
+          "role": "starter"
+        },
+        {
+          "name": "Jérôme Boateng",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Mats Hummels",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Benedikt Höwedes",
+          "pos": "LB",
+          "role": "starter"
+        },
+        {
+          "name": "Bastian Schweinsteiger",
+          "pos": "DM",
+          "role": "starter"
+        },
+        {
+          "name": "Christoph Kramer",
+          "pos": "DM",
+          "role": "starter",
+          "off": 31
+        },
+        {
+          "name": "Thomas Müller",
+          "pos": "RW",
+          "role": "starter"
+        },
+        {
+          "name": "Toni Kroos",
+          "pos": "CAM",
+          "role": "starter"
+        },
+        {
+          "name": "Mesut Özil",
+          "pos": "LW",
+          "role": "starter",
+          "off": 120
+        },
+        {
+          "name": "Miroslav Klose",
+          "pos": "ST",
+          "role": "starter",
+          "off": 88
+        },
+        {
+          "name": "André Schürrle",
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 31,
+          "for": "Christoph Kramer"
+        },
+        {
+          "name": "Mario Götze",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 88,
+          "for": "Miroslav Klose"
+        },
+        {
+          "name": "Per Mertesacker",
+          "pos": "DF",
+          "role": "sub_used",
+          "on": 120,
+          "for": "Mesut Özil"
+        }
+      ]
+    },
+    {
+      "id": "2015-ucl-final-barcelona",
+      "date": "2015-06-06",
+      "competition": "UEFA Champions League Final",
+      "team": "Barcelona",
+      "opponent": "Juventus",
+      "result": "3-1",
+      "formation": "4-3-3",
+      "verification": {
+        "xi": "unverified",
+        "subs_used": "unverified"
+      },
+      "draft_confidence": "high",
+      "sources": [],
+      "web_checked": [
+        "https://en.wikipedia.org/wiki/2015_UEFA_Champions_League_final",
+        "https://www.skysports.com/football/juventus-vs-barcelona/teams/335339"
+      ],
+      "flags": [
+        "Mathieu 90+1', Pedro 90+6' (stoppage time recorded as 90)"
+      ],
+      "squad": [
+        {
+          "name": "Marc-André ter Stegen",
+          "pos": "GK",
+          "role": "starter"
+        },
+        {
+          "name": "Dani Alves",
+          "pos": "RB",
+          "role": "starter"
+        },
+        {
+          "name": "Gerard Piqué",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Javier Mascherano",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Jordi Alba",
+          "pos": "LB",
+          "role": "starter"
+        },
+        {
+          "name": "Sergio Busquets",
+          "pos": "DM",
+          "role": "starter"
+        },
+        {
+          "name": "Ivan Rakitić",
+          "pos": "CM",
+          "role": "starter",
+          "off": 90
+        },
+        {
+          "name": "Andrés Iniesta",
+          "pos": "CM",
+          "role": "starter",
+          "off": 78
+        },
+        {
+          "name": "Lionel Messi",
+          "pos": "RW",
+          "role": "starter"
+        },
+        {
+          "name": "Luis Suárez",
+          "pos": "ST",
+          "role": "starter",
+          "off": 90
+        },
+        {
+          "name": "Neymar",
+          "pos": "LW",
+          "role": "starter"
+        },
+        {
+          "name": "Xavi",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 78,
+          "for": "Andrés Iniesta"
+        },
+        {
+          "name": "Jérémy Mathieu",
+          "pos": "DF",
+          "role": "sub_used",
+          "on": 90,
+          "for": "Ivan Rakitić"
+        },
+        {
+          "name": "Pedro",
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 90,
+          "for": "Luis Suárez"
+        }
+      ]
+    },
+    {
+      "id": "2016-pl-leicester",
+      "date": "2016-05-07",
+      "competition": "Premier League",
+      "team": "Leicester City",
+      "opponent": "Everton",
+      "result": "3-1",
+      "formation": "4-4-2",
+      "verification": {
+        "xi": "unverified",
+        "subs_used": "unverified"
+      },
+      "draft_confidence": "high",
+      "sources": [],
+      "web_checked": [
+        "https://www.espn.co.uk/football/match/_/gameId/422297/everton-leicester-city",
+        "https://int.soccerway.com/matches/2016/05/07/england/premier-league/leicester-city-fc/everton-football-club/2043583/"
+      ],
+      "flags": [
+        "CORRECTED: Huth and Drinkwater were out; Wasilewski and Andy King started",
+        "Gray 90+1'"
+      ],
+      "squad": [
+        {
+          "name": "Kasper Schmeichel",
+          "pos": "GK",
+          "role": "starter"
+        },
+        {
+          "name": "Danny Simpson",
+          "pos": "RB",
+          "role": "starter"
+        },
+        {
+          "name": "Marcin Wasilewski",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Wes Morgan",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Christian Fuchs",
+          "pos": "LB",
+          "role": "starter"
+        },
+        {
+          "name": "Riyad Mahrez",
+          "pos": "RM",
+          "role": "starter",
+          "off": 90
+        },
+        {
+          "name": "N'Golo Kanté",
+          "pos": "CM",
+          "role": "starter"
+        },
+        {
+          "name": "Andy King",
+          "pos": "CM",
+          "role": "starter"
+        },
+        {
+          "name": "Marc Albrighton",
+          "pos": "LM",
+          "role": "starter",
+          "off": 67
+        },
+        {
+          "name": "Shinji Okazaki",
+          "pos": "ST",
+          "role": "starter",
+          "off": 62
+        },
+        {
+          "name": "Jamie Vardy",
+          "pos": "ST",
+          "role": "starter"
+        },
+        {
+          "name": "Leonardo Ulloa",
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 62,
+          "for": "Shinji Okazaki"
+        },
+        {
+          "name": "Jeff Schlupp",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 67,
+          "for": "Marc Albrighton"
+        },
+        {
+          "name": "Demarai Gray",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 90,
+          "for": "Riyad Mahrez"
+        }
+      ]
+    },
+    {
+      "id": "2016-euro-r16-iceland",
+      "date": "2016-06-27",
+      "competition": "UEFA Euro 2016 Round of 16",
+      "team": "Iceland",
+      "opponent": "England",
+      "result": "2-1",
+      "formation": "4-4-2",
+      "verification": {
+        "xi": "unverified",
+        "subs_used": "unverified"
+      },
+      "draft_confidence": "high",
+      "sources": [],
+      "web_checked": [
+        "https://www.thefa.com/news/2016/jun/27/england-iceland-report-270616",
+        "https://www.uefa.com/uefaeuro/history/news/0253-0d8193ba70fb-40c2e7602d67-1000--iceland-into-euro-2016-quarter-finals-after-stunning-england/"
+      ],
+      "flags": [
+        "Subs confirmed by the FA and UEFA reports",
+        "CB left/right order unchecked"
+      ],
+      "squad": [
+        {
+          "name": "Hannes Halldórsson",
+          "pos": "GK",
+          "role": "starter"
+        },
+        {
+          "name": "Birkir Már Sævarsson",
+          "pos": "RB",
+          "role": "starter"
+        },
+        {
+          "name": "Kári Árnason",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Ragnar Sigurðsson",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Ari Freyr Skúlason",
+          "pos": "LB",
+          "role": "starter"
+        },
+        {
+          "name": "Jóhann Berg Guðmundsson",
+          "pos": "RM",
+          "role": "starter"
+        },
+        {
+          "name": "Aron Gunnarsson",
+          "pos": "CM",
+          "role": "starter"
+        },
+        {
+          "name": "Gylfi Sigurðsson",
+          "pos": "CM",
+          "role": "starter"
+        },
+        {
+          "name": "Birkir Bjarnason",
+          "pos": "LM",
+          "role": "starter"
+        },
+        {
+          "name": "Kolbeinn Sigþórsson",
+          "pos": "ST",
+          "role": "starter",
+          "off": 77
+        },
+        {
+          "name": "Jón Daði Böðvarsson",
+          "pos": "ST",
+          "role": "starter",
+          "off": 89
+        },
+        {
+          "name": "Theódór Elmar Bjarnason",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 77,
+          "for": "Kolbeinn Sigþórsson"
+        },
+        {
+          "name": "Arnór Ingvi Traustason",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 89,
+          "for": "Jón Daði Böðvarsson"
+        }
+      ]
+    },
+    {
+      "id": "2016-euro-qf-wales",
+      "date": "2016-07-01",
+      "competition": "UEFA Euro 2016 Quarter-final",
+      "team": "Wales",
+      "opponent": "Belgium",
+      "result": "3-1",
+      "formation": "3-5-2",
+      "verification": {
+        "xi": "unverified",
+        "subs_used": "unverified"
+      },
+      "draft_confidence": "high",
+      "sources": [],
+      "web_checked": [
+        "https://www.uefa.com/uefaeuro/history/news/0253-0d81b0c19f08-954fdc458315-1000--remarkable-wales-shock-belgium-to-reach-euro-2016-semis/",
+        "https://www.besoccer.com/match/seleccion-gales/seleccion-belgica/2016410967/lineups"
+      ],
+      "flags": [
+        "XI and all three subs confirmed exactly as drafted (UEFA report)"
+      ],
+      "squad": [
+        {
+          "name": "Wayne Hennessey",
+          "pos": "GK",
+          "role": "starter"
+        },
+        {
+          "name": "James Chester",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Ashley Williams",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Ben Davies",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Chris Gunter",
+          "pos": "RWB",
+          "role": "starter"
+        },
+        {
+          "name": "Aaron Ramsey",
+          "pos": "CM",
+          "role": "starter",
+          "off": 90
+        },
+        {
+          "name": "Joe Allen",
+          "pos": "CM",
+          "role": "starter"
+        },
+        {
+          "name": "Joe Ledley",
+          "pos": "CM",
+          "role": "starter",
+          "off": 78
+        },
+        {
+          "name": "Neil Taylor",
+          "pos": "LWB",
+          "role": "starter"
+        },
+        {
+          "name": "Gareth Bale",
+          "pos": "ST",
+          "role": "starter"
+        },
+        {
+          "name": "Hal Robson-Kanu",
+          "pos": "ST",
+          "role": "starter",
+          "off": 80
+        },
+        {
+          "name": "Andy King",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 78,
+          "for": "Joe Ledley"
+        },
+        {
+          "name": "Sam Vokes",
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 80,
+          "for": "Hal Robson-Kanu"
+        },
+        {
+          "name": "James Collins",
+          "pos": "DF",
+          "role": "sub_used",
+          "on": 90,
+          "for": "Aaron Ramsey"
+        }
+      ]
+    },
+    {
+      "id": "2016-euro-final-france",
+      "date": "2016-07-10",
+      "competition": "UEFA Euro 2016 Final",
+      "team": "France",
+      "opponent": "Portugal",
+      "result": "lost 0-1 aet",
+      "formation": "4-2-3-1",
+      "verification": {
+        "xi": "unverified",
+        "subs_used": "unverified"
+      },
+      "draft_confidence": "high",
+      "sources": [],
+      "web_checked": [],
+      "flags": [
+        "Same match as 2016-euro-final-portugal (XI 2-sourced, subs single-source)"
+      ],
+      "squad": [
+        {
+          "name": "Hugo Lloris",
+          "pos": "GK",
+          "role": "starter"
+        },
+        {
+          "name": "Bacary Sagna",
+          "pos": "RB",
+          "role": "starter"
+        },
+        {
+          "name": "Laurent Koscielny",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Samuel Umtiti",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Patrice Evra",
+          "pos": "LB",
+          "role": "starter"
+        },
+        {
+          "name": "Paul Pogba",
+          "pos": "DM",
+          "role": "starter"
+        },
+        {
+          "name": "Blaise Matuidi",
+          "pos": "DM",
+          "role": "starter"
+        },
+        {
+          "name": "Moussa Sissoko",
+          "pos": "RW",
+          "role": "starter",
+          "off": 110
+        },
+        {
+          "name": "Antoine Griezmann",
+          "pos": "CAM",
+          "role": "starter"
+        },
+        {
+          "name": "Dimitri Payet",
+          "pos": "LW",
+          "role": "starter",
+          "off": 58
+        },
+        {
+          "name": "Olivier Giroud",
+          "pos": "ST",
+          "role": "starter",
+          "off": 78
+        },
+        {
+          "name": "Kingsley Coman",
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 58,
+          "for": "Dimitri Payet"
+        },
+        {
+          "name": "André-Pierre Gignac",
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 78,
+          "for": "Olivier Giroud"
+        },
+        {
+          "name": "Anthony Martial",
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 110,
+          "for": "Moussa Sissoko"
+        }
+      ]
+    },
+    {
+      "id": "2017-ucl-final-real-madrid",
+      "date": "2017-06-03",
+      "competition": "UEFA Champions League Final",
+      "team": "Real Madrid",
+      "opponent": "Juventus",
+      "result": "4-1",
+      "formation": "4-3-1-2",
+      "verification": {
+        "xi": "unverified",
+        "subs_used": "unverified"
+      },
+      "draft_confidence": "high",
+      "sources": [],
+      "web_checked": [
+        "https://www.11v11.com/matches/juventus-v-real-madrid-03-june-2017-353097/",
+        "https://www.skysports.com/football/juventus-vs-real-madrid/teams/371636"
+      ],
+      "flags": [
+        "CORRECTED: Morata replaced Kroos, not Ronaldo"
+      ],
+      "squad": [
+        {
+          "name": "Keylor Navas",
+          "pos": "GK",
+          "role": "starter"
+        },
+        {
+          "name": "Dani Carvajal",
+          "pos": "RB",
+          "role": "starter"
+        },
+        {
+          "name": "Raphaël Varane",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Sergio Ramos",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Marcelo",
+          "pos": "LB",
+          "role": "starter"
+        },
+        {
+          "name": "Casemiro",
+          "pos": "DM",
+          "role": "starter"
+        },
+        {
+          "name": "Luka Modrić",
+          "pos": "CM",
+          "role": "starter"
+        },
+        {
+          "name": "Toni Kroos",
+          "pos": "CM",
+          "role": "starter",
+          "off": 89
+        },
+        {
+          "name": "Isco",
+          "pos": "CAM",
+          "role": "starter",
+          "off": 82
+        },
+        {
+          "name": "Karim Benzema",
+          "pos": "ST",
+          "role": "starter",
+          "off": 77
+        },
+        {
+          "name": "Cristiano Ronaldo",
+          "pos": "ST",
+          "role": "starter"
+        },
+        {
+          "name": "Gareth Bale",
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 77,
+          "for": "Karim Benzema"
+        },
+        {
+          "name": "Marco Asensio",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 82,
+          "for": "Isco"
+        },
+        {
+          "name": "Álvaro Morata",
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 89,
+          "for": "Toni Kroos"
+        }
+      ]
+    },
+    {
+      "id": "2018-wc-semi-croatia",
+      "date": "2018-07-11",
+      "competition": "FIFA World Cup Semi-final",
+      "team": "Croatia",
+      "opponent": "England",
+      "result": "2-1 aet",
+      "formation": "4-1-4-1",
+      "verification": {
+        "xi": "unverified",
+        "subs_used": "unverified"
+      },
+      "draft_confidence": "high",
+      "sources": [],
+      "web_checked": [
+        "https://www.thefa.com/news/2018/jul/11/england-croatia-world-cup-semi-final-report-110718",
+        "https://www.planetworldcup.com/CUPS/2018/sf_cro_v_eng.html"
+      ],
+      "flags": [
+        "All four extra-time subs confirmed exactly as drafted"
+      ],
+      "squad": [
+        {
+          "name": "Danijel Subašić",
+          "pos": "GK",
+          "role": "starter"
+        },
+        {
+          "name": "Šime Vrsaljko",
+          "pos": "RB",
+          "role": "starter"
+        },
+        {
+          "name": "Dejan Lovren",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Domagoj Vida",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Ivan Strinić",
+          "pos": "LB",
+          "role": "starter",
+          "off": 95
+        },
+        {
+          "name": "Marcelo Brozović",
+          "pos": "DM",
+          "role": "starter"
+        },
+        {
+          "name": "Ante Rebić",
+          "pos": "RM",
+          "role": "starter",
+          "off": 101
+        },
+        {
+          "name": "Luka Modrić",
+          "pos": "CM",
+          "role": "starter",
+          "off": 119
+        },
+        {
+          "name": "Ivan Rakitić",
+          "pos": "CM",
+          "role": "starter"
+        },
+        {
+          "name": "Ivan Perišić",
+          "pos": "LM",
+          "role": "starter"
+        },
+        {
+          "name": "Mario Mandžukić",
+          "pos": "ST",
+          "role": "starter",
+          "off": 115
+        },
+        {
+          "name": "Josip Pivarić",
+          "pos": "DF",
+          "role": "sub_used",
+          "on": 95,
+          "for": "Ivan Strinić"
+        },
+        {
+          "name": "Andrej Kramarić",
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 101,
+          "for": "Ante Rebić"
+        },
+        {
+          "name": "Vedran Ćorluka",
+          "pos": "DF",
+          "role": "sub_used",
+          "on": 115,
+          "for": "Mario Mandžukić"
+        },
+        {
+          "name": "Milan Badelj",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 119,
+          "for": "Luka Modrić"
+        }
+      ]
+    },
+    {
+      "id": "2018-wc-final-france",
+      "date": "2018-07-15",
+      "competition": "FIFA World Cup Final",
+      "team": "France",
+      "opponent": "Croatia",
+      "result": "4-2",
+      "formation": "4-2-3-1",
+      "verification": {
+        "xi": "unverified",
+        "subs_used": "unverified"
+      },
+      "draft_confidence": "high",
+      "sources": [],
+      "web_checked": [],
+      "flags": [],
+      "squad": [
+        {
+          "name": "Hugo Lloris",
+          "pos": "GK",
+          "role": "starter"
+        },
+        {
+          "name": "Benjamin Pavard",
+          "pos": "RB",
+          "role": "starter"
+        },
+        {
+          "name": "Raphaël Varane",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Samuel Umtiti",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Lucas Hernandez",
+          "pos": "LB",
+          "role": "starter"
+        },
+        {
+          "name": "N'Golo Kanté",
+          "pos": "DM",
+          "role": "starter",
+          "off": 55
+        },
+        {
+          "name": "Paul Pogba",
+          "pos": "DM",
+          "role": "starter"
+        },
+        {
+          "name": "Kylian Mbappé",
+          "pos": "RW",
+          "role": "starter"
+        },
+        {
+          "name": "Antoine Griezmann",
+          "pos": "CAM",
+          "role": "starter"
+        },
+        {
+          "name": "Blaise Matuidi",
+          "pos": "LW",
+          "role": "starter",
+          "off": 73
+        },
+        {
+          "name": "Olivier Giroud",
+          "pos": "ST",
+          "role": "starter",
+          "off": 81
+        },
+        {
+          "name": "Steven N'Zonzi",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 55,
+          "for": "N'Golo Kanté"
+        },
+        {
+          "name": "Corentin Tolisso",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 73,
+          "for": "Blaise Matuidi"
+        },
+        {
+          "name": "Nabil Fekir",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 81,
+          "for": "Olivier Giroud"
+        }
+      ]
+    },
+    {
+      "id": "2019-ucl-r16-ajax",
+      "date": "2019-03-05",
+      "competition": "UEFA Champions League Round of 16",
+      "team": "Ajax",
+      "opponent": "Real Madrid",
+      "result": "4-1 (won 5-3 on aggregate)",
+      "formation": "4-2-3-1",
+      "verification": {
+        "xi": "unverified",
+        "subs_used": "unverified"
+      },
+      "draft_confidence": "high",
+      "sources": [],
+      "web_checked": [
+        "https://www.espn.com/soccer/lineups?gameId=530625",
+        "https://www.premierleague.com/match/41201"
+      ],
+      "flags": [
+        "XI confirmed (same XI as the first leg)"
+      ],
+      "squad": [
+        {
+          "name": "André Onana",
+          "pos": "GK",
+          "role": "starter"
+        },
+        {
+          "name": "Noussair Mazraoui",
+          "pos": "RB",
+          "role": "starter",
+          "off": 81
+        },
+        {
+          "name": "Matthijs de Ligt",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Daley Blind",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Nicolás Tagliafico",
+          "pos": "LB",
+          "role": "starter"
+        },
+        {
+          "name": "Lasse Schöne",
+          "pos": "DM",
+          "role": "starter",
+          "off": 73
+        },
+        {
+          "name": "Frenkie de Jong",
+          "pos": "DM",
+          "role": "starter"
+        },
+        {
+          "name": "Hakim Ziyech",
+          "pos": "RW",
+          "role": "starter"
+        },
+        {
+          "name": "Donny van de Beek",
+          "pos": "CAM",
+          "role": "starter"
+        },
+        {
+          "name": "David Neres",
+          "pos": "LW",
+          "role": "starter",
+          "off": 74
+        },
+        {
+          "name": "Dušan Tadić",
+          "pos": "ST",
+          "role": "starter"
+        },
+        {
+          "name": "Dani de Wit",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 73,
+          "for": "Lasse Schöne"
+        },
+        {
+          "name": "Kasper Dolberg",
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 74,
+          "for": "David Neres"
+        },
+        {
+          "name": "Joël Veltman",
+          "pos": "DF",
+          "role": "sub_used",
+          "on": 81,
+          "for": "Noussair Mazraoui"
+        }
+      ]
+    },
+    {
+      "id": "2019-ucl-semi-liverpool",
+      "date": "2019-05-07",
+      "competition": "UEFA Champions League Semi-final",
+      "team": "Liverpool",
+      "opponent": "Barcelona",
+      "result": "4-0 (won 4-3 on aggregate)",
+      "formation": "4-3-3",
+      "verification": {
+        "xi": "unverified",
+        "subs_used": "unverified"
+      },
+      "draft_confidence": "high",
+      "sources": [],
+      "web_checked": [],
+      "flags": [
+        "Late sub minutes unchecked"
+      ],
+      "squad": [
+        {
+          "name": "Alisson",
+          "pos": "GK",
+          "role": "starter"
+        },
+        {
+          "name": "Trent Alexander-Arnold",
+          "pos": "RB",
+          "role": "starter"
+        },
+        {
+          "name": "Joël Matip",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Virgil van Dijk",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Andrew Robertson",
+          "pos": "LB",
+          "role": "starter",
+          "off": 46
+        },
+        {
+          "name": "Fabinho",
+          "pos": "DM",
+          "role": "starter"
+        },
+        {
+          "name": "Jordan Henderson",
+          "pos": "CM",
+          "role": "starter"
+        },
+        {
+          "name": "James Milner",
+          "pos": "CM",
+          "role": "starter"
+        },
+        {
+          "name": "Xherdan Shaqiri",
+          "pos": "RW",
+          "role": "starter",
+          "off": 90
+        },
+        {
+          "name": "Divock Origi",
+          "pos": "ST",
+          "role": "starter",
+          "off": 85
+        },
+        {
+          "name": "Sadio Mané",
+          "pos": "LW",
+          "role": "starter"
+        },
+        {
+          "name": "Georginio Wijnaldum",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 46,
+          "for": "Andrew Robertson"
+        },
+        {
+          "name": "Daniel Sturridge",
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 85,
+          "for": "Divock Origi"
+        },
+        {
+          "name": "Joe Gomez",
+          "pos": "DF",
+          "role": "sub_used",
+          "on": 90,
+          "for": "Xherdan Shaqiri"
+        }
+      ]
+    },
+    {
+      "id": "2019-ucl-semi-tottenham",
+      "date": "2019-05-08",
+      "competition": "UEFA Champions League Semi-final",
+      "team": "Tottenham Hotspur",
+      "opponent": "Ajax",
+      "result": "3-2 (won on away goals)",
+      "formation": "4-2-3-1",
+      "verification": {
+        "xi": "unverified",
+        "subs_used": "unverified"
+      },
+      "draft_confidence": "high",
+      "sources": [],
+      "web_checked": [
+        "https://www.espn.com/soccer/match/_/gameId/538698/tottenham-hotspur-ajax-amsterdam",
+        "https://www.footballcritic.com/uefa-champions-league-afc-ajax-tottenham-hotspur-fc/lineups/1627143"
+      ],
+      "flags": [
+        "Attacking positions approximate"
+      ],
+      "squad": [
+        {
+          "name": "Hugo Lloris",
+          "pos": "GK",
+          "role": "starter"
+        },
+        {
+          "name": "Kieran Trippier",
+          "pos": "RB",
+          "role": "starter",
+          "off": 81
+        },
+        {
+          "name": "Toby Alderweireld",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Jan Vertonghen",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Danny Rose",
+          "pos": "LB",
+          "role": "starter",
+          "off": 82
+        },
+        {
+          "name": "Victor Wanyama",
+          "pos": "DM",
+          "role": "starter",
+          "off": 46
+        },
+        {
+          "name": "Moussa Sissoko",
+          "pos": "DM",
+          "role": "starter"
+        },
+        {
+          "name": "Lucas Moura",
+          "pos": "RW",
+          "role": "starter"
+        },
+        {
+          "name": "Christian Eriksen",
+          "pos": "CAM",
+          "role": "starter"
+        },
+        {
+          "name": "Dele Alli",
+          "pos": "LW",
+          "role": "starter"
+        },
+        {
+          "name": "Son Heung-min",
+          "pos": "ST",
+          "role": "starter"
+        },
+        {
+          "name": "Fernando Llorente",
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 46,
+          "for": "Victor Wanyama"
+        },
+        {
+          "name": "Erik Lamela",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 81,
+          "for": "Kieran Trippier"
+        },
+        {
+          "name": "Ben Davies",
+          "pos": "DF",
+          "role": "sub_used",
+          "on": 82,
+          "for": "Danny Rose"
+        }
+      ]
+    },
+    {
+      "id": "2020-ucl-final-bayern",
+      "date": "2020-08-23",
+      "competition": "UEFA Champions League Final",
+      "team": "Bayern Munich",
+      "opponent": "Paris Saint-Germain",
+      "result": "1-0",
+      "formation": "4-2-3-1",
+      "verification": {
+        "xi": "unverified",
+        "subs_used": "unverified"
+      },
+      "draft_confidence": "high",
+      "sources": [],
+      "web_checked": [
+        "https://fcbayern.com/en/matches/profis/champions-league/2019-2020/champions-league-finale-paris-saint-germain-fc-bayern-23.08.2020/lineup",
+        "https://www.espn.com/soccer/match/_/gameId/573698/bayern-munich-paris-saint-germain"
+      ],
+      "flags": [
+        "CORRECTED: removed Choupo-Moting (he played for PSG)",
+        "Sources differ by a minute (68/69, 86/87)"
+      ],
+      "squad": [
+        {
+          "name": "Manuel Neuer",
+          "pos": "GK",
+          "role": "starter"
+        },
+        {
+          "name": "Joshua Kimmich",
+          "pos": "RB",
+          "role": "starter"
+        },
+        {
+          "name": "Jérôme Boateng",
+          "pos": "CB",
+          "role": "starter",
+          "off": 25
+        },
+        {
+          "name": "David Alaba",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Alphonso Davies",
+          "pos": "LB",
+          "role": "starter"
+        },
+        {
+          "name": "Leon Goretzka",
+          "pos": "DM",
+          "role": "starter"
+        },
+        {
+          "name": "Thiago Alcântara",
+          "pos": "DM",
+          "role": "starter",
+          "off": 86
+        },
+        {
+          "name": "Serge Gnabry",
+          "pos": "RW",
+          "role": "starter",
+          "off": 68
+        },
+        {
+          "name": "Thomas Müller",
+          "pos": "CAM",
+          "role": "starter"
+        },
+        {
+          "name": "Kingsley Coman",
+          "pos": "LW",
+          "role": "starter",
+          "off": 68
+        },
+        {
+          "name": "Robert Lewandowski",
+          "pos": "ST",
+          "role": "starter"
+        },
+        {
+          "name": "Niklas Süle",
+          "pos": "DF",
+          "role": "sub_used",
+          "on": 25,
+          "for": "Jérôme Boateng"
+        },
+        {
+          "name": "Philippe Coutinho",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 68,
+          "for": "Serge Gnabry"
+        },
+        {
+          "name": "Ivan Perišić",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 68,
+          "for": "Kingsley Coman"
+        },
+        {
+          "name": "Corentin Tolisso",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 86,
+          "for": "Thiago Alcântara"
+        }
+      ]
+    },
+    {
+      "id": "2021-ucl-final-chelsea",
+      "date": "2021-05-29",
+      "competition": "UEFA Champions League Final",
+      "team": "Chelsea",
+      "opponent": "Manchester City",
+      "result": "1-0",
+      "formation": "3-4-2-1",
+      "verification": {
+        "xi": "unverified",
+        "subs_used": "unverified"
+      },
+      "draft_confidence": "high",
+      "sources": [],
+      "web_checked": [],
+      "flags": [],
+      "squad": [
+        {
+          "name": "Édouard Mendy",
+          "pos": "GK",
+          "role": "starter"
+        },
+        {
+          "name": "César Azpilicueta",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Thiago Silva",
+          "pos": "CB",
+          "role": "starter",
+          "off": 39
+        },
+        {
+          "name": "Antonio Rüdiger",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Reece James",
+          "pos": "RWB",
+          "role": "starter"
+        },
+        {
+          "name": "Jorginho",
+          "pos": "CM",
+          "role": "starter"
+        },
+        {
+          "name": "N'Golo Kanté",
+          "pos": "CM",
+          "role": "starter"
+        },
+        {
+          "name": "Ben Chilwell",
+          "pos": "LWB",
+          "role": "starter"
+        },
+        {
+          "name": "Mason Mount",
+          "pos": "AM",
+          "role": "starter",
+          "off": 80
+        },
+        {
+          "name": "Kai Havertz",
+          "pos": "AM",
+          "role": "starter"
+        },
+        {
+          "name": "Timo Werner",
+          "pos": "ST",
+          "role": "starter",
+          "off": 66
+        },
+        {
+          "name": "Andreas Christensen",
+          "pos": "DF",
+          "role": "sub_used",
+          "on": 39,
+          "for": "Thiago Silva"
+        },
+        {
+          "name": "Christian Pulisic",
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 66,
+          "for": "Timo Werner"
+        },
+        {
+          "name": "Mateo Kovačić",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 80,
+          "for": "Mason Mount"
+        }
+      ]
+    },
+    {
+      "id": "2021-euro-final-italy",
+      "date": "2021-07-11",
+      "competition": "UEFA Euro 2020 Final",
+      "team": "Italy",
+      "opponent": "England",
+      "result": "1-1 aet, won 3-2 on penalties",
+      "formation": "4-3-3",
+      "verification": {
+        "xi": "unverified",
+        "subs_used": "unverified"
+      },
+      "draft_confidence": "medium",
+      "sources": [],
+      "web_checked": [
+        "https://en.wikipedia.org/wiki/UEFA_Euro_2020_final",
+        "https://www.englandfootball.com/england/mens-senior-team/fixtures-results/2021/20210711-italy-1-1-england-uefa-euro-2020-final-match-report"
+      ],
+      "flags": [
+        "Florenzi: Wikipedia has him on at 118' for Emerson; the FA report lists him unused. Confirm",
+        "Belotti 90' (FA) or early extra time (Wikipedia)"
+      ],
+      "squad": [
+        {
+          "name": "Gianluigi Donnarumma",
+          "pos": "GK",
+          "role": "starter"
+        },
+        {
+          "name": "Giovanni Di Lorenzo",
+          "pos": "RB",
+          "role": "starter"
+        },
+        {
+          "name": "Leonardo Bonucci",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Giorgio Chiellini",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Emerson Palmieri",
+          "pos": "LB",
+          "role": "starter",
+          "off": 118
+        },
+        {
+          "name": "Jorginho",
+          "pos": "DM",
+          "role": "starter"
+        },
+        {
+          "name": "Nicolò Barella",
+          "pos": "CM",
+          "role": "starter",
+          "off": 54
+        },
+        {
+          "name": "Marco Verratti",
+          "pos": "CM",
+          "role": "starter",
+          "off": 96
+        },
+        {
+          "name": "Federico Chiesa",
+          "pos": "RW",
+          "role": "starter",
+          "off": 86
+        },
+        {
+          "name": "Ciro Immobile",
+          "pos": "ST",
+          "role": "starter",
+          "off": 55
+        },
+        {
+          "name": "Lorenzo Insigne",
+          "pos": "LW",
+          "role": "starter",
+          "off": 91
+        },
+        {
+          "name": "Bryan Cristante",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 54,
+          "for": "Nicolò Barella"
+        },
+        {
+          "name": "Domenico Berardi",
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 55,
+          "for": "Ciro Immobile"
+        },
+        {
+          "name": "Federico Bernardeschi",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 86,
+          "for": "Federico Chiesa"
+        },
+        {
+          "name": "Andrea Belotti",
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 91,
+          "for": "Lorenzo Insigne"
+        },
+        {
+          "name": "Manuel Locatelli",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 96,
+          "for": "Marco Verratti"
+        },
+        {
+          "name": "Alessandro Florenzi",
+          "pos": "DF",
+          "role": "sub_used",
+          "on": 118,
+          "for": "Emerson Palmieri"
+        }
+      ]
+    },
+    {
+      "id": "2022-wc-group-saudi-arabia",
+      "date": "2022-11-22",
+      "competition": "FIFA World Cup group stage",
+      "team": "Saudi Arabia",
+      "opponent": "Argentina",
+      "result": "2-1",
+      "formation": "4-3-3",
+      "verification": {
+        "xi": "unverified",
+        "subs_used": "unverified"
+      },
+      "draft_confidence": "medium",
+      "sources": [],
+      "web_checked": [
+        "https://www.foxsports.com/soccer/fifa-world-cup-men-argentina-vs-saudi-arabia-nov-22-2022-game-boxscore-97073",
+        "https://www.espn.com/soccer/lineups/_/gameId/633794"
+      ],
+      "flags": [
+        "Al-Abed came on (45+4') and was himself replaced (88')",
+        "Al-Burayk 90+9'",
+        "Starters Al-Bulaihi, Al-Malki, Kanno, Al-Dawsari not individually confirmed; formation approximate"
+      ],
+      "squad": [
+        {
+          "name": "Mohammed Al-Owais",
+          "pos": "GK",
+          "role": "starter"
+        },
+        {
+          "name": "Saud Abdulhamid",
+          "pos": "RB",
+          "role": "starter"
+        },
+        {
+          "name": "Hassan Tambakti",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Ali Al-Bulaihi",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Yasser Al-Shahrani",
+          "pos": "LB",
+          "role": "starter",
+          "off": 90
+        },
+        {
+          "name": "Abdulelah Al-Malki",
+          "pos": "DM",
+          "role": "starter"
+        },
+        {
+          "name": "Mohamed Kanno",
+          "pos": "CM",
+          "role": "starter"
+        },
+        {
+          "name": "Salman Al-Faraj",
+          "pos": "CM",
+          "role": "starter",
+          "off": 45
+        },
+        {
+          "name": "Firas Al-Buraikan",
+          "pos": "RW",
+          "role": "starter",
+          "off": 89
+        },
+        {
+          "name": "Saleh Al-Shehri",
+          "pos": "ST",
+          "role": "starter",
+          "off": 78
+        },
+        {
+          "name": "Salem Al-Dawsari",
+          "pos": "LW",
+          "role": "starter"
+        },
+        {
+          "name": "Nawaf Al-Abed",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 45,
+          "for": "Salman Al-Faraj",
+          "off": 88
+        },
+        {
+          "name": "Sultan Al-Ghannam",
+          "pos": "DF",
+          "role": "sub_used",
+          "on": 78,
+          "for": "Saleh Al-Shehri"
+        },
+        {
+          "name": "Abdulelah Al-Amri",
+          "pos": "DF",
+          "role": "sub_used",
+          "on": 88,
+          "for": "Nawaf Al-Abed"
+        },
+        {
+          "name": "Haitham Asiri",
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 89,
+          "for": "Firas Al-Buraikan"
+        },
+        {
+          "name": "Mohammed Al-Burayk",
+          "pos": "DF",
+          "role": "sub_used",
+          "on": 90,
+          "for": "Yasser Al-Shahrani"
+        }
+      ]
+    },
+    {
+      "id": "2022-wc-qf-morocco",
+      "date": "2022-12-10",
+      "competition": "FIFA World Cup Quarter-final",
+      "team": "Morocco",
+      "opponent": "Portugal",
+      "result": "1-0",
+      "formation": "4-3-3",
+      "verification": {
+        "xi": "unverified",
+        "subs_used": "unverified"
+      },
+      "draft_confidence": "medium",
+      "sources": [],
+      "web_checked": [
+        "https://www.foxsports.com/soccer/fifa-world-cup-men-morocco-vs-portugal-dec-10-2022-game-boxscore-97072",
+        "https://www.besoccer.com/match/seleccion-marruecos/seleccion-portugal/2022688563/lineups"
+      ],
+      "flags": [
+        "Who-for pairings at 65' and 82' differ between sources (Fox has Cheddira for Amallah). Confirm",
+        "Cheddira later sent off (90+3')"
+      ],
+      "squad": [
+        {
+          "name": "Yassine Bounou",
+          "pos": "GK",
+          "role": "starter"
+        },
+        {
+          "name": "Achraf Hakimi",
+          "pos": "RB",
+          "role": "starter"
+        },
+        {
+          "name": "Jawad El Yamiq",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Romain Saïss",
+          "pos": "CB",
+          "role": "starter",
+          "off": 57
+        },
+        {
+          "name": "Yahia Attiyat Allah",
+          "pos": "LB",
+          "role": "starter"
+        },
+        {
+          "name": "Sofyan Amrabat",
+          "pos": "DM",
+          "role": "starter"
+        },
+        {
+          "name": "Azzedine Ounahi",
+          "pos": "CM",
+          "role": "starter"
+        },
+        {
+          "name": "Selim Amallah",
+          "pos": "CM",
+          "role": "starter",
+          "off": 65
+        },
+        {
+          "name": "Hakim Ziyech",
+          "pos": "RW",
+          "role": "starter",
+          "off": 82
+        },
+        {
+          "name": "Youssef En-Nesyri",
+          "pos": "ST",
+          "role": "starter",
+          "off": 65
+        },
+        {
+          "name": "Sofiane Boufal",
+          "pos": "LW",
+          "role": "starter",
+          "off": 82
+        },
+        {
+          "name": "Achraf Dari",
+          "pos": "DF",
+          "role": "sub_used",
+          "on": 57,
+          "for": "Romain Saïss"
+        },
+        {
+          "name": "Walid Cheddira",
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 65,
+          "for": "Youssef En-Nesyri"
+        },
+        {
+          "name": "Badr Benoun",
+          "pos": "DF",
+          "role": "sub_used",
+          "on": 65,
+          "for": "Selim Amallah"
+        },
+        {
+          "name": "Zakaria Aboukhlal",
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 82,
+          "for": "Hakim Ziyech"
+        },
+        {
+          "name": "Yahya Jabrane",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 82,
+          "for": "Sofiane Boufal"
+        }
+      ]
+    },
+    {
+      "id": "2022-wc-final-argentina",
+      "date": "2022-12-18",
+      "competition": "FIFA World Cup Final",
+      "team": "Argentina",
+      "opponent": "France",
+      "result": "3-3 aet, won 4-2 on penalties",
+      "formation": "4-3-3",
+      "verification": {
+        "xi": "unverified",
+        "subs_used": "unverified"
+      },
+      "draft_confidence": "high",
+      "sources": [],
+      "web_checked": [],
+      "flags": [],
+      "squad": [
+        {
+          "name": "Emiliano Martínez",
+          "pos": "GK",
+          "role": "starter"
+        },
+        {
+          "name": "Nahuel Molina",
+          "pos": "RB",
+          "role": "starter",
+          "off": 91
+        },
+        {
+          "name": "Cristian Romero",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Nicolás Otamendi",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Nicolás Tagliafico",
+          "pos": "LB",
+          "role": "starter",
+          "off": 120
+        },
+        {
+          "name": "Enzo Fernández",
+          "pos": "DM",
+          "role": "starter"
+        },
+        {
+          "name": "Rodrigo De Paul",
+          "pos": "CM",
+          "role": "starter",
+          "off": 102
+        },
+        {
+          "name": "Alexis Mac Allister",
+          "pos": "CM",
+          "role": "starter",
+          "off": 116
+        },
+        {
+          "name": "Lionel Messi",
+          "pos": "RW",
+          "role": "starter"
+        },
+        {
+          "name": "Julián Álvarez",
+          "pos": "ST",
+          "role": "starter",
+          "off": 103
+        },
+        {
+          "name": "Ángel Di María",
+          "pos": "LW",
+          "role": "starter",
+          "off": 64
+        },
+        {
+          "name": "Marcos Acuña",
+          "pos": "DF",
+          "role": "sub_used",
+          "on": 64,
+          "for": "Ángel Di María"
+        },
+        {
+          "name": "Gonzalo Montiel",
+          "pos": "DF",
+          "role": "sub_used",
+          "on": 91,
+          "for": "Nahuel Molina"
+        },
+        {
+          "name": "Leandro Paredes",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 102,
+          "for": "Rodrigo De Paul"
+        },
+        {
+          "name": "Lautaro Martínez",
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 103,
+          "for": "Julián Álvarez"
+        },
+        {
+          "name": "Germán Pezzella",
+          "pos": "DF",
+          "role": "sub_used",
+          "on": 116,
+          "for": "Alexis Mac Allister"
+        },
+        {
+          "name": "Paulo Dybala",
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 120,
+          "for": "Nicolás Tagliafico"
+        }
+      ]
+    },
+    {
+      "id": "2023-ucl-final-man-city",
+      "date": "2023-06-10",
+      "competition": "UEFA Champions League Final",
+      "team": "Manchester City",
+      "opponent": "Inter",
+      "result": "1-0",
+      "formation": "3-2-4-1",
+      "verification": {
+        "xi": "unverified",
+        "subs_used": "unverified"
+      },
+      "draft_confidence": "high",
+      "sources": [],
+      "web_checked": [],
+      "flags": [],
+      "squad": [
+        {
+          "name": "Ederson",
+          "pos": "GK",
+          "role": "starter"
+        },
+        {
+          "name": "Manuel Akanji",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Rúben Dias",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Nathan Aké",
+          "pos": "CB",
+          "role": "starter",
+          "off": 82
+        },
+        {
+          "name": "John Stones",
+          "pos": "DM",
+          "role": "starter"
+        },
+        {
+          "name": "Rodri",
+          "pos": "DM",
+          "role": "starter"
+        },
+        {
+          "name": "Bernardo Silva",
+          "pos": "RW",
+          "role": "starter"
+        },
+        {
+          "name": "Kevin De Bruyne",
+          "pos": "AM",
+          "role": "starter",
+          "off": 36
+        },
+        {
+          "name": "İlkay Gündoğan",
+          "pos": "AM",
+          "role": "starter"
+        },
+        {
+          "name": "Jack Grealish",
+          "pos": "LW",
+          "role": "starter"
+        },
+        {
+          "name": "Erling Haaland",
+          "pos": "ST",
+          "role": "starter"
+        },
+        {
+          "name": "Phil Foden",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 36,
+          "for": "Kevin De Bruyne"
+        },
+        {
+          "name": "Kyle Walker",
+          "pos": "DF",
+          "role": "sub_used",
+          "on": 82,
+          "for": "Nathan Aké"
+        }
+      ]
+    },
+    {
+      "id": "2024-euro-final-spain",
+      "date": "2024-07-14",
+      "competition": "UEFA Euro 2024 Final",
+      "team": "Spain",
+      "opponent": "England",
+      "result": "2-1",
+      "formation": "4-2-3-1",
+      "verification": {
+        "xi": "unverified",
+        "subs_used": "unverified"
+      },
+      "draft_confidence": "high",
+      "sources": [],
+      "web_checked": [
+        "https://www.skysports.com/football/spain-vs-england/teams/500431",
+        "https://www.foxsports.com/soccer/euro-cup-spain-vs-england-jul-14-2024-game-boxscore-132188"
+      ],
+      "flags": [
+        "ADDED: Nacho 83' for Le Normand"
+      ],
+      "squad": [
+        {
+          "name": "Unai Simón",
+          "pos": "GK",
+          "role": "starter"
+        },
+        {
+          "name": "Dani Carvajal",
+          "pos": "RB",
+          "role": "starter"
+        },
+        {
+          "name": "Robin Le Normand",
+          "pos": "CB",
+          "role": "starter",
+          "off": 83
+        },
+        {
+          "name": "Aymeric Laporte",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Marc Cucurella",
+          "pos": "LB",
+          "role": "starter"
+        },
+        {
+          "name": "Rodri",
+          "pos": "DM",
+          "role": "starter",
+          "off": 46
+        },
+        {
+          "name": "Fabián Ruiz",
+          "pos": "DM",
+          "role": "starter"
+        },
+        {
+          "name": "Lamine Yamal",
+          "pos": "RW",
+          "role": "starter",
+          "off": 89
+        },
+        {
+          "name": "Dani Olmo",
+          "pos": "CAM",
+          "role": "starter"
+        },
+        {
+          "name": "Nico Williams",
+          "pos": "LW",
+          "role": "starter"
+        },
+        {
+          "name": "Álvaro Morata",
+          "pos": "ST",
+          "role": "starter",
+          "off": 68
+        },
+        {
+          "name": "Martín Zubimendi",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 46,
+          "for": "Rodri"
+        },
+        {
+          "name": "Mikel Oyarzabal",
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 68,
+          "for": "Álvaro Morata"
+        },
+        {
+          "name": "Nacho",
+          "pos": "DF",
+          "role": "sub_used",
+          "on": 83,
+          "for": "Robin Le Normand"
+        },
+        {
+          "name": "Mikel Merino",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 89,
+          "for": "Lamine Yamal"
+        }
+      ]
+    },
+    {
+      "id": "2025-ucl-final-psg",
+      "date": "2025-05-31",
+      "competition": "UEFA Champions League Final",
+      "team": "Paris Saint-Germain",
+      "opponent": "Inter",
+      "result": "5-0",
+      "formation": "4-3-3",
+      "verification": {
+        "xi": "unverified",
+        "subs_used": "unverified"
+      },
+      "draft_confidence": "high",
+      "sources": [],
+      "web_checked": [
+        "https://www.inter.it/en/news/psg-inter-champions-league-final-2024-2025",
+        "https://football-italia.net/champions-league-final-line-ups-psg-vs-inter/"
+      ],
+      "flags": [
+        "Barcola 66-67'",
+        "'Lucas Hernandez' spelled as in the France 2018 draft (same player)"
+      ],
+      "squad": [
+        {
+          "name": "Gianluigi Donnarumma",
+          "pos": "GK",
+          "role": "starter"
+        },
+        {
+          "name": "Achraf Hakimi",
+          "pos": "RB",
+          "role": "starter"
+        },
+        {
+          "name": "Marquinhos",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Willian Pacho",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Nuno Mendes",
+          "pos": "LB",
+          "role": "starter",
+          "off": 78
+        },
+        {
+          "name": "Vitinha",
+          "pos": "DM",
+          "role": "starter"
+        },
+        {
+          "name": "João Neves",
+          "pos": "CM",
+          "role": "starter",
+          "off": 84
+        },
+        {
+          "name": "Fabián Ruiz",
+          "pos": "CM",
+          "role": "starter",
+          "off": 84
+        },
+        {
+          "name": "Désiré Doué",
+          "pos": "RW",
+          "role": "starter",
+          "off": 67
+        },
+        {
+          "name": "Ousmane Dembélé",
+          "pos": "ST",
+          "role": "starter"
+        },
+        {
+          "name": "Khvicha Kvaratskhelia",
+          "pos": "LW",
+          "role": "starter",
+          "off": 84
+        },
+        {
+          "name": "Bradley Barcola",
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 67,
+          "for": "Désiré Doué"
+        },
+        {
+          "name": "Lucas Hernandez",
+          "pos": "DF",
+          "role": "sub_used",
+          "on": 78,
+          "for": "Nuno Mendes"
+        },
+        {
+          "name": "Gonçalo Ramos",
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 84,
+          "for": "Khvicha Kvaratskhelia"
+        },
+        {
+          "name": "Senny Mayulu",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 84,
+          "for": "Fabián Ruiz"
+        },
+        {
+          "name": "Warren Zaïre-Emery",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 84,
+          "for": "João Neves"
+        }
+      ]
+    }
+  ]
+}

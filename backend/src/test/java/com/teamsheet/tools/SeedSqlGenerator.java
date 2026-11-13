@@ -128,26 +128,97 @@ public final class SeedSqlGenerator {
     private static final Set<String> PARTICLES = Set.of("van", "von", "der", "den", "de", "del", "della", "da", "di", "dos", "do");
 
     /** Pitch coords per formation, x 0 = left touchline, y 0 = own goal line. Repeated positions run right to left. */
-    static final Map<String, Map<String, int[][]>> FORMATIONS = Map.of(
-            "4-4-1-1", Map.of(
+    static final Map<String, Map<String, int[][]>> FORMATIONS = Map.ofEntries(
+            Map.entry("4-4-1-1", Map.of(
                     "GK", xy(50, 5), "RB", xy(85, 25), "CB", xy(62, 20, 38, 20), "LB", xy(15, 25),
-                    "RM", xy(85, 50), "CM", xy(60, 46, 40, 46), "LM", xy(15, 50), "CAM", xy(50, 67), "ST", xy(50, 85)),
-            "4-2-3-1", Map.of(
+                    "RM", xy(85, 50), "CM", xy(60, 46, 40, 46), "LM", xy(15, 50), "CAM", xy(50, 67), "ST", xy(50, 85))),
+            Map.entry("4-2-3-1", Map.of(
                     "GK", xy(50, 5), "RB", xy(85, 25), "CB", xy(62, 20, 38, 20), "LB", xy(15, 25),
-                    "DM", xy(62, 42, 38, 42), "RW", xy(82, 66), "CAM", xy(50, 64), "LW", xy(18, 66), "ST", xy(50, 85)),
-            "4-3-1-2", Map.of(
+                    "DM", xy(62, 42, 38, 42), "RW", xy(82, 66), "CAM", xy(50, 64), "LW", xy(18, 66), "ST", xy(50, 85))),
+            Map.entry("4-3-1-2", Map.of(
                     "GK", xy(50, 5), "RB", xy(85, 25), "CB", xy(62, 20, 38, 20), "LB", xy(15, 25),
-                    "DM", xy(50, 40), "CM", xy(72, 50, 28, 50), "CAM", xy(50, 65), "ST", xy(62, 84, 38, 84)),
-            "4-4-2", Map.of(
+                    "DM", xy(50, 40), "CM", xy(72, 50, 28, 50), "CAM", xy(50, 65), "ST", xy(62, 84, 38, 84))),
+            Map.entry("4-4-2", Map.of(
                     "GK", xy(50, 5), "RB", xy(85, 25), "CB", xy(62, 20, 38, 20), "LB", xy(15, 25),
-                    "RM", xy(85, 52), "CM", xy(60, 48, 40, 48), "LM", xy(15, 52), "ST", xy(62, 82, 38, 82)),
-            "4-4-2 (diamond)", Map.of(
+                    "RM", xy(85, 52), "CM", xy(60, 48, 40, 48), "LM", xy(15, 52), "ST", xy(62, 82, 38, 82))),
+            Map.entry("4-4-2 (diamond)", Map.of(
                     "GK", xy(50, 5), "RB", xy(85, 25), "CB", xy(62, 20, 38, 20), "LB", xy(15, 25),
-                    "DM", xy(50, 40), "RM", xy(75, 52), "LM", xy(25, 52), "CAM", xy(50, 65), "ST", xy(62, 84, 38, 84)),
-            "3-4-2-1", Map.of(
+                    "DM", xy(50, 40), "RM", xy(75, 52), "LM", xy(25, 52), "CAM", xy(50, 65), "ST", xy(62, 84, 38, 84))),
+            Map.entry("3-4-2-1", Map.of(
                     "GK", xy(50, 5), "CB", xy(75, 22, 50, 20, 25, 22), "RWB", xy(88, 48), "CM", xy(60, 45, 40, 45),
-                    "LWB", xy(12, 48), "AM", xy(65, 66, 35, 66), "ST", xy(50, 85))
+                    "LWB", xy(12, 48), "AM", xy(65, 66, 35, 66), "ST", xy(50, 85))),
+            // Added for the 50-match expansion
+            Map.entry("4-3-3", Map.of(
+                    "GK", xy(50, 5), "RB", xy(85, 25), "CB", xy(62, 20, 38, 20), "LB", xy(15, 25),
+                    "DM", xy(50, 40), "CM", xy(68, 52, 32, 52), "RW", xy(82, 72), "ST", xy(50, 85), "LW", xy(18, 72))),
+            Map.entry("4-1-4-1", Map.of(
+                    "GK", xy(50, 5), "RB", xy(85, 25), "CB", xy(62, 20, 38, 20), "LB", xy(15, 25),
+                    "DM", xy(50, 38), "RM", xy(85, 56), "CM", xy(62, 55, 38, 55), "LM", xy(15, 56), "ST", xy(50, 85))),
+            Map.entry("3-5-2", Map.of(
+                    "GK", xy(50, 5), "CB", xy(75, 22, 50, 20, 25, 22), "RWB", xy(88, 48),
+                    "CM", xy(68, 52, 50, 44, 32, 52), "LWB", xy(12, 48), "ST", xy(62, 82, 38, 82))),
+            Map.entry("3-4-3", Map.of(
+                    "GK", xy(50, 5), "CB", xy(75, 22, 50, 20, 25, 22), "RWB", xy(88, 48), "CM", xy(60, 45, 40, 45),
+                    "LWB", xy(12, 48), "RW", xy(80, 74), "ST", xy(50, 85), "LW", xy(20, 74))),
+            Map.entry("3-2-4-1", Map.of(
+                    "GK", xy(50, 5), "CB", xy(75, 22, 50, 20, 25, 22), "DM", xy(62, 40, 38, 40),
+                    "RW", xy(85, 66), "AM", xy(62, 64, 38, 64), "LW", xy(15, 66), "ST", xy(50, 85)))
     );
+
+    static final Set<String> SUB_POSITIONS = Set.of("GK", "DF", "MF", "FW");
+
+    /**
+     * Structural checks shared by the live seed and the drafts file. Returns problems; empty = valid.
+     * 11 starters whose positions fill the formation template exactly; every sub comes on for someone on the
+     * pitch, at the minute that player went off.
+     */
+    public static List<String> validate(JsonNode m) {
+        List<String> problems = new ArrayList<>();
+        String id = m.path("id").asText("<no id>");
+        String formation = m.path("formation").asText();
+        Map<String, int[][]> template = FORMATIONS.get(formation);
+        if (template == null) problems.add(id + ": no template for formation '" + formation + "'");
+        if (m.path("date").asText("").compareTo("2000-01-01") < 0) problems.add(id + ": date before 2000 or missing");
+
+        Map<String, JsonNode> byName = new LinkedHashMap<>();
+        Map<String, Integer> posCount = new HashMap<>();
+        int starters = 0;
+        for (JsonNode p : m.path("squad")) {
+            String name = p.path("name").asText();
+            if (byName.put(name, p) != null) problems.add(id + ": duplicate player " + name);
+            if (p.path("role").asText().equals("starter")) {
+                starters++;
+                posCount.merge(p.path("pos").asText(), 1, Integer::sum);
+            }
+        }
+        if (starters != 11) problems.add(id + ": " + starters + " starters, expected 11");
+        if (template != null) {
+            for (var t : template.entrySet())
+                if (posCount.getOrDefault(t.getKey(), 0) != t.getValue().length)
+                    problems.add(id + ": formation " + formation + " needs " + t.getValue().length + " " + t.getKey()
+                            + ", squad has " + posCount.getOrDefault(t.getKey(), 0));
+            for (String pos : posCount.keySet())
+                if (!template.containsKey(pos)) problems.add(id + ": position " + pos + " not in " + formation);
+        }
+
+        Set<String> onPitch = new HashSet<>();
+        for (JsonNode p : m.path("squad")) if (p.path("role").asText().equals("starter")) onPitch.add(p.path("name").asText());
+        for (JsonNode p : m.path("squad")) {
+            if (!p.path("role").asText().equals("sub_used")) continue;
+            String name = p.path("name").asText();
+            if (!SUB_POSITIONS.contains(p.path("pos").asText())) problems.add(id + ": sub " + name + " pos must be GK/DF/MF/FW");
+            if (!p.path("on").isInt()) { problems.add(id + ": sub " + name + " has no 'on' minute"); continue; }
+            String replaced = p.path("for").asText();
+            JsonNode off = byName.get(replaced);
+            if (off == null || !onPitch.contains(replaced)) {
+                problems.add(id + ": sub " + name + " comes on for '" + replaced + "', who isn't on the pitch");
+            } else if (off.path("off").asInt(-1) != p.path("on").asInt()) {
+                problems.add(id + ": " + replaced + " should have off=" + p.path("on").asInt() + " (replaced by " + name + ")");
+            }
+            onPitch.add(name);
+        }
+        return problems;
+    }
 
     private static int[][] xy(int... v) {
         int[][] out = new int[v.length / 2][];
@@ -160,6 +231,9 @@ public final class SeedSqlGenerator {
     public static String generate(Path jsonPath) throws IOException {
         JsonNode root = new ObjectMapper().readTree(Files.readString(jsonPath, StandardCharsets.UTF_8));
         JsonNode matches = root.get("matches");
+        List<String> problems = new ArrayList<>();
+        for (JsonNode m : matches) problems.addAll(validate(m));
+        if (!problems.isEmpty()) throw new IllegalStateException("Invalid seed:\n  " + String.join("\n  ", problems));
 
         Map<String, Long> playerIds = new LinkedHashMap<>();
         for (JsonNode m : matches)
