@@ -1,7 +1,7 @@
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
-import { GuessResult, PlayView, Puzzle, Reveal } from './models';
+import { GuessResult, PlayView, PlayerOption, Puzzle, Reveal, TodayStatus } from './models';
 
 /** A response body plus the server's clock at response time (from the Date header), for the countdown. */
 export interface Timed<T> {
@@ -15,6 +15,25 @@ export class ApiService {
 
   today(): Promise<Timed<Puzzle>> {
     return this.timed(this.http.get<Puzzle>('/api/puzzle/today', { observe: 'response' }));
+  }
+
+  /** Has this device pressed Start today? Never creates a play, so it never starts the clock. */
+  todayStatus(anonId: string): Promise<Timed<TodayStatus>> {
+    return this.timed(this.http.get<TodayStatus>('/api/plays/today', { params: { anonId }, observe: 'response' }));
+  }
+
+  /** The single "Did you mean" player for typed text, or null if nothing matches. */
+  async suggest(q: string): Promise<PlayerOption | null> {
+    const res = await firstValueFrom(
+      this.http.get<PlayerOption>('/api/players/suggest', { params: { q }, observe: 'response' }),
+    );
+    return res.status === 204 ? null : res.body;
+  }
+
+  guessPlayer(playId: string, playerId: number): Promise<Timed<GuessResult>> {
+    return this.timed(
+      this.http.post<GuessResult>(`/api/plays/${playId}/guesses`, { playerId }, { observe: 'response' }),
+    );
   }
 
   createPlay(anonId: string): Promise<Timed<PlayView>> {

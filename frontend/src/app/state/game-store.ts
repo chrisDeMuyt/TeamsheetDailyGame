@@ -1,23 +1,26 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { DestroyRef, Injectable, computed, inject, signal } from '@angular/core';
-import { ApiService } from '../api/api.service';
-import { GuessResult, GuessResultType, Pick, Puzzle, Reveal } from '../api/models';
+import { ApiService, Timed } from '../api/api.service';
+import { GuessResult, GuessResultType, Pick, PlayView, PlayerOption, Puzzle, Reveal } from '../api/models';
 import { LocalStore } from './local-store';
 import { playSpots, revealSpots } from './view';
 
-export type Phase = 'loading' | 'error' | 'playing' | 'revealed';
+/** intro = the Start screen: nothing about today's match is loaded and no clock is running yet. */
+export type Phase = 'loading' | 'error' | 'intro' | 'playing' | 'revealed';
 
 export interface Feedback {
-  kind: GuessResultType | 'error';
+  kind: GuessResultType | 'error' | 'notfound' | 'suggest';
   text: string;
 }
 
 export const GUESSES = 3;
 export const GUESS_MS = 30_000;
+export const MIN_CHARS = 2;
 
 /**
- * The whole game flow: load today -> create (or resume) play -> 3 guesses -> reveal.
- * The server owns the clock; we only mirror its deadline and send an empty guess when it runs out.
+ * The whole game flow: Start screen -> load today + create play (clock starts) -> 3 guesses -> reveal.
+ * Guesses are players: Enter submits only an exact full name; anything else offers one "Did you mean".
+ * The server owns the clock; we mirror its deadline and send an empty guess when it runs out.
  */
 @Injectable({ providedIn: 'root' })
 export class GameStore {
@@ -26,6 +29,8 @@ export class GameStore {
 
   readonly phase = signal<Phase>('loading');
   readonly error = signal<string | null>(null);
+  readonly introNumber = signal<number | null>(null);
+  readonly starting = signal(false);
   readonly puzzle = signal<Puzzle | null>(null);
   readonly playId = signal<string | null>(null);
   readonly picks = signal<Pick[]>([]);
@@ -33,6 +38,8 @@ export class GameStore {
   readonly reveal = signal<Reveal | null>(null);
   readonly feedback = signal<Feedback | null>(null);
   readonly submitting = signal(false);
+  /** The "Did you mean" player offered after a non-exact Enter. */
+  readonly suggestion = signal<PlayerOption | null>(null);
   /** Slot that was just hit, for the pop animation. */
   readonly poppedSlot = signal<number | null>(null);
 
@@ -68,46 +75,120 @@ export class GameStore {
     inject(DestroyRef).onDestroy(() => this.stopTicker());
   }
 
+  /** On load: Start screen for a fresh day; straight back into a started or finished game otherwise. */
   async init(): Promise<void> {
     this.phase.set('loading');
     this.error.set(null);
     try {
-      const today = await this.api.today();
-      this.puzzle.set(today.body);
-
-      // Idempotent per device/day: a refresh gets the same play back, with its guesses so far.
-      const { body: play, serverNow } = await this.api.createPlay(this.local.anonId());
-      this.playId.set(play.playId);
-      this.picks.set(play.guesses ?? []);
-      this.score.set(play.totalScore);
-
-      if (play.finished) {
-        await this.finish();
+      const { body: status, serverNow } = await this.api.todayStatus(this.local.anonId());
+      this.introNumber.set(status.puzzleNumber);
+      if (!status.play) {
+        this.phase.set('intro');
         return;
       }
-      this.setDeadline(play.deadline, serverNow);
-      this.phase.set('playing');
-      this.startTicker();
+      await this.enter(status.play, serverNow);
     } catch (e) {
-      this.phase.set('error');
-      this.error.set(
-        e instanceof HttpErrorResponse && e.status === 404
-          ? 'No puzzle today. Check back tomorrow.'
-          : "Couldn't reach the Teamsheet server.",
-      );
+      this.fail(e);
     }
   }
 
+  /** The Start button: only now is the match loaded and the play created (the 30s clock starts server-side). */
+  async start(): Promise<void> {
+    if (this.starting() || this.phase() !== 'intro') return;
+    this.starting.set(true);
+    try {
+      this.puzzle.set((await this.api.today()).body);
+      const { body: play, serverNow } = await this.api.createPlay(this.local.anonId());
+      await this.enter(play, serverNow);
+    } catch (e) {
+      this.fail(e);
+    } finally {
+      this.starting.set(false);
+    }
+  }
+
+  private async enter(play: PlayView, serverNow: number): Promise<void> {
+    this.playId.set(play.playId);
+    this.picks.set(play.guesses ?? []);
+    this.score.set(play.totalScore);
+    if (play.finished) {
+      await this.finish();
+      return;
+    }
+    if (!this.puzzle()) this.puzzle.set((await this.api.today()).body);
+    this.setDeadline(play.deadline, serverNow);
+    this.phase.set('playing');
+    this.startTicker();
+  }
+
+  private fail(e: unknown): void {
+    this.phase.set('error');
+    this.error.set(
+      e instanceof HttpErrorResponse && e.status === 404
+        ? 'No puzzle today. Check back tomorrow.'
+        : "Couldn't reach the Teamsheet server.",
+    );
+  }
+
   /**
-   * Submit a guess; empty text means "time ran out" and is recorded as a timeout by the server.
-   * Returns the result type so the input can decide whether to keep the text.
+   * Enter / Submit with typed text. An exact full name is guessed straight away; otherwise we offer one
+   * "Did you mean" (no guess used). Returns the guess result, or null if no guess was made.
    */
-  async submit(text: string): Promise<GuessResultType | null> {
+  async submitText(text: string): Promise<GuessResultType | null> {
+    const typed = text.trim();
+    if (this.phase() !== 'playing' || this.submitting()) return null;
+    if (typed.length < MIN_CHARS) {
+      this.feedback.set({ kind: 'notfound', text: `Type at least ${MIN_CHARS} letters.` });
+      return null;
+    }
+    this.submitting.set(true);
+    let option: PlayerOption | null;
+    try {
+      option = await this.api.suggest(typed);
+    } catch {
+      this.feedback.set({ kind: 'error', text: "Couldn't check that name. Try again." });
+      return null;
+    } finally {
+      this.submitting.set(false);
+    }
+    if (!option) {
+      this.suggestion.set(null);
+      this.feedback.set({ kind: 'notfound', text: `No player called "${typed}". Guess not used.` });
+      return null;
+    }
+    if (option.exact) return this.submitPlayer(option);
+    this.suggestion.set(option);
+    this.feedback.set({ kind: 'suggest', text: 'Not an exact name. Guess not used yet.' });
+    return null;
+  }
+
+  /** Tap on "Did you mean". */
+  async pickSuggestion(): Promise<GuessResultType | null> {
+    const s = this.suggestion();
+    return s ? this.submitPlayer(s) : null;
+  }
+
+  /** The user edited the text: an old suggestion no longer applies. */
+  clearSuggestion(): void {
+    this.suggestion.set(null);
+  }
+
+  submitPlayer(option: PlayerOption): Promise<GuessResultType | null> {
+    return this.send(option.name, (id) => this.api.guessPlayer(id, option.id));
+  }
+
+  /** Empty text = "time ran out" (the server records a timeout). */
+  submit(text: string): Promise<GuessResultType | null> {
+    return this.send(text, (id) => this.api.guess(id, text));
+  }
+
+  private async send(text: string, call: (playId: string) => Promise<Timed<GuessResult>>): Promise<GuessResultType | null> {
     const id = this.playId();
     if (this.phase() !== 'playing' || this.submitting() || !id) return null;
     this.submitting.set(true);
     try {
-      const { body, serverNow } = await this.api.guess(id, text);
+      const { body, serverNow } = await call(id);
+      this.suggestion.set(null);
       this.apply(body, text, serverNow);
       return body.result;
     } catch (e) {

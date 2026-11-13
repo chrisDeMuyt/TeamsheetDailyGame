@@ -45,6 +45,19 @@ export interface PlayView {
   guesses: Pick[];
 }
 
+/** "Did you mean" suggestion; exact = the typed text is this player's full name. */
+export interface PlayerOption {
+  id: number;
+  name: string;
+  exact: boolean;
+}
+
+/** Today's number, plus this device's play if Start was already pressed. */
+export interface TodayStatus {
+  puzzleNumber: number;
+  play: PlayView | null;
+}
+
 export type GuessResultType = 'hit' | 'miss' | 'duplicate' | 'ambiguous' | 'timeout';
 
 export interface GuessResult {

@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, computed, inject, signal, viewChild } from '@angular/core';
 import { GuessHistoryComponent } from './components/guess-history.component';
 import { GuessInputComponent } from './components/guess-input.component';
+import { IntroComponent } from './components/intro.component';
 import { PitchComponent } from './components/pitch.component';
 import { RevealScreenComponent } from './components/reveal-screen.component';
 import { SubsStripComponent } from './components/subs-strip.component';
@@ -9,7 +10,8 @@ import { competitionLong, competitionShort, formatMatchDate } from './state/view
 
 @Component({
   selector: 'app-root',
-  imports: [PitchComponent, SubsStripComponent, GuessInputComponent, GuessHistoryComponent, RevealScreenComponent],
+  imports: [IntroComponent, PitchComponent, SubsStripComponent, GuessInputComponent, GuessHistoryComponent,
+            RevealScreenComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './app.html',
   styleUrl: './app.scss',
@@ -37,13 +39,22 @@ export class App {
     void this.store.init();
   }
 
+  /** Enter / Submit: exact full name -> guessed; otherwise a "Did you mean" appears (no guess used). */
   protected async guess(text: string): Promise<void> {
-    const result = await this.store.submit(text);
-    if (result === 'ambiguous') {
-      this.guessInput()?.select(); // keep the text so they can add to it
-    } else if (result) {
+    const result = await this.store.submitText(text);
+    if (result) {
       this.draft.set('');
+      this.guessInput()?.focus();
+    } else if (this.store.suggestion()) {
+      this.guessInput()?.focusSuggestion();
+    } else {
+      this.guessInput()?.select(); // not found: keep the text so they can fix it
     }
+  }
+
+  protected async pickSuggestion(): Promise<void> {
+    const result = await this.store.pickSuggestion();
+    if (result) this.draft.set('');
     this.guessInput()?.focus();
   }
 

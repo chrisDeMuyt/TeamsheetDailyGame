@@ -5,6 +5,7 @@ import com.teamsheet.domain.*;
 import com.teamsheet.repo.GuessRepository;
 import com.teamsheet.repo.PickStatRepository;
 import com.teamsheet.repo.PlayRepository;
+import com.teamsheet.repo.PlayerRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -21,6 +22,7 @@ public class PlayService {
     public static final int GUESSES = 3;
 
     private final PlayRepository plays;
+    private final PlayerRepository players;
     private final GuessRepository guesses;
     private final PickStatRepository pickStats;
     private final PuzzleService puzzles;
@@ -29,10 +31,11 @@ public class PlayService {
     private final GameProperties props;
     private final Clock clock;
 
-    public PlayService(PlayRepository plays, GuessRepository guesses, PickStatRepository pickStats,
-                       PuzzleService puzzles, GuessMatcher matcher, ScoringService scoring,
-                       GameProperties props, Clock clock) {
+    public PlayService(PlayRepository plays, PlayerRepository players, GuessRepository guesses,
+                       PickStatRepository pickStats, PuzzleService puzzles, GuessMatcher matcher,
+                       ScoringService scoring, GameProperties props, Clock clock) {
         this.plays = plays;
+        this.players = players;
         this.guesses = guesses;
         this.pickStats = pickStats;
         this.puzzles = puzzles;
@@ -51,14 +54,43 @@ public class PlayService {
         Puzzle puzzle = puzzles.today();
         plays.insertIfAbsent(puzzle.getNumber(), anonId, clock.instant());
         Play play = plays.findByPuzzleNumberAndAnonId(puzzle.getNumber(), anonId).orElseThrow();
+        return view(play, puzzle);
+    }
+
+    /** Read-only: today's number and this device's play if it exists. Never creates a play (so no timer starts). */
+    @Transactional(readOnly = true)
+    public TodayStatus todayStatus(UUID anonId) {
+        Puzzle puzzle = puzzles.today();
+        PlayView play = plays.findByPuzzleNumberAndAnonId(puzzle.getNumber(), anonId)
+                .map(p -> view(p, puzzle)).orElse(null);
+        return new TodayStatus(puzzle.getNumber(), play);
+    }
+
+    private PlayView view(Play play, Puzzle puzzle) {
         List<PickView> history = pickViews(guesses.findByPlayIdOrderByGuessIndex(play.getId()),
                 new PoolIndex(puzzles.orderedPool(puzzle)));
         return new PlayView(play.getId(), play.getPuzzleNumber(), history.size(), GUESSES - history.size(),
                 play.isFinished(), play.getTotalScore(), deadline(play), history);
     }
 
+    /** A player picked from the dropdown: a hit if he's in today's pool, otherwise a miss. Never ambiguous. */
+    @Transactional
+    public GuessResult guessPlayer(UUID playId, long playerId) {
+        Player chosen = players.findById(playerId)
+                .orElseThrow(() -> new NotFoundException("Unknown player " + playerId));
+        return resolve(playId, chosen.getDisplayName(), puzzle -> {
+            boolean inPool = puzzles.orderedPool(puzzle).stream().anyMatch(mp -> mp.getPlayerId() == playerId);
+            return inPool ? new MatchOutcome.Hit(playerId) : new MatchOutcome.Miss();
+        });
+    }
+
+    /** Free text, fuzzy-matched within today's pool (kept for the timeout signal and older clients). */
     @Transactional
     public GuessResult guess(UUID playId, String text) {
+        return resolve(playId, text, puzzle -> matcher.match(puzzle.getMatchId(), text));
+    }
+
+    private GuessResult resolve(UUID playId, String text, Function<Puzzle, MatchOutcome> match) {
         Play play = plays.findByIdForUpdate(playId)
                 .orElseThrow(() -> new NotFoundException("Unknown play " + playId));
         if (play.isFinished()) throw new ConflictException("Play already finished");
@@ -77,7 +109,7 @@ public class PlayService {
             return result(GuessResultType.timeout, index, play, null, null, 0, "Time's up");
         }
 
-        MatchOutcome outcome = matcher.match(puzzle.getMatchId(), text);
+        MatchOutcome outcome = match.apply(puzzle);
         return switch (outcome) {
             case MatchOutcome.Miss m -> {
                 guesses.save(new Guess(playId, index, text, "miss", null, null, 0, now));

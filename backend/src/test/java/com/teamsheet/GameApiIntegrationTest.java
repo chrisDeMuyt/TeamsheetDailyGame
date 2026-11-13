@@ -286,6 +286,69 @@ class GameApiIntegrationTest {
         assertThat(guess(play, "messi").get("name").asText()).isEqualTo("Lionel Messi");
     }
 
+    // ---------------------------------------------------------------- "Did you mean" + Start screen
+
+    private JsonNode suggest(String q) throws Exception {
+        var res = mvc.perform(get("/api/players/suggest").param("q", q)).andReturn().getResponse();
+        return res.getStatus() == 204 ? null : json.readTree(res.getContentAsString(java.nio.charset.StandardCharsets.UTF_8));
+    }
+
+    @Test
+    void suggestionIsOneGlobalPlayerAndOnlyExactForFullNames() throws Exception {
+        JsonNode john = suggest("John");
+        assertThat(john.get("name").asText()).as("best-known John, not today's lineup").isEqualTo("John Terry");
+        assertThat(john.get("exact").asBoolean()).isFalse();
+
+        JsonNode mikel = suggest("john obi mikel");
+        assertThat(mikel.get("name").asText()).isEqualTo("John Obi Mikel");
+        assertThat(mikel.get("exact").asBoolean()).isTrue();
+
+        assertThat(suggest("XAVI").get("exact").asBoolean()).as("mononym = full name").isTrue();
+        JsonNode gerrard = suggest("Gerrard");
+        assertThat(gerrard.get("name").asText()).isEqualTo("Steven Gerrard");
+        assertThat(gerrard.get("exact").asBoolean()).as("surname alone is not the full name").isFalse();
+        assertThat(suggest("smicer").get("name").asText()).isEqualTo("Vladimír Šmicer");
+        assertThat(suggest("Steven Gerard").get("name").asText()).as("typo").isEqualTo("Steven Gerrard");
+
+        assertThat(suggest("j")).as("too short").isNull();
+        assertThat(suggest("qqqqzzzz")).as("no match").isNull();
+    }
+
+    @Test
+    void guessingAPickedPlayerIsHitMissOrDuplicateNeverAmbiguous() throws Exception {
+        long gerrard = suggest("steven gerrard").get("id").asLong();
+        long terry = suggest("john terry").get("id").asLong();
+        String play = newPlay();
+
+        JsonNode hit = guessId(play, gerrard);
+        assertThat(hit.get("result").asText()).isEqualTo("hit");
+        assertThat(hit.get("name").asText()).isEqualTo("Steven Gerrard");
+        assertThat(guessId(play, gerrard).get("result").asText()).isEqualTo("duplicate");
+        JsonNode miss = guessId(play, terry);                          // in the DB, not in Liverpool 2005
+        assertThat(miss.get("result").asText()).isEqualTo("miss");
+        assertThat(miss.get("guessIndex").asInt()).isEqualTo(2);
+
+        mvc.perform(post("/api/plays/{id}/guesses", play).contentType(MediaType.APPLICATION_JSON)
+                .content("{\"playerId\":999999}")).andExpect(status().isNotFound());
+    }
+
+    @Test
+    void todayStatusNeverStartsTheClock() throws Exception {
+        String anon = UUID.randomUUID().toString();
+        JsonNode before = body(mvc.perform(get("/api/plays/today").param("anonId", anon)), status().isOk());
+        assertThat(before.get("puzzleNumber").asInt()).isEqualTo(1);
+        assertThat(before.get("play").isNull()).as("no play until Start").isTrue();
+        assertThat(jdbc.queryForObject("SELECT count(*) FROM play WHERE anon_id = ?::uuid", Integer.class, anon)).isZero();
+
+        clock.advanceSeconds(120);                                      // sat on the start screen for 2 minutes
+        String play = createPlay(anon).get("playId").asText();          // presses Start
+        assertThat(guess(play, "Gerrard").get("result").asText()).as("full 30s from Start").isEqualTo("hit");
+
+        JsonNode after = body(mvc.perform(get("/api/plays/today").param("anonId", anon)), status().isOk());
+        assertThat(after.get("play").get("playId").asText()).isEqualTo(play);
+        assertThat(after.get("play").get("guessesUsed").asInt()).isEqualTo(1);
+    }
+
     @Test
     void unknownPlayIs404() throws Exception {
         mvc.perform(post("/api/plays/{id}/guesses", UUID.randomUUID()).contentType(MediaType.APPLICATION_JSON)
@@ -306,6 +369,11 @@ class GameApiIntegrationTest {
     private JsonNode guess(String playId, String text) throws Exception {
         return body(mvc.perform(post("/api/plays/{id}/guesses", playId).contentType(MediaType.APPLICATION_JSON)
                 .content(json.writeValueAsString(java.util.Map.of("text", text)))), status().isOk());
+    }
+
+    private JsonNode guessId(String playId, long playerId) throws Exception {
+        return body(mvc.perform(post("/api/plays/{id}/guesses", playId).contentType(MediaType.APPLICATION_JSON)
+                .content("{\"playerId\":" + playerId + "}")), status().isOk());
     }
 
     private JsonNode body(org.springframework.test.web.servlet.ResultActions actions, ResultMatcher expected) throws Exception {

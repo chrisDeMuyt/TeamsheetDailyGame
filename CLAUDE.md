@@ -9,7 +9,8 @@ Daily soccer trivia game. Each day shows one historic match lineup; name 3 playe
 | Pool | Starting XI + subs who came on (no unused subs) |
 | Era | Matches from 2000 onward |
 | Picks | 3 per day, 30s each (server-side, +2s network grace), duplicates blocked |
-| Matching | Fuzzy match + alias table; ambiguous names don't burn a guess |
+| Matching | Guesses are players. Enter submits only an exact full name; anything else shows one "Did you mean: X?" (best match across ALL players, never scoped to today) and tapping it is the guess. Unknown names / suggestions don't burn a guess (changed 2026-11-13; was fuzzy + "ambiguous") |
+| Start | Start screen first (wordmark, rules, Start). Today's match isn't loaded and the play/clock isn't created until Start |
 | Scoring | Rarity tier by pick %: 40%+ = 10, 15–40% = 30, 5–15% = 60, 1–5% = 85, <1% = 100; +15 for subs |
 | Cold start | Seed rarity from a proxy (pageviews/caps) until ~200 plays, then real pick % |
 | UI | Formation on pitch + subs strip; slots show position only (no shirt numbers) |
@@ -46,9 +47,11 @@ Daily soccer trivia game. Each day shows one historic match lineup; name 3 playe
 
 | Endpoint | Returns |
 |---|---|
+| `GET /api/plays/today?anonId=` | puzzle # + this device's play if Start was pressed (never creates one) |
 | `GET /api/puzzle/today` | #, team, competition, date, formation, slots (position + coords only, no names) |
-| `POST /api/plays` `{anonId}` | playId (idempotent per device/day) |
-| `POST /api/plays/{id}/guesses` `{text}` | hit / miss / duplicate / ambiguous / timeout + slot, name, tier, points |
+| `POST /api/plays` `{anonId}` | Start: playId, clock starts (idempotent per device/day; resume returns guesses) |
+| `GET /api/players/suggest?q=` | one `{id, name, exact}` across all players, or 204 |
+| `POST /api/plays/{id}/guesses` `{playerId}` (or `{text:""}` = timeout) | hit / miss / duplicate / timeout + slot, name, tier, points |
 | `GET /api/plays/{id}/reveal` | full pool with pick %, your picks, total (after guess 3) |
 
 ## Roadmap

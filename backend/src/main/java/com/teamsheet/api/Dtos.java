@@ -25,7 +25,22 @@ public final class Dtos {
     public record PlayView(UUID playId, int puzzleNumber, int guessesUsed, int guessesLeft,
                            boolean finished, int totalScore, Instant deadline, List<PickView> guesses) {}
 
-    public record GuessRequest(@NotNull @Size(max = 100) String text) {}
+    /**
+     * A guess is a player picked from the search dropdown (playerId). Text is kept for the client's
+     * "time ran out" signal (empty text) and older clients; it's fuzzy-matched within today's pool.
+     */
+    public record GuessRequest(@Size(max = 100) String text, Long playerId) {}
+
+    /**
+     * The single "Did you mean" suggestion for what the user typed. exact = the text IS this player's full name,
+     * so the client may submit it straight away. Searches cover every player in the DB, so they reveal nothing
+     * about today's lineup.
+     */
+    public record PlayerOption(long id, String name, boolean exact) {}
+
+    /** Today's puzzle number, plus this device's play if it has already pressed Start (else null). */
+    @JsonInclude(JsonInclude.Include.ALWAYS)
+    public record TodayStatus(int puzzleNumber, PlayView play) {}
 
     public enum GuessResultType { hit, miss, duplicate, ambiguous, timeout }
 

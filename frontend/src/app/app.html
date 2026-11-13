@@ -1,4 +1,5 @@
 <main class="app">
+  @if (store.phase() !== 'intro') {
   <header class="top">
     <div class="title">
       <h1>TEAMSHEET @if (number()) {<span class="num">#{{ number() }}</span>}</h1>
@@ -13,10 +14,16 @@
       </div>
     }
   </header>
+  }
 
   @switch (store.phase()) {
     @case ('loading') {
-      <p class="state" role="status">Loading today's lineup…</p>
+      <p class="state" role="status">Loading…</p>
+    }
+
+    @case ('intro') {
+      <app-intro [number]="store.introNumber()" [streak]="store.streak()" [busy]="store.starting()"
+                 (start)="store.start()" />
     }
 
     @case ('error') {
@@ -49,8 +56,11 @@
         [totalMs]="GUESS_MS"
         [busy]="store.submitting() || store.picks().length >= GUESSES"
         [feedback]="store.feedback()"
+        [suggestion]="store.suggestion()"
         [(text)]="draft"
-        (submitted)="guess($event)" />
+        (edited)="store.clearSuggestion()"
+        (submitted)="guess($event)"
+        (suggestionPicked)="pickSuggestion()" />
     }
 
     @case ('revealed') {

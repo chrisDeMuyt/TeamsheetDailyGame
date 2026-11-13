@@ -1,10 +1,14 @@
 import {
   ChangeDetectionStrategy, Component, ElementRef, computed, input, model, output, viewChild,
 } from '@angular/core';
+import { PlayerOption } from '../api/models';
 import { Feedback } from '../state/game-store';
 import { formatClock } from '../state/view';
 
-/** Name box + countdown bar. Enter or the button submits. */
+/**
+ * Name box + countdown bar. Enter or Submit sends the text; if it isn't an exact full name the parent shows
+ * one "Did you mean" button underneath, and tapping that is the guess.
+ */
 @Component({
   selector: 'app-guess-input',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -26,10 +30,18 @@ import { formatClock } from '../state/view';
         <input #box id="guess-text" type="text" maxlength="100"
                autocomplete="off" autocorrect="off" autocapitalize="words" spellcheck="false" enterkeyhint="send"
                placeholder="Type a player's name"
-               [value]="text()" (input)="text.set(box.value)"
+               [value]="text()" (input)="text.set(box.value); edited.emit()"
                [attr.aria-describedby]="feedback() ? 'guess-feedback' : null" />
         <button type="submit" class="btn-primary" [disabled]="busy() || !text().trim()">Submit</button>
       </div>
+
+      @if (suggestion(); as s) {
+        <div class="suggest">
+          <span class="suggest-label">Did you mean</span>
+          <button #suggestBtn type="button" class="suggest-btn" [disabled]="busy()"
+                  (click)="suggestionPicked.emit()">{{ s.name }}?</button>
+        </div>
+      }
 
       <p id="guess-feedback" class="feedback" role="status" [class]="'feedback ' + (feedback()?.kind ?? '')">
         {{ feedback()?.text }}
@@ -60,7 +72,31 @@ import { formatClock } from '../state/view';
     input::placeholder { color: var(--muted); opacity: 0.85; }
     input:focus-visible { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(245, 197, 66, 0.25); }
     button { min-height: 52px; font-size: 17px; padding: 0 22px; }
+    .suggest {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      background: var(--panel);
+      border-radius: 12px;
+      padding: 8px 10px 8px 14px;
+      animation: rise 160ms ease-out;
+    }
+    .suggest-label { color: var(--muted); font-size: 15px; }
+    .suggest-btn {
+      flex: 1;
+      min-height: var(--touch);
+      background: transparent;
+      color: var(--accent);
+      border: 1.5px solid var(--accent);
+      font-weight: 700;
+      font-size: 16px;
+      padding: 0 14px;
+      text-align: left;
+    }
+    @keyframes rise { from { opacity: 0; transform: translateY(4px); } }
     .feedback { margin: 0; min-height: 1.4em; font-size: 14px; color: var(--muted); }
+    .feedback.notfound, .feedback.suggest { color: var(--text); }
     .feedback.hit { color: var(--accent); }
     .feedback.miss, .feedback.timeout, .feedback.error { color: var(--miss); }
     .feedback.ambiguous, .feedback.duplicate { color: var(--text); }
@@ -73,8 +109,12 @@ export class GuessInputComponent {
   readonly totalMs = input(30_000);
   readonly busy = input(false);
   readonly feedback = input<Feedback | null>(null);
+  readonly suggestion = input<PlayerOption | null>(null);
   readonly text = model('');
   readonly submitted = output<string>();
+  readonly suggestionPicked = output<void>();
+  /** The user changed the text (an old "Did you mean" no longer applies). */
+  readonly edited = output<void>();
 
   private readonly box = viewChild.required<ElementRef<HTMLInputElement>>('box');
 
@@ -96,8 +136,15 @@ export class GuessInputComponent {
     this.submitted.emit(t);
   }
 
+  private readonly suggestBtn = viewChild<ElementRef<HTMLButtonElement>>('suggestBtn');
+
   focus(): void {
     this.box().nativeElement.focus();
+  }
+
+  /** Move to the "Did you mean" button once it renders (also drops the phone keyboard so it's visible). */
+  focusSuggestion(): void {
+    setTimeout(() => this.suggestBtn()?.nativeElement.focus());
   }
 
   select(): void {
