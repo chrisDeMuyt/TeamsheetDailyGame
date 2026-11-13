@@ -16,7 +16,7 @@ public final class NameNormalizer {
         String s = raw.toLowerCase(Locale.ROOT);
         // letters NFD does not decompose
         s = s.replace("ø", "o").replace("ß", "ss").replace("ł", "l").replace("đ", "d")
-             .replace("æ", "ae").replace("œ", "oe").replace("ı", "i").replace("þ", "th");
+             .replace("æ", "ae").replace("œ", "oe").replace("ı", "i").replace("þ", "th").replace("ð", "d");
         s = Normalizer.normalize(s, Normalizer.Form.NFD).replaceAll("\\p{M}+", "");
         s = s.replaceAll("['’`´]", "");          // apostrophes vanish: eto'o -> etoo
         s = s.replaceAll("[^a-z0-9]+", " ");      // hyphens, dots, etc. become spaces

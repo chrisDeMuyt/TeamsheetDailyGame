@@ -78,7 +78,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
-            <!-- Regenerate V2__seed.sql:
+            <!-- Write the next seed migration for newly verified matches (append-only; see CLAUDE.md):
                  ./mvnw -q test-compile exec:java -Dexec.mainClass=com.teamsheet.tools.SeedSqlGenerator -Dexec.classpathScope=test -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>

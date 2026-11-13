@@ -20,7 +20,15 @@ Daily soccer trivia game. Each day shows one historic match lineup; name 3 playe
 ## Files
 
 - `teamsheet-seed.json` – 10 matches (XI + used subs), positions, minutes, verification status and sources
-- `teamsheet-drafts.json` – 50 more lineups drafted from general knowledge, all `unverified`, with `draft_confidence` + `flags`. Never seeded. To promote one: verify against 2 sources, fill `sources`/subs/`num`, set verification, move it into `teamsheet-seed.json`, regenerate (new Vn migration, never edit applied ones). `DraftsValidationTest` checks structure.
+- `teamsheet-drafts.json` – 50 more lineups, all `unverified`, with `draft_confidence`, `flags`, `web_checked` links, and per-player `rarity`/`short`/`aliases` for new players. Never seeded directly.
+
+## Promoting a match (drafts → live)
+
+1. Verify XI + subs against 2 independent sources; put them in `sources`; set `verification` (`verified` / `single_source`).
+2. Move the match object from `teamsheet-drafts.json` into `teamsheet-seed.json` (order there = puzzle order).
+3. `cd backend && ./mvnw -q test-compile exec:java -Dexec.mainClass=com.teamsheet.tools.SeedSqlGenerator -Dexec.classpathScope=test`
+   writes the next `Vn__puzzles_X_to_Y.sql`: only new players/aliases, matches, lineups, puzzles continuing the daily dates.
+4. `./mvnw test`, commit. Never edit an applied migration; the generator refuses unsourced/`unverified` matches and flags edits to shipped ones (fix those with a new migration).
 - `schema.sql` – PostgreSQL schema; becomes Flyway migration `V1__init.sql`
 - Mockup – Design canvas on claude.ai ("Teamsheet Mockup"), in-game and reveal screens
 

@@ -14,6 +14,10 @@ class NameNormalizerTest {
         assertThat(NameNormalizer.normalize("Fàbregas")).isEqualTo("fabregas");
         assertThat(NameNormalizer.normalize("Jean-Pierre   Papin")).isEqualTo("jean pierre papin");
         assertThat(NameNormalizer.normalize("Ødegaard")).isEqualTo("odegaard");
+        assertThat(NameNormalizer.normalize("Jóhann Berg Guðmundsson")).isEqualTo("johann berg gudmundsson");
+        assertThat(NameNormalizer.normalize("Kolbeinn Sigþórsson")).isEqualTo("kolbeinn sigthorsson");
+        assertThat(NameNormalizer.normalize("İlkay Gündoğan")).isEqualTo("ilkay gundogan");
+        assertThat(NameNormalizer.normalize("Łukasz Piszczek")).isEqualTo("lukasz piszczek");
         assertThat(NameNormalizer.normalize(null)).isEmpty();
     }
 }

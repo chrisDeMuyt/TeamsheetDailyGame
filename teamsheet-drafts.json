@@ -39,81 +39,99 @@
         {
           "name": "Martín Herrera",
           "pos": "GK",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 4.0
         },
         {
           "name": "Dan Eggen",
           "pos": "CB",
           "role": "starter",
-          "off": 22
+          "off": 22,
+          "rarity": 4.0
         },
         {
           "name": "Antonio Karmona",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 4.0
         },
         {
           "name": "Óscar Téllez",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 4.0
         },
         {
           "name": "Cosmin Contra",
           "pos": "RWB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 4.0
         },
         {
           "name": "Hermes Desio",
           "pos": "CM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 4.0
         },
         {
           "name": "Ivan Tomić",
           "pos": "CM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 4.0,
+          "aliases": [
+            "tomic"
+          ]
         },
         {
           "name": "Martín Astudillo",
           "pos": "CM",
           "role": "starter",
-          "off": 46
+          "off": 46,
+          "rarity": 4.0
         },
         {
           "name": "Delfí Geli",
           "pos": "LWB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 4.0
         },
         {
           "name": "Jordi Cruyff",
           "pos": "ST",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 4.0
         },
         {
           "name": "Javi Moreno",
           "pos": "ST",
           "role": "starter",
-          "off": 64
+          "off": 64,
+          "rarity": 4.0
         },
         {
           "name": "Iván Alonso",
           "pos": "FW",
           "role": "sub_used",
           "on": 22,
-          "for": "Dan Eggen"
+          "for": "Dan Eggen",
+          "rarity": 2.0
         },
         {
           "name": "Magno",
           "pos": "MF",
           "role": "sub_used",
           "on": 46,
-          "for": "Martín Astudillo"
+          "for": "Martín Astudillo",
+          "rarity": 2.0
         },
         {
           "name": "Pablo Gómez",
           "pos": "FW",
           "role": "sub_used",
           "on": 64,
-          "for": "Javi Moreno"
+          "for": "Javi Moreno",
+          "rarity": 2.0,
+          "short": "Pablo"
         }
       ]
     },
@@ -143,28 +161,33 @@
         {
           "name": "Oliver Kahn",
           "pos": "GK",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 60.0
         },
         {
           "name": "Samuel Kuffour",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 10.0
         },
         {
           "name": "Patrik Andersson",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 10.0
         },
         {
           "name": "Thomas Linke",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 10.0
         },
         {
           "name": "Willy Sagnol",
           "pos": "RWB",
           "role": "starter",
-          "off": 46
+          "off": 46,
+          "rarity": 35.0
         },
         {
           "name": "Owen Hargreaves",
@@ -174,50 +197,59 @@
         {
           "name": "Stefan Effenberg",
           "pos": "CM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Bixente Lizarazu",
           "pos": "LWB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Mehmet Scholl",
           "pos": "AM",
           "role": "starter",
-          "off": 108
+          "off": 108,
+          "rarity": 35.0
         },
         {
           "name": "Hasan Salihamidžić",
           "pos": "AM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 10.0
         },
         {
           "name": "Giovane Élber",
           "pos": "ST",
           "role": "starter",
-          "off": 100
+          "off": 100,
+          "rarity": 35.0
         },
         {
           "name": "Carsten Jancker",
           "pos": "FW",
           "role": "sub_used",
           "on": 46,
-          "for": "Willy Sagnol"
+          "for": "Willy Sagnol",
+          "rarity": 4.0
         },
         {
           "name": "Alexander Zickler",
           "pos": "FW",
           "role": "sub_used",
           "on": 100,
-          "for": "Giovane Élber"
+          "for": "Giovane Élber",
+          "rarity": 4.0
         },
         {
           "name": "Paulo Sérgio",
           "pos": "FW",
           "role": "sub_used",
           "on": 108,
-          "for": "Mehmet Scholl"
+          "for": "Mehmet Scholl",
+          "rarity": 4.0,
+          "short": "Paulo Sérgio"
         }
       ]
     },
@@ -242,22 +274,28 @@
           "name": "César Sánchez",
           "pos": "GK",
           "role": "starter",
-          "off": 68
+          "off": 68,
+          "rarity": 18.0,
+          "short": "César"
         },
         {
           "name": "Míchel Salgado",
           "pos": "RB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 18.0,
+          "short": "Salgado"
         },
         {
           "name": "Fernando Hierro",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Iván Helguera",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 18.0
         },
         {
           "name": "Roberto Carlos",
@@ -268,40 +306,47 @@
           "name": "Luís Figo",
           "pos": "RM",
           "role": "starter",
-          "off": 61
+          "off": 61,
+          "rarity": 60.0
         },
         {
           "name": "Claude Makélélé",
           "pos": "CM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Zinedine Zidane",
           "pos": "CM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 60.0
         },
         {
           "name": "Santiago Solari",
           "pos": "LM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 18.0
         },
         {
           "name": "Raúl",
           "pos": "ST",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 60.0
         },
         {
           "name": "Fernando Morientes",
           "pos": "ST",
           "role": "starter",
-          "off": 73
+          "off": 73,
+          "rarity": 35.0
         },
         {
           "name": "Steve McManaman",
           "pos": "MF",
           "role": "sub_used",
           "on": 61,
-          "for": "Luís Figo"
+          "for": "Luís Figo",
+          "rarity": 25.0
         },
         {
           "name": "Iker Casillas",
@@ -315,7 +360,9 @@
           "pos": "MF",
           "role": "sub_used",
           "on": 73,
-          "for": "Fernando Morientes"
+          "for": "Fernando Morientes",
+          "rarity": 8.0,
+          "short": "Conceição"
         }
       ]
     },
@@ -346,57 +393,70 @@
         {
           "name": "Tony Sylva",
           "pos": "GK",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 4.0
         },
         {
           "name": "Ferdinand Coly",
           "pos": "RB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 4.0
         },
         {
           "name": "Pape Malick Diop",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 4.0,
+          "short": "Malick Diop"
         },
         {
           "name": "Lamine Diatta",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 4.0
         },
         {
           "name": "Omar Daf",
           "pos": "LB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 4.0
         },
         {
           "name": "Aliou Cissé",
           "pos": "DM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 4.0
         },
         {
           "name": "Moussa N'Diaye",
           "pos": "RM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 4.0
         },
         {
           "name": "Salif Diao",
           "pos": "CM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 4.0
         },
         {
           "name": "Papa Bouba Diop",
           "pos": "CM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 4.0,
+          "short": "Bouba Diop"
         },
         {
           "name": "Khalilou Fadiga",
           "pos": "LM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 4.0
         },
         {
           "name": "El Hadji Diouf",
           "pos": "ST",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 4.0
         }
       ]
     },
@@ -426,81 +486,207 @@
         {
           "name": "Lee Woon-jae",
           "pos": "GK",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 4.0,
+          "family_first": true,
+          "short": "Lee Woon-jae",
+          "aliases": [
+            "Woon-jae",
+            "woonjae",
+            "Woon-jae Lee",
+            "woonjae Lee"
+          ]
         },
         {
           "name": "Choi Jin-cheul",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 4.0,
+          "family_first": true,
+          "short": "Choi Jin-cheul",
+          "aliases": [
+            "Jin-cheul",
+            "jincheul",
+            "Jin-cheul Choi",
+            "jincheul Choi"
+          ]
         },
         {
           "name": "Hong Myung-bo",
           "pos": "CB",
           "role": "starter",
-          "off": 83
+          "off": 83,
+          "rarity": 4.0,
+          "family_first": true,
+          "short": "Hong Myung-bo",
+          "aliases": [
+            "Myung-bo",
+            "myungbo",
+            "Myung-bo Hong",
+            "myungbo Hong"
+          ]
         },
         {
           "name": "Kim Tae-young",
           "pos": "CB",
           "role": "starter",
-          "off": 63
+          "off": 63,
+          "rarity": 4.0,
+          "family_first": true,
+          "short": "Kim Tae-young",
+          "aliases": [
+            "Tae-young",
+            "taeyoung",
+            "Tae-young Kim",
+            "taeyoung Kim"
+          ]
         },
         {
           "name": "Song Chong-gug",
           "pos": "RWB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 4.0,
+          "family_first": true,
+          "short": "Song Chong-gug",
+          "aliases": [
+            "Chong-gug",
+            "chonggug",
+            "Chong-gug Song",
+            "chonggug Song"
+          ]
         },
         {
           "name": "Kim Nam-il",
           "pos": "CM",
           "role": "starter",
-          "off": 68
+          "off": 68,
+          "rarity": 4.0,
+          "family_first": true,
+          "short": "Kim Nam-il",
+          "aliases": [
+            "Nam-il",
+            "namil",
+            "Nam-il Kim",
+            "namil Kim"
+          ]
         },
         {
           "name": "Yoo Sang-chul",
           "pos": "CM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 4.0,
+          "family_first": true,
+          "short": "Yoo Sang-chul",
+          "aliases": [
+            "Sang-chul",
+            "sangchul",
+            "Sang-chul Yoo",
+            "sangchul Yoo"
+          ]
         },
         {
           "name": "Lee Young-pyo",
           "pos": "LWB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 4.0,
+          "family_first": true,
+          "short": "Lee Young-pyo",
+          "aliases": [
+            "Young-pyo",
+            "youngpyo",
+            "Young-pyo Lee",
+            "youngpyo Lee"
+          ]
         },
         {
           "name": "Park Ji-sung",
           "pos": "RW",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 60.0,
+          "family_first": true,
+          "short": "Park Ji-sung",
+          "aliases": [
+            "Ji-sung",
+            "jisung",
+            "Ji-sung Park",
+            "jisung Park"
+          ]
         },
         {
           "name": "Ahn Jung-hwan",
           "pos": "ST",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0,
+          "family_first": true,
+          "short": "Ahn Jung-hwan",
+          "aliases": [
+            "Jung-hwan",
+            "junghwan",
+            "Jung-hwan Ahn",
+            "junghwan Ahn"
+          ]
         },
         {
           "name": "Seol Ki-hyeon",
           "pos": "LW",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 4.0,
+          "family_first": true,
+          "short": "Seol Ki-hyeon",
+          "aliases": [
+            "Ki-hyeon",
+            "kihyeon",
+            "Ki-hyeon Seol",
+            "kihyeon Seol"
+          ]
         },
         {
           "name": "Hwang Sun-hong",
           "pos": "FW",
           "role": "sub_used",
           "on": 63,
-          "for": "Kim Tae-young"
+          "for": "Kim Tae-young",
+          "rarity": 2.0,
+          "family_first": true,
+          "short": "Hwang Sun-hong",
+          "aliases": [
+            "Sun-hong",
+            "sunhong",
+            "Sun-hong Hwang",
+            "sunhong Hwang"
+          ]
         },
         {
           "name": "Lee Chun-soo",
           "pos": "FW",
           "role": "sub_used",
           "on": 68,
-          "for": "Kim Nam-il"
+          "for": "Kim Nam-il",
+          "rarity": 2.0,
+          "family_first": true,
+          "short": "Lee Chun-soo",
+          "aliases": [
+            "Chun-soo",
+            "chunsoo",
+            "Chun-soo Lee",
+            "chunsoo Lee"
+          ]
         },
         {
           "name": "Cha Du-ri",
           "pos": "FW",
           "role": "sub_used",
           "on": 83,
-          "for": "Hong Myung-bo"
+          "for": "Hong Myung-bo",
+          "rarity": 2.0,
+          "family_first": true,
+          "short": "Cha Du-ri",
+          "aliases": [
+            "Du-ri",
+            "duri",
+            "Du-ri Cha",
+            "duri Cha"
+          ]
         }
       ]
     },
@@ -524,33 +710,39 @@
         {
           "name": "Oliver Kahn",
           "pos": "GK",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 60.0
         },
         {
           "name": "Thomas Linke",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 10.0
         },
         {
           "name": "Carsten Ramelow",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 10.0
         },
         {
           "name": "Christoph Metzelder",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 10.0
         },
         {
           "name": "Torsten Frings",
           "pos": "RWB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Jens Jeremies",
           "pos": "CM",
           "role": "starter",
-          "off": 77
+          "off": 77,
+          "rarity": 10.0
         },
         {
           "name": "Dietmar Hamann",
@@ -560,18 +752,21 @@
         {
           "name": "Bernd Schneider",
           "pos": "CM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 10.0
         },
         {
           "name": "Marco Bode",
           "pos": "LWB",
           "role": "starter",
-          "off": 84
+          "off": 84,
+          "rarity": 10.0
         },
         {
           "name": "Oliver Neuville",
           "pos": "ST",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 10.0
         },
         {
           "name": "Miroslav Klose",
@@ -584,21 +779,24 @@
           "pos": "FW",
           "role": "sub_used",
           "on": 74,
-          "for": "Miroslav Klose"
+          "for": "Miroslav Klose",
+          "rarity": 25.0
         },
         {
           "name": "Gerald Asamoah",
           "pos": "FW",
           "role": "sub_used",
           "on": 77,
-          "for": "Jens Jeremies"
+          "for": "Jens Jeremies",
+          "rarity": 4.0
         },
         {
           "name": "Christian Ziege",
           "pos": "DF",
           "role": "sub_used",
           "on": 84,
-          "for": "Marco Bode"
+          "for": "Marco Bode",
+          "rarity": 4.0
         }
       ]
     },
@@ -628,28 +826,33 @@
         {
           "name": "Dida",
           "pos": "GK",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Alessandro Costacurta",
           "pos": "RB",
           "role": "starter",
-          "off": 65
+          "off": 65,
+          "rarity": 35.0
         },
         {
           "name": "Alessandro Nesta",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 60.0
         },
         {
           "name": "Paolo Maldini",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 60.0
         },
         {
           "name": "Kakha Kaladze",
           "pos": "LB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 10.0
         },
         {
           "name": "Andrea Pirlo",
@@ -665,23 +868,34 @@
         {
           "name": "Clarence Seedorf",
           "pos": "CM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 60.0
         },
         {
           "name": "Rui Costa",
           "pos": "CAM",
           "role": "starter",
-          "off": 87
+          "off": 87,
+          "rarity": 35.0,
+          "short": "Rui Costa"
         },
         {
           "name": "Filippo Inzaghi",
           "pos": "ST",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 60.0,
+          "aliases": [
+            "pippo"
+          ]
         },
         {
           "name": "Andriy Shevchenko",
           "pos": "ST",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 60.0,
+          "aliases": [
+            "sheva"
+          ]
         },
         {
           "name": "Roque Júnior",
@@ -695,14 +909,16 @@
           "pos": "MF",
           "role": "sub_used",
           "on": 71,
-          "for": "Andrea Pirlo"
+          "for": "Andrea Pirlo",
+          "rarity": 4.0
         },
         {
           "name": "Massimo Ambrosini",
           "pos": "MF",
           "role": "sub_used",
           "on": 87,
-          "for": "Rui Costa"
+          "for": "Rui Costa",
+          "rarity": 25.0
         }
       ]
     },
@@ -731,81 +947,99 @@
         {
           "name": "José Francisco Molina",
           "pos": "GK",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 4.0
         },
         {
           "name": "Manuel Pablo",
           "pos": "RB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 4.0,
+          "short": "Manuel Pablo"
         },
         {
           "name": "Jorge Andrade",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 4.0
         },
         {
           "name": "Noureddine Naybet",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 4.0
         },
         {
           "name": "Enrique Romero",
           "pos": "LB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 4.0
         },
         {
           "name": "Mauro Silva",
           "pos": "DM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 4.0,
+          "short": "Mauro Silva"
         },
         {
           "name": "Sergio González",
           "pos": "DM",
           "role": "starter",
-          "off": 87
+          "off": 87,
+          "rarity": 4.0,
+          "short": "Sergio"
         },
         {
           "name": "Víctor Sánchez",
           "pos": "RW",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 4.0,
+          "short": "Víctor"
         },
         {
           "name": "Juan Carlos Valerón",
           "pos": "CAM",
           "role": "starter",
-          "off": 90
+          "off": 90,
+          "rarity": 35.0
         },
         {
           "name": "Albert Luque",
           "pos": "LW",
           "role": "starter",
-          "off": 66
+          "off": 66,
+          "rarity": 4.0
         },
         {
           "name": "Walter Pandiani",
           "pos": "ST",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 4.0
         },
         {
           "name": "Fran",
           "pos": "FW",
           "role": "sub_used",
           "on": 66,
-          "for": "Albert Luque"
+          "for": "Albert Luque",
+          "rarity": 2.0
         },
         {
           "name": "Aldo Duscher",
           "pos": "MF",
           "role": "sub_used",
           "on": 87,
-          "for": "Sergio González"
+          "for": "Sergio González",
+          "rarity": 2.0
         },
         {
           "name": "Djalminha",
           "pos": "MF",
           "role": "sub_used",
           "on": 90,
-          "for": "Juan Carlos Valerón"
+          "for": "Juan Carlos Valerón",
+          "rarity": 2.0
         }
       ]
     },
@@ -834,22 +1068,26 @@
         {
           "name": "Jens Lehmann",
           "pos": "GK",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Lauren",
           "pos": "RB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 18.0
         },
         {
           "name": "Kolo Touré",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Sol Campbell",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Ashley Cole",
@@ -860,12 +1098,14 @@
           "name": "Freddie Ljungberg",
           "pos": "RM",
           "role": "starter",
-          "off": 90
+          "off": 90,
+          "rarity": 35.0
         },
         {
           "name": "Patrick Vieira",
           "pos": "CM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 60.0
         },
         {
           "name": "Gilberto Silva",
@@ -876,31 +1116,36 @@
           "name": "Robert Pires",
           "pos": "LM",
           "role": "starter",
-          "off": 72
+          "off": 72,
+          "rarity": 35.0
         },
         {
           "name": "Thierry Henry",
           "pos": "ST",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 60.0
         },
         {
           "name": "Dennis Bergkamp",
           "pos": "ST",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 60.0
         },
         {
           "name": "Edu",
           "pos": "MF",
           "role": "sub_used",
           "on": 72,
-          "for": "Robert Pires"
+          "for": "Robert Pires",
+          "rarity": 8.0
         },
         {
           "name": "Martin Keown",
           "pos": "DF",
           "role": "sub_used",
           "on": 90,
-          "for": "Freddie Ljungberg"
+          "for": "Freddie Ljungberg",
+          "rarity": 8.0
         }
       ]
     },
@@ -930,81 +1175,98 @@
         {
           "name": "Vítor Baía",
           "pos": "GK",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 4.0,
+          "short": "Vítor Baía"
         },
         {
           "name": "Paulo Ferreira",
           "pos": "RB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 4.0
         },
         {
           "name": "Jorge Costa",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 4.0
         },
         {
           "name": "Ricardo Carvalho",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Nuno Valente",
           "pos": "LB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 4.0
         },
         {
           "name": "Costinha",
           "pos": "DM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 4.0
         },
         {
           "name": "Pedro Mendes",
           "pos": "CM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 4.0
         },
         {
           "name": "Maniche",
           "pos": "CM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 4.0
         },
         {
           "name": "Deco",
           "pos": "CAM",
           "role": "starter",
-          "off": 84
+          "off": 84,
+          "rarity": 60.0
         },
         {
           "name": "Carlos Alberto",
           "pos": "ST",
           "role": "starter",
-          "off": 60
+          "off": 60,
+          "rarity": 4.0,
+          "short": "Carlos Alberto"
         },
         {
           "name": "Derlei",
           "pos": "ST",
           "role": "starter",
-          "off": 78
+          "off": 78,
+          "rarity": 4.0
         },
         {
           "name": "Dmitri Alenichev",
           "pos": "MF",
           "role": "sub_used",
           "on": 60,
-          "for": "Carlos Alberto"
+          "for": "Carlos Alberto",
+          "rarity": 2.0
         },
         {
           "name": "Benni McCarthy",
           "pos": "FW",
           "role": "sub_used",
           "on": 78,
-          "for": "Derlei"
+          "for": "Derlei",
+          "rarity": 2.0
         },
         {
           "name": "Pedro Emanuel",
           "pos": "DF",
           "role": "sub_used",
           "on": 84,
-          "for": "Deco"
+          "for": "Deco",
+          "rarity": 2.0,
+          "short": "Pedro Emanuel"
         }
       ]
     },
@@ -1030,49 +1292,58 @@
         {
           "name": "Ricardo",
           "pos": "GK",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 10.0
         },
         {
           "name": "Miguel",
           "pos": "RB",
           "role": "starter",
-          "off": 43
+          "off": 43,
+          "rarity": 10.0
         },
         {
           "name": "Ricardo Carvalho",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Jorge Andrade",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 10.0
         },
         {
           "name": "Nuno Valente",
           "pos": "LB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 10.0
         },
         {
           "name": "Costinha",
           "pos": "DM",
           "role": "starter",
-          "off": 60
+          "off": 60,
+          "rarity": 10.0
         },
         {
           "name": "Maniche",
           "pos": "DM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 10.0
         },
         {
           "name": "Luís Figo",
           "pos": "RW",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 60.0
         },
         {
           "name": "Deco",
           "pos": "CAM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 60.0
         },
         {
           "name": "Cristiano Ronaldo",
@@ -1083,28 +1354,33 @@
           "name": "Pauleta",
           "pos": "ST",
           "role": "starter",
-          "off": 74
+          "off": 74,
+          "rarity": 35.0
         },
         {
           "name": "Paulo Ferreira",
           "pos": "DF",
           "role": "sub_used",
           "on": 43,
-          "for": "Miguel"
+          "for": "Miguel",
+          "rarity": 4.0
         },
         {
           "name": "Rui Costa",
           "pos": "MF",
           "role": "sub_used",
           "on": 60,
-          "for": "Costinha"
+          "for": "Costinha",
+          "rarity": 25.0,
+          "short": "Rui Costa"
         },
         {
           "name": "Nuno Gomes",
           "pos": "FW",
           "role": "sub_used",
           "on": 74,
-          "for": "Pauleta"
+          "for": "Pauleta",
+          "rarity": 4.0
         }
       ]
     },
@@ -1130,7 +1406,8 @@
         {
           "name": "Dida",
           "pos": "GK",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Cafu",
@@ -1140,17 +1417,20 @@
         {
           "name": "Jaap Stam",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Alessandro Nesta",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 60.0
         },
         {
           "name": "Paolo Maldini",
           "pos": "LB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 60.0
         },
         {
           "name": "Andrea Pirlo",
@@ -1167,44 +1447,58 @@
           "name": "Clarence Seedorf",
           "pos": "CM",
           "role": "starter",
-          "off": 86
+          "off": 86,
+          "rarity": 60.0
         },
         {
           "name": "Kaká",
           "pos": "CAM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 60.0,
+          "aliases": [
+            "kaka"
+          ]
         },
         {
           "name": "Andriy Shevchenko",
           "pos": "ST",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 60.0,
+          "aliases": [
+            "sheva"
+          ]
         },
         {
           "name": "Hernán Crespo",
           "pos": "ST",
           "role": "starter",
-          "off": 85
+          "off": 85,
+          "rarity": 35.0
         },
         {
           "name": "Jon Dahl Tomasson",
           "pos": "FW",
           "role": "sub_used",
           "on": 85,
-          "for": "Hernán Crespo"
+          "for": "Hernán Crespo",
+          "rarity": 8.0
         },
         {
           "name": "Serginho",
           "pos": "MF",
           "role": "sub_used",
           "on": 86,
-          "for": "Clarence Seedorf"
+          "for": "Clarence Seedorf",
+          "rarity": 8.0
         },
         {
           "name": "Rui Costa",
           "pos": "MF",
           "role": "sub_used",
           "on": 112,
-          "for": "Gennaro Gattuso"
+          "for": "Gennaro Gattuso",
+          "rarity": 25.0,
+          "short": "Rui Costa"
         }
       ]
     },
@@ -1233,7 +1527,11 @@
         {
           "name": "Pepe Reina",
           "pos": "GK",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0,
+          "aliases": [
+            "pepe reina"
+          ]
         },
         {
           "name": "Steve Finnan",
@@ -1263,7 +1561,8 @@
         {
           "name": "Mohamed Sissoko",
           "pos": "CM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 10.0
         },
         {
           "name": "Xabi Alonso",
@@ -1281,7 +1580,8 @@
           "name": "Peter Crouch",
           "pos": "ST",
           "role": "starter",
-          "off": 71
+          "off": 71,
+          "rarity": 35.0
         },
         {
           "name": "Djibril Cissé",
@@ -1293,14 +1593,16 @@
           "pos": "FW",
           "role": "sub_used",
           "on": 48,
-          "for": "Harry Kewell"
+          "for": "Harry Kewell",
+          "rarity": 25.0
         },
         {
           "name": "Jan Kromkamp",
           "pos": "DF",
           "role": "sub_used",
           "on": 67,
-          "for": "Xabi Alonso"
+          "for": "Xabi Alonso",
+          "rarity": 4.0
         },
         {
           "name": "Dietmar Hamann",
@@ -1331,13 +1633,15 @@
         {
           "name": "Víctor Valdés",
           "pos": "GK",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Oleguer",
           "pos": "RB",
           "role": "starter",
-          "off": 71
+          "off": 71,
+          "rarity": 10.0
         },
         {
           "name": "Carles Puyol",
@@ -1347,12 +1651,14 @@
         {
           "name": "Rafael Márquez",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Giovanni van Bronckhorst",
           "pos": "LB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Edmílson",
@@ -1363,18 +1669,21 @@
         {
           "name": "Deco",
           "pos": "CM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 60.0
         },
         {
           "name": "Mark van Bommel",
           "pos": "CM",
           "role": "starter",
-          "off": 61
+          "off": 61,
+          "rarity": 35.0
         },
         {
           "name": "Ludovic Giuly",
           "pos": "RW",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 10.0
         },
         {
           "name": "Samuel Eto'o",
@@ -1398,14 +1707,16 @@
           "pos": "FW",
           "role": "sub_used",
           "on": 61,
-          "for": "Mark van Bommel"
+          "for": "Mark van Bommel",
+          "rarity": 25.0
         },
         {
           "name": "Juliano Belletti",
           "pos": "DF",
           "role": "sub_used",
           "on": 71,
-          "for": "Oleguer"
+          "for": "Oleguer",
+          "rarity": 4.0
         }
       ]
     },
@@ -1431,49 +1742,58 @@
         {
           "name": "Fabien Barthez",
           "pos": "GK",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Willy Sagnol",
           "pos": "RB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Lilian Thuram",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "William Gallas",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Eric Abidal",
           "pos": "LB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Patrick Vieira",
           "pos": "DM",
           "role": "starter",
-          "off": 56
+          "off": 56,
+          "rarity": 60.0
         },
         {
           "name": "Claude Makélélé",
           "pos": "DM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Franck Ribéry",
           "pos": "RW",
           "role": "starter",
-          "off": 100
+          "off": 100,
+          "rarity": 60.0
         },
         {
           "name": "Zinedine Zidane",
           "pos": "CAM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 60.0
         },
         {
           "name": "Florent Malouda",
@@ -1484,28 +1804,32 @@
           "name": "Thierry Henry",
           "pos": "ST",
           "role": "starter",
-          "off": 107
+          "off": 107,
+          "rarity": 60.0
         },
         {
           "name": "Alou Diarra",
           "pos": "MF",
           "role": "sub_used",
           "on": 56,
-          "for": "Patrick Vieira"
+          "for": "Patrick Vieira",
+          "rarity": 8.0
         },
         {
           "name": "David Trezeguet",
           "pos": "FW",
           "role": "sub_used",
           "on": 100,
-          "for": "Franck Ribéry"
+          "for": "Franck Ribéry",
+          "rarity": 25.0
         },
         {
           "name": "Sylvain Wiltord",
           "pos": "FW",
           "role": "sub_used",
           "on": 107,
-          "for": "Thierry Henry"
+          "for": "Thierry Henry",
+          "rarity": 8.0
         }
       ]
     },
@@ -1536,17 +1860,20 @@
         {
           "name": "Michael Essien",
           "pos": "RB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Ricardo Carvalho",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "John Terry",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 60.0
         },
         {
           "name": "Ashley Cole",
@@ -1557,12 +1884,14 @@
           "name": "Claude Makélélé",
           "pos": "DM",
           "role": "starter",
-          "off": 120
+          "off": 120,
+          "rarity": 35.0
         },
         {
           "name": "Michael Ballack",
           "pos": "CM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 60.0
         },
         {
           "name": "Frank Lampard",
@@ -1573,7 +1902,8 @@
           "name": "Joe Cole",
           "pos": "RW",
           "role": "starter",
-          "off": 99
+          "off": 99,
+          "rarity": 35.0
         },
         {
           "name": "Didier Drogba",
@@ -1598,14 +1928,16 @@
           "pos": "FW",
           "role": "sub_used",
           "on": 99,
-          "for": "Joe Cole"
+          "for": "Joe Cole",
+          "rarity": 25.0
         },
         {
           "name": "Juliano Belletti",
           "pos": "DF",
           "role": "sub_used",
           "on": 120,
-          "for": "Claude Makélélé"
+          "for": "Claude Makélélé",
+          "rarity": 8.0
         }
       ]
     },
@@ -1639,7 +1971,8 @@
         {
           "name": "Carlos Marchena",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 18.0
         },
         {
           "name": "Carles Puyol",
@@ -1654,7 +1987,8 @@
         {
           "name": "Marcos Senna",
           "pos": "DM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 18.0
         },
         {
           "name": "Andrés Iniesta",
@@ -1676,7 +2010,8 @@
           "name": "David Silva",
           "pos": "LM",
           "role": "starter",
-          "off": 66
+          "off": 66,
+          "rarity": 35.0
         },
         {
           "name": "Fernando Torres",
@@ -1696,14 +2031,16 @@
           "pos": "MF",
           "role": "sub_used",
           "on": 66,
-          "for": "David Silva"
+          "for": "David Silva",
+          "rarity": 8.0
         },
         {
           "name": "Daniel Güiza",
           "pos": "FW",
           "role": "sub_used",
           "on": 78,
-          "for": "Fernando Torres"
+          "for": "Fernando Torres",
+          "rarity": 8.0
         }
       ]
     },
@@ -1729,7 +2066,8 @@
         {
           "name": "Hans-Jörg Butt",
           "pos": "GK",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 10.0
         },
         {
           "name": "Philipp Lahm",
@@ -1739,22 +2077,26 @@
         {
           "name": "Daniel Van Buyten",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 10.0
         },
         {
           "name": "Martín Demichelis",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Holger Badstuber",
           "pos": "LB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 10.0
         },
         {
           "name": "Mark van Bommel",
           "pos": "DM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Bastian Schweinsteiger",
@@ -1764,7 +2106,8 @@
         {
           "name": "Arjen Robben",
           "pos": "RW",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 60.0
         },
         {
           "name": "Thomas Müller",
@@ -1775,13 +2118,15 @@
           "name": "Hamit Altıntop",
           "pos": "LW",
           "role": "starter",
-          "off": 63
+          "off": 63,
+          "rarity": 10.0
         },
         {
           "name": "Ivica Olić",
           "pos": "ST",
           "role": "starter",
-          "off": 74
+          "off": 74,
+          "rarity": 35.0
         },
         {
           "name": "Miroslav Klose",
@@ -1795,7 +2140,8 @@
           "pos": "FW",
           "role": "sub_used",
           "on": 74,
-          "for": "Ivica Olić"
+          "for": "Ivica Olić",
+          "rarity": 25.0
         }
       ]
     },
@@ -1821,44 +2167,52 @@
         {
           "name": "Maarten Stekelenburg",
           "pos": "GK",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 10.0
         },
         {
           "name": "Gregory van der Wiel",
           "pos": "RB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 10.0
         },
         {
           "name": "John Heitinga",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 10.0
         },
         {
           "name": "Joris Mathijsen",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 10.0
         },
         {
           "name": "Giovanni van Bronckhorst",
           "pos": "LB",
           "role": "starter",
-          "off": 105
+          "off": 105,
+          "rarity": 35.0
         },
         {
           "name": "Mark van Bommel",
           "pos": "DM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Nigel de Jong",
           "pos": "DM",
           "role": "starter",
-          "off": 99
+          "off": 99,
+          "rarity": 35.0
         },
         {
           "name": "Arjen Robben",
           "pos": "RW",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 60.0
         },
         {
           "name": "Wesley Sneijder",
@@ -1869,33 +2223,38 @@
           "name": "Dirk Kuyt",
           "pos": "LW",
           "role": "starter",
-          "off": 71
+          "off": 71,
+          "rarity": 35.0
         },
         {
           "name": "Robin van Persie",
           "pos": "ST",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 60.0
         },
         {
           "name": "Eljero Elia",
           "pos": "FW",
           "role": "sub_used",
           "on": 71,
-          "for": "Dirk Kuyt"
+          "for": "Dirk Kuyt",
+          "rarity": 4.0
         },
         {
           "name": "Rafael van der Vaart",
           "pos": "MF",
           "role": "sub_used",
           "on": 99,
-          "for": "Nigel de Jong"
+          "for": "Nigel de Jong",
+          "rarity": 25.0
         },
         {
           "name": "Edson Braafheid",
           "pos": "DF",
           "role": "sub_used",
           "on": 105,
-          "for": "Giovanni van Bronckhorst"
+          "for": "Giovanni van Bronckhorst",
+          "rarity": 4.0
         }
       ]
     },
@@ -1924,32 +2283,38 @@
         {
           "name": "Helton",
           "pos": "GK",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 4.0
         },
         {
           "name": "Cristian Săpunaru",
           "pos": "RB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 4.0
         },
         {
           "name": "Rolando",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 4.0
         },
         {
           "name": "Nicolás Otamendi",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 4.0
         },
         {
           "name": "Álvaro Pereira",
           "pos": "LB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 4.0
         },
         {
           "name": "Fernando",
           "pos": "DM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 4.0
         },
         {
           "name": "João Moutinho",
@@ -1960,37 +2325,47 @@
           "name": "Fredy Guarín",
           "pos": "CM",
           "role": "starter",
-          "off": 73
+          "off": 73,
+          "rarity": 4.0
         },
         {
           "name": "Hulk",
           "pos": "RW",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Radamel Falcao",
           "pos": "ST",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0,
+          "aliases": [
+            "falcao garcia"
+          ]
         },
         {
           "name": "Silvestre Varela",
           "pos": "LW",
           "role": "starter",
-          "off": 79
+          "off": 79,
+          "rarity": 4.0
         },
         {
           "name": "Fernando Belluschi",
           "pos": "MF",
           "role": "sub_used",
           "on": 73,
-          "for": "Fredy Guarín"
+          "for": "Fredy Guarín",
+          "rarity": 2.0
         },
         {
           "name": "James Rodríguez",
           "pos": "MF",
           "role": "sub_used",
           "on": 79,
-          "for": "Silvestre Varela"
+          "for": "Silvestre Varela",
+          "rarity": 25.0,
+          "short": "James"
         }
       ]
     },
@@ -2016,13 +2391,15 @@
         {
           "name": "Víctor Valdés",
           "pos": "GK",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Dani Alves",
           "pos": "RB",
           "role": "starter",
-          "off": 89
+          "off": 89,
+          "rarity": 35.0
         },
         {
           "name": "Gerard Piqué",
@@ -2032,12 +2409,14 @@
         {
           "name": "Javier Mascherano",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Eric Abidal",
           "pos": "LB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Sergio Busquets",
@@ -2063,7 +2442,8 @@
         {
           "name": "Lionel Messi",
           "pos": "ST",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 60.0
         },
         {
           "name": "David Villa",
@@ -2076,14 +2456,16 @@
           "pos": "MF",
           "role": "sub_used",
           "on": 86,
-          "for": "David Villa"
+          "for": "David Villa",
+          "rarity": 8.0
         },
         {
           "name": "Seydou Keita",
           "pos": "MF",
           "role": "sub_used",
           "on": 88,
-          "for": "Pedro"
+          "for": "Pedro",
+          "rarity": 8.0
         },
         {
           "name": "Carles Puyol",
@@ -2119,22 +2501,26 @@
         {
           "name": "David de Gea",
           "pos": "GK",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Chris Smalling",
           "pos": "RB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 10.0
         },
         {
           "name": "Phil Jones",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 10.0
         },
         {
           "name": "Jonny Evans",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 10.0
         },
         {
           "name": "Patrice Evra",
@@ -2156,18 +2542,21 @@
         {
           "name": "Tom Cleverley",
           "pos": "CM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 10.0
         },
         {
           "name": "Ashley Young",
           "pos": "LM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 10.0
         },
         {
           "name": "Danny Welbeck",
           "pos": "ST",
           "role": "starter",
-          "off": 35
+          "off": 35,
+          "rarity": 35.0
         },
         {
           "name": "Wayne Rooney",
@@ -2179,7 +2568,11 @@
           "pos": "FW",
           "role": "sub_used",
           "on": 35,
-          "for": "Danny Welbeck"
+          "for": "Danny Welbeck",
+          "rarity": 25.0,
+          "aliases": [
+            "chicharito"
+          ]
         },
         {
           "name": "Ryan Giggs",
@@ -2193,7 +2586,16 @@
           "pos": "MF",
           "role": "sub_used",
           "on": 68,
-          "for": "Nani"
+          "for": "Nani",
+          "rarity": 60.0,
+          "family_first": true,
+          "short": "Park Ji-sung",
+          "aliases": [
+            "Ji-sung",
+            "jisung",
+            "Ji-sung Park",
+            "jisung Park"
+          ]
         }
       ]
     },
@@ -2224,17 +2626,20 @@
           "name": "Roman Weidenfeller",
           "pos": "GK",
           "role": "starter",
-          "off": 34
+          "off": 34,
+          "rarity": 10.0
         },
         {
           "name": "Łukasz Piszczek",
           "pos": "RB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 10.0
         },
         {
           "name": "Neven Subotić",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 10.0
         },
         {
           "name": "Mats Hummels",
@@ -2244,60 +2649,73 @@
         {
           "name": "Marcel Schmelzer",
           "pos": "LB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 10.0
         },
         {
           "name": "İlkay Gündoğan",
           "pos": "DM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Sebastian Kehl",
           "pos": "DM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 10.0
         },
         {
           "name": "Jakub Błaszczykowski",
           "pos": "RW",
           "role": "starter",
-          "off": 84
+          "off": 84,
+          "rarity": 10.0,
+          "aliases": [
+            "kuba"
+          ]
         },
         {
           "name": "Shinji Kagawa",
           "pos": "CAM",
           "role": "starter",
-          "off": 81
+          "off": 81,
+          "rarity": 35.0
         },
         {
           "name": "Kevin Großkreutz",
           "pos": "LW",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 10.0
         },
         {
           "name": "Robert Lewandowski",
           "pos": "ST",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 60.0
         },
         {
           "name": "Mitchell Langerak",
           "pos": "GK",
           "role": "sub_used",
           "on": 34,
-          "for": "Roman Weidenfeller"
+          "for": "Roman Weidenfeller",
+          "rarity": 4.0
         },
         {
           "name": "Sven Bender",
           "pos": "MF",
           "role": "sub_used",
           "on": 81,
-          "for": "Shinji Kagawa"
+          "for": "Shinji Kagawa",
+          "rarity": 4.0
         },
         {
           "name": "Ivan Perišić",
           "pos": "MF",
           "role": "sub_used",
           "on": 84,
-          "for": "Jakub Błaszczykowski"
+          "for": "Jakub Błaszczykowski",
+          "rarity": 25.0
         }
       ]
     },
@@ -2321,49 +2739,61 @@
         {
           "name": "Joe Hart",
           "pos": "GK",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Pablo Zabaleta",
           "pos": "RB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 18.0
         },
         {
           "name": "Vincent Kompany",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Joleon Lescott",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 18.0
         },
         {
           "name": "Gaël Clichy",
           "pos": "LB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 18.0
         },
         {
           "name": "Samir Nasri",
           "pos": "RM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Yaya Touré",
           "pos": "CM",
           "role": "starter",
-          "off": 44
+          "off": 44,
+          "rarity": 35.0,
+          "aliases": [
+            "yaya"
+          ]
         },
         {
           "name": "Gareth Barry",
           "pos": "CM",
           "role": "starter",
-          "off": 69
+          "off": 69,
+          "rarity": 18.0
         },
         {
           "name": "David Silva",
           "pos": "LM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Carlos Tevez",
@@ -2374,28 +2804,32 @@
         {
           "name": "Sergio Agüero",
           "pos": "ST",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 60.0
         },
         {
           "name": "Nigel de Jong",
           "pos": "MF",
           "role": "sub_used",
           "on": 44,
-          "for": "Yaya Touré"
+          "for": "Yaya Touré",
+          "rarity": 25.0
         },
         {
           "name": "Edin Džeko",
           "pos": "FW",
           "role": "sub_used",
           "on": 69,
-          "for": "Gareth Barry"
+          "for": "Gareth Barry",
+          "rarity": 25.0
         },
         {
           "name": "Mario Balotelli",
           "pos": "FW",
           "role": "sub_used",
           "on": 76,
-          "for": "Carlos Tevez"
+          "for": "Carlos Tevez",
+          "rarity": 25.0
         }
       ]
     },
@@ -2424,65 +2858,77 @@
         {
           "name": "Joel Robles",
           "pos": "GK",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 4.0
         },
         {
           "name": "Emmerson Boyce",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 4.0
         },
         {
           "name": "Antolín Alcaraz",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 4.0
         },
         {
           "name": "Paul Scharner",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 4.0
         },
         {
           "name": "Callum McManaman",
           "pos": "RWB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 4.0
         },
         {
           "name": "James McCarthy",
           "pos": "CM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 4.0
         },
         {
           "name": "James McArthur",
           "pos": "CM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 4.0
         },
         {
           "name": "Roger Espinoza",
           "pos": "LWB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 4.0
         },
         {
           "name": "Jordi Gómez",
           "pos": "RW",
           "role": "starter",
-          "off": 81
+          "off": 81,
+          "rarity": 4.0
         },
         {
           "name": "Arouna Koné",
           "pos": "ST",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 4.0
         },
         {
           "name": "Shaun Maloney",
           "pos": "LW",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 4.0
         },
         {
           "name": "Ben Watson",
           "pos": "MF",
           "role": "sub_used",
           "on": 81,
-          "for": "Jordi Gómez"
+          "for": "Jordi Gómez",
+          "rarity": 25.0
         }
       ]
     },
@@ -2526,17 +2972,21 @@
         {
           "name": "Dante",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 18.0
         },
         {
           "name": "David Alaba",
           "pos": "LB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Javi Martínez",
           "pos": "DM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0,
+          "short": "Javi Martínez"
         },
         {
           "name": "Bastian Schweinsteiger",
@@ -2546,7 +2996,8 @@
         {
           "name": "Arjen Robben",
           "pos": "RW",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 60.0
         },
         {
           "name": "Thomas Müller",
@@ -2557,27 +3008,32 @@
           "name": "Franck Ribéry",
           "pos": "LW",
           "role": "starter",
-          "off": 90
+          "off": 90,
+          "rarity": 60.0
         },
         {
           "name": "Mario Mandžukić",
           "pos": "ST",
           "role": "starter",
-          "off": 90
+          "off": 90,
+          "rarity": 35.0
         },
         {
           "name": "Luiz Gustavo",
           "pos": "MF",
           "role": "sub_used",
           "on": 90,
-          "for": "Franck Ribéry"
+          "for": "Franck Ribéry",
+          "rarity": 8.0,
+          "short": "Luiz Gustavo"
         },
         {
           "name": "Mario Gómez",
           "pos": "FW",
           "role": "sub_used",
           "on": 90,
-          "for": "Mario Mandžukić"
+          "for": "Mario Mandžukić",
+          "rarity": 25.0
         }
       ]
     },
@@ -2608,48 +3064,59 @@
         {
           "name": "Thibaut Courtois",
           "pos": "GK",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Juanfran",
           "pos": "RB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 10.0
         },
         {
           "name": "Miranda",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 10.0
         },
         {
           "name": "Diego Godín",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Filipe Luís",
           "pos": "LB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 10.0,
+          "short": "Filipe Luís"
         },
         {
           "name": "Koke",
           "pos": "RM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Gabi",
           "pos": "CM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 10.0
         },
         {
           "name": "Tiago",
           "pos": "CM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 10.0
         },
         {
           "name": "Arda Turan",
           "pos": "LM",
           "role": "starter",
-          "off": 23
+          "off": 23,
+          "rarity": 35.0,
+          "short": "Arda"
         },
         {
           "name": "David Villa",
@@ -2660,21 +3127,25 @@
           "name": "Diego Costa",
           "pos": "ST",
           "role": "starter",
-          "off": 15
+          "off": 15,
+          "rarity": 35.0
         },
         {
           "name": "Adrián López",
           "pos": "FW",
           "role": "sub_used",
           "on": 15,
-          "for": "Diego Costa"
+          "for": "Diego Costa",
+          "rarity": 4.0,
+          "short": "Adrián"
         },
         {
           "name": "Raúl García",
           "pos": "MF",
           "role": "sub_used",
           "on": 23,
-          "for": "Arda Turan"
+          "for": "Arda Turan",
+          "rarity": 4.0
         }
       ]
     },
@@ -2703,12 +3174,14 @@
         {
           "name": "Dani Carvajal",
           "pos": "RB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Raphaël Varane",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Sergio Ramos",
@@ -2719,7 +3192,8 @@
           "name": "Fábio Coentrão",
           "pos": "LB",
           "role": "starter",
-          "off": 59
+          "off": 59,
+          "rarity": 18.0
         },
         {
           "name": "Sami Khedira",
@@ -2730,23 +3204,27 @@
         {
           "name": "Luka Modrić",
           "pos": "CM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 60.0
         },
         {
           "name": "Ángel Di María",
           "pos": "CM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 60.0
         },
         {
           "name": "Gareth Bale",
           "pos": "RW",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 60.0
         },
         {
           "name": "Karim Benzema",
           "pos": "ST",
           "role": "starter",
-          "off": 79
+          "off": 79,
+          "rarity": 60.0
         },
         {
           "name": "Cristiano Ronaldo",
@@ -2758,21 +3236,24 @@
           "pos": "DF",
           "role": "sub_used",
           "on": 59,
-          "for": "Fábio Coentrão"
+          "for": "Fábio Coentrão",
+          "rarity": 25.0
         },
         {
           "name": "Isco",
           "pos": "MF",
           "role": "sub_used",
           "on": 59,
-          "for": "Sami Khedira"
+          "for": "Sami Khedira",
+          "rarity": 25.0
         },
         {
           "name": "Álvaro Morata",
           "pos": "FW",
           "role": "sub_used",
           "on": 79,
-          "for": "Karim Benzema"
+          "for": "Karim Benzema",
+          "rarity": 25.0
         }
       ]
     },
@@ -2813,66 +3294,78 @@
         {
           "name": "Dante",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 10.0
         },
         {
           "name": "Marcelo",
           "pos": "LB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Luiz Gustavo",
           "pos": "DM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 10.0,
+          "short": "Luiz Gustavo"
         },
         {
           "name": "Fernandinho",
           "pos": "DM",
           "role": "starter",
-          "off": 46
+          "off": 46,
+          "rarity": 10.0
         },
         {
           "name": "Hulk",
           "pos": "RW",
           "role": "starter",
-          "off": 46
+          "off": 46,
+          "rarity": 35.0
         },
         {
           "name": "Oscar",
           "pos": "CAM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 10.0
         },
         {
           "name": "Bernard",
           "pos": "LW",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 10.0
         },
         {
           "name": "Fred",
           "pos": "ST",
           "role": "starter",
-          "off": 70
+          "off": 70,
+          "rarity": 10.0
         },
         {
           "name": "Paulinho",
           "pos": "MF",
           "role": "sub_used",
           "on": 46,
-          "for": "Fernandinho"
+          "for": "Fernandinho",
+          "rarity": 4.0
         },
         {
           "name": "Ramires",
           "pos": "MF",
           "role": "sub_used",
           "on": 46,
-          "for": "Hulk"
+          "for": "Hulk",
+          "rarity": 4.0
         },
         {
           "name": "Willian",
           "pos": "MF",
           "role": "sub_used",
           "on": 70,
-          "for": "Fred"
+          "for": "Fred",
+          "rarity": 4.0
         }
       ]
     },
@@ -2927,7 +3420,8 @@
           "name": "Christoph Kramer",
           "pos": "DM",
           "role": "starter",
-          "off": 31
+          "off": 31,
+          "rarity": 18.0
         },
         {
           "name": "Thomas Müller",
@@ -2963,7 +3457,8 @@
           "pos": "MF",
           "role": "sub_used",
           "on": 88,
-          "for": "Miroslav Klose"
+          "for": "Miroslav Klose",
+          "rarity": 25.0
         },
         {
           "name": "Per Mertesacker",
@@ -2999,12 +3494,18 @@
         {
           "name": "Marc-André ter Stegen",
           "pos": "GK",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0,
+          "aliases": [
+            "ter stegen",
+            "stegen"
+          ]
         },
         {
           "name": "Dani Alves",
           "pos": "RB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Gerard Piqué",
@@ -3014,12 +3515,14 @@
         {
           "name": "Javier Mascherano",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Jordi Alba",
           "pos": "LB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Sergio Busquets",
@@ -3030,7 +3533,8 @@
           "name": "Ivan Rakitić",
           "pos": "CM",
           "role": "starter",
-          "off": 90
+          "off": 90,
+          "rarity": 35.0
         },
         {
           "name": "Andrés Iniesta",
@@ -3041,18 +3545,21 @@
         {
           "name": "Lionel Messi",
           "pos": "RW",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 60.0
         },
         {
           "name": "Luis Suárez",
           "pos": "ST",
           "role": "starter",
-          "off": 90
+          "off": 90,
+          "rarity": 60.0
         },
         {
           "name": "Neymar",
           "pos": "LW",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 60.0
         },
         {
           "name": "Xavi",
@@ -3066,7 +3573,8 @@
           "pos": "DF",
           "role": "sub_used",
           "on": 90,
-          "for": "Ivan Rakitić"
+          "for": "Ivan Rakitić",
+          "rarity": 8.0
         },
         {
           "name": "Pedro",
@@ -3103,81 +3611,95 @@
         {
           "name": "Kasper Schmeichel",
           "pos": "GK",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Danny Simpson",
           "pos": "RB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 10.0
         },
         {
           "name": "Marcin Wasilewski",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 10.0
         },
         {
           "name": "Wes Morgan",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Christian Fuchs",
           "pos": "LB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 10.0
         },
         {
           "name": "Riyad Mahrez",
           "pos": "RM",
           "role": "starter",
-          "off": 90
+          "off": 90,
+          "rarity": 60.0
         },
         {
           "name": "N'Golo Kanté",
           "pos": "CM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 60.0
         },
         {
           "name": "Andy King",
           "pos": "CM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 10.0
         },
         {
           "name": "Marc Albrighton",
           "pos": "LM",
           "role": "starter",
-          "off": 67
+          "off": 67,
+          "rarity": 10.0
         },
         {
           "name": "Shinji Okazaki",
           "pos": "ST",
           "role": "starter",
-          "off": 62
+          "off": 62,
+          "rarity": 10.0
         },
         {
           "name": "Jamie Vardy",
           "pos": "ST",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 60.0
         },
         {
           "name": "Leonardo Ulloa",
           "pos": "FW",
           "role": "sub_used",
           "on": 62,
-          "for": "Shinji Okazaki"
+          "for": "Shinji Okazaki",
+          "rarity": 4.0
         },
         {
           "name": "Jeff Schlupp",
           "pos": "MF",
           "role": "sub_used",
           "on": 67,
-          "for": "Marc Albrighton"
+          "for": "Marc Albrighton",
+          "rarity": 4.0
         },
         {
           "name": "Demarai Gray",
           "pos": "MF",
           "role": "sub_used",
           "on": 90,
-          "for": "Riyad Mahrez"
+          "for": "Riyad Mahrez",
+          "rarity": 4.0
         }
       ]
     },
@@ -3207,73 +3729,92 @@
         {
           "name": "Hannes Halldórsson",
           "pos": "GK",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 4.0
         },
         {
           "name": "Birkir Már Sævarsson",
           "pos": "RB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 4.0
         },
         {
           "name": "Kári Árnason",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 4.0
         },
         {
           "name": "Ragnar Sigurðsson",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 4.0,
+          "short": "Ragnar"
         },
         {
           "name": "Ari Freyr Skúlason",
           "pos": "LB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 4.0
         },
         {
           "name": "Jóhann Berg Guðmundsson",
           "pos": "RM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 4.0
         },
         {
           "name": "Aron Gunnarsson",
           "pos": "CM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 4.0
         },
         {
           "name": "Gylfi Sigurðsson",
           "pos": "CM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0,
+          "short": "Gylfi",
+          "aliases": [
+            "gylfi sigurdsson"
+          ]
         },
         {
           "name": "Birkir Bjarnason",
           "pos": "LM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 4.0
         },
         {
           "name": "Kolbeinn Sigþórsson",
           "pos": "ST",
           "role": "starter",
-          "off": 77
+          "off": 77,
+          "rarity": 4.0
         },
         {
           "name": "Jón Daði Böðvarsson",
           "pos": "ST",
           "role": "starter",
-          "off": 89
+          "off": 89,
+          "rarity": 4.0
         },
         {
           "name": "Theódór Elmar Bjarnason",
           "pos": "MF",
           "role": "sub_used",
           "on": 77,
-          "for": "Kolbeinn Sigþórsson"
+          "for": "Kolbeinn Sigþórsson",
+          "rarity": 2.0,
+          "short": "Elmar"
         },
         {
           "name": "Arnór Ingvi Traustason",
           "pos": "MF",
           "role": "sub_used",
           "on": 89,
-          "for": "Jón Daði Böðvarsson"
+          "for": "Jón Daði Böðvarsson",
+          "rarity": 2.0
         }
       ]
     },
@@ -3302,81 +3843,95 @@
         {
           "name": "Wayne Hennessey",
           "pos": "GK",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 10.0
         },
         {
           "name": "James Chester",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 10.0
         },
         {
           "name": "Ashley Williams",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 10.0
         },
         {
           "name": "Ben Davies",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 10.0
         },
         {
           "name": "Chris Gunter",
           "pos": "RWB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 10.0
         },
         {
           "name": "Aaron Ramsey",
           "pos": "CM",
           "role": "starter",
-          "off": 90
+          "off": 90,
+          "rarity": 35.0
         },
         {
           "name": "Joe Allen",
           "pos": "CM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 10.0
         },
         {
           "name": "Joe Ledley",
           "pos": "CM",
           "role": "starter",
-          "off": 78
+          "off": 78,
+          "rarity": 10.0
         },
         {
           "name": "Neil Taylor",
           "pos": "LWB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 10.0
         },
         {
           "name": "Gareth Bale",
           "pos": "ST",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 60.0
         },
         {
           "name": "Hal Robson-Kanu",
           "pos": "ST",
           "role": "starter",
-          "off": 80
+          "off": 80,
+          "rarity": 35.0
         },
         {
           "name": "Andy King",
           "pos": "MF",
           "role": "sub_used",
           "on": 78,
-          "for": "Joe Ledley"
+          "for": "Joe Ledley",
+          "rarity": 4.0
         },
         {
           "name": "Sam Vokes",
           "pos": "FW",
           "role": "sub_used",
           "on": 80,
-          "for": "Hal Robson-Kanu"
+          "for": "Hal Robson-Kanu",
+          "rarity": 4.0
         },
         {
           "name": "James Collins",
           "pos": "DF",
           "role": "sub_used",
           "on": 90,
-          "for": "Aaron Ramsey"
+          "for": "Aaron Ramsey",
+          "rarity": 4.0
         }
       ]
     },
@@ -3402,22 +3957,26 @@
         {
           "name": "Hugo Lloris",
           "pos": "GK",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Bacary Sagna",
           "pos": "RB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 10.0
         },
         {
           "name": "Laurent Koscielny",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Samuel Umtiti",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Patrice Evra",
@@ -3427,56 +3986,65 @@
         {
           "name": "Paul Pogba",
           "pos": "DM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 60.0
         },
         {
           "name": "Blaise Matuidi",
           "pos": "DM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Moussa Sissoko",
           "pos": "RW",
           "role": "starter",
-          "off": 110
+          "off": 110,
+          "rarity": 10.0
         },
         {
           "name": "Antoine Griezmann",
           "pos": "CAM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 60.0
         },
         {
           "name": "Dimitri Payet",
           "pos": "LW",
           "role": "starter",
-          "off": 58
+          "off": 58,
+          "rarity": 35.0
         },
         {
           "name": "Olivier Giroud",
           "pos": "ST",
           "role": "starter",
-          "off": 78
+          "off": 78,
+          "rarity": 35.0
         },
         {
           "name": "Kingsley Coman",
           "pos": "FW",
           "role": "sub_used",
           "on": 58,
-          "for": "Dimitri Payet"
+          "for": "Dimitri Payet",
+          "rarity": 25.0
         },
         {
           "name": "André-Pierre Gignac",
           "pos": "FW",
           "role": "sub_used",
           "on": 78,
-          "for": "Olivier Giroud"
+          "for": "Olivier Giroud",
+          "rarity": 4.0
         },
         {
           "name": "Anthony Martial",
           "pos": "FW",
           "role": "sub_used",
           "on": 110,
-          "for": "Moussa Sissoko"
+          "for": "Moussa Sissoko",
+          "rarity": 4.0
         }
       ]
     },
@@ -3505,17 +4073,20 @@
         {
           "name": "Keylor Navas",
           "pos": "GK",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Dani Carvajal",
           "pos": "RB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Raphaël Varane",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Sergio Ramos",
@@ -3525,17 +4096,20 @@
         {
           "name": "Marcelo",
           "pos": "LB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Casemiro",
           "pos": "DM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Luka Modrić",
           "pos": "CM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 60.0
         },
         {
           "name": "Toni Kroos",
@@ -3547,13 +4121,15 @@
           "name": "Isco",
           "pos": "CAM",
           "role": "starter",
-          "off": 82
+          "off": 82,
+          "rarity": 35.0
         },
         {
           "name": "Karim Benzema",
           "pos": "ST",
           "role": "starter",
-          "off": 77
+          "off": 77,
+          "rarity": 60.0
         },
         {
           "name": "Cristiano Ronaldo",
@@ -3565,21 +4141,24 @@
           "pos": "FW",
           "role": "sub_used",
           "on": 77,
-          "for": "Karim Benzema"
+          "for": "Karim Benzema",
+          "rarity": 60.0
         },
         {
           "name": "Marco Asensio",
           "pos": "MF",
           "role": "sub_used",
           "on": 82,
-          "for": "Isco"
+          "for": "Isco",
+          "rarity": 8.0
         },
         {
           "name": "Álvaro Morata",
           "pos": "FW",
           "role": "sub_used",
           "on": 89,
-          "for": "Toni Kroos"
+          "for": "Toni Kroos",
+          "rarity": 25.0
         }
       ]
     },
@@ -3608,89 +4187,104 @@
         {
           "name": "Danijel Subašić",
           "pos": "GK",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 10.0
         },
         {
           "name": "Šime Vrsaljko",
           "pos": "RB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 10.0
         },
         {
           "name": "Dejan Lovren",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 10.0
         },
         {
           "name": "Domagoj Vida",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 10.0
         },
         {
           "name": "Ivan Strinić",
           "pos": "LB",
           "role": "starter",
-          "off": 95
+          "off": 95,
+          "rarity": 10.0
         },
         {
           "name": "Marcelo Brozović",
           "pos": "DM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 10.0
         },
         {
           "name": "Ante Rebić",
           "pos": "RM",
           "role": "starter",
-          "off": 101
+          "off": 101,
+          "rarity": 10.0
         },
         {
           "name": "Luka Modrić",
           "pos": "CM",
           "role": "starter",
-          "off": 119
+          "off": 119,
+          "rarity": 60.0
         },
         {
           "name": "Ivan Rakitić",
           "pos": "CM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Ivan Perišić",
           "pos": "LM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Mario Mandžukić",
           "pos": "ST",
           "role": "starter",
-          "off": 115
+          "off": 115,
+          "rarity": 35.0
         },
         {
           "name": "Josip Pivarić",
           "pos": "DF",
           "role": "sub_used",
           "on": 95,
-          "for": "Ivan Strinić"
+          "for": "Ivan Strinić",
+          "rarity": 4.0
         },
         {
           "name": "Andrej Kramarić",
           "pos": "FW",
           "role": "sub_used",
           "on": 101,
-          "for": "Ante Rebić"
+          "for": "Ante Rebić",
+          "rarity": 4.0
         },
         {
           "name": "Vedran Ćorluka",
           "pos": "DF",
           "role": "sub_used",
           "on": 115,
-          "for": "Mario Mandžukić"
+          "for": "Mario Mandžukić",
+          "rarity": 4.0
         },
         {
           "name": "Milan Badelj",
           "pos": "MF",
           "role": "sub_used",
           "on": 119,
-          "for": "Luka Modrić"
+          "for": "Luka Modrić",
+          "rarity": 4.0
         }
       ]
     },
@@ -3714,81 +4308,95 @@
         {
           "name": "Hugo Lloris",
           "pos": "GK",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Benjamin Pavard",
           "pos": "RB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Raphaël Varane",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Samuel Umtiti",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Lucas Hernandez",
           "pos": "LB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "N'Golo Kanté",
           "pos": "DM",
           "role": "starter",
-          "off": 55
+          "off": 55,
+          "rarity": 60.0
         },
         {
           "name": "Paul Pogba",
           "pos": "DM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 60.0
         },
         {
           "name": "Kylian Mbappé",
           "pos": "RW",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 60.0
         },
         {
           "name": "Antoine Griezmann",
           "pos": "CAM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 60.0
         },
         {
           "name": "Blaise Matuidi",
           "pos": "LW",
           "role": "starter",
-          "off": 73
+          "off": 73,
+          "rarity": 35.0
         },
         {
           "name": "Olivier Giroud",
           "pos": "ST",
           "role": "starter",
-          "off": 81
+          "off": 81,
+          "rarity": 35.0
         },
         {
           "name": "Steven N'Zonzi",
           "pos": "MF",
           "role": "sub_used",
           "on": 55,
-          "for": "N'Golo Kanté"
+          "for": "N'Golo Kanté",
+          "rarity": 8.0
         },
         {
           "name": "Corentin Tolisso",
           "pos": "MF",
           "role": "sub_used",
           "on": 73,
-          "for": "Blaise Matuidi"
+          "for": "Blaise Matuidi",
+          "rarity": 8.0
         },
         {
           "name": "Nabil Fekir",
           "pos": "MF",
           "role": "sub_used",
           "on": 81,
-          "for": "Olivier Giroud"
+          "for": "Olivier Giroud",
+          "rarity": 8.0
         }
       ]
     },
@@ -3817,81 +4425,95 @@
         {
           "name": "André Onana",
           "pos": "GK",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 10.0
         },
         {
           "name": "Noussair Mazraoui",
           "pos": "RB",
           "role": "starter",
-          "off": 81
+          "off": 81,
+          "rarity": 10.0
         },
         {
           "name": "Matthijs de Ligt",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Daley Blind",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 10.0
         },
         {
           "name": "Nicolás Tagliafico",
           "pos": "LB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 10.0
         },
         {
           "name": "Lasse Schöne",
           "pos": "DM",
           "role": "starter",
-          "off": 73
+          "off": 73,
+          "rarity": 10.0
         },
         {
           "name": "Frenkie de Jong",
           "pos": "DM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Hakim Ziyech",
           "pos": "RW",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Donny van de Beek",
           "pos": "CAM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 10.0
         },
         {
           "name": "David Neres",
           "pos": "LW",
           "role": "starter",
-          "off": 74
+          "off": 74,
+          "rarity": 10.0
         },
         {
           "name": "Dušan Tadić",
           "pos": "ST",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Dani de Wit",
           "pos": "MF",
           "role": "sub_used",
           "on": 73,
-          "for": "Lasse Schöne"
+          "for": "Lasse Schöne",
+          "rarity": 4.0
         },
         {
           "name": "Kasper Dolberg",
           "pos": "FW",
           "role": "sub_used",
           "on": 74,
-          "for": "David Neres"
+          "for": "David Neres",
+          "rarity": 4.0
         },
         {
           "name": "Joël Veltman",
           "pos": "DF",
           "role": "sub_used",
           "on": 81,
-          "for": "Noussair Mazraoui"
+          "for": "Noussair Mazraoui",
+          "rarity": 4.0
         }
       ]
     },
@@ -3917,81 +4539,99 @@
         {
           "name": "Alisson",
           "pos": "GK",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Trent Alexander-Arnold",
           "pos": "RB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0,
+          "aliases": [
+            "trent",
+            "taa"
+          ]
         },
         {
           "name": "Joël Matip",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 18.0
         },
         {
           "name": "Virgil van Dijk",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 60.0
         },
         {
           "name": "Andrew Robertson",
           "pos": "LB",
           "role": "starter",
-          "off": 46
+          "off": 46,
+          "rarity": 35.0
         },
         {
           "name": "Fabinho",
           "pos": "DM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Jordan Henderson",
           "pos": "CM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "James Milner",
           "pos": "CM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Xherdan Shaqiri",
           "pos": "RW",
           "role": "starter",
-          "off": 90
+          "off": 90,
+          "rarity": 18.0
         },
         {
           "name": "Divock Origi",
           "pos": "ST",
           "role": "starter",
-          "off": 85
+          "off": 85,
+          "rarity": 35.0
         },
         {
           "name": "Sadio Mané",
           "pos": "LW",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 60.0
         },
         {
           "name": "Georginio Wijnaldum",
           "pos": "MF",
           "role": "sub_used",
           "on": 46,
-          "for": "Andrew Robertson"
+          "for": "Andrew Robertson",
+          "rarity": 25.0
         },
         {
           "name": "Daniel Sturridge",
           "pos": "FW",
           "role": "sub_used",
           "on": 85,
-          "for": "Divock Origi"
+          "for": "Divock Origi",
+          "rarity": 8.0
         },
         {
           "name": "Joe Gomez",
           "pos": "DF",
           "role": "sub_used",
           "on": 90,
-          "for": "Xherdan Shaqiri"
+          "for": "Xherdan Shaqiri",
+          "rarity": 8.0
         }
       ]
     },
@@ -4020,81 +4660,111 @@
         {
           "name": "Hugo Lloris",
           "pos": "GK",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Kieran Trippier",
           "pos": "RB",
           "role": "starter",
-          "off": 81
+          "off": 81,
+          "rarity": 10.0
         },
         {
           "name": "Toby Alderweireld",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Jan Vertonghen",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Danny Rose",
           "pos": "LB",
           "role": "starter",
-          "off": 82
+          "off": 82,
+          "rarity": 10.0
         },
         {
           "name": "Victor Wanyama",
           "pos": "DM",
           "role": "starter",
-          "off": 46
+          "off": 46,
+          "rarity": 10.0
         },
         {
           "name": "Moussa Sissoko",
           "pos": "DM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 10.0
         },
         {
           "name": "Lucas Moura",
           "pos": "RW",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0,
+          "short": "Lucas Moura",
+          "aliases": [
+            "lucas"
+          ]
         },
         {
           "name": "Christian Eriksen",
           "pos": "CAM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Dele Alli",
           "pos": "LW",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0,
+          "aliases": [
+            "dele"
+          ]
         },
         {
           "name": "Son Heung-min",
           "pos": "ST",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 60.0,
+          "family_first": true,
+          "short": "Son",
+          "aliases": [
+            "Heung-min",
+            "heungmin",
+            "Heung-min Son",
+            "heungmin Son",
+            "sonny"
+          ]
         },
         {
           "name": "Fernando Llorente",
           "pos": "FW",
           "role": "sub_used",
           "on": 46,
-          "for": "Victor Wanyama"
+          "for": "Victor Wanyama",
+          "rarity": 4.0
         },
         {
           "name": "Erik Lamela",
           "pos": "MF",
           "role": "sub_used",
           "on": 81,
-          "for": "Kieran Trippier"
+          "for": "Kieran Trippier",
+          "rarity": 4.0
         },
         {
           "name": "Ben Davies",
           "pos": "DF",
           "role": "sub_used",
           "on": 82,
-          "for": "Danny Rose"
+          "for": "Danny Rose",
+          "rarity": 4.0
         }
       ]
     },
@@ -4129,7 +4799,8 @@
         {
           "name": "Joshua Kimmich",
           "pos": "RB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Jérôme Boateng",
@@ -4140,29 +4811,38 @@
         {
           "name": "David Alaba",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Alphonso Davies",
           "pos": "LB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Leon Goretzka",
           "pos": "DM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Thiago Alcântara",
           "pos": "DM",
           "role": "starter",
-          "off": 86
+          "off": 86,
+          "rarity": 35.0,
+          "short": "Thiago",
+          "aliases": [
+            "thiago alcantara"
+          ]
         },
         {
           "name": "Serge Gnabry",
           "pos": "RW",
           "role": "starter",
-          "off": 68
+          "off": 68,
+          "rarity": 35.0
         },
         {
           "name": "Thomas Müller",
@@ -4173,40 +4853,46 @@
           "name": "Kingsley Coman",
           "pos": "LW",
           "role": "starter",
-          "off": 68
+          "off": 68,
+          "rarity": 35.0
         },
         {
           "name": "Robert Lewandowski",
           "pos": "ST",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 60.0
         },
         {
           "name": "Niklas Süle",
           "pos": "DF",
           "role": "sub_used",
           "on": 25,
-          "for": "Jérôme Boateng"
+          "for": "Jérôme Boateng",
+          "rarity": 8.0
         },
         {
           "name": "Philippe Coutinho",
           "pos": "MF",
           "role": "sub_used",
           "on": 68,
-          "for": "Serge Gnabry"
+          "for": "Serge Gnabry",
+          "rarity": 25.0
         },
         {
           "name": "Ivan Perišić",
           "pos": "MF",
           "role": "sub_used",
           "on": 68,
-          "for": "Kingsley Coman"
+          "for": "Kingsley Coman",
+          "rarity": 25.0
         },
         {
           "name": "Corentin Tolisso",
           "pos": "MF",
           "role": "sub_used",
           "on": 86,
-          "for": "Thiago Alcântara"
+          "for": "Thiago Alcântara",
+          "rarity": 8.0
         }
       ]
     },
@@ -4230,81 +4916,99 @@
         {
           "name": "Édouard Mendy",
           "pos": "GK",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 10.0
         },
         {
           "name": "César Azpilicueta",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0,
+          "aliases": [
+            "azpi"
+          ]
         },
         {
           "name": "Thiago Silva",
           "pos": "CB",
           "role": "starter",
-          "off": 39
+          "off": 39,
+          "rarity": 35.0,
+          "short": "Thiago Silva"
         },
         {
           "name": "Antonio Rüdiger",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Reece James",
           "pos": "RWB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 10.0
         },
         {
           "name": "Jorginho",
           "pos": "CM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "N'Golo Kanté",
           "pos": "CM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 60.0
         },
         {
           "name": "Ben Chilwell",
           "pos": "LWB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 10.0
         },
         {
           "name": "Mason Mount",
           "pos": "AM",
           "role": "starter",
-          "off": 80
+          "off": 80,
+          "rarity": 35.0
         },
         {
           "name": "Kai Havertz",
           "pos": "AM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Timo Werner",
           "pos": "ST",
           "role": "starter",
-          "off": 66
+          "off": 66,
+          "rarity": 35.0
         },
         {
           "name": "Andreas Christensen",
           "pos": "DF",
           "role": "sub_used",
           "on": 39,
-          "for": "Thiago Silva"
+          "for": "Thiago Silva",
+          "rarity": 4.0
         },
         {
           "name": "Christian Pulisic",
           "pos": "FW",
           "role": "sub_used",
           "on": 66,
-          "for": "Timo Werner"
+          "for": "Timo Werner",
+          "rarity": 4.0
         },
         {
           "name": "Mateo Kovačić",
           "pos": "MF",
           "role": "sub_used",
           "on": 80,
-          "for": "Mason Mount"
+          "for": "Mason Mount",
+          "rarity": 4.0
         }
       ]
     },
@@ -4334,105 +5038,123 @@
         {
           "name": "Gianluigi Donnarumma",
           "pos": "GK",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Giovanni Di Lorenzo",
           "pos": "RB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 10.0
         },
         {
           "name": "Leonardo Bonucci",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Giorgio Chiellini",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Emerson Palmieri",
           "pos": "LB",
           "role": "starter",
-          "off": 118
+          "off": 118,
+          "rarity": 10.0,
+          "short": "Emerson"
         },
         {
           "name": "Jorginho",
           "pos": "DM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Nicolò Barella",
           "pos": "CM",
           "role": "starter",
-          "off": 54
+          "off": 54,
+          "rarity": 35.0
         },
         {
           "name": "Marco Verratti",
           "pos": "CM",
           "role": "starter",
-          "off": 96
+          "off": 96,
+          "rarity": 35.0
         },
         {
           "name": "Federico Chiesa",
           "pos": "RW",
           "role": "starter",
-          "off": 86
+          "off": 86,
+          "rarity": 35.0
         },
         {
           "name": "Ciro Immobile",
           "pos": "ST",
           "role": "starter",
-          "off": 55
+          "off": 55,
+          "rarity": 35.0
         },
         {
           "name": "Lorenzo Insigne",
           "pos": "LW",
           "role": "starter",
-          "off": 91
+          "off": 91,
+          "rarity": 35.0
         },
         {
           "name": "Bryan Cristante",
           "pos": "MF",
           "role": "sub_used",
           "on": 54,
-          "for": "Nicolò Barella"
+          "for": "Nicolò Barella",
+          "rarity": 4.0
         },
         {
           "name": "Domenico Berardi",
           "pos": "FW",
           "role": "sub_used",
           "on": 55,
-          "for": "Ciro Immobile"
+          "for": "Ciro Immobile",
+          "rarity": 4.0
         },
         {
           "name": "Federico Bernardeschi",
           "pos": "MF",
           "role": "sub_used",
           "on": 86,
-          "for": "Federico Chiesa"
+          "for": "Federico Chiesa",
+          "rarity": 4.0
         },
         {
           "name": "Andrea Belotti",
           "pos": "FW",
           "role": "sub_used",
           "on": 91,
-          "for": "Lorenzo Insigne"
+          "for": "Lorenzo Insigne",
+          "rarity": 4.0
         },
         {
           "name": "Manuel Locatelli",
           "pos": "MF",
           "role": "sub_used",
           "on": 96,
-          "for": "Marco Verratti"
+          "for": "Marco Verratti",
+          "rarity": 4.0
         },
         {
           "name": "Alessandro Florenzi",
           "pos": "DF",
           "role": "sub_used",
           "on": 118,
-          "for": "Emerson Palmieri"
+          "for": "Emerson Palmieri",
+          "rarity": 4.0
         }
       ]
     },
@@ -4463,61 +5185,72 @@
         {
           "name": "Mohammed Al-Owais",
           "pos": "GK",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 4.0
         },
         {
           "name": "Saud Abdulhamid",
           "pos": "RB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 4.0
         },
         {
           "name": "Hassan Tambakti",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 4.0
         },
         {
           "name": "Ali Al-Bulaihi",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 4.0
         },
         {
           "name": "Yasser Al-Shahrani",
           "pos": "LB",
           "role": "starter",
-          "off": 90
+          "off": 90,
+          "rarity": 4.0
         },
         {
           "name": "Abdulelah Al-Malki",
           "pos": "DM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 4.0
         },
         {
           "name": "Mohamed Kanno",
           "pos": "CM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 4.0
         },
         {
           "name": "Salman Al-Faraj",
           "pos": "CM",
           "role": "starter",
-          "off": 45
+          "off": 45,
+          "rarity": 4.0
         },
         {
           "name": "Firas Al-Buraikan",
           "pos": "RW",
           "role": "starter",
-          "off": 89
+          "off": 89,
+          "rarity": 4.0
         },
         {
           "name": "Saleh Al-Shehri",
           "pos": "ST",
           "role": "starter",
-          "off": 78
+          "off": 78,
+          "rarity": 4.0
         },
         {
           "name": "Salem Al-Dawsari",
           "pos": "LW",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 4.0
         },
         {
           "name": "Nawaf Al-Abed",
@@ -4525,35 +5258,40 @@
           "role": "sub_used",
           "on": 45,
           "for": "Salman Al-Faraj",
-          "off": 88
+          "off": 88,
+          "rarity": 2.0
         },
         {
           "name": "Sultan Al-Ghannam",
           "pos": "DF",
           "role": "sub_used",
           "on": 78,
-          "for": "Saleh Al-Shehri"
+          "for": "Saleh Al-Shehri",
+          "rarity": 2.0
         },
         {
           "name": "Abdulelah Al-Amri",
           "pos": "DF",
           "role": "sub_used",
           "on": 88,
-          "for": "Nawaf Al-Abed"
+          "for": "Nawaf Al-Abed",
+          "rarity": 2.0
         },
         {
           "name": "Haitham Asiri",
           "pos": "FW",
           "role": "sub_used",
           "on": 89,
-          "for": "Firas Al-Buraikan"
+          "for": "Firas Al-Buraikan",
+          "rarity": 2.0
         },
         {
           "name": "Mohammed Al-Burayk",
           "pos": "DF",
           "role": "sub_used",
           "on": 90,
-          "for": "Yasser Al-Shahrani"
+          "for": "Yasser Al-Shahrani",
+          "rarity": 2.0
         }
       ]
     },
@@ -4583,97 +5321,117 @@
         {
           "name": "Yassine Bounou",
           "pos": "GK",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0,
+          "aliases": [
+            "bono"
+          ]
         },
         {
           "name": "Achraf Hakimi",
           "pos": "RB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Jawad El Yamiq",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 4.0
         },
         {
           "name": "Romain Saïss",
           "pos": "CB",
           "role": "starter",
-          "off": 57
+          "off": 57,
+          "rarity": 4.0
         },
         {
           "name": "Yahia Attiyat Allah",
           "pos": "LB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 4.0,
+          "short": "Attiyat Allah"
         },
         {
           "name": "Sofyan Amrabat",
           "pos": "DM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Azzedine Ounahi",
           "pos": "CM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 4.0
         },
         {
           "name": "Selim Amallah",
           "pos": "CM",
           "role": "starter",
-          "off": 65
+          "off": 65,
+          "rarity": 4.0
         },
         {
           "name": "Hakim Ziyech",
           "pos": "RW",
           "role": "starter",
-          "off": 82
+          "off": 82,
+          "rarity": 35.0
         },
         {
           "name": "Youssef En-Nesyri",
           "pos": "ST",
           "role": "starter",
-          "off": 65
+          "off": 65,
+          "rarity": 4.0
         },
         {
           "name": "Sofiane Boufal",
           "pos": "LW",
           "role": "starter",
-          "off": 82
+          "off": 82,
+          "rarity": 4.0
         },
         {
           "name": "Achraf Dari",
           "pos": "DF",
           "role": "sub_used",
           "on": 57,
-          "for": "Romain Saïss"
+          "for": "Romain Saïss",
+          "rarity": 2.0
         },
         {
           "name": "Walid Cheddira",
           "pos": "FW",
           "role": "sub_used",
           "on": 65,
-          "for": "Youssef En-Nesyri"
+          "for": "Youssef En-Nesyri",
+          "rarity": 2.0
         },
         {
           "name": "Badr Benoun",
           "pos": "DF",
           "role": "sub_used",
           "on": 65,
-          "for": "Selim Amallah"
+          "for": "Selim Amallah",
+          "rarity": 2.0
         },
         {
           "name": "Zakaria Aboukhlal",
           "pos": "FW",
           "role": "sub_used",
           "on": 82,
-          "for": "Hakim Ziyech"
+          "for": "Hakim Ziyech",
+          "rarity": 2.0
         },
         {
           "name": "Yahya Jabrane",
           "pos": "MF",
           "role": "sub_used",
           "on": 82,
-          "for": "Sofiane Boufal"
+          "for": "Sofiane Boufal",
+          "rarity": 2.0
         }
       ]
     },
@@ -4697,105 +5455,128 @@
         {
           "name": "Emiliano Martínez",
           "pos": "GK",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0,
+          "aliases": [
+            "dibu"
+          ]
         },
         {
           "name": "Nahuel Molina",
           "pos": "RB",
           "role": "starter",
-          "off": 91
+          "off": 91,
+          "rarity": 18.0
         },
         {
           "name": "Cristian Romero",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 18.0
         },
         {
           "name": "Nicolás Otamendi",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 18.0
         },
         {
           "name": "Nicolás Tagliafico",
           "pos": "LB",
           "role": "starter",
-          "off": 120
+          "off": 120,
+          "rarity": 18.0
         },
         {
           "name": "Enzo Fernández",
           "pos": "DM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0,
+          "short": "Enzo"
         },
         {
           "name": "Rodrigo De Paul",
           "pos": "CM",
           "role": "starter",
-          "off": 102
+          "off": 102,
+          "rarity": 35.0
         },
         {
           "name": "Alexis Mac Allister",
           "pos": "CM",
           "role": "starter",
-          "off": 116
+          "off": 116,
+          "rarity": 35.0,
+          "short": "Mac Allister"
         },
         {
           "name": "Lionel Messi",
           "pos": "RW",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 60.0
         },
         {
           "name": "Julián Álvarez",
           "pos": "ST",
           "role": "starter",
-          "off": 103
+          "off": 103,
+          "rarity": 35.0
         },
         {
           "name": "Ángel Di María",
           "pos": "LW",
           "role": "starter",
-          "off": 64
+          "off": 64,
+          "rarity": 60.0
         },
         {
           "name": "Marcos Acuña",
           "pos": "DF",
           "role": "sub_used",
           "on": 64,
-          "for": "Ángel Di María"
+          "for": "Ángel Di María",
+          "rarity": 8.0
         },
         {
           "name": "Gonzalo Montiel",
           "pos": "DF",
           "role": "sub_used",
           "on": 91,
-          "for": "Nahuel Molina"
+          "for": "Nahuel Molina",
+          "rarity": 8.0
         },
         {
           "name": "Leandro Paredes",
           "pos": "MF",
           "role": "sub_used",
           "on": 102,
-          "for": "Rodrigo De Paul"
+          "for": "Rodrigo De Paul",
+          "rarity": 8.0
         },
         {
           "name": "Lautaro Martínez",
           "pos": "FW",
           "role": "sub_used",
           "on": 103,
-          "for": "Julián Álvarez"
+          "for": "Julián Álvarez",
+          "rarity": 25.0,
+          "short": "Lautaro"
         },
         {
           "name": "Germán Pezzella",
           "pos": "DF",
           "role": "sub_used",
           "on": 116,
-          "for": "Alexis Mac Allister"
+          "for": "Alexis Mac Allister",
+          "rarity": 8.0
         },
         {
           "name": "Paulo Dybala",
           "pos": "FW",
           "role": "sub_used",
           "on": 120,
-          "for": "Nicolás Tagliafico"
+          "for": "Nicolás Tagliafico",
+          "rarity": 25.0
         }
       ]
     },
@@ -4819,73 +5600,90 @@
         {
           "name": "Ederson",
           "pos": "GK",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Manuel Akanji",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 18.0
         },
         {
           "name": "Rúben Dias",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Nathan Aké",
           "pos": "CB",
           "role": "starter",
-          "off": 82
+          "off": 82,
+          "rarity": 18.0
         },
         {
           "name": "John Stones",
           "pos": "DM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Rodri",
           "pos": "DM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 60.0,
+          "aliases": [
+            "rodrigo hernandez"
+          ]
         },
         {
           "name": "Bernardo Silva",
           "pos": "RW",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0,
+          "short": "Bernardo"
         },
         {
           "name": "Kevin De Bruyne",
           "pos": "AM",
           "role": "starter",
-          "off": 36
+          "off": 36,
+          "rarity": 60.0
         },
         {
           "name": "İlkay Gündoğan",
           "pos": "AM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Jack Grealish",
           "pos": "LW",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Erling Haaland",
           "pos": "ST",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 60.0
         },
         {
           "name": "Phil Foden",
           "pos": "MF",
           "role": "sub_used",
           "on": 36,
-          "for": "Kevin De Bruyne"
+          "for": "Kevin De Bruyne",
+          "rarity": 25.0
         },
         {
           "name": "Kyle Walker",
           "pos": "DF",
           "role": "sub_used",
           "on": 82,
-          "for": "Nathan Aké"
+          "for": "Nathan Aké",
+          "rarity": 25.0
         }
       ]
     },
@@ -4914,89 +5712,110 @@
         {
           "name": "Unai Simón",
           "pos": "GK",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 18.0
         },
         {
           "name": "Dani Carvajal",
           "pos": "RB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Robin Le Normand",
           "pos": "CB",
           "role": "starter",
-          "off": 83
+          "off": 83,
+          "rarity": 18.0
         },
         {
           "name": "Aymeric Laporte",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 18.0
         },
         {
           "name": "Marc Cucurella",
           "pos": "LB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 18.0
         },
         {
           "name": "Rodri",
           "pos": "DM",
           "role": "starter",
-          "off": 46
+          "off": 46,
+          "rarity": 60.0,
+          "aliases": [
+            "rodrigo hernandez"
+          ]
         },
         {
           "name": "Fabián Ruiz",
           "pos": "DM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 18.0
         },
         {
           "name": "Lamine Yamal",
           "pos": "RW",
           "role": "starter",
-          "off": 89
+          "off": 89,
+          "rarity": 60.0,
+          "aliases": [
+            "lamine"
+          ]
         },
         {
           "name": "Dani Olmo",
           "pos": "CAM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Nico Williams",
           "pos": "LW",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Álvaro Morata",
           "pos": "ST",
           "role": "starter",
-          "off": 68
+          "off": 68,
+          "rarity": 35.0
         },
         {
           "name": "Martín Zubimendi",
           "pos": "MF",
           "role": "sub_used",
           "on": 46,
-          "for": "Rodri"
+          "for": "Rodri",
+          "rarity": 8.0
         },
         {
           "name": "Mikel Oyarzabal",
           "pos": "FW",
           "role": "sub_used",
           "on": 68,
-          "for": "Álvaro Morata"
+          "for": "Álvaro Morata",
+          "rarity": 8.0
         },
         {
           "name": "Nacho",
           "pos": "DF",
           "role": "sub_used",
           "on": 83,
-          "for": "Robin Le Normand"
+          "for": "Robin Le Normand",
+          "rarity": 8.0
         },
         {
           "name": "Mikel Merino",
           "pos": "MF",
           "role": "sub_used",
           "on": 89,
-          "for": "Lamine Yamal"
+          "for": "Lamine Yamal",
+          "rarity": 8.0
         }
       ]
     },
@@ -5026,97 +5845,116 @@
         {
           "name": "Gianluigi Donnarumma",
           "pos": "GK",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Achraf Hakimi",
           "pos": "RB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Marquinhos",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "Willian Pacho",
           "pos": "CB",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 10.0
         },
         {
           "name": "Nuno Mendes",
           "pos": "LB",
           "role": "starter",
-          "off": 78
+          "off": 78,
+          "rarity": 10.0
         },
         {
           "name": "Vitinha",
           "pos": "DM",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 35.0
         },
         {
           "name": "João Neves",
           "pos": "CM",
           "role": "starter",
-          "off": 84
+          "off": 84,
+          "rarity": 10.0
         },
         {
           "name": "Fabián Ruiz",
           "pos": "CM",
           "role": "starter",
-          "off": 84
+          "off": 84,
+          "rarity": 10.0
         },
         {
           "name": "Désiré Doué",
           "pos": "RW",
           "role": "starter",
-          "off": 67
+          "off": 67,
+          "rarity": 35.0
         },
         {
           "name": "Ousmane Dembélé",
           "pos": "ST",
-          "role": "starter"
+          "role": "starter",
+          "rarity": 60.0
         },
         {
           "name": "Khvicha Kvaratskhelia",
           "pos": "LW",
           "role": "starter",
-          "off": 84
+          "off": 84,
+          "rarity": 35.0,
+          "aliases": [
+            "kvara"
+          ]
         },
         {
           "name": "Bradley Barcola",
           "pos": "FW",
           "role": "sub_used",
           "on": 67,
-          "for": "Désiré Doué"
+          "for": "Désiré Doué",
+          "rarity": 4.0
         },
         {
           "name": "Lucas Hernandez",
           "pos": "DF",
           "role": "sub_used",
           "on": 78,
-          "for": "Nuno Mendes"
+          "for": "Nuno Mendes",
+          "rarity": 25.0
         },
         {
           "name": "Gonçalo Ramos",
           "pos": "FW",
           "role": "sub_used",
           "on": 84,
-          "for": "Khvicha Kvaratskhelia"
+          "for": "Khvicha Kvaratskhelia",
+          "rarity": 4.0
         },
         {
           "name": "Senny Mayulu",
           "pos": "MF",
           "role": "sub_used",
           "on": 84,
-          "for": "Fabián Ruiz"
+          "for": "Fabián Ruiz",
+          "rarity": 4.0
         },
         {
           "name": "Warren Zaïre-Emery",
           "pos": "MF",
           "role": "sub_used",
           "on": 84,
-          "for": "João Neves"
+          "for": "João Neves",
+          "rarity": 4.0
         }
       ]
     }

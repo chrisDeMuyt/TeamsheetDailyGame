@@ -10,23 +10,46 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.LocalDate;
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
- * Generates V2__seed.sql from teamsheet-seed.json. The output is committed; SeedSqlGeneratorTest fails if it drifts.
+ * Turns verified matches in teamsheet-seed.json into Flyway migrations, append-only.
+ * <p>
+ * It scans the committed migrations to learn which players / aliases / matches / puzzles already exist, then writes
+ * only the seed matches that aren't migrated yet into the next migration (V4, V5, ...). Applied migrations are never
+ * rewritten (Flyway checksums). Players already in the DB keep their id; new players get the next ids. Puzzles
+ * continue the numbering and the daily dates.
+ * <p>
+ * Per-player JSON fields for new players: {@code rarity} (required, 0-100 expected pick %), optional {@code short},
+ * {@code aliases} (extra nicknames) and {@code family_first} (e.g. Korean names: "Park Ji-sung" -> alias "park").
  *
  * <pre>./mvnw -q test-compile exec:java -Dexec.mainClass=com.teamsheet.tools.SeedSqlGenerator -Dexec.classpathScope=test</pre>
  */
 public final class SeedSqlGenerator {
 
     public static final Path DEFAULT_JSON = Path.of("../teamsheet-seed.json");
-    public static final Path DEFAULT_OUT = Path.of("src/main/resources/db/migration/V2__seed.sql");
+    public static final Path MIGRATIONS = Path.of("src/main/resources/db/migration");
     public static final LocalDate FIRST_PUZZLE_DATE = LocalDate.of(2026, 11, 11);
 
     public static void main(String[] args) throws IOException {
         Path json = args.length > 0 ? Path.of(args[0]) : DEFAULT_JSON;
-        Path out = args.length > 1 ? Path.of(args[1]) : DEFAULT_OUT;
-        Files.writeString(out, generate(json), StandardCharsets.UTF_8);
-        System.out.println("Wrote " + out.toAbsolutePath());
+        Path dir = args.length > 1 ? Path.of(args[1]) : MIGRATIONS;
+        JsonNode seed = new ObjectMapper().readTree(Files.readString(json, StandardCharsets.UTF_8));
+        Existing existing = scan(dir);
+        List<String> drift = drift(seed, existing);
+        if (!drift.isEmpty())
+            throw new IllegalStateException("Already-migrated matches were edited in the seed (add a new migration "
+                    + "to change them instead):\n  " + String.join("\n  ", drift));
+        Optional<Migration> next = plan(seed, existing);
+        if (next.isEmpty()) {
+            System.out.println("Nothing to migrate: every seed match is already in a migration.");
+            return;
+        }
+        Path out = dir.resolve(next.get().fileName());
+        Files.writeString(out, next.get().sql(), StandardCharsets.UTF_8);
+        System.out.println("Wrote " + out.toAbsolutePath() + " with " + next.get().matchIds().size() + " match(es): "
+                + next.get().matchIds());
     }
 
     // ---------------------------------------------------------------- hand-curated data
@@ -125,7 +148,7 @@ public final class SeedSqlGenerator {
             Map.entry("Djimi Traoré", List.of("djimi"))
     );
 
-    private static final Set<String> PARTICLES = Set.of("van", "von", "der", "den", "de", "del", "della", "da", "di", "dos", "do");
+    private static final Set<String> PARTICLES = Set.of("van", "von", "der", "den", "de", "del", "della", "da", "di", "dos", "do", "ter", "le", "el");
 
     /** Pitch coords per formation, x 0 = left touchline, y 0 = own goal line. Repeated positions run right to left. */
     static final Map<String, Map<String, int[][]>> FORMATIONS = Map.ofEntries(
@@ -226,104 +249,230 @@ public final class SeedSqlGenerator {
         return out;
     }
 
-    // ---------------------------------------------------------------- generation
+    // ---------------------------------------------------------------- what the migrations already contain
 
-    public static String generate(Path jsonPath) throws IOException {
-        JsonNode root = new ObjectMapper().readTree(Files.readString(jsonPath, StandardCharsets.UTF_8));
-        JsonNode matches = root.get("matches");
+    /** Parsed from the committed migrations (they're all in the format this class writes). */
+    public record Existing(Map<String, Long> playerIds, Map<Long, Set<String>> aliases, Set<String> matchIds,
+                           int maxPuzzle, LocalDate lastPuzzleDate, int maxVersion, String allSql) {
+        long maxPlayerId() {
+            return playerIds.values().stream().mapToLong(Long::longValue).max().orElse(0);
+        }
+    }
+
+    public record Migration(int version, String fileName, String sql, List<String> matchIds) {}
+
+    private static final Pattern VERSION = Pattern.compile("^V(\\d+)__.*\\.sql$");
+    private static final Pattern PLAYER_ROW =
+            Pattern.compile("^\\s+\\((\\d+), '((?:[^']|'')*)', '(?:[^']|'')*', [\\d.]+\\)[,;]$", Pattern.MULTILINE);
+    private static final Pattern ALIAS_ROW =
+            Pattern.compile("^\\s+\\((\\d+), '((?:[^']|'')*)'\\)[,;]?$", Pattern.MULTILINE);
+    private static final Pattern MATCH_ROW =
+            Pattern.compile("^INSERT INTO match \\(.*?\\) VALUES \\('((?:[^']|'')*)'", Pattern.MULTILINE);
+    private static final Pattern PUZZLE_ROW =
+            Pattern.compile("^\\s+\\((\\d+), DATE '(\\d{4}-\\d{2}-\\d{2})', '", Pattern.MULTILINE);
+
+    public static Existing scan(Path dir) throws IOException {
+        TreeMap<Integer, Path> files = new TreeMap<>();
+        try (var list = Files.list(dir)) {
+            list.forEach(p -> {
+                Matcher v = VERSION.matcher(p.getFileName().toString());
+                if (v.matches()) files.put(Integer.parseInt(v.group(1)), p);
+            });
+        }
+        StringBuilder all = new StringBuilder();
+        for (Path p : files.values()) all.append(Files.readString(p, StandardCharsets.UTF_8).replace("\r\n", "\n")).append('\n');
+        String sql = all.toString();
+
+        Map<String, Long> ids = new LinkedHashMap<>();
+        for (Matcher m = PLAYER_ROW.matcher(sql); m.find(); ) ids.put(unq(m.group(2)), Long.parseLong(m.group(1)));
+        Map<Long, Set<String>> aliases = new HashMap<>();
+        for (Matcher m = ALIAS_ROW.matcher(sql); m.find(); )
+            aliases.computeIfAbsent(Long.parseLong(m.group(1)), k -> new HashSet<>()).add(unq(m.group(2)));
+        Set<String> matchIds = new LinkedHashSet<>();
+        for (Matcher m = MATCH_ROW.matcher(sql); m.find(); ) matchIds.add(unq(m.group(1)));
+        int maxPuzzle = 0;
+        LocalDate last = null;
+        for (Matcher m = PUZZLE_ROW.matcher(sql); m.find(); ) {
+            int n = Integer.parseInt(m.group(1));
+            if (n > maxPuzzle) { maxPuzzle = n; last = LocalDate.parse(m.group(2)); }
+        }
+        return new Existing(ids, aliases, matchIds, maxPuzzle, last, files.isEmpty() ? 0 : files.lastKey(), sql);
+    }
+
+    // ---------------------------------------------------------------- planning the next migration
+
+    /** The next migration for seed matches not yet migrated, or empty if there are none. Enforces the data rules. */
+    public static Optional<Migration> plan(JsonNode seed, Existing ex) {
+        return plan(seed, ex, true);
+    }
+
+    /**
+     * @param requireSourced CLAUDE.md data rule: a new match ships only with 2+ sources and a verification status
+     *                       other than 'unverified'. Only tests that dry-run the drafts pass false.
+     */
+    public static Optional<Migration> plan(JsonNode seed, Existing ex, boolean requireSourced) {
         List<String> problems = new ArrayList<>();
-        for (JsonNode m : matches) problems.addAll(validate(m));
-        if (!problems.isEmpty()) throw new IllegalStateException("Invalid seed:\n  " + String.join("\n  ", problems));
+        for (JsonNode m : seed.get("matches")) problems.addAll(validate(m));
+        List<JsonNode> pending = new ArrayList<>();
+        for (JsonNode m : seed.get("matches")) if (!ex.matchIds().contains(m.get("id").asText())) pending.add(m);
+        if (pending.isEmpty()) return Optional.empty();
+        if (requireSourced)
+            for (JsonNode m : pending) {
+                String id = m.get("id").asText();
+                if (m.path("sources").size() < 2) problems.add(id + ": needs 2+ independent sources before it ships");
+                if (m.path("verification").path("xi").asText().equals("unverified")
+                        || m.path("verification").path("subs_used").asText().equals("unverified"))
+                    problems.add(id + ": verification still 'unverified'");
+            }
 
-        Map<String, Long> playerIds = new LinkedHashMap<>();
-        for (JsonNode m : matches)
-            for (JsonNode p : m.get("squad"))
-                playerIds.putIfAbsent(p.get("name").asText(), (long) playerIds.size() + 1);
+        // Player ids: existing keep theirs, new ones continue the sequence in first-appearance order.
+        Map<String, Long> ids = new LinkedHashMap<>(ex.playerIds());
+        Map<String, JsonNode> entry = new LinkedHashMap<>(); // display name -> first squad entry in this batch
+        List<String> newPlayers = new ArrayList<>();
+        long next = ex.maxPlayerId();
+        for (JsonNode m : pending)
+            for (JsonNode p : m.get("squad")) {
+                String name = p.get("name").asText();
+                entry.putIfAbsent(name, p);
+                if (!ids.containsKey(name)) { ids.put(name, ++next); newPlayers.add(name); }
+            }
+        for (String name : newPlayers) {
+            if (rarityOf(name, entry.get(name)) == null)
+                problems.add("No rarity for new player " + name + " (add \"rarity\": <0-100 expected pick %>)");
+        }
+        if (!problems.isEmpty()) throw new IllegalStateException("Can't plan migration:\n  " + String.join("\n  ", problems));
+
+        int version = ex.maxVersion() + 1;
+        int firstPuzzle = ex.maxPuzzle() + 1;
+        int lastPuzzle = ex.maxPuzzle() + pending.size();
+        LocalDate firstDate = ex.lastPuzzleDate() == null ? FIRST_PUZZLE_DATE : ex.lastPuzzleDate().plusDays(1);
 
         StringBuilder sql = new StringBuilder();
         sql.append("-- GENERATED by com.teamsheet.tools.SeedSqlGenerator from teamsheet-seed.json. Do not edit by hand.\n");
-        sql.append("-- seed_rarity values are hand-estimated placeholders (expected pick %) until real proxy data exists.\n\n");
+        sql.append("-- Batch: ").append(pending.size()).append(" match(es), puzzles #").append(firstPuzzle)
+                .append("-").append(lastPuzzle).append(". seed_rarity values are placeholders (expected pick %).\n\n");
 
-        sql.append("-- ---------- players ----------\n");
-        sql.append("INSERT INTO player (id, display_name, short_name, seed_rarity) VALUES\n");
-        List<String> rows = new ArrayList<>();
-        for (var e : playerIds.entrySet()) {
-            Double seed = SEED_RARITY.get(e.getKey());
-            if (seed == null) throw new IllegalStateException("No seed rarity for " + e.getKey());
-            rows.add(String.format(Locale.ROOT, "  (%d, %s, %s, %.2f)",
-                    e.getValue(), q(e.getKey()), q(shortName(e.getKey())), seed));
+        if (!newPlayers.isEmpty()) {
+            sql.append("-- ---------- new players ----------\n");
+            sql.append("INSERT INTO player (id, display_name, short_name, seed_rarity) VALUES\n");
+            List<String> rows = new ArrayList<>();
+            for (String name : newPlayers)
+                rows.add(String.format(Locale.ROOT, "  (%d, %s, %s, %.2f)", ids.get(name), q(name),
+                        q(shortName(name, entry.get(name))), rarityOf(name, entry.get(name))));
+            sql.append(String.join(",\n", rows)).append(";\n");
+            sql.append("SELECT setval('player_id_seq', ").append(next).append(");\n\n");
         }
-        sql.append(String.join(",\n", rows)).append(";\n");
-        sql.append("SELECT setval('player_id_seq', ").append(playerIds.size()).append(");\n\n");
 
-        sql.append("-- ---------- aliases (normalized: lower, accents stripped, punctuation removed) ----------\n");
-        sql.append("INSERT INTO player_alias (player_id, alias_norm) VALUES\n");
-        rows = new ArrayList<>();
-        for (var e : playerIds.entrySet())
-            for (String a : aliases(e.getKey()))
-                rows.add("  (%d, %s)".formatted(e.getValue(), q(a)));
-        sql.append(String.join(",\n", rows)).append(";\n\n");
+        // Aliases for everyone in this batch that the DB doesn't have yet (new players, plus new nicknames for old ones).
+        List<String> aliasRows = new ArrayList<>();
+        for (var e : entry.entrySet()) {
+            long id = ids.get(e.getKey());
+            Set<String> have = ex.aliases().getOrDefault(id, Set.of());
+            for (String a : aliases(e.getKey(), e.getValue()))
+                if (!have.contains(a)) aliasRows.add("  (%d, %s)".formatted(id, q(a)));
+        }
+        if (!aliasRows.isEmpty()) {
+            sql.append("-- ---------- aliases (normalized: lower, accents stripped, punctuation removed) ----------\n");
+            sql.append("INSERT INTO player_alias (player_id, alias_norm) VALUES\n")
+                    .append(String.join(",\n", aliasRows)).append("\nON CONFLICT DO NOTHING;\n\n");
+        }
 
         sql.append("-- ---------- matches ----------\n");
-        for (JsonNode m : matches) {
-            List<String> sources = new ArrayList<>();
-            m.get("sources").forEach(s -> sources.add(q(s.asText())));
-            sql.append("INSERT INTO match (id, match_date, competition, team, opponent, result, formation, xi_status, subs_status, sources) VALUES (")
-                    .append(String.join(", ", q(m.get("id").asText()), q(m.get("date").asText()) + "::date",
-                            q(m.get("competition").asText()), q(m.get("team").asText()), q(m.get("opponent").asText()),
-                            q(m.get("result").asText()), q(m.get("formation").asText()),
-                            q(m.get("verification").get("xi").asText()), q(m.get("verification").get("subs_used").asText()),
-                            "ARRAY[" + String.join(", ", sources) + "]"))
-                    .append(");\n");
-        }
+        for (JsonNode m : pending) sql.append(renderMatch(m));
         sql.append('\n');
-
         sql.append("-- ---------- match_player (pitch x/y from formation templates; subs have NULL coords) ----------\n");
-        for (JsonNode m : matches) {
-            String formation = m.get("formation").asText();
-            Map<String, int[][]> template = FORMATIONS.get(formation);
-            if (template == null) throw new IllegalStateException("No template for formation " + formation);
-            Map<String, Integer> used = new HashMap<>();
-            sql.append("INSERT INTO match_player (match_id, player_id, role, slot_pos, slot_x, slot_y, minute_on, minute_off, replaced_id) VALUES\n");
-            rows = new ArrayList<>();
-            for (JsonNode p : m.get("squad")) {
-                String name = p.get("name").asText();
-                String pos = p.get("pos").asText();
-                String role = p.get("role").asText();
-                String x = "NULL", y = "NULL", on = "NULL", replaced = "NULL";
-                String off = p.has("off") ? p.get("off").asText() : "NULL";
-                if (role.equals("starter")) {
-                    int[][] coords = template.get(pos);
-                    int n = used.merge(pos, 1, Integer::sum) - 1;
-                    if (coords == null || n >= coords.length)
-                        throw new IllegalStateException(m.get("id").asText() + ": no slot for " + pos + " #" + (n + 1));
-                    x = String.valueOf(coords[n][0]);
-                    y = String.valueOf(coords[n][1]);
-                } else {
-                    on = p.get("on").asText();
-                    replaced = String.valueOf(Objects.requireNonNull(playerIds.get(p.get("for").asText()),
-                            "unknown replaced player " + p.get("for")));
-                }
-                rows.add("  (%s, %d, '%s', %s, %s, %s, %s, %s, %s)".formatted(
-                        q(m.get("id").asText()), playerIds.get(name), role, q(pos), x, y, on, off, replaced));
-            }
-            for (var t : template.entrySet())
-                if (used.getOrDefault(t.getKey(), 0) != t.getValue().length)
-                    throw new IllegalStateException(m.get("id").asText() + ": " + t.getKey() + " count mismatch");
-            sql.append(String.join(",\n", rows)).append(";\n");
-        }
+        for (JsonNode m : pending) sql.append(renderMatchPlayers(m, ids));
         sql.append('\n');
 
-        sql.append("-- ---------- puzzles #1-").append(matches.size()).append(" ----------\n");
+        sql.append("-- ---------- puzzles #").append(firstPuzzle).append("-").append(lastPuzzle).append(" ----------\n");
         sql.append("INSERT INTO puzzle (number, puzzle_date, match_id) VALUES\n");
-        rows = new ArrayList<>();
-        for (int i = 0; i < matches.size(); i++)
-            rows.add("  (%d, DATE '%s', %s)".formatted(i + 1, FIRST_PUZZLE_DATE.plusDays(i), q(matches.get(i).get("id").asText())));
+        List<String> rows = new ArrayList<>();
+        for (int i = 0; i < pending.size(); i++)
+            rows.add("  (%d, DATE '%s', %s)".formatted(firstPuzzle + i, firstDate.plusDays(i), q(pending.get(i).get("id").asText())));
         sql.append(String.join(",\n", rows)).append(";\n");
-        return sql.toString();
+
+        String file = "V%d__puzzles_%d_to_%d.sql".formatted(version, firstPuzzle, lastPuzzle);
+        return Optional.of(new Migration(version, file, sql.toString(), pending.stream().map(m -> m.get("id").asText()).toList()));
+    }
+
+    /**
+     * Seed matches that are already migrated but whose rendered rows no longer match the migration text,
+     * i.e. someone edited a shipped match in the JSON. Those need a new corrective migration, not a silent rewrite.
+     */
+    public static List<String> drift(JsonNode seed, Existing ex) {
+        List<String> out = new ArrayList<>();
+        for (JsonNode m : seed.get("matches")) {
+            String id = m.get("id").asText();
+            if (!ex.matchIds().contains(id)) continue;
+            try {
+                if (!ex.allSql().contains(renderMatch(m))) out.add(id + ": match row differs from its migration");
+                if (!ex.allSql().contains(renderMatchPlayers(m, ex.playerIds()))) out.add(id + ": lineup differs from its migration");
+            } catch (RuntimeException e) {
+                out.add(id + ": " + e.getMessage());
+            }
+        }
+        return out;
+    }
+
+    // ---------------------------------------------------------------- rendering (format must stay stable)
+
+    static String renderMatch(JsonNode m) {
+        List<String> sources = new ArrayList<>();
+        m.get("sources").forEach(s -> sources.add(q(s.asText())));
+        return "INSERT INTO match (id, match_date, competition, team, opponent, result, formation, xi_status, subs_status, sources) VALUES ("
+                + String.join(", ", q(m.get("id").asText()), q(m.get("date").asText()) + "::date",
+                q(m.get("competition").asText()), q(m.get("team").asText()), q(m.get("opponent").asText()),
+                q(m.get("result").asText()), q(m.get("formation").asText()),
+                q(m.get("verification").get("xi").asText()), q(m.get("verification").get("subs_used").asText()),
+                sources.isEmpty() ? "ARRAY[]::text[]" : "ARRAY[" + String.join(", ", sources) + "]")
+                + ");\n";
+    }
+
+    static String renderMatchPlayers(JsonNode m, Map<String, Long> ids) {
+        String matchId = m.get("id").asText();
+        Map<String, int[][]> template = FORMATIONS.get(m.get("formation").asText());
+        if (template == null) throw new IllegalStateException(matchId + ": no template for " + m.get("formation").asText());
+        Map<String, Integer> used = new HashMap<>();
+        List<String> rows = new ArrayList<>();
+        for (JsonNode p : m.get("squad")) {
+            String name = p.get("name").asText();
+            Long pid = ids.get(name);
+            if (pid == null) throw new IllegalStateException(matchId + ": no player id for " + name);
+            String pos = p.get("pos").asText();
+            String role = p.get("role").asText();
+            String x = "NULL", y = "NULL", on = "NULL", replaced = "NULL";
+            String off = p.has("off") ? p.get("off").asText() : "NULL";
+            if (role.equals("starter")) {
+                int[][] coords = template.get(pos);
+                int n = used.merge(pos, 1, Integer::sum) - 1;
+                if (coords == null || n >= coords.length)
+                    throw new IllegalStateException(matchId + ": no slot for " + pos + " #" + (n + 1));
+                x = String.valueOf(coords[n][0]);
+                y = String.valueOf(coords[n][1]);
+            } else {
+                on = p.get("on").asText();
+                replaced = String.valueOf(Objects.requireNonNull(ids.get(p.get("for").asText()),
+                        "unknown replaced player " + p.get("for")));
+            }
+            rows.add("  (%s, %d, '%s', %s, %s, %s, %s, %s, %s)".formatted(q(matchId), pid, role, q(pos), x, y, on, off, replaced));
+        }
+        return "INSERT INTO match_player (match_id, player_id, role, slot_pos, slot_x, slot_y, minute_on, minute_off, replaced_id) VALUES\n"
+                + String.join(",\n", rows) + ";\n";
+    }
+
+    // ---------------------------------------------------------------- names
+
+    static Double rarityOf(String name, JsonNode entry) {
+        if (entry != null && entry.has("rarity")) return entry.get("rarity").asDouble();
+        return SEED_RARITY.get(name);
     }
 
     static String shortName(String display) {
+        return shortName(display, null);
+    }
+
+    static String shortName(String display, JsonNode entry) {
+        if (entry != null && entry.has("short")) return entry.get("short").asText();
         String o = SHORT_NAME_OVERRIDES.get(display);
         if (o != null) return o;
         String[] parts = display.split(" ");
@@ -335,18 +484,30 @@ public final class SeedSqlGenerator {
     }
 
     static Set<String> aliases(String display) {
+        return aliases(display, null);
+    }
+
+    static Set<String> aliases(String display, JsonNode entry) {
         Set<String> out = new TreeSet<>();
         String full = NameNormalizer.normalize(display);
-        String shortN = NameNormalizer.normalize(shortName(display));
+        String shortN = NameNormalizer.normalize(shortName(display, entry));
+        boolean familyFirst = entry != null && entry.path("family_first").asBoolean(false);
         out.add(full);
         out.add(shortN);
-        out.add(full.substring(full.lastIndexOf(' ') + 1));          // surname
-        if (shortN.contains(" ")) out.add(shortN.replace(" ", ""));  // "vandersar", "delpiero"
+        out.add(familyFirst ? full.substring(0, full.indexOf(' ') < 0 ? full.length() : full.indexOf(' '))  // "park"
+                            : full.substring(full.lastIndexOf(' ') + 1));                                    // surname
+        if (shortN.contains(" ")) out.add(shortN.replace(" ", ""));  // "vandersar", "aldawsari"
         for (String extra : EXTRA_ALIASES.getOrDefault(display, List.of())) out.add(NameNormalizer.normalize(extra));
+        if (entry != null) for (JsonNode a : entry.path("aliases")) out.add(NameNormalizer.normalize(a.asText()));
+        out.remove("");
         return out;
     }
 
     private static String q(String s) {
         return "'" + s.replace("'", "''") + "'";
+    }
+
+    private static String unq(String s) {
+        return s.replace("''", "'");
     }
 }
