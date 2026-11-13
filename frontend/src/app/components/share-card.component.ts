@@ -1,12 +1,22 @@
 import { ChangeDetectionStrategy, Component, ElementRef, input, signal, viewChild } from '@angular/core';
 
-/** "Share result" copies the emoji mini-pitch; "Stats" opens streak info with a preview of the card. */
+/** Native sheet only on touch devices that support it; desktop browsers get the clipboard (what people expect). */
+export function useNativeShare(data: ShareData): boolean {
+  if (typeof navigator === 'undefined' || typeof navigator.share !== 'function') return false;
+  if (navigator.canShare && !navigator.canShare(data)) return false;
+  return typeof matchMedia === 'function' && matchMedia('(pointer: coarse)').matches;
+}
+
+/**
+ * "Share result" opens the phone's share sheet (or copies on desktop) with the emoji mini-pitch;
+ * "Stats" opens streak info with a preview of the card.
+ */
 @Component({
   selector: 'app-share-card',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div class="actions">
-      <button type="button" class="btn-primary share" (click)="copy()">Share result</button>
+      <button type="button" class="btn-primary share" (click)="share()">Share result</button>
       <button type="button" class="btn-ghost" (click)="openStats()" aria-haspopup="dialog">Stats</button>
     </div>
     <p class="status" role="status">{{ status() }}</p>
@@ -79,6 +89,26 @@ export class ShareCardComponent {
   protected readonly fallback = signal(false);
   private readonly dlg = viewChild.required<ElementRef<HTMLDialogElement>>('dlg');
   private readonly fallbackBox = viewChild<ElementRef<HTMLTextAreaElement>>('fallbackBox');
+
+  /**
+   * "Share result": the phone's native share sheet (iOS Safari, Android) where available, like Wordle-style games;
+   * copy-to-clipboard on desktop. Must run straight from the tap (no await before navigator.share).
+   */
+  async share(): Promise<void> {
+    const data: ShareData = { text: this.text() };
+    if (useNativeShare(data)) {
+      try {
+        await navigator.share(data);
+        this.status.set('');
+        this.fallback.set(false);
+        return;
+      } catch (e) {
+        if (e instanceof DOMException && e.name === 'AbortError') return; // user closed the sheet
+        // Anything else (blocked, unsupported target): fall back to copying.
+      }
+    }
+    await this.copy();
+  }
 
   async copy(): Promise<void> {
     try {
