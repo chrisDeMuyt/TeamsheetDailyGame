@@ -12,7 +12,7 @@ Rarer picks score more. Live at **https://teamsheet-daily.fly.dev** · repo `chr
 - 6 medium-confidence drafts left in `teamsheet-drafts.json` (open questions in each match's `flags`); 4 of them
   (Alavés, South Korea, Saudi Arabia, Morocco) are the obscure kind — probably shelve rather than promote.
 - ~5,000 extra players (Wikidata) back the "Did you mean" suggestions.
-- Tests: backend 63 (JUnit + Testcontainers), frontend 31 (Vitest). Both must pass before a deploy.
+- Tests: backend 64 (JUnit + Testcontainers), frontend 32 (Vitest). Both must pass before a deploy.
 
 ## Statistics / analytics (how to check how the game is doing)
 
@@ -38,13 +38,13 @@ bash deploy/beta-stats.sh          # from the repo root; in a Claude Code chat: 
 | Area | Decision |
 |---|---|
 | Pool | Starting XI + subs who came on (no unused subs). Matches from 2000 onward |
-| Picks | 3 per day, **30s each**, server-side clock (+2s network grace), duplicates blocked (don't use a guess) |
-| Start | Start screen first. Today's match isn't fetched and the play/clock isn't created until Start |
+| Picks | 3 per day, **60s each**, server-side clock (+2s network grace), duplicates blocked (don't use a guess) |
+| Start | Start screen first. Today's match isn't fetched until Start; then a 5s kickoff transition (team → match & date → scoreline), and only after it is the play/clock created |
 | Daily reset | Midnight **US Central** (`teamsheet.game.puzzle-zone: America/Chicago`) |
 | Guessing | Guesses are players. Enter submits only an **exact full name**; anything else shows one **"Did you mean: X?"** (best match across ALL players, never scoped to today) and tapping it is the guess. Unknown names/suggestions don't use a guess. A picked player whose name is an alias of exactly one lineup player counts as that player (duplicate-row backstop) |
 | Scoring | Tier by pick %: 40%+ = 10 Tap-in, 15–40 = 30 Solid Shout, 5–15 = 60 Proper Fan, 1–5 = 85 Hidden Gem, <1 = 100 Cult Hero; **+15 for subs** |
 | Cold start | Until 200 finished plays of a puzzle: its lineup is ranked best-known first (`seed_rarity`, then fame, starters before subs) and split ≈20/30/25/15/10% into the 5 tiers, **at least one per tier** (`ScoringService.tierCounts`; 15 players → 3/5/4/2/1). Each player shows his tier's representative pick % (50/25/10/3/0.5). After 200: real pick % |
-| UI | Card: "Team · CL Final · date" + scoreline ("Chelsea 1–1 Bayern Munich (aet, 4–3 pens)"). Pitch slots show position, then **short name** when guessed; the guess list below shows **full names** |
+| UI | Title "TEAMSHEET #7: Team", line below "Champions League Final · date"; card with scoreline ("Chelsea 1–1 Bayern Munich (aet, 4–3 pens)"). Pitch slots show position, then **short name** when guessed; the guess list below shows **full names** |
 | Reveal | Full pool with pick % (short names), your picks highlighted, scoreline in header |
 | Share | Native share sheet on phones (Web Share API: iOS + Android), clipboard on desktop. Text = header, symmetric emoji mini-pitch with picks 🟡, subs row, tier emojis (🥅 📣 🪭 💎 🐐, ❌ miss, ⏱️ timeout), streak, link. Link card image `frontend/public/og-image.png` |
 | Accounts | None; `anonId` in localStorage, one play per device per day |
@@ -78,8 +78,8 @@ schema.sql             original schema (= V1)
 docker compose up -d                                   # Postgres 16 on localhost:5433
 cd backend && ./mvnw spring-boot:run                   # API on :8080, Flyway applies all migrations
 cd frontend && npm start                               # ng serve on :4200, proxies /api -> :8080
-cd backend && ./mvnw test                              # 63 tests, needs Docker
-cd frontend && npx ng test --watch=false               # 31 tests
+cd backend && ./mvnw test                              # 64 tests, needs Docker
+cd frontend && npx ng test --watch=false               # 32 tests
 ```
 Production-like local check: `docker build -t teamsheet:local .` then
 `docker run -p 8081:8080 -e DATABASE_URL='postgres://teamsheet:dev@host.docker.internal:5433/teamsheet?sslmode=disable' teamsheet:local`.
@@ -207,7 +207,7 @@ duplicates). To load a refreshed list, write a **new** migration (the generator 
 | `POST /api/plays/{id}/guesses` `{playerId}` (or `{text:""}` = timeout) | hit / miss / duplicate / timeout + slot, name, shortName, sub, tier, points |
 | `GET /api/plays/{id}/reveal` | full pool with pick %, your picks, total (409 until guess 3) |
 
-Config knobs (`backend/src/main/resources/application.yml`, `teamsheet.game.*`): guess-seconds 30, grace-seconds 2,
+Config knobs (`backend/src/main/resources/application.yml`, `teamsheet.game.*`): guess-seconds 60, grace-seconds 2,
 live-rarity-min-plays 200, sub-bonus 15, puzzle-zone America/Chicago.
 
 ## Roadmap

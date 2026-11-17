@@ -2,6 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import { vi } from 'vitest';
 import { ApiService } from './api/api.service';
 import { App } from './app';
+import { GameStore } from './state/game-store';
 import { PUZZLE } from './testing/fixtures';
 
 describe('App', () => {
@@ -15,13 +16,14 @@ describe('App', () => {
       today: vi.fn().mockResolvedValue({ body: PUZZLE, serverNow: now }),
       createPlay: vi.fn().mockResolvedValue({
         body: { playId: 'p1', puzzleNumber: 1, guessesUsed: 0, guessesLeft: 3, finished: false, totalScore: 0,
-                deadline: new Date(now + 30_000).toISOString(), guesses: [] },
+                deadline: new Date(now + 60_000).toISOString(), guesses: [] },
         serverNow: now,
       }),
       suggest: vi.fn().mockResolvedValue({ id: 50, name: 'John Terry', exact: false }),
     };
     await TestBed.configureTestingModule({ imports: [App], providers: [{ provide: ApiService, useValue: api }] })
       .compileComponents();
+    TestBed.inject(GameStore).kickoffMs = 0;
   });
 
   async function stable(fixture: ReturnType<typeof TestBed.createComponent<App>>, check: () => void) {
@@ -54,7 +56,8 @@ describe('App', () => {
 
     expect(el.querySelectorAll('app-pitch app-spot')).toHaveLength(11);
     expect(el.querySelectorAll('app-subs-strip app-spot')).toHaveLength(3);
-    expect(el.textContent).toContain('Liverpool · CL Final · 25 May 2005');
+    expect(el.querySelector('h1')?.textContent?.replace(/\s+/g, ' ').trim()).toBe('TEAMSHEET #1: Liverpool');
+    expect(el.querySelector('.subtitle')?.textContent?.trim()).toBe('Champions League Final · 25 May 2005');
     expect(el.querySelector('.team')?.textContent?.replace(/\s+/g, ' ').trim()).toBe('Liverpool 3–3 AC Milan (aet, 3–2 pens)');
     expect(el.querySelector('.score-note')?.textContent?.trim()).toBe('(aet, 3–2 pens)');
     expect(el.textContent).toContain('Guess 1 of 3');

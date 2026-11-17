@@ -17,7 +17,7 @@ spring:
 teamsheet:
   game:
     puzzle-zone: America/Chicago   # new puzzle at midnight US Central (CST/CDT handled automatically)
-    guess-seconds: 30
+    guess-seconds: 60
     grace-seconds: 2          # network slack on top of the 30s
     fuzzy-threshold: 0.45     # min trigram score to count as a match
     ambiguity-margin: 0.10    # candidates within this of the top score = ambiguous

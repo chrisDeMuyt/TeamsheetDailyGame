@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, ElementRef, afterNextRender, input,
 
 /**
  * Start screen. Shown before anything about today's match is loaded, so the team stays hidden and the
- * 30s clock can't start until the player taps Start.
+ * guess clock can't start until the player taps Start (and the kickoff transition has played).
  */
 @Component({
   selector: 'app-intro',
@@ -40,8 +40,8 @@ import { ChangeDetectionStrategy, Component, ElementRef, afterNextRender, input,
 
       <ul class="rules">
         <li><span aria-hidden="true">⚽</span> Name 3 players from one famous match lineup</li>
-        <li><span aria-hidden="true">⏱️</span> 30 seconds per guess. The clock starts when you tap Start</li>
-        <li><span aria-hidden="true">💎</span> Rarer picks score more. Subs who came on +15</li>
+        <li><span aria-hidden="true">⏱️</span> 1 minute per guess. The clock starts after kick-off</li>
+        <li><span aria-hidden="true">💎</span> Rarer picks score more. Subs who came on score an additional +15</li>
       </ul>
 
       @if (streak() > 1) {

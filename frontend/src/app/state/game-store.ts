@@ -5,8 +5,11 @@ import { GuessResult, GuessResultType, Pick, PlayView, PlayerOption, Puzzle, Rev
 import { LocalStore } from './local-store';
 import { playSpots, revealSpots } from './view';
 
-/** intro = the Start screen: nothing about today's match is loaded and no clock is running yet. */
-export type Phase = 'loading' | 'error' | 'intro' | 'playing' | 'revealed';
+/**
+ * intro = the Start screen: nothing about today's match is loaded and no clock is running yet.
+ * kickoff = the 5s transition after Start (team, match, scoreline); the clock starts when it ends.
+ */
+export type Phase = 'loading' | 'error' | 'intro' | 'kickoff' | 'playing' | 'revealed';
 
 export interface Feedback {
   kind: GuessResultType | 'error' | 'notfound' | 'suggest';
@@ -14,11 +17,13 @@ export interface Feedback {
 }
 
 export const GUESSES = 3;
-export const GUESS_MS = 30_000;
+export const GUESS_MS = 60_000;
+export const KICKOFF_MS = 5_000;
 export const MIN_CHARS = 2;
 
 /**
- * The whole game flow: Start screen -> load today + create play (clock starts) -> 3 guesses -> reveal.
+ * The whole game flow: Start screen -> load today -> 5s kickoff transition -> create play (clock starts)
+ * -> 3 guesses -> reveal.
  * Guesses are players: Enter submits only an exact full name; anything else offers one "Did you mean".
  * The server owns the clock; we mirror its deadline and send an empty guess when it runs out.
  */
@@ -67,6 +72,8 @@ export class GameStore {
 
   /** Pause before switching to the reveal so the last pick's pop is visible. Tests set 0. */
   revealDelayMs = 1400;
+  /** Length of the kickoff transition after Start. Tests set 0. */
+  kickoffMs = KICKOFF_MS;
 
   private ticker: ReturnType<typeof setInterval> | null = null;
   private timeoutSentFor: number | null = null;
@@ -92,12 +99,17 @@ export class GameStore {
     }
   }
 
-  /** The Start button: only now is the match loaded and the play created (the 30s clock starts server-side). */
+  /**
+   * The Start button: loads the match and plays the kickoff transition; only after it is the play created,
+   * so the server-side clock starts when the guessing screen appears.
+   */
   async start(): Promise<void> {
     if (this.starting() || this.phase() !== 'intro') return;
     this.starting.set(true);
     try {
       this.puzzle.set((await this.api.today()).body);
+      this.phase.set('kickoff');
+      if (this.kickoffMs > 0) await new Promise((r) => setTimeout(r, this.kickoffMs));
       const { body: play, serverNow } = await this.api.createPlay(this.local.anonId());
       await this.enter(play, serverNow);
     } catch (e) {

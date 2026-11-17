@@ -106,7 +106,7 @@ export class GuessInputComponent {
   readonly guessNumber = input.required<number>();
   readonly total = input(3);
   readonly remainingMs = input.required<number>();
-  readonly totalMs = input(30_000);
+  readonly totalMs = input(60_000);
   readonly busy = input(false);
   readonly feedback = input<Feedback | null>(null);
   readonly suggestion = input<PlayerOption | null>(null);

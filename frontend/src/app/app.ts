@@ -2,15 +2,16 @@ import { ChangeDetectionStrategy, Component, computed, inject, signal, viewChild
 import { GuessHistoryComponent } from './components/guess-history.component';
 import { GuessInputComponent } from './components/guess-input.component';
 import { IntroComponent } from './components/intro.component';
+import { KickoffComponent } from './components/kickoff.component';
 import { PitchComponent } from './components/pitch.component';
 import { RevealScreenComponent } from './components/reveal-screen.component';
 import { SubsStripComponent } from './components/subs-strip.component';
 import { GUESSES, GUESS_MS, GameStore } from './state/game-store';
-import { competitionShort, formatMatchDate, scoreline } from './state/view';
+import { competitionLong, formatMatchDate, scoreline } from './state/view';
 
 @Component({
   selector: 'app-root',
-  imports: [IntroComponent, PitchComponent, SubsStripComponent, GuessInputComponent, GuessHistoryComponent,
+  imports: [IntroComponent, KickoffComponent, PitchComponent, SubsStripComponent, GuessInputComponent, GuessHistoryComponent,
             RevealScreenComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './app.html',
@@ -25,7 +26,13 @@ export class App {
   private readonly guessInput = viewChild(GuessInputComponent);
 
   protected readonly number = computed(() => this.store.reveal()?.puzzleNumber ?? this.store.puzzle()?.number);
-  protected readonly competitionShort = computed(() => competitionShort(this.store.puzzle()?.competition ?? ''));
+  /** Title "TEAMSHEET #7: Argentina". */
+  protected readonly team = computed(() => this.store.reveal()?.team ?? this.store.puzzle()?.team ?? '');
+  /** Line under the title: "World Cup Final · 18 Dec 2022". */
+  protected readonly matchLine = computed(() => {
+    const m = this.store.reveal() ?? this.store.puzzle();
+    return m ? `${competitionLong(m.competition)} · ${formatMatchDate(m.date)}` : '';
+  });
   protected readonly revealScore = computed(() => {
     const r = this.store.reveal();
     return r ? scoreline(r.team, r.opponent, r.result) : '';
@@ -37,14 +44,6 @@ export class App {
     const s = p ? scoreline(p.team, p.opponent, p.result) : '';
     const i = s.indexOf(' (');
     return i < 0 ? { main: s, note: '' } : { main: s.slice(0, i), note: s.slice(i + 2, -1) };
-  });
-  protected readonly matchDate = computed(() => {
-    const p = this.store.puzzle();
-    return p ? formatMatchDate(p.date) : '';
-  });
-  protected readonly revealLine = computed(() => {
-    const r = this.store.reveal();
-    return r ? `${r.team} · ${competitionShort(r.competition)} · ${formatMatchDate(r.date)}` : '';
   });
 
   constructor() {

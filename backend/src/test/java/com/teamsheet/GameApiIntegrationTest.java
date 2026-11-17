@@ -132,7 +132,7 @@ class GameApiIntegrationTest {
     @Test
     void timeoutBurnsGuessEvenWithCorrectName() throws Exception {
         String play = newPlay();
-        clock.advanceSeconds(33);                  // > 30s + 2s grace
+        clock.advanceSeconds(63);                  // > 60s + 2s grace
         JsonNode r = guess(play, "Gerrard");
         assertThat(r.get("result").asText()).isEqualTo("timeout");
         assertThat(r.get("guessIndex").asInt()).isEqualTo(1);
@@ -156,7 +156,7 @@ class GameApiIntegrationTest {
     @Test
     void withinGraceIsNotATimeout() throws Exception {
         String play = newPlay();
-        clock.advanceSeconds(31);                  // past 30s but inside the 2s grace
+        clock.advanceSeconds(61);                  // past 60s but inside the 2s grace
         assertThat(guess(play, "Gerrard").get("result").asText()).isEqualTo("hit");
     }
 
@@ -197,7 +197,7 @@ class GameApiIntegrationTest {
         clock.advanceSeconds(5);
         JsonNode again = createPlay(anon);
         assertThat(again.get("playId").asText()).isEqualTo(first);
-        assertThat(again.get("deadline").asText()).isEqualTo("2026-11-11T12:00:30Z");  // timer not reset
+        assertThat(again.get("deadline").asText()).isEqualTo("2026-11-11T12:01:00Z");  // timer not reset
     }
 
     @Test
@@ -246,7 +246,7 @@ class GameApiIntegrationTest {
         // only the player's own hit is named; nobody else from the pool leaks
         assertThat(resumed.toString()).doesNotContain("Gerrard", "Carragher");
 
-        clock.advanceSeconds(40);
+        clock.advanceSeconds(70);
         assertThat(guess(play, "Gerrard").get("result").asText()).isEqualTo("timeout");
         JsonNode reveal = body(mvc.perform(get("/api/plays/{id}/reveal", play)), status().isOk());
         assertThat(reveal.get("picks").get(2).get("result").asText()).isEqualTo("timeout");
@@ -375,7 +375,7 @@ class GameApiIntegrationTest {
 
         clock.advanceSeconds(120);                                      // sat on the start screen for 2 minutes
         String play = createPlay(anon).get("playId").asText();          // presses Start
-        assertThat(guess(play, "Gerrard").get("result").asText()).as("full 30s from Start").isEqualTo("hit");
+        assertThat(guess(play, "Gerrard").get("result").asText()).as("full minute from Start").isEqualTo("hit");
 
         JsonNode after = body(mvc.perform(get("/api/plays/today").param("anonId", anon)), status().isOk());
         assertThat(after.get("play").get("playId").asText()).isEqualTo(play);

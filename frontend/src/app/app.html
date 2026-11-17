@@ -1,10 +1,12 @@
 <main class="app">
-  @if (store.phase() !== 'intro') {
+  @if (store.phase() !== 'intro' && store.phase() !== 'kickoff') {
   <header class="top">
     <div class="title">
-      <h1>TEAMSHEET @if (number()) {<span class="num">#{{ number() }}</span>}</h1>
+      <h1>TEAMSHEET @if (number()) {<span class="num">#{{ number() }}</span>}@if (team()) {<span class="sep">: </span><span class="title-team">{{ team() }}</span>}</h1>
+      @if (matchLine()) {
+        <p class="subtitle">{{ matchLine() }}</p>
+      }
       @if (store.phase() === 'revealed') {
-        <p class="subtitle">{{ revealLine() }}</p>
         <p class="subtitle reveal-score">{{ revealScore() }}</p>
       }
     </div>
@@ -27,6 +29,12 @@
                  (start)="store.start()" />
     }
 
+    @case ('kickoff') {
+      @if (store.puzzle(); as p) {
+        <app-kickoff [puzzle]="p" [durationMs]="store.kickoffMs" />
+      }
+    }
+
     @case ('error') {
       <div class="state" role="alert">
         <p>{{ store.error() }}</p>
@@ -37,7 +45,6 @@
     @case ('playing') {
       @if (store.puzzle(); as p) {
         <section class="match" aria-label="Today's match">
-          <p class="line">{{ p.team }} · {{ competitionShort() }} · <span class="nowrap">{{ matchDate() }}</span></p>
           <h2 class="team">{{ score().main }}@if (score().note) {<span class="score-note"> ({{ score().note }})</span>}</h2>
           <p class="hint">Name a starter or a sub who came on for {{ p.team }}</p>
         </section>

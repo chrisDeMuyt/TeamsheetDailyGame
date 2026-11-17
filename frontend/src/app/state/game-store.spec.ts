@@ -13,12 +13,12 @@ const deadline = (s: number) => new Date(NOW + s * 1000).toISOString();
 function play(over: Partial<PlayView> = {}): PlayView {
   return {
     playId: 'p1', puzzleNumber: 1, guessesUsed: 0, guessesLeft: 3, finished: false, totalScore: 0,
-    deadline: deadline(30), guesses: [], ...over,
+    deadline: deadline(60), guesses: [], ...over,
   };
 }
 
 function result(over: Partial<GuessResult>): GuessResult {
-  return { result: 'miss', guessesLeft: 2, points: 0, totalScore: 0, finished: false, deadline: deadline(30), ...over };
+  return { result: 'miss', guessesLeft: 2, points: 0, totalScore: 0, finished: false, deadline: deadline(60), ...over };
 }
 
 const TRAORE: PlayerOption = { id: 4, name: 'Djimi Traoré', exact: true };
@@ -34,6 +34,7 @@ describe('GameStore', () => {
     api.createPlay.mockResolvedValue(t(p));
     store = TestBed.inject(GameStore);
     store.revealDelayMs = 0;
+    store.kickoffMs = 0;
     await store.init();
     await store.start();
   }
@@ -76,7 +77,31 @@ describe('GameStore', () => {
     expect(store.phase()).toBe('playing');
     expect(api.today).toHaveBeenCalledBefore(api.createPlay);
     expect(api.createPlay).toHaveBeenCalledWith(localStorage.getItem('teamsheet.anonId'));
-    expect(store.remainingMs()).toBeGreaterThan(25_000);
+    expect(store.remainingMs()).toBeGreaterThan(55_000);
+  });
+
+  it('Start plays the kickoff transition first; the play (clock) is only created after it', async () => {
+    vi.useFakeTimers();
+    try {
+      api.todayStatus.mockResolvedValue(t({ puzzleNumber: 1, play: null }));
+      api.createPlay.mockResolvedValue(t(play()));
+      store = TestBed.inject(GameStore);
+      await store.init();
+      const started = store.start();
+      await vi.advanceTimersByTimeAsync(0);
+      expect(store.phase()).toBe('kickoff');
+      expect(store.puzzle()?.team).toBe(PUZZLE.team);
+      expect(api.createPlay).not.toHaveBeenCalled();
+
+      await vi.advanceTimersByTimeAsync(4_900);
+      expect(api.createPlay).not.toHaveBeenCalled();
+      await vi.advanceTimersByTimeAsync(100);
+      await started;
+      expect(api.createPlay).toHaveBeenCalledTimes(1);
+      expect(store.phase()).toBe('playing');
+    } finally {
+      vi.useRealTimers();
+    }
   });
 
   it('an exact full name is guessed straight away', async () => {
