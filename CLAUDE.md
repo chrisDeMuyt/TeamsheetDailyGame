@@ -5,7 +5,10 @@ Rarer picks score more. Live at **https://teamsheet-daily.fly.dev** · repo `chr
 
 ## Current state (2026-11-13)
 
-- Friends beta running (≈10 devices). Puzzles #1–47 live, one per day, **2026-11-11 → 2026-12-27** (add more before then).
+- Friends beta running (≈10 devices). Puzzles #1–57 scheduled, one per day, **2026-11-11 → 2027-01-06** (add more before then).
+- 2026-11-17 (V7 + V8): World Cup 2026 batch of 10. V7 added them as #48–57; V8 rescheduled from #14 to mix two in
+  earlier: #14 Argentina (final), #25 Norway (R16 v Brazil); #50–57 = Spain (final), England (SF), Germany (R32),
+  France (QF), Brazil (R16), Portugal (R16), Netherlands (R32), Belgium (R16).
 - 2026-11-13 reschedule (V6): today's #3 switched from Greece 2004 to Argentina 2022; **very obscure matches
   removed from the schedule** (user: casual fans can't name anyone) → `teamsheet-shelved.json` (7 matches, still in the DB).
   Rule going forward: avoid ★★★ "cult" matches (minnows / obscure finals); every puzzle needs several well-known names.
@@ -189,7 +192,14 @@ duplicates). To load a refreshed list, write a **new** migration (the generator 
 - Every match needs 2 independent sources before it ships.
 - Good sources: UEFA squad-sheet PDFs, ESPN lineups, DFB data center, FBref, thesoccerworldcups.com, national-football-teams.com,
   club archives (lfchistory, fcbayern.com). 11v11 blocks automated fetches (403). Transfermarkt: manual tiebreaker only,
-  never scraped. Wikipedia lineup tables don't survive automated fetches; use as a narrative cross-check.
+  never scraped. Wikipedia lineup tables don't survive WebFetch, but the raw wikitext does:
+  `curl -4 "https://en.wikipedia.org/w/index.php?title=<Article>&action=raw"` (tables with positions, sub minutes).
+- **FIFA tournaments (WC 2026+)**: the wikitext cites FIFA PDFs per match: `fdp.fifa.org/assetspublic/ce281/r<id>/pdf/`
+  `TacticalLineup-English.pdf` (formation + pitch diagram) and `FullTimeMatchReport-English.pdf` (every sub ON/OFF with
+  shirt numbers + minutes). Fetch with the web-fetch agent (saves the PDF), read with `pdftotext -enc UTF-8`. FIFA + Wikipedia
+  = the two sources; the WC 2026 batch was cross-checked by script (XI by shirt number, sub pairing vs minutes).
+- Same-spelling trap: accent-free lookups can hit a different, more famous player (Éderson the Atalanta midfielder vs
+  Ederson the City goalkeeper). Check birth year / QID in `data/wikidata-footballers.json` before reusing a name.
 - Drafting from memory is unreliable: in the 50-match pass ~1 in 4 drafts had a sub error and 3 had a wrong XI.
 - Known source errors: ESPN lists Inter 2010's GK as "J. De León" (was Júlio César); FBref's minutes-based lineup puts Navas in Spain 2010's XI (Pedro started).
 - Still single-source: Man Utd 2008, Inter 2010, Brazil 2002, Portugal 2016 subs.
@@ -214,7 +224,7 @@ live-rarity-min-plays 200, sub-bonus 15, puzzle-zone America/Chicago.
 
 0. ~~ICE moonlighting/IP policy~~ checked, fine
 1–4. ~~Data spike, mockup, data model, core loop~~ done
-5. ~~Load ~60 matches + aliases, seed rarity~~ 47 scheduled + 7 shelved + 6 drafts; seed rarity still placeholder estimates
+5. ~~Load ~60 matches + aliases, seed rarity~~ 57 scheduled + 7 shelved + 6 drafts; seed rarity still placeholder estimates
 6. Share card ~~done~~ (native sheet + link card), Stats dialog (played, current/max streak, personal best: computed server-side per anonId, returned in the reveal), pick logging done
 7. **Friends beta — in progress** (started 2026-11-12). Watch `deploy/beta-stats.sh`
 8. Launch: r/soccer, club subreddits, Product Hunt
@@ -222,4 +232,4 @@ live-rarity-min-plays 200, sub-bonus 15, puzzle-zone America/Chicago.
 10. Keep going if ~500 daily users, else shelve
 
 Open ideas: weekly `pg_dump` backup script, GitHub Actions CI, next batch of matches
-before 2026-12-27, Mockup on claude.ai ("Teamsheet Mockup").
+before 2027-01-06, Mockup on claude.ai ("Teamsheet Mockup").

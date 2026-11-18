@@ -1504,6 +1504,145 @@
       ]
     },
     {
+      "id": "2026-wc-final-argentina",
+      "date": "2026-07-19",
+      "competition": "FIFA World Cup Final",
+      "team": "Argentina",
+      "opponent": "Spain",
+      "result": "lost 0-1 aet",
+      "formation": "4-4-2",
+      "verification": {
+        "xi": "verified",
+        "subs_used": "verified"
+      },
+      "sources": [
+        "FIFA Tactical Line-up PDF: https://fdp.fifa.org/assetspublic/ce281/r12552/pdf/TacticalLineup-English.pdf",
+        "FIFA Match Report PDF: https://fdp.fifa.org/assetspublic/ce281/r12552/pdf/FullTimeMatchReport-English.pdf",
+        "https://en.wikipedia.org/wiki/2026_FIFA_World_Cup_final"
+      ],
+      "flags": [
+        "XI, positions and every substitution (pairing + minute) cross-checked: FIFA official tactical line-up + match report PDFs agree with the Wikipedia line-up table",
+        "FIFA formation 4-4-2; repeated positions ordered right to left as on the FIFA pitch diagram / Wikipedia table",
+        "Enzo Fernández sent off 90+3 (second yellow); Argentina played extra time with 10",
+        "Scheduled well over 10 days from the other side of this match (user: mix in earlier, 2026-11-17)"
+      ],
+      "squad": [
+        {
+          "name": "Emiliano Martínez",
+          "pos": "GK",
+          "role": "starter"
+        },
+        {
+          "name": "Gonzalo Montiel",
+          "pos": "RB",
+          "role": "starter",
+          "off": 58
+        },
+        {
+          "name": "Cristian Romero",
+          "pos": "CB",
+          "role": "starter",
+          "off": 70
+        },
+        {
+          "name": "Lisandro Martínez",
+          "pos": "CB",
+          "role": "starter",
+          "off": 44,
+          "rarity": 25.0,
+          "short": "Lisandro",
+          "aliases": [
+            "lisandro",
+            "licha"
+          ]
+        },
+        {
+          "name": "Nicolás Tagliafico",
+          "pos": "LB",
+          "role": "starter"
+        },
+        {
+          "name": "Rodrigo De Paul",
+          "pos": "RM",
+          "role": "starter",
+          "off": 70
+        },
+        {
+          "name": "Enzo Fernández",
+          "pos": "CM",
+          "role": "starter"
+        },
+        {
+          "name": "Alexis Mac Allister",
+          "pos": "CM",
+          "role": "starter"
+        },
+        {
+          "name": "Nicolás González",
+          "pos": "LM",
+          "role": "starter",
+          "off": 46,
+          "rarity": 8.0
+        },
+        {
+          "name": "Lionel Messi",
+          "pos": "ST",
+          "role": "starter"
+        },
+        {
+          "name": "Julián Álvarez",
+          "pos": "ST",
+          "role": "starter",
+          "off": 102
+        },
+        {
+          "name": "Nicolás Otamendi",
+          "pos": "DF",
+          "role": "sub_used",
+          "on": 44,
+          "for": "Lisandro Martínez"
+        },
+        {
+          "name": "Leandro Paredes",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 46,
+          "for": "Nicolás González"
+        },
+        {
+          "name": "Nahuel Molina",
+          "pos": "DF",
+          "role": "sub_used",
+          "on": 58,
+          "for": "Gonzalo Montiel"
+        },
+        {
+          "name": "Facundo Medina",
+          "pos": "DF",
+          "role": "sub_used",
+          "on": 70,
+          "for": "Cristian Romero",
+          "rarity": 3.0
+        },
+        {
+          "name": "Giuliano Simeone",
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 70,
+          "for": "Rodrigo De Paul",
+          "rarity": 10.0
+        },
+        {
+          "name": "Marcos Senesi",
+          "pos": "DF",
+          "role": "sub_used",
+          "on": 102,
+          "for": "Julián Álvarez",
+          "rarity": 3.0
+        }
+      ]
+    },
+    {
       "id": "2002-ucl-final-real-madrid",
       "date": "2002-05-15",
       "competition": "UEFA Champions League Final",
@@ -2692,6 +2831,136 @@
           "on": 87,
           "for": "Rui Costa",
           "rarity": 25.0
+        }
+      ]
+    },
+    {
+      "id": "2026-wc-r16-norway",
+      "date": "2026-07-05",
+      "competition": "FIFA World Cup Round of 16",
+      "team": "Norway",
+      "opponent": "Brazil",
+      "result": "2-1",
+      "formation": "4-3-3",
+      "verification": {
+        "xi": "verified",
+        "subs_used": "verified"
+      },
+      "sources": [
+        "FIFA Tactical Line-up PDF: https://fdp.fifa.org/assetspublic/ce281/r12541/pdf/TacticalLineup-English.pdf",
+        "FIFA Match Report PDF: https://fdp.fifa.org/assetspublic/ce281/r12541/pdf/FullTimeMatchReport-English.pdf",
+        "https://en.wikipedia.org/wiki/2026_FIFA_World_Cup_knockout_stage"
+      ],
+      "flags": [
+        "XI, positions and every substitution (pairing + minute) cross-checked: FIFA official tactical line-up + match report PDFs agree with the Wikipedia line-up table",
+        "FIFA formation 4-1-2-3; repeated positions ordered right to left as on the FIFA pitch diagram / Wikipedia table",
+        "Scheduled well over 10 days from the other side of this match (user: mix in earlier, 2026-11-17)"
+      ],
+      "squad": [
+        {
+          "name": "Ørjan Nyland",
+          "pos": "GK",
+          "role": "starter",
+          "rarity": 6.0
+        },
+        {
+          "name": "Julian Ryerson",
+          "pos": "RB",
+          "role": "starter",
+          "off": 63,
+          "rarity": 4.0
+        },
+        {
+          "name": "Kristoffer Ajer",
+          "pos": "CB",
+          "role": "starter",
+          "rarity": 5.0
+        },
+        {
+          "name": "Torbjørn Heggem",
+          "pos": "CB",
+          "role": "starter",
+          "rarity": 2.0
+        },
+        {
+          "name": "David Møller Wolfe",
+          "pos": "LB",
+          "role": "starter",
+          "off": 90,
+          "rarity": 2.0,
+          "short": "Møller Wolfe"
+        },
+        {
+          "name": "Sander Berge",
+          "pos": "DM",
+          "role": "starter",
+          "rarity": 5.0
+        },
+        {
+          "name": "Martin Ødegaard",
+          "pos": "CM",
+          "role": "starter",
+          "rarity": 50.0
+        },
+        {
+          "name": "Patrick Berg",
+          "pos": "CM",
+          "role": "starter",
+          "rarity": 3.0
+        },
+        {
+          "name": "Alexander Sørloth",
+          "pos": "RW",
+          "role": "starter",
+          "off": 46,
+          "rarity": 20.0
+        },
+        {
+          "name": "Erling Haaland",
+          "pos": "ST",
+          "role": "starter",
+          "aliases": [
+            "erling"
+          ]
+        },
+        {
+          "name": "Antonio Nusa",
+          "pos": "LW",
+          "role": "starter",
+          "off": 46,
+          "rarity": 8.0
+        },
+        {
+          "name": "Oscar Bobb",
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 46,
+          "for": "Alexander Sørloth",
+          "rarity": 6.0
+        },
+        {
+          "name": "Andreas Schjelderup",
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 46,
+          "for": "Antonio Nusa",
+          "rarity": 3.0
+        },
+        {
+          "name": "Fredrik Aursnes",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 63,
+          "for": "Julian Ryerson",
+          "rarity": 3.0
+        },
+        {
+          "name": "Leo Østigård",
+          "pos": "DF",
+          "role": "sub_used",
+          "on": 90,
+          "for": "David Møller Wolfe",
+          "rarity": 3.0
         }
       ]
     },
@@ -5453,6 +5722,1097 @@
           "on": 79,
           "for": "Karim Benzema",
           "rarity": 25.0
+        }
+      ]
+    },
+    {
+      "id": "2026-wc-final-spain",
+      "date": "2026-07-19",
+      "competition": "FIFA World Cup Final",
+      "team": "Spain",
+      "opponent": "Argentina",
+      "result": "1-0 aet",
+      "formation": "4-3-3",
+      "verification": {
+        "xi": "verified",
+        "subs_used": "verified"
+      },
+      "sources": [
+        "FIFA Tactical Line-up PDF: https://fdp.fifa.org/assetspublic/ce281/r12552/pdf/TacticalLineup-English.pdf",
+        "FIFA Match Report PDF: https://fdp.fifa.org/assetspublic/ce281/r12552/pdf/FullTimeMatchReport-English.pdf",
+        "https://en.wikipedia.org/wiki/2026_FIFA_World_Cup_final"
+      ],
+      "flags": [
+        "XI, positions and every substitution (pairing + minute) cross-checked: FIFA official tactical line-up + match report PDFs agree with the Wikipedia line-up table",
+        "FIFA formation 4-1-2-3; repeated positions ordered right to left as on the FIFA pitch diagram / Wikipedia table"
+      ],
+      "squad": [
+        {
+          "name": "Unai Simón",
+          "pos": "GK",
+          "role": "starter"
+        },
+        {
+          "name": "Pedro Porro",
+          "pos": "RB",
+          "role": "starter",
+          "rarity": 20.0
+        },
+        {
+          "name": "Pau Cubarsí",
+          "pos": "CB",
+          "role": "starter",
+          "rarity": 25.0
+        },
+        {
+          "name": "Aymeric Laporte",
+          "pos": "CB",
+          "role": "starter",
+          "off": 99
+        },
+        {
+          "name": "Marc Cucurella",
+          "pos": "LB",
+          "role": "starter"
+        },
+        {
+          "name": "Rodri",
+          "pos": "DM",
+          "role": "starter",
+          "off": 99
+        },
+        {
+          "name": "Dani Olmo",
+          "pos": "CM",
+          "role": "starter",
+          "off": 75
+        },
+        {
+          "name": "Fabián Ruiz",
+          "pos": "CM",
+          "role": "starter",
+          "off": 62,
+          "short": "Fabián",
+          "aliases": [
+            "fabian"
+          ]
+        },
+        {
+          "name": "Lamine Yamal",
+          "pos": "RW",
+          "role": "starter",
+          "aliases": [
+            "lamine"
+          ]
+        },
+        {
+          "name": "Mikel Oyarzabal",
+          "pos": "ST",
+          "role": "starter",
+          "off": 62
+        },
+        {
+          "name": "Álex Baena",
+          "pos": "LW",
+          "role": "starter",
+          "off": 75,
+          "rarity": 8.0
+        },
+        {
+          "name": "Ferran Torres",
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 62,
+          "for": "Mikel Oyarzabal",
+          "rarity": 25.0,
+          "short": "Ferran Torres",
+          "aliases": [
+            "ferran"
+          ]
+        },
+        {
+          "name": "Pedri",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 62,
+          "for": "Fabián Ruiz",
+          "rarity": 35.0
+        },
+        {
+          "name": "Mikel Merino",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 75,
+          "for": "Dani Olmo"
+        },
+        {
+          "name": "Nico Williams",
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 75,
+          "for": "Álex Baena",
+          "short": "N. Williams",
+          "aliases": [
+            "nico williams"
+          ]
+        },
+        {
+          "name": "Martín Zubimendi",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 99,
+          "for": "Rodri"
+        },
+        {
+          "name": "Eric García",
+          "pos": "DF",
+          "role": "sub_used",
+          "on": 99,
+          "for": "Aymeric Laporte",
+          "rarity": 6.0,
+          "short": "Eric García"
+        }
+      ]
+    },
+    {
+      "id": "2026-wc-semi-england",
+      "date": "2026-07-15",
+      "competition": "FIFA World Cup Semi-final",
+      "team": "England",
+      "opponent": "Argentina",
+      "result": "lost 1-2",
+      "formation": "4-2-3-1",
+      "verification": {
+        "xi": "verified",
+        "subs_used": "verified"
+      },
+      "sources": [
+        "FIFA Tactical Line-up PDF: https://fdp.fifa.org/assetspublic/ce281/r12549/pdf/TacticalLineup-English.pdf",
+        "FIFA Match Report PDF: https://fdp.fifa.org/assetspublic/ce281/r12549/pdf/FullTimeMatchReport-English.pdf",
+        "https://en.wikipedia.org/wiki/2026_FIFA_World_Cup_knockout_stage"
+      ],
+      "flags": [
+        "XI, positions and every substitution (pairing + minute) cross-checked: FIFA official tactical line-up + match report PDFs agree with the Wikipedia line-up table",
+        "FIFA formation 4-2-3-1; repeated positions ordered right to left as on the FIFA pitch diagram / Wikipedia table"
+      ],
+      "squad": [
+        {
+          "name": "Jordan Pickford",
+          "pos": "GK",
+          "role": "starter",
+          "rarity": 40.0
+        },
+        {
+          "name": "Reece James",
+          "pos": "RB",
+          "role": "starter",
+          "off": 82
+        },
+        {
+          "name": "John Stones",
+          "pos": "CB",
+          "role": "starter",
+          "off": 90
+        },
+        {
+          "name": "Marc Guéhi",
+          "pos": "CB",
+          "role": "starter",
+          "rarity": 20.0
+        },
+        {
+          "name": "Djed Spence",
+          "pos": "LB",
+          "role": "starter",
+          "off": 90,
+          "rarity": 6.0
+        },
+        {
+          "name": "Declan Rice",
+          "pos": "DM",
+          "role": "starter",
+          "off": 82,
+          "rarity": 45.0
+        },
+        {
+          "name": "Elliot Anderson",
+          "pos": "DM",
+          "role": "starter",
+          "rarity": 10.0
+        },
+        {
+          "name": "Morgan Rogers",
+          "pos": "RW",
+          "role": "starter",
+          "rarity": 12.0
+        },
+        {
+          "name": "Jude Bellingham",
+          "pos": "CAM",
+          "role": "starter",
+          "rarity": 55.0
+        },
+        {
+          "name": "Anthony Gordon",
+          "pos": "LW",
+          "role": "starter",
+          "off": 72,
+          "rarity": 18.0
+        },
+        {
+          "name": "Harry Kane",
+          "pos": "ST",
+          "role": "starter",
+          "rarity": 65.0
+        },
+        {
+          "name": "Ezri Konsa",
+          "pos": "DF",
+          "role": "sub_used",
+          "on": 72,
+          "for": "Anthony Gordon",
+          "rarity": 5.0
+        },
+        {
+          "name": "Dan Burn",
+          "pos": "DF",
+          "role": "sub_used",
+          "on": 82,
+          "for": "Reece James",
+          "rarity": 6.0
+        },
+        {
+          "name": "Nico O'Reilly",
+          "pos": "DF",
+          "role": "sub_used",
+          "on": 82,
+          "for": "Declan Rice",
+          "rarity": 4.0
+        },
+        {
+          "name": "Ivan Toney",
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 90,
+          "for": "John Stones",
+          "rarity": 10.0
+        },
+        {
+          "name": "Marcus Rashford",
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 90,
+          "for": "Djed Spence",
+          "rarity": 25.0
+        }
+      ]
+    },
+    {
+      "id": "2026-wc-r32-germany",
+      "date": "2026-06-29",
+      "competition": "FIFA World Cup Round of 32",
+      "team": "Germany",
+      "opponent": "Paraguay",
+      "result": "1-1 aet, lost 3-4 on penalties",
+      "formation": "4-2-3-1",
+      "verification": {
+        "xi": "verified",
+        "subs_used": "verified"
+      },
+      "sources": [
+        "FIFA Tactical Line-up PDF: https://fdp.fifa.org/assetspublic/ce281/r12522/pdf/TacticalLineup-English.pdf",
+        "FIFA Match Report PDF: https://fdp.fifa.org/assetspublic/ce281/r12522/pdf/FullTimeMatchReport-English.pdf",
+        "https://en.wikipedia.org/wiki/2026_FIFA_World_Cup_round_of_32"
+      ],
+      "flags": [
+        "XI, positions and every substitution (pairing + minute) cross-checked: FIFA official tactical line-up + match report PDFs agree with the Wikipedia line-up table",
+        "FIFA formation 4-2-3-1; repeated positions ordered right to left as on the FIFA pitch diagram / Wikipedia table"
+      ],
+      "squad": [
+        {
+          "name": "Manuel Neuer",
+          "pos": "GK",
+          "role": "starter"
+        },
+        {
+          "name": "Joshua Kimmich",
+          "pos": "RB",
+          "role": "starter"
+        },
+        {
+          "name": "Jonathan Tah",
+          "pos": "CB",
+          "role": "starter",
+          "rarity": 15.0
+        },
+        {
+          "name": "Antonio Rüdiger",
+          "pos": "CB",
+          "role": "starter",
+          "off": 110
+        },
+        {
+          "name": "Nathaniel Brown",
+          "pos": "LB",
+          "role": "starter",
+          "rarity": 3.0
+        },
+        {
+          "name": "Felix Nmecha",
+          "pos": "DM",
+          "role": "starter",
+          "off": 46,
+          "rarity": 4.0
+        },
+        {
+          "name": "Aleksandar Pavlović",
+          "pos": "DM",
+          "role": "starter",
+          "off": 79,
+          "rarity": 10.0
+        },
+        {
+          "name": "Leroy Sané",
+          "pos": "RW",
+          "role": "starter",
+          "off": 88,
+          "rarity": 30.0
+        },
+        {
+          "name": "Kai Havertz",
+          "pos": "CAM",
+          "role": "starter"
+        },
+        {
+          "name": "Florian Wirtz",
+          "pos": "LW",
+          "role": "starter",
+          "off": 110,
+          "rarity": 45.0
+        },
+        {
+          "name": "Deniz Undav",
+          "pos": "ST",
+          "role": "starter",
+          "off": 63,
+          "rarity": 4.0
+        },
+        {
+          "name": "Leon Goretzka",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 46,
+          "for": "Felix Nmecha"
+        },
+        {
+          "name": "Jamal Musiala",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 63,
+          "for": "Deniz Undav",
+          "rarity": 40.0
+        },
+        {
+          "name": "Waldemar Anton",
+          "pos": "DF",
+          "role": "sub_used",
+          "on": 79,
+          "for": "Aleksandar Pavlović",
+          "rarity": 3.0
+        },
+        {
+          "name": "Nick Woltemade",
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 88,
+          "for": "Leroy Sané",
+          "rarity": 8.0
+        },
+        {
+          "name": "Nadiem Amiri",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 110,
+          "for": "Florian Wirtz",
+          "rarity": 3.0
+        },
+        {
+          "name": "Malick Thiaw",
+          "pos": "DF",
+          "role": "sub_used",
+          "on": 110,
+          "for": "Antonio Rüdiger",
+          "rarity": 4.0
+        }
+      ]
+    },
+    {
+      "id": "2026-wc-qf-france",
+      "date": "2026-07-09",
+      "competition": "FIFA World Cup Quarter-final",
+      "team": "France",
+      "opponent": "Morocco",
+      "result": "2-0",
+      "formation": "4-2-3-1",
+      "verification": {
+        "xi": "verified",
+        "subs_used": "verified"
+      },
+      "sources": [
+        "FIFA Tactical Line-up PDF: https://fdp.fifa.org/assetspublic/ce281/r12545/pdf/TacticalLineup-English.pdf",
+        "FIFA Match Report PDF: https://fdp.fifa.org/assetspublic/ce281/r12545/pdf/FullTimeMatchReport-English.pdf",
+        "https://en.wikipedia.org/wiki/2026_FIFA_World_Cup_knockout_stage"
+      ],
+      "flags": [
+        "XI, positions and every substitution (pairing + minute) cross-checked: FIFA official tactical line-up + match report PDFs agree with the Wikipedia line-up table",
+        "FIFA formation 4-2-3-1; repeated positions ordered right to left as on the FIFA pitch diagram / Wikipedia table"
+      ],
+      "squad": [
+        {
+          "name": "Mike Maignan",
+          "pos": "GK",
+          "role": "starter",
+          "rarity": 30.0
+        },
+        {
+          "name": "Jules Koundé",
+          "pos": "RB",
+          "role": "starter",
+          "off": 87,
+          "rarity": 25.0
+        },
+        {
+          "name": "Dayot Upamecano",
+          "pos": "CB",
+          "role": "starter",
+          "rarity": 20.0
+        },
+        {
+          "name": "William Saliba",
+          "pos": "CB",
+          "role": "starter",
+          "rarity": 30.0
+        },
+        {
+          "name": "Lucas Digne",
+          "pos": "LB",
+          "role": "starter",
+          "rarity": 10.0
+        },
+        {
+          "name": "Manu Koné",
+          "pos": "DM",
+          "role": "starter",
+          "off": 71,
+          "rarity": 8.0
+        },
+        {
+          "name": "Adrien Rabiot",
+          "pos": "DM",
+          "role": "starter",
+          "rarity": 25.0
+        },
+        {
+          "name": "Ousmane Dembélé",
+          "pos": "RW",
+          "role": "starter"
+        },
+        {
+          "name": "Michael Olise",
+          "pos": "CAM",
+          "role": "starter",
+          "rarity": 25.0
+        },
+        {
+          "name": "Désiré Doué",
+          "pos": "LW",
+          "role": "starter",
+          "off": 77
+        },
+        {
+          "name": "Kylian Mbappé",
+          "pos": "ST",
+          "role": "starter",
+          "off": 77,
+          "aliases": [
+            "kylian"
+          ]
+        },
+        {
+          "name": "Warren Zaïre-Emery",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 71,
+          "for": "Manu Koné"
+        },
+        {
+          "name": "Jean-Philippe Mateta",
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 77,
+          "for": "Kylian Mbappé",
+          "rarity": 6.0
+        },
+        {
+          "name": "Bradley Barcola",
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 77,
+          "for": "Désiré Doué"
+        },
+        {
+          "name": "Malo Gusto",
+          "pos": "DF",
+          "role": "sub_used",
+          "on": 87,
+          "for": "Jules Koundé",
+          "rarity": 4.0
+        }
+      ]
+    },
+    {
+      "id": "2026-wc-r16-brazil",
+      "date": "2026-07-05",
+      "competition": "FIFA World Cup Round of 16",
+      "team": "Brazil",
+      "opponent": "Norway",
+      "result": "lost 1-2",
+      "formation": "4-3-3",
+      "verification": {
+        "xi": "verified",
+        "subs_used": "verified"
+      },
+      "sources": [
+        "FIFA Tactical Line-up PDF: https://fdp.fifa.org/assetspublic/ce281/r12541/pdf/TacticalLineup-English.pdf",
+        "FIFA Match Report PDF: https://fdp.fifa.org/assetspublic/ce281/r12541/pdf/FullTimeMatchReport-English.pdf",
+        "https://en.wikipedia.org/wiki/2026_FIFA_World_Cup_knockout_stage"
+      ],
+      "flags": [
+        "XI, positions and every substitution (pairing + minute) cross-checked: FIFA official tactical line-up + match report PDFs agree with the Wikipedia line-up table",
+        "FIFA formation 4-1-2-3; repeated positions ordered right to left as on the FIFA pitch diagram / Wikipedia table"
+      ],
+      "squad": [
+        {
+          "name": "Alisson",
+          "pos": "GK",
+          "role": "starter"
+        },
+        {
+          "name": "Danilo",
+          "pos": "RB",
+          "role": "starter",
+          "rarity": 15.0
+        },
+        {
+          "name": "Marquinhos",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Gabriel Magalhães",
+          "pos": "CB",
+          "role": "starter",
+          "rarity": 20.0,
+          "short": "Gabriel",
+          "aliases": [
+            "gabriel"
+          ]
+        },
+        {
+          "name": "Douglas Santos",
+          "pos": "LB",
+          "role": "starter",
+          "rarity": 5.0,
+          "short": "Douglas Santos"
+        },
+        {
+          "name": "Casemiro",
+          "pos": "DM",
+          "role": "starter"
+        },
+        {
+          "name": "Bruno Guimarães",
+          "pos": "CM",
+          "role": "starter",
+          "off": 79,
+          "rarity": 25.0
+        },
+        {
+          "name": "Gabriel Martinelli",
+          "pos": "CM",
+          "role": "starter",
+          "off": 67,
+          "rarity": 20.0
+        },
+        {
+          "name": "Rayan",
+          "pos": "RW",
+          "role": "starter",
+          "off": 67,
+          "rarity": 4.0
+        },
+        {
+          "name": "Matheus Cunha",
+          "pos": "ST",
+          "role": "starter",
+          "off": 58,
+          "rarity": 15.0
+        },
+        {
+          "name": "Vinícius Júnior",
+          "pos": "LW",
+          "role": "starter",
+          "rarity": 55.0,
+          "short": "Vinícius Jr.",
+          "aliases": [
+            "vini",
+            "vini jr",
+            "vinicius jr",
+            "vinicius"
+          ]
+        },
+        {
+          "name": "Endrick",
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 58,
+          "for": "Matheus Cunha",
+          "rarity": 15.0
+        },
+        {
+          "name": "Danilo Santos",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 67,
+          "for": "Rayan",
+          "rarity": 2.0,
+          "short": "Danilo Santos"
+        },
+        {
+          "name": "Neymar",
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 67,
+          "for": "Gabriel Martinelli"
+        },
+        {
+          "name": "Éderson",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 79,
+          "for": "Bruno Guimarães",
+          "rarity": 3.0,
+          "short": "Éderson"
+        }
+      ]
+    },
+    {
+      "id": "2026-wc-r16-portugal",
+      "date": "2026-07-06",
+      "competition": "FIFA World Cup Round of 16",
+      "team": "Portugal",
+      "opponent": "Spain",
+      "result": "lost 0-1",
+      "formation": "4-2-3-1",
+      "verification": {
+        "xi": "verified",
+        "subs_used": "verified"
+      },
+      "sources": [
+        "FIFA Tactical Line-up PDF: https://fdp.fifa.org/assetspublic/ce281/r12538/pdf/TacticalLineup-English.pdf",
+        "FIFA Match Report PDF: https://fdp.fifa.org/assetspublic/ce281/r12538/pdf/FullTimeMatchReport-English.pdf",
+        "https://en.wikipedia.org/wiki/2026_FIFA_World_Cup_knockout_stage"
+      ],
+      "flags": [
+        "XI, positions and every substitution (pairing + minute) cross-checked: FIFA official tactical line-up + match report PDFs agree with the Wikipedia line-up table",
+        "FIFA formation 4-2-3-1; repeated positions ordered right to left as on the FIFA pitch diagram / Wikipedia table"
+      ],
+      "squad": [
+        {
+          "name": "Diogo Costa",
+          "pos": "GK",
+          "role": "starter",
+          "rarity": 20.0,
+          "short": "Diogo Costa"
+        },
+        {
+          "name": "João Cancelo",
+          "pos": "RB",
+          "role": "starter",
+          "off": 71,
+          "rarity": 30.0
+        },
+        {
+          "name": "Rúben Dias",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Renato Veiga",
+          "pos": "CB",
+          "role": "starter",
+          "rarity": 4.0
+        },
+        {
+          "name": "Nuno Mendes",
+          "pos": "LB",
+          "role": "starter",
+          "off": 56
+        },
+        {
+          "name": "João Neves",
+          "pos": "DM",
+          "role": "starter"
+        },
+        {
+          "name": "Vitinha",
+          "pos": "DM",
+          "role": "starter",
+          "off": 83
+        },
+        {
+          "name": "Pedro Neto",
+          "pos": "RW",
+          "role": "starter",
+          "off": 83,
+          "rarity": 12.0
+        },
+        {
+          "name": "Bruno Fernandes",
+          "pos": "CAM",
+          "role": "starter",
+          "rarity": 50.0
+        },
+        {
+          "name": "João Félix",
+          "pos": "LW",
+          "role": "starter",
+          "off": 71,
+          "rarity": 25.0
+        },
+        {
+          "name": "Cristiano Ronaldo",
+          "pos": "ST",
+          "role": "starter"
+        },
+        {
+          "name": "Nélson Semedo",
+          "pos": "DF",
+          "role": "sub_used",
+          "on": 56,
+          "for": "Nuno Mendes",
+          "rarity": 6.0
+        },
+        {
+          "name": "Rafael Leão",
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 71,
+          "for": "João Félix",
+          "rarity": 30.0
+        },
+        {
+          "name": "Diogo Dalot",
+          "pos": "DF",
+          "role": "sub_used",
+          "on": 71,
+          "for": "João Cancelo",
+          "rarity": 15.0
+        },
+        {
+          "name": "Francisco Conceição",
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 83,
+          "for": "Pedro Neto",
+          "rarity": 8.0
+        },
+        {
+          "name": "Bernardo Silva",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 83,
+          "for": "Vitinha",
+          "short": "Bernardo",
+          "aliases": [
+            "bernardo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2026-wc-r32-netherlands",
+      "date": "2026-06-29",
+      "competition": "FIFA World Cup Round of 32",
+      "team": "Netherlands",
+      "opponent": "Morocco",
+      "result": "1-1 aet, lost 2-3 on penalties",
+      "formation": "3-4-3",
+      "verification": {
+        "xi": "verified",
+        "subs_used": "verified"
+      },
+      "sources": [
+        "FIFA Tactical Line-up PDF: https://fdp.fifa.org/assetspublic/ce281/r12531/pdf/TacticalLineup-English.pdf",
+        "FIFA Match Report PDF: https://fdp.fifa.org/assetspublic/ce281/r12531/pdf/FullTimeMatchReport-English.pdf",
+        "https://en.wikipedia.org/wiki/2026_FIFA_World_Cup_round_of_32"
+      ],
+      "flags": [
+        "XI, positions and every substitution (pairing + minute) cross-checked: FIFA official tactical line-up + match report PDFs agree with the Wikipedia line-up table",
+        "FIFA formation 3-4-3; repeated positions ordered right to left as on the FIFA pitch diagram / Wikipedia table"
+      ],
+      "squad": [
+        {
+          "name": "Bart Verbruggen",
+          "pos": "GK",
+          "role": "starter",
+          "rarity": 6.0
+        },
+        {
+          "name": "Jan Paul van Hecke",
+          "pos": "CB",
+          "role": "starter",
+          "rarity": 5.0
+        },
+        {
+          "name": "Virgil van Dijk",
+          "pos": "CB",
+          "role": "starter"
+        },
+        {
+          "name": "Nathan Aké",
+          "pos": "CB",
+          "role": "starter",
+          "off": 71
+        },
+        {
+          "name": "Denzel Dumfries",
+          "pos": "RWB",
+          "role": "starter",
+          "rarity": 30.0
+        },
+        {
+          "name": "Ryan Gravenberch",
+          "pos": "CM",
+          "role": "starter",
+          "off": 86,
+          "rarity": 25.0
+        },
+        {
+          "name": "Frenkie de Jong",
+          "pos": "CM",
+          "role": "starter",
+          "off": 110
+        },
+        {
+          "name": "Micky van de Ven",
+          "pos": "LWB",
+          "role": "starter",
+          "off": 86,
+          "rarity": 15.0
+        },
+        {
+          "name": "Crysencio Summerville",
+          "pos": "RW",
+          "role": "starter",
+          "rarity": 5.0
+        },
+        {
+          "name": "Brian Brobbey",
+          "pos": "ST",
+          "role": "starter",
+          "off": 71,
+          "rarity": 6.0
+        },
+        {
+          "name": "Cody Gakpo",
+          "pos": "LW",
+          "role": "starter",
+          "off": 113,
+          "rarity": 35.0
+        },
+        {
+          "name": "Teun Koopmeiners",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 71,
+          "for": "Nathan Aké",
+          "rarity": 12.0
+        },
+        {
+          "name": "Wout Weghorst",
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 71,
+          "for": "Brian Brobbey",
+          "rarity": 15.0
+        },
+        {
+          "name": "Quinten Timber",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 86,
+          "for": "Ryan Gravenberch",
+          "rarity": 4.0
+        },
+        {
+          "name": "Jorrel Hato",
+          "pos": "DF",
+          "role": "sub_used",
+          "on": 86,
+          "for": "Micky van de Ven",
+          "rarity": 5.0
+        },
+        {
+          "name": "Marten de Roon",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 110,
+          "for": "Frenkie de Jong",
+          "rarity": 4.0
+        },
+        {
+          "name": "Justin Kluivert",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 113,
+          "for": "Cody Gakpo",
+          "rarity": 6.0
+        }
+      ]
+    },
+    {
+      "id": "2026-wc-r16-belgium",
+      "date": "2026-07-06",
+      "competition": "FIFA World Cup Round of 16",
+      "team": "Belgium",
+      "opponent": "United States",
+      "result": "4-1",
+      "formation": "4-2-3-1",
+      "verification": {
+        "xi": "verified",
+        "subs_used": "verified"
+      },
+      "sources": [
+        "FIFA Tactical Line-up PDF: https://fdp.fifa.org/assetspublic/ce281/r12543/pdf/TacticalLineup-English.pdf",
+        "FIFA Match Report PDF: https://fdp.fifa.org/assetspublic/ce281/r12543/pdf/FullTimeMatchReport-English.pdf",
+        "https://en.wikipedia.org/wiki/2026_FIFA_World_Cup_knockout_stage"
+      ],
+      "flags": [
+        "XI, positions and every substitution (pairing + minute) cross-checked: FIFA official tactical line-up + match report PDFs agree with the Wikipedia line-up table",
+        "FIFA formation 4-2-3-1; repeated positions ordered right to left as on the FIFA pitch diagram / Wikipedia table"
+      ],
+      "squad": [
+        {
+          "name": "Thibaut Courtois",
+          "pos": "GK",
+          "role": "starter",
+          "rarity": 50.0
+        },
+        {
+          "name": "Timothy Castagne",
+          "pos": "RB",
+          "role": "starter",
+          "rarity": 12.0
+        },
+        {
+          "name": "Nathan Ngoy",
+          "pos": "CB",
+          "role": "starter",
+          "rarity": 2.0
+        },
+        {
+          "name": "Brandon Mechele",
+          "pos": "CB",
+          "role": "starter",
+          "rarity": 4.0
+        },
+        {
+          "name": "Maxim De Cuyper",
+          "pos": "LB",
+          "role": "starter",
+          "rarity": 5.0
+        },
+        {
+          "name": "Amadou Onana",
+          "pos": "DM",
+          "role": "starter",
+          "off": 21,
+          "rarity": 15.0
+        },
+        {
+          "name": "Nicolas Raskin",
+          "pos": "DM",
+          "role": "starter",
+          "off": 89,
+          "rarity": 3.0
+        },
+        {
+          "name": "Dodi Lukebakio",
+          "pos": "RW",
+          "role": "starter",
+          "off": 67,
+          "rarity": 6.0
+        },
+        {
+          "name": "Youri Tielemans",
+          "pos": "CAM",
+          "role": "starter",
+          "rarity": 25.0
+        },
+        {
+          "name": "Leandro Trossard",
+          "pos": "LW",
+          "role": "starter",
+          "off": 89,
+          "rarity": 25.0
+        },
+        {
+          "name": "Charles De Ketelaere",
+          "pos": "ST",
+          "role": "starter",
+          "off": 67,
+          "rarity": 20.0
+        },
+        {
+          "name": "Hans Vanaken",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 21,
+          "for": "Amadou Onana",
+          "rarity": 5.0
+        },
+        {
+          "name": "Jérémy Doku",
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 67,
+          "for": "Dodi Lukebakio",
+          "rarity": 30.0
+        },
+        {
+          "name": "Romelu Lukaku",
+          "pos": "FW",
+          "role": "sub_used",
+          "on": 67,
+          "for": "Charles De Ketelaere",
+          "rarity": 45.0
+        },
+        {
+          "name": "Alexis Saelemaekers",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 89,
+          "for": "Leandro Trossard",
+          "rarity": 6.0
+        },
+        {
+          "name": "Axel Witsel",
+          "pos": "MF",
+          "role": "sub_used",
+          "on": 89,
+          "for": "Nicolas Raskin",
+          "rarity": 12.0
         }
       ]
     }
