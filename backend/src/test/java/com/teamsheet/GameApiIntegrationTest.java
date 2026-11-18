@@ -405,6 +405,34 @@ class GameApiIntegrationTest {
 
     // ---------------------------------------------------------------- helpers
 
+    @Test
+    void revealCarriesThisDevicesStatsAcrossDays() throws Exception {
+        String anon = UUID.randomUUID().toString();
+        String day1 = createPlay(anon).get("playId").asText();               // #1 Liverpool 2005
+        guess(day1, "Gerrard");
+        guess(day1, "Nobody");
+        guess(day1, "Nobody");
+        JsonNode s1 = body(mvc.perform(get("/api/plays/{id}/reveal", day1)), status().isOk()).get("stats");
+        assertThat(s1.get("played").asInt()).isEqualTo(1);
+        assertThat(s1.get("currentStreak").asInt()).isEqualTo(1);
+        assertThat(s1.get("bestScore").asInt()).isEqualTo(10);
+
+        clock.advanceSeconds(86_400);                                         // next day: #2 Chelsea 2012
+        String day2 = createPlay(anon).get("playId").asText();
+        guess(day2, "Didier Drogba");
+        guess(day2, "Nobody");
+        guess(day2, "Nobody");
+        JsonNode s2 = body(mvc.perform(get("/api/plays/{id}/reveal", day2)), status().isOk()).get("stats");
+        assertThat(s2.get("played").asInt()).isEqualTo(2);
+        assertThat(s2.get("currentStreak").asInt()).isEqualTo(2);
+        assertThat(s2.get("maxStreak").asInt()).isEqualTo(2);
+        assertThat(s2.get("bestScore").asInt()).isGreaterThanOrEqualTo(10);
+
+        // the earlier reveal now shows the updated history too
+        assertThat(body(mvc.perform(get("/api/plays/{id}/reveal", day1)), status().isOk())
+                .get("stats").get("played").asInt()).isEqualTo(2);
+    }
+
     private String newPlay() throws Exception {
         return createPlay(UUID.randomUUID().toString()).get("playId").asText();
     }

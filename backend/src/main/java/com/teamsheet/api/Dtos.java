@@ -71,5 +71,8 @@ public final class Dtos {
 
     public record RevealView(int puzzleNumber, String team, String opponent, String result, String competition,
                              LocalDate date, String formation, String pctSource,
-                             List<PoolEntry> pool, List<PickView> picks, int totalScore) {}
+                             List<PoolEntry> pool, List<PickView> picks, int totalScore, PlayerStats stats) {}
+
+    /** This device's history: finished games, streaks of consecutive daily puzzles, best total. */
+    public record PlayerStats(int played, int currentStreak, int maxStreak, int bestScore) {}
 }

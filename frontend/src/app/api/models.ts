@@ -106,4 +106,13 @@ export interface Reveal {
   pool: PoolEntry[];
   picks: Pick[];
   totalScore: number;
+  /** This device's history (all finished games, including this one). */
+  stats?: PlayerStats;
+}
+
+export interface PlayerStats {
+  played: number;
+  currentStreak: number;
+  maxStreak: number;
+  bestScore: number;
 }

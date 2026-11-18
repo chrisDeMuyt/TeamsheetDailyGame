@@ -192,7 +192,24 @@ public class PlayService {
 
         return new RevealView(puzzle.getNumber(), match.getTeam(), match.getOpponent(), match.getResult(),
                 match.getCompetition(), match.getMatchDate(), match.getFormation(), source,
-                entries, pickViews(mine, pool), play.getTotalScore());
+                entries, pickViews(mine, pool), play.getTotalScore(),
+                stats(plays.findByAnonIdAndFinishedAtIsNotNullOrderByPuzzleNumber(play.getAnonId())));
+    }
+
+    /**
+     * Played = finished games; a streak = consecutive puzzle numbers (one puzzle per day); the current streak is
+     * the run ending at the latest finished puzzle. Best = highest total.
+     */
+    static PlayerStats stats(List<Play> finished) {
+        int current = 0, max = 0, best = 0;
+        Integer prev = null;
+        for (Play p : finished) {
+            current = prev != null && p.getPuzzleNumber() == prev + 1 ? current + 1 : 1;
+            max = Math.max(max, current);
+            best = Math.max(best, p.getTotalScore() == null ? 0 : p.getTotalScore());
+            prev = p.getPuzzleNumber();
+        }
+        return new PlayerStats(finished.size(), current, max, best);
     }
 
     private List<PickView> pickViews(List<Guess> list, PoolIndex pool) {

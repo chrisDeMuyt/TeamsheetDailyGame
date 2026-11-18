@@ -12,7 +12,7 @@ Rarer picks score more. Live at **https://teamsheet-daily.fly.dev** · repo `chr
 - 6 medium-confidence drafts left in `teamsheet-drafts.json` (open questions in each match's `flags`); 4 of them
   (Alavés, South Korea, Saudi Arabia, Morocco) are the obscure kind — probably shelve rather than promote.
 - ~5,000 extra players (Wikidata) back the "Did you mean" suggestions.
-- Tests: backend 64 (JUnit + Testcontainers), frontend 32 (Vitest). Both must pass before a deploy.
+- Tests: backend 66 (JUnit + Testcontainers), frontend 33 (Vitest). Both must pass before a deploy.
 
 ## Statistics / analytics (how to check how the game is doing)
 
@@ -78,8 +78,8 @@ schema.sql             original schema (= V1)
 docker compose up -d                                   # Postgres 16 on localhost:5433
 cd backend && ./mvnw spring-boot:run                   # API on :8080, Flyway applies all migrations
 cd frontend && npm start                               # ng serve on :4200, proxies /api -> :8080
-cd backend && ./mvnw test                              # 64 tests, needs Docker
-cd frontend && npx ng test --watch=false               # 32 tests
+cd backend && ./mvnw test                              # 66 tests, needs Docker
+cd frontend && npx ng test --watch=false               # 33 tests
 ```
 Production-like local check: `docker build -t teamsheet:local .` then
 `docker run -p 8081:8080 -e DATABASE_URL='postgres://teamsheet:dev@host.docker.internal:5433/teamsheet?sslmode=disable' teamsheet:local`.
@@ -215,11 +215,11 @@ live-rarity-min-plays 200, sub-bonus 15, puzzle-zone America/Chicago.
 0. ~~ICE moonlighting/IP policy~~ checked, fine
 1–4. ~~Data spike, mockup, data model, core loop~~ done
 5. ~~Load ~60 matches + aliases, seed rarity~~ 47 scheduled + 7 shelved + 6 drafts; seed rarity still placeholder estimates
-6. Share card ~~done~~ (native sheet + link card), streaks basic (no best-streak stat yet), pick logging done
+6. Share card ~~done~~ (native sheet + link card), Stats dialog (played, current/max streak, personal best: computed server-side per anonId, returned in the reveal), pick logging done
 7. **Friends beta — in progress** (started 2026-11-12). Watch `deploy/beta-stats.sh`
 8. Launch: r/soccer, club subreddits, Product Hunt
 9. Review ~2026-11-25: compare real pick % with seed rarity, tune scoring
 10. Keep going if ~500 daily users, else shelve
 
-Open ideas: weekly `pg_dump` backup script, GitHub Actions CI, best-streak/games-played stats, next batch of matches
+Open ideas: weekly `pg_dump` backup script, GitHub Actions CI, next batch of matches
 before 2026-12-27, Mockup on claude.ai ("Teamsheet Mockup").

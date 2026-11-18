@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, ElementRef, input, signal, viewChild } from '@angular/core';
+import { PlayerStats } from '../api/models';
 
 /** Native sheet only on touch devices that support it; desktop browsers get the clipboard (what people expect). */
 export function useNativeShare(data: ShareData): boolean {
@@ -9,7 +10,7 @@ export function useNativeShare(data: ShareData): boolean {
 
 /**
  * "Share result" opens the phone's share sheet (or copies on desktop) with the emoji mini-pitch;
- * "Stats" opens streak info with a preview of the card.
+ * "Stats" opens the player's history: played, current and max streak, personal best.
  */
 @Component({
   selector: 'app-share-card',
@@ -30,11 +31,11 @@ export function useNativeShare(data: ShareData): boolean {
     <dialog #dlg aria-labelledby="stats-title" (click)="backdropClose($event)">
       <h2 id="stats-title">Your stats</h2>
       <dl>
-        <div><dt>Current streak</dt><dd>{{ streak() }} {{ streak() === 1 ? 'day' : 'days' }}</dd></div>
-        <div><dt>Last played</dt><dd>{{ lastPlayed() ? '#' + lastPlayed() : '—' }}</dd></div>
+        <div><dt>Played</dt><dd>{{ stats()?.played ?? 1 }}</dd></div>
+        <div><dt>Current streak</dt><dd>{{ stats()?.currentStreak ?? streak() }}</dd></div>
+        <div><dt>Max streak</dt><dd>{{ stats()?.maxStreak ?? streak() }}</dd></div>
+        <div><dt>Personal best</dt><dd>{{ stats()?.bestScore ?? '—' }}</dd></div>
       </dl>
-      <h3>Today's card</h3>
-      <pre class="preview">{{ text() }}</pre>
       <button type="button" class="btn-primary" (click)="dlg.close()">Close</button>
     </dialog>
   `,
@@ -64,26 +65,17 @@ export function useNativeShare(data: ShareData): boolean {
     }
     dialog::backdrop { background: rgba(0, 0, 0, 0.6); }
     h2 { font-size: 22px; margin-bottom: 14px; }
-    h3 { font-size: 15px; color: var(--muted); margin: 18px 0 8px; font-family: var(--font-body); }
-    dl { margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    dl { margin: 0 0 18px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
     dl div { background: var(--bg); border-radius: 12px; padding: 12px; }
     dt { font-size: 13px; color: var(--muted); }
     dd { margin: 4px 0 0; font-family: var(--font-head); font-size: 22px; font-weight: 700; color: var(--accent); }
-    .preview {
-      margin: 0 0 18px;
-      background: var(--bg);
-      border-radius: 12px;
-      padding: 12px;
-      font: 15px/1.35 var(--font-body);
-      white-space: pre-wrap;
-    }
     dialog button { width: 100%; }
   `,
 })
 export class ShareCardComponent {
   readonly text = input.required<string>();
   readonly streak = input(0);
-  readonly lastPlayed = input<number | null>(null);
+  readonly stats = input<PlayerStats | undefined>(undefined);
 
   protected readonly status = signal('');
   protected readonly fallback = signal(false);

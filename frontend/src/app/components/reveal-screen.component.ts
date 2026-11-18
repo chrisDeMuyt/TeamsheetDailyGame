@@ -35,7 +35,7 @@ import { SubsStripComponent } from './subs-strip.component';
       }
     </p>
 
-    <app-share-card class="share" [text]="shareText()" [streak]="streak()" [lastPlayed]="lastPlayed()" />
+    <app-share-card class="share" [text]="shareText()" [streak]="streak()" [stats]="reveal().stats" />
   `,
   styles: `
     :host { display: flex; flex-direction: column; gap: 14px; flex: 1; }
@@ -70,7 +70,6 @@ export class RevealScreenComponent {
   readonly starters = input.required<Spot[]>();
   readonly subs = input.required<Spot[]>();
   readonly streak = input(0);
-  readonly lastPlayed = input<number | null>(null);
 
   protected readonly label = pickLabel;
   /** Link back to the game: whatever origin it's served from (https://teamsheet-daily.fly.dev in production). */

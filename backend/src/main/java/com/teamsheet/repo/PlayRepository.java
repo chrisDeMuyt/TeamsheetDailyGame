@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
 import java.time.Instant;
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -29,4 +30,7 @@ public interface PlayRepository extends JpaRepository<Play, UUID> {
     Optional<Play> findByIdForUpdate(UUID id);
 
     long countByPuzzleNumberAndFinishedAtIsNotNull(Integer puzzleNumber);
+
+    /** This device's finished games, oldest first (for the player's stats). */
+    List<Play> findByAnonIdAndFinishedAtIsNotNullOrderByPuzzleNumber(UUID anonId);
 }

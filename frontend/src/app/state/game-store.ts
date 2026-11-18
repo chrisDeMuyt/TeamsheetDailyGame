@@ -282,6 +282,7 @@ export class GameStore {
       this.reveal.set(body);
       this.score.set(body.totalScore);
       this.local.recordFinish(body.puzzleNumber);
+      if (body.stats) this.local.syncStreak(body.stats.currentStreak);
       this.stopTicker();
       this.phase.set('revealed');
     } catch {

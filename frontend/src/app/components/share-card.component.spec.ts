@@ -30,6 +30,17 @@ describe('ShareCardComponent', () => {
     return (f.nativeElement as HTMLElement).querySelector('.share')!;
   }
 
+  it('Stats shows played, current streak, max streak and personal best (no card preview)', () => {
+    const f = setup({ canShare: false, touch: false });
+    f.componentRef.setInput('stats', { played: 6, currentStreak: 2, maxStreak: 4, bestScore: 205 });
+    f.detectChanges();
+    const el = f.nativeElement as HTMLElement;
+    const tiles = [...el.querySelectorAll('dialog dl > div')]
+      .map((d) => `${d.querySelector('dt')?.textContent?.trim()}: ${d.querySelector('dd')?.textContent?.trim()}`);
+    expect(tiles).toEqual(['Played: 6', 'Current streak: 2', 'Max streak: 4', 'Personal best: 205']);
+    expect(el.querySelector('dialog')?.textContent).not.toContain('Teamsheet #2');
+  });
+
   it('phones open the native share sheet with the result text (iOS / Android)', async () => {
     const f = setup({ canShare: true, touch: true });
     await f.componentInstance.share();

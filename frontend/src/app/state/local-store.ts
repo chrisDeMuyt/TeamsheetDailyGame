@@ -38,6 +38,12 @@ export class LocalStore {
     this.write(KEYS.lastPlayed, String(puzzleNumber));
   }
 
+  /** The server's count is authoritative (covers games from before streaks were stored here). */
+  syncStreak(streak: number): void {
+    this.streak.set(streak);
+    this.write(KEYS.streak, String(streak));
+  }
+
   private readInt(key: string): number | null {
     const v = this.read(key);
     const n = v == null ? NaN : Number.parseInt(v, 10);
