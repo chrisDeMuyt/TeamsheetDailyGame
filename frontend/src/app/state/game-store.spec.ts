@@ -104,6 +104,26 @@ describe('GameStore', () => {
     }
   });
 
+  it('a 429 (rate limit) shows a "wait a minute" message, on Start and on a guess', async () => {
+    api.todayStatus.mockResolvedValue(t({ puzzleNumber: 1, play: null }));
+    api.createPlay.mockRejectedValue(new HttpErrorResponse({ status: 429 }));
+    store = TestBed.inject(GameStore);
+    store.kickoffMs = 0;
+    await store.init();
+    await store.start();
+    expect(store.phase()).toBe('error');
+    expect(store.error()).toContain('Too many requests');
+
+    api.createPlay.mockResolvedValue(t(play()));
+    await store.init();
+    await store.start();
+    api.suggest.mockResolvedValue(TRAORE);
+    api.guessPlayer.mockRejectedValue(new HttpErrorResponse({ status: 429 }));
+    expect(await store.submitText('Djimi Traoré')).toBeNull();
+    expect(store.feedback()?.text).toContain('Too many requests');
+    expect(store.picks()).toHaveLength(0);
+  });
+
   it('an exact full name is guessed straight away', async () => {
     await startFresh();
     api.suggest.mockResolvedValue(TRAORE);

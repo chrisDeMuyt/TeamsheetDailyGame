@@ -4,10 +4,13 @@ import com.teamsheet.api.Dtos.*;
 import com.teamsheet.game.PlayService;
 import com.teamsheet.game.PlayerSearchService;
 import com.teamsheet.game.PuzzleService;
+import com.teamsheet.game.TooManyRequestsException;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.Duration;
 import java.util.UUID;
 
 @RestController
@@ -17,11 +20,16 @@ public class GameController {
     private final PuzzleService puzzles;
     private final PlayService plays;
     private final PlayerSearchService search;
+    private final RateLimiter limiter;
+    private final RateLimitProperties limits;
 
-    public GameController(PuzzleService puzzles, PlayService plays, PlayerSearchService search) {
+    public GameController(PuzzleService puzzles, PlayService plays, PlayerSearchService search,
+                          RateLimiter limiter, RateLimitProperties limits) {
         this.puzzles = puzzles;
         this.plays = plays;
         this.search = search;
+        this.limiter = limiter;
+        this.limits = limits;
     }
 
     @GetMapping("/puzzle/today")
@@ -35,9 +43,18 @@ public class GameController {
         return plays.todayStatus(anonId);
     }
 
-    /** Pressing Start: creates (or resumes) the play; the first guess's 30s starts now. */
+    /**
+     * Pressing Start: creates (or resumes) the play; the first guess's clock starts now. One play per device per day
+     * is enforced by the database; since device ids are made by the browser, new plays are also capped per IP.
+     */
     @PostMapping("/plays")
-    public PlayView createPlay(@Valid @RequestBody CreatePlayRequest req) {
+    public PlayView createPlay(@Valid @RequestBody CreatePlayRequest req, HttpServletRequest http) {
+        Integer puzzle = limits.enabled() ? plays.unstartedPuzzleToday(req.anonId()) : null;
+        if (puzzle != null) {
+            long wait = limiter.hit("newplay#" + puzzle, RateLimitFilter.clientIp(http), limits.newPlaysPerDay(),
+                    Duration.ofDays(2));   // keyed by puzzle number, so it effectively resets each day
+            if (wait > 0) throw new TooManyRequestsException("Too many new games from this network today.", wait);
+        }
         return plays.create(req.anonId());
     }
 

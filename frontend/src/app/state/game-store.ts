@@ -20,6 +20,8 @@ export const GUESSES = 3;
 export const GUESS_MS = 60_000;
 export const KICKOFF_MS = 5_000;
 export const MIN_CHARS = 2;
+/** Shown on 429 (per-IP rate limit). */
+export const TOO_MANY = 'Too many requests from your network. Wait a minute and try again.';
 
 /**
  * The whole game flow: Start screen -> load today -> 5s kickoff transition -> create play (clock starts)
@@ -138,7 +140,9 @@ export class GameStore {
     this.error.set(
       e instanceof HttpErrorResponse && e.status === 404
         ? 'No puzzle today. Check back tomorrow.'
-        : "Couldn't reach the Teamsheet server.",
+        : e instanceof HttpErrorResponse && e.status === 429
+          ? TOO_MANY
+          : "Couldn't reach the Teamsheet server.",
     );
   }
 
@@ -207,7 +211,8 @@ export class GameStore {
       if (e instanceof HttpErrorResponse && e.status === 409) {
         await this.finish(); // already finished elsewhere (another tab)
       } else {
-        this.feedback.set({ kind: 'error', text: "Couldn't send that guess. Try again." });
+        const tooMany = e instanceof HttpErrorResponse && e.status === 429;
+        this.feedback.set({ kind: 'error', text: tooMany ? TOO_MANY : "Couldn't send that guess. Try again." });
       }
       return null;
     } finally {

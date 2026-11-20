@@ -57,6 +57,13 @@ public class PlayService {
         return view(play, puzzle);
     }
 
+    /** Today's puzzle number, or null if this device hasn't started it yet (used by the per-IP new-play limit). */
+    @Transactional(readOnly = true)
+    public Integer unstartedPuzzleToday(UUID anonId) {
+        Puzzle puzzle = puzzles.today();
+        return plays.findByPuzzleNumberAndAnonId(puzzle.getNumber(), anonId).isPresent() ? null : puzzle.getNumber();
+    }
+
     /** Read-only: today's number and this device's play if it exists. Never creates a play (so no timer starts). */
     @Transactional(readOnly = true)
     public TodayStatus todayStatus(UUID anonId) {

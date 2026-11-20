@@ -24,3 +24,9 @@ teamsheet:
     min-fuzzy-length: 3
     live-rarity-min-plays: 200
     sub-bonus: 15
+  rate-limit:                 # per IP; over the limit = 429 + Retry-After (see RateLimitFilter)
+    enabled: true
+    api-per-minute: 300
+    guesses-per-minute: 30
+    suggest-per-minute: 60
+    new-plays-per-day: 20     # new devices starting today's puzzle from one IP (households/offices share an IP)

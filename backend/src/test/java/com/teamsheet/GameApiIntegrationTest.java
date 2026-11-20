@@ -3,6 +3,7 @@ package com.teamsheet;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.teamsheet.TestcontainersConfig.MutableClock;
+import com.teamsheet.web.RateLimiter;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,10 +39,12 @@ class GameApiIntegrationTest {
     @Autowired ObjectMapper json;
     @Autowired MutableClock clock;
     @Autowired JdbcTemplate jdbc;
+    @Autowired RateLimiter limiter;
 
     @BeforeEach
     void resetClock() {
         clock.set(DAY1);
+        limiter.clear();   // the test clock doesn't move, so per-IP windows would carry across tests
     }
 
     // ---------------------------------------------------------------- required cases
@@ -431,6 +434,53 @@ class GameApiIntegrationTest {
         // the earlier reveal now shows the updated history too
         assertThat(body(mvc.perform(get("/api/plays/{id}/reveal", day1)), status().isOk())
                 .get("stats").get("played").asInt()).isEqualTo(2);
+    }
+
+    // ---------------------------------------------------------------- rate limits (per IP)
+
+    @Test
+    void guessesAreRateLimitedPerIp() throws Exception {
+        String play = newPlay();
+        for (int i = 0; i < 30; i++)                       // limit 30/min; after 3 guesses these are 409s, still counted
+            mvc.perform(post("/api/plays/{id}/guesses", play).header("Fly-Client-IP", "203.0.113.5")
+                    .contentType(MediaType.APPLICATION_JSON).content("{\"text\":\"Nobody\"}"));
+        mvc.perform(post("/api/plays/{id}/guesses", play).header("Fly-Client-IP", "203.0.113.5")
+                        .contentType(MediaType.APPLICATION_JSON).content("{\"text\":\"Nobody\"}"))
+                .andExpect(status().isTooManyRequests())
+                .andExpect(org.springframework.test.web.servlet.result.MockMvcResultMatchers.header().exists("Retry-After"));
+        // another IP is unaffected; a minute later the window resets
+        String other = newPlay();
+        mvc.perform(post("/api/plays/{id}/guesses", other).header("Fly-Client-IP", "198.51.100.9")
+                .contentType(MediaType.APPLICATION_JSON).content("{\"text\":\"Gerrard\"}")).andExpect(status().isOk());
+        clock.advanceSeconds(60);
+        mvc.perform(post("/api/plays/{id}/guesses", other).header("Fly-Client-IP", "203.0.113.5")
+                .contentType(MediaType.APPLICATION_JSON).content("{\"text\":\"Carragher\"}")).andExpect(status().isOk());
+    }
+
+    @Test
+    void newPlaysPerIpAreCappedPerDayButResumingIsNot() throws Exception {
+        String first = UUID.randomUUID().toString();
+        for (int i = 0; i < 20; i++)
+            createPlayFrom(i == 0 ? first : UUID.randomUUID().toString(), "203.0.113.6").andExpect(status().isOk());
+        createPlayFrom(UUID.randomUUID().toString(), "203.0.113.6").andExpect(status().isTooManyRequests());
+        createPlayFrom(first, "203.0.113.6").andExpect(status().isOk());                     // resume still works
+        createPlayFrom(UUID.randomUUID().toString(), "198.51.100.10").andExpect(status().isOk()); // other network
+        clock.advanceSeconds(86_400);                                                        // next puzzle: new quota
+        createPlayFrom(UUID.randomUUID().toString(), "203.0.113.6").andExpect(status().isOk());
+    }
+
+    @Test
+    void suggestIsRateLimitedPerIp() throws Exception {
+        for (int i = 0; i < 60; i++)
+            mvc.perform(get("/api/players/suggest").param("q", "gerr").header("Fly-Client-IP", "203.0.113.7"))
+                    .andExpect(status().isOk());
+        mvc.perform(get("/api/players/suggest").param("q", "gerr").header("Fly-Client-IP", "203.0.113.7"))
+                .andExpect(status().isTooManyRequests());
+    }
+
+    private org.springframework.test.web.servlet.ResultActions createPlayFrom(String anonId, String ip) throws Exception {
+        return mvc.perform(post("/api/plays").header("Fly-Client-IP", ip).contentType(MediaType.APPLICATION_JSON)
+                .content("{\"anonId\":\"" + anonId + "\"}"));
     }
 
     private String newPlay() throws Exception {

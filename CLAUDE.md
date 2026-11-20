@@ -15,7 +15,7 @@ Rarer picks score more. Live at **https://teamsheet-daily.fly.dev** · repo `chr
 - 6 medium-confidence drafts left in `teamsheet-drafts.json` (open questions in each match's `flags`); 4 of them
   (Alavés, South Korea, Saudi Arabia, Morocco) are the obscure kind — probably shelve rather than promote.
 - ~5,000 extra players (Wikidata) back the "Did you mean" suggestions.
-- Tests: backend 66 (JUnit + Testcontainers), frontend 33 (Vitest). Both must pass before a deploy.
+- Tests: backend 69 (JUnit + Testcontainers), frontend 34 (Vitest). Both must pass before a deploy.
 
 ## Statistics / analytics (how to check how the game is doing)
 
@@ -51,6 +51,7 @@ bash deploy/beta-stats.sh          # from the repo root; in a Claude Code chat: 
 | Reveal | Full pool with pick % (short names), your picks highlighted, scoreline in header |
 | Share | Native share sheet on phones (Web Share API: iOS + Android), clipboard on desktop. Text = header, symmetric emoji mini-pitch with picks 🟡, subs row, tier emojis (🥅 📣 🪭 💎 🐐, ❌ miss, ⏱️ timeout), streak, link. Link card image `frontend/public/og-image.png` |
 | Accounts | None; `anonId` in localStorage, one play per device per day |
+| Abuse limits | Per IP (`Fly-Client-IP`), in memory (`RateLimitFilter`/`RateLimiter`, `teamsheet.rate-limit.*`): 300 API calls/min, 30 guesses/min, 60 suggests/min, **20 new plays per IP per puzzle** (anonIds are client-made; resuming doesn't count). Over = 429 + Retry-After; UI says "wait a minute" |
 
 ## Repo layout
 
@@ -81,8 +82,8 @@ schema.sql             original schema (= V1)
 docker compose up -d                                   # Postgres 16 on localhost:5433
 cd backend && ./mvnw spring-boot:run                   # API on :8080, Flyway applies all migrations
 cd frontend && npm start                               # ng serve on :4200, proxies /api -> :8080
-cd backend && ./mvnw test                              # 66 tests, needs Docker
-cd frontend && npx ng test --watch=false               # 33 tests
+cd backend && ./mvnw test                              # 69 tests, needs Docker
+cd frontend && npx ng test --watch=false               # 34 tests
 ```
 Production-like local check: `docker build -t teamsheet:local .` then
 `docker run -p 8081:8080 -e DATABASE_URL='postgres://teamsheet:dev@host.docker.internal:5433/teamsheet?sslmode=disable' teamsheet:local`.
@@ -93,6 +94,9 @@ Production-like local check: `docker build -t teamsheet:local .` then
   `teamsheet-daily-db` (PG 18, **256 MB**, 1 GB volume, attached → `DATABASE_URL` secret). Org `personal`.
   Unrelated suspended app `chitown-living` exists in the org: leave it alone. Budget ≈ $3–5/month.
 - Deploy from the repo root: `~/.fly/bin/flyctl.exe deploy --ha=false --remote-only` (**`--ha=false` or Fly adds a 2nd machine**).
+- Machine cap: Fly never creates machines on its own (auto_start only wakes the existing one); the count changes only via
+  deploy/scale commands. Keep it at 1: `fly scale count 1 --max-per-region 1 -a teamsheet-daily`. Load is bounded by
+  `hard_limit = 250` concurrent requests. If flyctl says "missing third-party discharge token": `flyctl auth login`.
 - Free IPs only (shared v4 + v6). If a first deploy ever fails to allocate IPs: `fly ips allocate-v4 --shared` / `allocate-v6`.
 - Huge migrations can crash the 256 MB Postgres (V5 did once; the app retried and recovered within a minute). Keep data migrations small; user declined upsizing.
 - Verify after deploy: `curl https://teamsheet-daily.fly.dev/api/puzzle/today`; first request after idle takes ~10s (cold start).
